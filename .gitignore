@@ -1,0 +1,55 @@
+# ============================================================
+# 知识库 Git 忽略规则
+# ============================================================
+
+# --- Obsidian 个人状态文件（每次开关软件都会改，不应入库） ---
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspace.json.bak
+.obsidian/cache
+.obsidian/.cache
+.trash/
+
+# --- 操作系统垃圾文件 ---
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# --- 编辑器临时文件 ---
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# --- Python 缓存（06_代码 目录里有 .py 文件） ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# --- 凭据与密钥（重要！防止把 API Key 推到公共仓库） ---
+.env
+.env.local
+*.key
+*.pem
+secrets.json
+credentials.json
+config.local.*
+
+# --- 大型临时产物（如果以后引入向量库/模型权重再开启） ---
+# *.bin
+# *.safetensors
+# *.gguf
+# chroma_db/
+# vectorstore/
+
+# --- 同步脚本日志 ---
+.sync-log/
+sync.log
