@@ -111,6 +111,8 @@ Still folded, still folded / Still unread
 1. **个别字段输出 bug**：歌词文本"街边那盏栈桥"的"盏"作量词不严谨（实际演唱仍是"栈桥"，文本输出小问题，不影响使用）
 2. **特定环境音不够明显**：prompt 写了 "rain ambience throughout" → 实际生成的雨声偏弱，需要后期混音叠加
 3. **Outro humming 不一定生成**：prompt 写了 "background male humming in outro" → 实际输出可能省略，需要单独跑一段 humming 后期叠加
+4. **纯器乐古筝场景时长不稳定**（2026-05-14 异界气象台 minitest 实测）：prompt 写 `approximately 50 seconds instrumental` + 五幕时间锚点（0/3/15/27/37s），实际跑 8 个 take 中 **70%+ 输出 < 20 秒**，少数能跑到 38-72 秒。**Suno 在纯器乐 + Chinese folk 风格下倾向于"短句结束"**，可能是因为这类训练数据本身片段偏短。**应对**：(a) 重跑直到出现一两个达标时长的 take；(b) 接受 30-40 秒输出后用 Suno Extend 续接；(c) 用 Suno Replace Section 把短片段拼成长片段。**最反直觉的发现**：38 秒的 v4_take1 能量曲线竟然天然吻合 0/3/15/27/37s 五幕骨架（27s 后能量缓降，37s 后掉到 0.02 形成自然淡出）——**v5.5 对"段落能量切换"时间锚点的遵循度，远高于对"总时长"的遵循度**
+5. **乐器进场时间锚点遵循度低**（同一实测）：prompt 写 `dizi flute joins at 5 seconds with simple counter-line`，实际生成的曲子**全程没有笛声**（仅有古筝独奏）。同一 prompt 里"段落能量切换"锚点（at 15s/27s）却被精确执行。**规律**：v5.5 把"乐器编配"理解为风格描述而非时间指令，**"什么时候加入什么乐器"靠 prompt 控制不稳定**。**应对**：核心乐器写在主风格描述里（如 "guzheng with dizi flute throughout"），不要写"在第 X 秒加入"；如必须特定时点加入，单跑一段独立音轨后期叠加
 
 **应对策略**：主轨 + 后期叠加补救
 
