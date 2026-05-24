@@ -1,4 +1,4 @@
----
+﻿---
 tags: [类型/工作流方法论, 工具/音乐卡点, 工具/Whisper, 工具/MoviePy]
 ---
 
@@ -266,7 +266,7 @@ faster-whisper base 模型字准 ~65%，medium 模型 ~95%。
 
 ## 八、工具状态（《即时雨》项目最终版）
 
-工具路径：`D:\AIGC工作站\99_工具\mv_kadian_tool\`
+工具路径：`{AIGC工作站}/99_工具\mv_kadian_tool\`
 
 ### 8.1 关键参数
 
@@ -284,7 +284,7 @@ faster-whisper base 模型字准 ~65%，medium 模型 ~95%。
 ### 8.2 推荐工作流命令
 
 ```powershell
-$tool = "D:\AIGC工作站\99_工具\mv_kadian_tool"
+$tool = "{AIGC工作站}/99_工具\mv_kadian_tool"
 $env:PYTHONIOENCODING = "utf-8"
 
 # 第一步：跑 medium 转录（只为生成 transcript）

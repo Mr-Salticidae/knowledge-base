@@ -1,4 +1,4 @@
----
+﻿---
 tags: [类型/档案]
 ---
 # Suno v5.5 行为规律
@@ -304,9 +304,9 @@ keep chorus restrained
 - **版权过滤器规避**:[[Suno版权过滤器规避_v1]] ⭐
 - 上位元方法论:[[识别工具天花板的时机]]
 - 主线作品:
-  - `D:\AIGC工作站\17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)
-  - `D:\AIGC工作站\23_檐下再少年_叙事MV\01_音频\` (23《再少年》Custom Mode 实测)
-  - `D:\AIGC工作站\29_扔掉_叙事MV\01_音频\` (29《扔掉》Custom Mode 实测 + Vocal Gender 反选发现)
+  - `{AIGC工作站}/17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)
+  - `{AIGC工作站}/23_檐下再少年_叙事MV\01_音频\` (23《再少年》Custom Mode 实测)
+  - `{AIGC工作站}/29_扔掉_叙事MV\01_音频\` (29《扔掉》Custom Mode 实测 + Vocal Gender 反选发现)
 - 案例回执:
   - [[跨会话协作/23_再少年_音乐共创回执_2026-05-17]]
   - [[跨会话协作/24_扔掉_音乐共创回执_2026-05-19]]

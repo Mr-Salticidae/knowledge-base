@@ -1,4 +1,4 @@
-"""
+﻿"""
 《凝视 The Gaze》v15
 关键改动:
 - 所有视觉切换对齐 onset(打击瞬间),消除"画面滞后"
@@ -17,7 +17,7 @@
 """
 
 import sys
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "{运行环境}")
 
 from moviepy import (
     ImageClip, CompositeVideoClip, concatenate_videoclips,
@@ -70,7 +70,7 @@ ENDING_FADEOUT = 0.30   # 字幕淡出 0.30s(14.67s → 14.97s)
 
 OUTPUT_NO_BGM = OUTPUT_DIR / "douyin_15s_v15_no_bgm.mp4"
 OUTPUT_WITH_BGM = OUTPUT_DIR / "complete_15s_v15_with_bgm.mp4"
-BGM_FILE = "/home/claude/bgm_clip_15s.wav"
+BGM_FILE = "{运行环境}/bgm_clip_15s.wav"
 
 # ============================================================
 # 文字渲染(沿用 v14)

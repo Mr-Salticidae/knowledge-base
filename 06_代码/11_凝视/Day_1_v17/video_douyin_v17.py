@@ -1,4 +1,4 @@
-"""
+﻿"""
 《凝视 The Gaze》v17
 关键改动:
 - 应用排序 A:Scarlatta / NULL-07 / Selenwë / Vesper / Morgana / Veritia
@@ -17,7 +17,7 @@
 """
 
 import sys
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "{运行环境}")
 
 from moviepy import (
     ImageClip, CompositeVideoClip, concatenate_videoclips,
@@ -85,7 +85,7 @@ ENDING_FADEOUT = 0.30
 
 OUTPUT_NO_BGM = OUTPUT_DIR / "douyin_15s_v17_no_bgm.mp4"
 OUTPUT_WITH_BGM = OUTPUT_DIR / "complete_15s_v17_with_bgm.mp4"
-BGM_FILE = "/home/claude/bgm_clip_15s.wav"
+BGM_FILE = "{运行环境}/bgm_clip_15s.wav"
 
 
 # ============================================================

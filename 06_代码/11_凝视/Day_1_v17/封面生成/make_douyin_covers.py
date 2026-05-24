@@ -1,4 +1,4 @@
-"""
+﻿"""
 生成抖音封面 — 3:4 竖版 + 4:3 横版
 基于 Scarlatta 高清原图(1632 x 2912)
 纯图无文字,B方案三角构图
@@ -8,7 +8,7 @@ from PIL import Image
 from pathlib import Path
 
 # 配置
-SOURCE = "/home/claude/scarlatta_hd.png"
+SOURCE = "{运行环境}/scarlatta_hd.png"
 OUTPUT_DIR = Path("/mnt/user-data/outputs/the_gaze_video")
 
 # 输出尺寸

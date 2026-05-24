@@ -1,4 +1,4 @@
-"""
+﻿"""
 《凝视 The Gaze》Day 2 - VERITIA 184 秒独白剧场 · 配置文件
 
 时间线(15 段分镜,基于跳蛛先生人耳确认的 BGM 卡点 18s/100-110s/166s):
@@ -68,12 +68,12 @@ def _resolve_fonts():
 
     if sys_name == "Windows":
         candidates = [
-            (r"C:\Windows\Fonts\msyh.ttc", 0, r"C:\Windows\Fonts\msyh.ttc", 0,
-             r"C:\Windows\Fonts\msyh.ttc", 0),
-            (r"C:\Windows\Fonts\msyhl.ttc", 0, r"C:\Windows\Fonts\msyhl.ttc", 0,
-             r"C:\Windows\Fonts\msyh.ttc", 0),
-            (r"C:\Windows\Fonts\simhei.ttf", 0, r"C:\Windows\Fonts\simhei.ttf", 0,
-             r"C:\Windows\Fonts\simsun.ttc", 0),
+            (r"{Windows字体目录}/msyh.ttc", 0, r"{Windows字体目录}/msyh.ttc", 0,
+             r"{Windows字体目录}/msyh.ttc", 0),
+            (r"{Windows字体目录}/msyhl.ttc", 0, r"{Windows字体目录}/msyhl.ttc", 0,
+             r"{Windows字体目录}/msyh.ttc", 0),
+            (r"{Windows字体目录}/simhei.ttf", 0, r"{Windows字体目录}/simhei.ttf", 0,
+             r"{Windows字体目录}/simsun.ttc", 0),
         ]
     elif sys_name == "Darwin":
         candidates = [

@@ -1,4 +1,4 @@
-"""
+﻿"""
 生成 B 站封面
 - 16:9 主封面(1280 x 720)
 - 4:3 横版(800 x 600)
@@ -9,7 +9,7 @@
 from PIL import Image
 from pathlib import Path
 
-SOURCE = "/home/claude/scarlatta_hd.png"
+SOURCE = "{运行环境}/scarlatta_hd.png"
 OUTPUT_DIR = Path("/mnt/user-data/outputs/the_gaze_video")
 
 

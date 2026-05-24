@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 我的一天 · MY DAY — 封面水印批处理
 =====================================
@@ -55,9 +55,9 @@ SPACING_CN = 2
 SPACING_EN_TITLE = 2
 SPACING_EN_FOOT = 1
 
-DEFAULT_SRC = Path(r"D:\小红书运营\临时创作\2026-05-09_我的一天")
-DEFAULT_DST = Path(r"D:\小红书运营\14_我的一天\成品图")
-DEFAULT_FONT_CN = Path(r"D:\小红书运营\字体\SourceHanSerifSC-ExtraLight.otf")
+DEFAULT_SRC = Path(r"{旧工作区}/临时创作\2026-05-09_我的一天")
+DEFAULT_DST = Path(r"{旧工作区}/14_我的一天\成品图")
+DEFAULT_FONT_CN = Path(r"{旧工作区}/字体\SourceHanSerifSC-ExtraLight.otf")
 DEFAULT_FONT_EN = Path("/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf")
 
 

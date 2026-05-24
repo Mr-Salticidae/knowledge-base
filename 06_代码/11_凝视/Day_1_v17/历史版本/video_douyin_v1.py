@@ -1,11 +1,11 @@
-"""
+﻿"""
 《凝视 The Gaze》抖音15秒版 - MVP
 先跑通 pipeline:6张图轮播 + 入场字幕 + 收尾字幕
 特效暂时简单,后续迭代加强
 """
 
 import sys
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "{运行环境}")
 
 from moviepy import (
     ImageClip, TextClip, CompositeVideoClip, concatenate_videoclips,

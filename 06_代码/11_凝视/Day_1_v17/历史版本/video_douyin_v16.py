@@ -1,4 +1,4 @@
-"""
+﻿"""
 《凝视 The Gaze》v16
 关键改动:
 - 卡点全部使用用户人耳标注的位置(放弃算法 onset detection)
@@ -18,7 +18,7 @@
 """
 
 import sys
-sys.path.insert(0, "/home/claude")
+sys.path.insert(0, "{运行环境}")
 
 from moviepy import (
     ImageClip, CompositeVideoClip, concatenate_videoclips,
@@ -76,7 +76,7 @@ ENDING_FADEOUT = 0.30
 
 OUTPUT_NO_BGM = OUTPUT_DIR / "douyin_15s_v16_no_bgm.mp4"
 OUTPUT_WITH_BGM = OUTPUT_DIR / "complete_15s_v16_with_bgm.mp4"
-BGM_FILE = "/home/claude/bgm_clip_15s.wav"
+BGM_FILE = "{运行环境}/bgm_clip_15s.wav"
 
 
 # ============================================================

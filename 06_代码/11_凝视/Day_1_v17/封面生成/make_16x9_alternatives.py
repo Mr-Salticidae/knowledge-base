@@ -1,4 +1,4 @@
-"""
+﻿"""
 B站封面 16:9 — 两个改进版本对比
 A: 优化虚化版(模糊更强 + 边缘羽化)
 B: 纯裁剪版(横向裁剪,主体居中,无 padding)
@@ -7,7 +7,7 @@ B: 纯裁剪版(横向裁剪,主体居中,无 padding)
 from PIL import Image, ImageFilter, ImageEnhance
 from pathlib import Path
 
-SOURCE = "/home/claude/scarlatta_hd.png"
+SOURCE = "{运行环境}/scarlatta_hd.png"
 OUTPUT_DIR = Path("/mnt/user-data/outputs/the_gaze_video")
 
 
