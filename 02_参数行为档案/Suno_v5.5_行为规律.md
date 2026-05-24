@@ -144,8 +144,169 @@ Still folded, still folded / Still unread
 
 ---
 
+## Custom Mode 工程经验（5 条 · v5.5 实测）
+
+> 入档：2026-05-17
+> 触发：23《再少年》音乐共创副会话 5 轮 Custom Mode 迭代后的实测经验
+> 适用：所有 Suno Custom Mode 操作
+
+### 经验 1 · 字符 1000 上限是硬天花板
+
+**实测**：第一版 1300+ 字符的 Style of Music 直接被 Suno 拒绝。
+
+**应对**：
+- 把所有 negative tags（如 no auto-tune / no trap hi-hats / no EDM 等）**全部移到 Exclude Styles 框**
+- 正向 Style of Music 框就能腾出空间放结构指令（如段落音色变化）
+
+**Bad**：
+```
+Mandarin pop-folk, ... no auto-tune, no trap hi-hats, no EDM drops, no plastic synth ...
+```
+
+**Good**：
+```
+Style of Music: Mandarin pop-folk, ... [所有正向描述]
+Exclude Styles: autotune, trap hi-hats, EDM, plastic synth
+```
+
+### 经验 2 · 段落标签用英文 `[Male] [Female] [Both]` > 中文 `男 / 女 / 合`
+
+**实测**：
+- Simple Mode 用中文标签 OK（Suno 自发结构化）
+- **Custom Mode 必须用英文标签强制锁定**，中文标签 Suno 可能忽略
+
+**Lyrics 字段示例（正确）**：
+```
+[Verse 1]
+[Male]
+我把旧照片一张张摊开
+[Female]
+雨落在瓦上，很轻
+```
+
+### 经验 3 · Vocal Gender 在男女对唱场景必须**留空**
+
+**实测**：男女对唱时强选任何一个 Vocal Gender（Male / Female / Both）都会导致**另一声部被弱化或删除**。
+
+**应对**：让 Lyrics 框的段落标签去控制声部，**More Options 的 Vocal Gender 不选**。
+
+### 经验 4 · Weirdness 与 Style Influence 最优组合
+
+**实测最优组合**：
+
+```
+Weirdness:       30-35%
+Style Influence: 75%
+```
+
+**为什么**：
+- Weirdness 低于 25% → Suno 机械执行 → 失去意外发现
+- Weirdness 高于 50% → 结构指令失控 → prompt 写的反 Suno 本能指令（如 chorus descends）被无视
+- Style Influence 低于 70% → 反 Suno 本能指令（如 chorus 不上扬）被无视
+
+### 经验 5 · "反 Suno 本能"指令需要**重复 + 具象化**
+
+Suno 有强烈的本能默认（如 chorus 默认上扬 / 男女默认 duet / 结尾默认大团圆）。要反这些本能，prompt 必须**重复 + 具象化**。
+
+**Bad**（抽象 + 单点）：
+```
+keep chorus restrained
+```
+
+**Good**（具象 + 重复）：
+```
+[Style of Music 框]
+... chorus descends not ascends ...
+
+[Lyrics 框段落规划里再说]
+[Chorus] female voice on final "再少年" makes a small descending slide
+```
+
+**口诀**：**反本能指令在 Style 框 + 段落规划 + 具体动作描述 三处说，比说一次精确句更有效**。
+
+### 经验 6 · Vocal Gender 不只是声部开关，更是隐藏的"风格 prior" ⭐⭐⭐
+
+> 入档：2026-05-19
+> 触发：29《扔掉》音乐共创副会话 Custom Mode 跑歌时跳蛛先生的反直觉操作
+> 详细方法论：[[Vocal_Gender反选_风格prior_v1]]
+
+**实测**：在 Style 框 + Lyrics 标签明确锁定声部的前提下，反向选择 Vocal Gender 会激活"对侧"的风格分布，但声部不会变（被 Style 框 + Lyrics 标签压倒）。
+
+**实测案例**（《扔掉》）：纯男声 indie folk + country
+- Vocal Gender: Male → 编曲偏向"乡村硬汉"气质
+- Vocal Gender: Female + Lyrics 锁 [Male] → 编曲偏向"现代华语 indie pop" 气质（命中庄东茹《又活了一天》目标参考）
+- 结果：男声没变，气质对了
+
+**Vocal Gender 反选 · 气质调味矩阵**：
+
+| 需求 | 配方 |
+|---|---|
+| 男声 + 厚重传统 | Vocal Gender: Male + Lyrics [Male] |
+| 男声 + 现代轻盈 | Vocal Gender: Female + Lyrics [Male] |
+| 女声 + 厚重深沉 | Vocal Gender: Male + Lyrics [Female] |
+| 女声 + 明亮轻盈 | Vocal Gender: Female + Lyrics [Female] |
+| 男女对唱 | Vocal Gender: 不选 |
+
+**口诀**：**Style 框管"是什么"，Vocal Gender 管"什么味"**。
+
+**风险**：
+- 这是 v5.5 上的实测发现，可能未来版本变化
+- 建议每次跑都对照测试，不要假设它一直有效
+- **该经验仅适用于纯男声 / 纯女声场景**（男女对唱时 Vocal Gender 必须留空——见经验 3）
+
+**反向校验**：
+- 《再少年》是男女对唱，Vocal Gender 留空 → 此现象未浮现
+- 《扔掉》是纯男声 → 此现象浮现
+
+**意义**：
+- 之前所有 Suno 经验都是"如何更精确地告诉 Suno"
+- 这一条是"如何用 Suno 自己也没明说的参数路径，跨界调味"
+- 这是**用户控制层未明示的隐藏维度**——Suno 团队自己可能都没把这个当作设计意图来文档化
+
+---
+
+## 段落差异化设计方法（解决"太平 / 没差异点"）
+
+> 入档：2026-05-17
+> 触发：23《再少年》v3 跑出"整体对但太平"，副会话用此方法解决
+
+### 核心思路
+
+**贯穿动机 + 段落差异化**
+
+### 贯穿动机
+
+选一个**有限出现次数（3-4 次）**的"标志音色"，在关键段落复现，制造**"声音指纹"**。
+
+23《再少年》的贯穿动机：**口琴**（同时与跳蛛先生独游"小白"IP 形成隐秘呼应 → IP 内部 callback）。
+
+### 段落差异化
+
+给每个段落注入一个**独特的"声音事件"**，避免段落同质化：
+
+| 段落 | 差异化设计 |
+|---|---|
+| V1 vs V2 | 器乐厚度差异（V2 加入 bass drone）|
+| Pre-Chorus 1 vs 2 | 有吉他 vs 无吉他 |
+| Chorus 1 vs 2 | 无口琴 vs 口琴和声 |
+| Bridge | **所有器乐坍缩到真空**（反向爆发）|
+
+**关键**：差异化不是为了变化，是为了让**每个段落都有"事件感"**——观众听到这个段落会想"哦这里不一样了"。
+
+---
+
 ## 关联文档
 
 - 基础流程:[[Suno配乐制作分享]](仍有效)
 - 跨 IP 签名:[[跨IP作者签名_白玉兰与still_here]](still here 跨 IP 副歌签名)
-- 主线作品:`D:\AIGC工作站\17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)
+- **两阶段工作流**:[[方法论笔记_Suno两阶段工作流_v1]] ⭐
+- **Vocal Gender 反选风格 prior**:[[Vocal_Gender反选_风格prior_v1]] ⭐⭐⭐（经验 6 的独立深入文档）
+- **版权过滤器规避**:[[Suno版权过滤器规避_v1]] ⭐
+- 上位元方法论:[[识别工具天花板的时机]]
+- 主线作品:
+  - `D:\AIGC工作站\17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)
+  - `D:\AIGC工作站\23_檐下再少年_叙事MV\01_音频\` (23《再少年》Custom Mode 实测)
+  - `D:\AIGC工作站\29_扔掉_叙事MV\01_音频\` (29《扔掉》Custom Mode 实测 + Vocal Gender 反选发现)
+- 案例回执:
+  - [[跨会话协作/23_再少年_音乐共创回执_2026-05-17]]
+  - [[跨会话协作/24_扔掉_音乐共创回执_2026-05-19]]

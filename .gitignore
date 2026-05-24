@@ -1,55 +1,84 @@
 # ============================================================
 # 知识库 Git 忽略规则
+# 目标:跨设备继续工作时,只同步可复用知识资产与稳定配置
 # ============================================================
 
-# --- Obsidian 个人状态文件（每次开关软件都会改，不应入库） ---
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-.obsidian/workspace.json.bak
-.obsidian/cache
-.obsidian/.cache
+# --- Obsidian 本机状态 ---
+# 保留 app.json / appearance.json / core-plugins.json / graph.json 等稳定配置。
+# 不同步每台设备自己的窗口布局、缓存、回收站。
+.obsidian/workspace*.json
+.obsidian/workspace*.json.bak
+.obsidian/cache/
+.obsidian/.cache/
+.obsidian/plugins/*/data.json
 .trash/
 
-# --- 操作系统垃圾文件 ---
+# --- 操作系统与云同步噪声 ---
 .DS_Store
 Thumbs.db
 desktop.ini
 ehthumbs.db
 $RECYCLE.BIN/
+*.tmp
+*.temp
+*.bak
+*.orig
+*.part
+*.crdownload
+~$*
+*.icloud
+*.lnk
+*conflicted copy*
+*sync-conflict*
+*冲突副本*
 
-# --- 编辑器临时文件 ---
+# --- 编辑器与 IDE 本机配置 ---
 *.swp
 *.swo
 *~
 .idea/
 .vscode/
 
-# --- Python 缓存（06_代码 目录里有 .py 文件） ---
+# --- 运行时缓存与本地依赖 ---
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
 .Python
 *.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 .venv/
 venv/
+env/
+node_modules/
+.npm/
+.pnpm-store/
 
-# --- 凭据与密钥（重要！防止把 API Key 推到公共仓库） ---
+# --- 凭据与本机配置 ---
 .env
-.env.local
+.env.*
+!.env.example
 *.key
 *.pem
 secrets.json
 credentials.json
 config.local.*
+*.local.json
+*.local.yaml
+*.local.yml
 
-# --- 大型临时产物（如果以后引入向量库/模型权重再开启） ---
-# *.bin
-# *.safetensors
-# *.gguf
-# chroma_db/
-# vectorstore/
+# --- 大型生成物与本地数据库 ---
+*.bin
+*.safetensors
+*.gguf
+*.onnx
+chroma_db/
+vectorstore/
+.cache/
 
 # --- 同步脚本日志 ---
 .sync-log/
 sync.log
+*.log
