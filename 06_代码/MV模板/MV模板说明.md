@@ -32,12 +32,15 @@ MV模板/
 ├── MV模板说明.md               # 本文档(原 README.md,5/13 改名)
 ├── make_mv.py                 # ① 横版 MV 生成 — 质量优先(单次 ffmpeg, medium preset)
 ├── make_mv_chunked.py         # ② 横版 MV 生成 — 慢机/沙箱友好(分块渲染+无损拼接)
-└── make_vertical_cover.py     # ③ 横版 MV → 9:16 抖音版(黑胶唱片套框式构图)
+├── make_vertical_cover.py     # ③ 横版 MV → 9:16 抖音版(黑胶唱片套框式构图)
+└── convert_liblib_video.py    # ④ AI 视频原始导出 → H.264 / 1080p / 24fps 兼容 MP4
 ```
 
 `make_mv.py` 和 `make_mv_chunked.py` 是同一条生产线的两个版本，CONFIG 接口、滤镜链、输出参数完全一致——只是渲染策略不同，**配置可以直接互换**。
 
 `make_vertical_cover.py` 是配套的"转抖音/小红书竖版"工具——拿前两个脚本的输出 + 该项目的 3:4 海报封面，生成 1080×1920 竖版视频，用封面同款的标题条 + 页脚条做边框，中间放视频。**不需要再走"模糊背景填充"那条路**，因为同画面的模糊填充实测会出现"两个图层感"，反不如换一套完全不同的固定边框来得统一。
+
+`convert_liblib_video.py` 是 AI 视频片段入库前的清洗工具——把生成平台导出的 HEVC / 高帧率 / 不稳定 MP4 统一转成剪辑友好的 H.264 / 1080p / 24fps / yuv420p / faststart 版本。配套方法论见 [[青春记忆MV_四镜头组验证法_v1]]。
 
 ---
 
@@ -252,3 +255,4 @@ SRC=路径/到/横版.mp4 COVER=路径/到/cover_3_4.png python make_vertical_co
 - 上级索引:[[代码资产索引]]
 - 上级地图:[[README]](知识库根目录 MOC)
 - 配套方法论:[[图生视频_ForwardOnly原则]]
+- 青春叙事 MV 复盘:[[青春记忆MV_四镜头组验证法_v1]]
