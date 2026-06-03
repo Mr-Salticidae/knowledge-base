@@ -126,6 +126,7 @@
 
 - [[图生视频_ForwardOnly原则]]
 - [[蒙眼剪辑法_方法论笔记]] —— AI 初标节奏方案,人类审核反馈;已扩展到 BGM + 角色独白双轨角色 PV
+- [[Skill安装与使用入门指南]] —— 给没用过 Skill 的 AIGC 同好:安装、测试、调用、避坑和版本存档
 - [[AIGC_Skill到Remotion视频闭环]] —— Codex Skill + Remotion 的笔记/结构 → TSX → 预览 → 微调 → MP4 视频生产闭环
 - [[概念推演型AI短片_TotalPixelSpace]] —— Total Pixel Space 拉片沉淀:用理性前提 + 概念递进 + AI 影像,替代传统三幕剧推进
 - [[现实悖论型AI短片_Jailbird]] —— Jailbird 拉片沉淀:角色一致性不是唯一一致性;视角、情绪和命题稳定也能支撑 AI 短片
@@ -159,6 +160,7 @@
 
 - [[代码资产索引]] —— 所有 .py 脚本的全局索引(02 角色一致性 / 06 檐下 / 11 凝视 / 14 我的一天 / MV 模板 ...)
 - [[CodexSkillInstaller说明]] —— Codex Skill 单文件安装辅助工具 + FFmpeg 检查/安装,服务 [[AIGC_Skill到Remotion视频闭环]]
+- [[SkillInstaller说明]] —— Codex / Claude 双目标 Skill 安装辅助工具 + FFmpeg 检查/安装,配套 [[Skill安装与使用入门指南]]
 - [[MV模板说明]] —— 跨曲风 MV 生产线(横版三件套 + 转竖版 + AI 视频兼容转码)
 
 ### 主题脉络十:AI 理论与创作哲学(2026-05-29 新增子脉络)
@@ -172,6 +174,13 @@
 - [[沉思录读书笔记_关系义务与自足之美]] —— 斯多葛读书笔记:忙碌不能取消对身边人的义务,赞美也不能决定事物自身的价值
 - [[对话感_关系产生生命力]] —— 单人叙事提供信息 / 双人叙事创造关系 / 多人叙事构建世界;作品一旦出现"关系"就有生命力,比起表达更重要的是回应(Suno 男女对唱偏离预设的意外发现)
 - [[Claude_Opus_4.8行为实测]] —— 4.8 更准/更诚实/更不偷懒,代价是主动性↓;创作仍不如 4.6(也是"模型版本行为"的跟踪样本,同时收录于脉络八)
+
+### 主题脉络十一:Skill 存档(2026-06-03 新增)
+
+> 测试过的 skill 原文与版本记录。每测一个 skill 就把 SKILL.md verbatim 归档,配版本号 + 归档日期 + 对应测试复盘,方便回看和版本 diff。规则同代码:**skill 原文不进 MOC,但存档索引可反向链接到对应复盘**。
+
+- [[07_skill存档索引]] —— skill 存档区入口 + 已存档清单
+- [[prompt-master_v1.6.0_SKILL.md]] —— 提示词优化 skill,覆盖图片 / 视频 / LLM / Agent 全工具路由,对应 [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]]
 
 ---
 
@@ -199,7 +208,12 @@
 ├── 06_代码/                可执行代码资产(封面模板 / MV 工具 / 视频管线)
 │   ├── 代码资产索引.md      ← 代码层的索引(原 README.md,改名避免同名冲突)
 │   ├── CodexSkillInstaller/ ← Skill 安装辅助工具 + FFmpeg 检查/安装
+│   ├── SkillInstaller/      ← Codex / Claude Skill 安装辅助工具 + FFmpeg 检查/安装
 │   └── MV模板/MV模板说明.md ← 子项目说明(原 README.md,同上)
+├── 07_skill存档/           测试过的 skill 原文 + 版本记录(verbatim 归档)
+│   ├── 07_skill存档索引.md  ← 存档区入口 + 已存档清单
+│   ├── prompt-master_v1.6.0_SKILL.md
+│   └── prompt-master_refs/  ← prompt-master 引用文件归档(templates / patterns)
 └── README.md               ← 你现在在这里(MOC + 链接规范,全库唯一 README)
 ```
 
@@ -220,6 +234,7 @@
 | 🟣 紫 #9B59B6 | `类型/IP视觉` | IP 视觉系统 + 影像 / 配乐方法论 | [[檐下IP 视觉系统]] · [[R-07 IP 视觉系统]] · [[图生视频_ForwardOnly原则]] |
 | ⚫ 灰 #95A5A6 | `类型/协作工具链` | Claude Code / AI 协作经验 + 战略反思 | [[Claude_Code_Worktree隔离的协作陷阱]] · [[好流量是好作品的产物_v3.1反思]] |
 | 🟤 棕 #A0522D | `类型/代码` | 代码索引 + 项目说明 | [[代码资产索引]] · [[MV模板说明]] |
+| 🟢 青 #16A085 | `类型/skill存档` | 测试过的 skill 原文 + 版本记录 | [[07_skill存档索引]] · [[prompt-master_v1.6.0_SKILL.md]] |
 
 > 根 README(本文档)**故意不挂标签** —— 在图谱里以默认色显示,反而是唯一的中心节点。
 
