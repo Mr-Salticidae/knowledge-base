@@ -14,9 +14,16 @@ tags: [类型/skill存档]
 
 ## 已存档 Skill
 
-| Skill | 版本 | 归档日期 | 类型 | 对应测试复盘 |
-|---|---|---|---|---|
-| prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
+| Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
+|---|---|---|---|---|---|
+| prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
+| aigc-prompt-optimizer | v1.0 | 2026-06-04 | 口语化需求 → 专业 prompt（MJ / gpt-image / Seedance 等） | Claude + Codex | 待测试 |
+| blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
+| suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
+| character-consistency-mj | v1.0 | 2026-06-04 | MJ 角色一致性四层金字塔 | Claude + Codex | 待测试 |
+| content-publish-sop | v1.0 | 2026-06-04 | 内容发布入场票审计 + 平台适配（快手/网易云） | Claude + Codex | 待测试 |
+| aigc-postmortem | v1.0 | 2026-06-04 | 创作复盘工作流（事实先行，防自我归因偏差） | Claude + Codex | 待测试 |
+| ai-short-film-breakdown | v1.0 | 2026-06-04 | AI 短片类型判断与创作策略 | Claude + Codex | 待测试 |
 
 ### prompt-master v1.6.0 备注
 
@@ -26,8 +33,20 @@ tags: [类型/skill存档]
 - 已补归档公开仓库引用文件:[[prompt-master_refs/templates.md]]、[[prompt-master_refs/patterns.md]]。
 - `templates.md` 已核对包含 Template A-M;`patterns.md` 为公开源原文,保留其末行原样。
 
+### 本次封装的 7 个 Skill（v1.0，2026-06-04）
+
+来源：知识库 `04_方法论与洞察` 全量工作流整理。每个 Skill 的 `SKILL.md` 存放在同名子目录下。
+
+- [[aigc-prompt-optimizer/SKILL.md]] — Claude + Codex 双装
+- [[blind-editing-workflow/SKILL.md]] — Codex only（本地 Python + ffmpeg）
+- [[suno-music-brief/SKILL.md]] — Claude only
+- [[character-consistency-mj/SKILL.md]] — Claude only
+- [[content-publish-sop/SKILL.md]] — Claude only
+- [[aigc-postmortem/SKILL.md]] — Claude only
+- [[ai-short-film-breakdown/SKILL.md]] — Claude only
+
+调用方式：在对话开始时告知 Claude SKILL_INDEX.md 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
+
 ## 关联文档
 
-- 全库入口:[[README]]
-- Prompt 入口:[[03_prompt模板库索引]]
-- 方法论入口:[[04_方法论与洞察索引]]
+- 全库入口:[[README]
