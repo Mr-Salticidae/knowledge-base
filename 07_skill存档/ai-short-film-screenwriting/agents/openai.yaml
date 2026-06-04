@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Short Film Screenwriting"
+  short_description: "Generate feasible AI short film story structures"
+  default_prompt: "Use $ai-short-film-screenwriting to turn my idea into an AI short film plan."

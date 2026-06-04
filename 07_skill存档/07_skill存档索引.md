@@ -24,6 +24,7 @@ tags: [类型/skill存档]
 | content-publish-sop | v1.0 | 2026-06-04 | 内容发布入场票审计 + 平台适配（快手/网易云） | Claude + Codex | 待测试 |
 | aigc-postmortem | v1.0 | 2026-06-04 | 创作复盘工作流（事实先行，防自我归因偏差） | Claude + Codex | 待测试 |
 | ai-short-film-breakdown | v1.0 | 2026-06-04 | AI 短片类型判断与创作策略 | Claude + Codex | 待测试 |
+| ai-short-film-screenwriting | v1.0 | 2026-06-04 | AI 短片剧作辅助（灵感 → 可制作短片方案） | Claude + Codex | 待测试 |
 | remotion-explainer-workflow | v0.1 | 2026-06-04 | Remotion 科普解释视频工作流（sceneSpecs / sceneAssets / Skill 调用协议） | Codex | 待测试 |
 | subtask-receipt-writer | v1.0 | 2026-06-04 | 子任务完成后的回执 / 回函 / 收口简报书写流程 | Claude + Codex | 待测试 |
 
@@ -63,6 +64,14 @@ tags: [类型/skill存档]
 - [[subtask-receipt-writer/SKILL.md]] — Claude + Codex
 
 调用方式：在对话开始时告知 Claude SKILL_INDEX.md 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
+
+### ai-short-film-screenwriting v1.0（2026-06-04）
+
+来源：`AI短片_剧作Skill_交接文档.md` 与四篇 AI 短片 / 动画短片拉片方法论。
+
+- [[ai-short-film-screenwriting/SKILL.md]] — Claude + Codex
+
+定位：从初始灵感、主题、现实素材或已有梗概生成可制作 AI 短片方案；与 [[ai-short-film-breakdown/SKILL.md]] 的区别是前者偏剧作生成与诊断，后者偏拉片分析与类型判断。
 
 ## 关联文档
 
