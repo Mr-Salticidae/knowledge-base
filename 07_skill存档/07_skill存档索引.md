@@ -27,6 +27,7 @@ tags: [类型/skill存档]
 | ai-short-film-screenwriting | v1.0 | 2026-06-04 | AI 短片剧作辅助（灵感 → 可制作短片方案） | Claude + Codex | 待测试 |
 | remotion-explainer-workflow | v0.1 | 2026-06-04 | Remotion 科普解释视频工作流（sceneSpecs / sceneAssets / Skill 调用协议） | Codex | 待测试 |
 | subtask-receipt-writer | v1.0 | 2026-06-04 | 子任务完成后的回执 / 回函 / 收口简报书写流程 | Claude + Codex | 待测试 |
+| maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | 待测试 |
 
 ### prompt-master v1.6.0 备注
 
@@ -72,6 +73,18 @@ tags: [类型/skill存档]
 - [[ai-short-film-screenwriting/SKILL.md]] — Claude + Codex
 
 定位：从初始灵感、主题、现实素材或已有梗概生成可制作 AI 短片方案；与 [[ai-short-film-breakdown/SKILL.md]] 的区别是前者偏剧作生成与诊断，后者偏拉片分析与类型判断。
+
+### maieutic-skill v0.1（2026-06-05）
+
+来源：`D:\AIGC工作站\Maieutic_Skill_MVP\` 与 `Maieutic_Skill_MVP_交接资料包.zip`。当前版本是 Skill 化 MVP，不继续 Web App，不接数据库，不做长期记忆。
+
+- [[maieutic-skill/SKILL.md]] — Claude + GPT + Codex
+- [[maieutic-skill/prompts/system_prompt.md]] — Maieutic 身份、灯塔原则、禁止事项
+- [[maieutic-skill/prompts/mode_classifier.md]] — Knowledge / Exploration / Reflection / Creation 模式判定
+- [[maieutic-skill/prompts/reflection_output.md]] — Insight / Beacon 标准输出模板
+- [[maieutic-skill/tests/test_cases.md]] — 5 个 MVP 测试案例
+
+定位：帮助使用者把问题想清楚，并在必要时补足信息。核心输出是一个具体 Insight 与一个 24 小时内可执行 Beacon。
 
 ## 关联文档
 
