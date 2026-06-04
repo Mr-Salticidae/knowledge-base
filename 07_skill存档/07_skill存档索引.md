@@ -24,6 +24,8 @@ tags: [类型/skill存档]
 | content-publish-sop | v1.0 | 2026-06-04 | 内容发布入场票审计 + 平台适配（快手/网易云） | Claude + Codex | 待测试 |
 | aigc-postmortem | v1.0 | 2026-06-04 | 创作复盘工作流（事实先行，防自我归因偏差） | Claude + Codex | 待测试 |
 | ai-short-film-breakdown | v1.0 | 2026-06-04 | AI 短片类型判断与创作策略 | Claude + Codex | 待测试 |
+| remotion-explainer-workflow | v0.1 | 2026-06-04 | Remotion 科普解释视频工作流（sceneSpecs / sceneAssets / Skill 调用协议） | Codex | 待测试 |
+| subtask-receipt-writer | v1.0 | 2026-06-04 | 子任务完成后的回执 / 回函 / 收口简报书写流程 | Claude + Codex | 待测试 |
 
 ### prompt-master v1.6.0 备注
 
@@ -44,6 +46,21 @@ tags: [类型/skill存档]
 - [[content-publish-sop/SKILL.md]] — Claude only
 - [[aigc-postmortem/SKILL.md]] — Claude only
 - [[ai-short-film-breakdown/SKILL.md]] — Claude only
+
+### remotion-explainer-workflow v0.1（2026-06-04）
+
+来源：`Remotion_Skill_设计总纲领_交接给_Codex.md` 与当前 Remotion MVP 工程。
+
+- [[remotion-skill/SKILL.md]] — Codex
+- [[remotion-skill/references/skill-call-protocol.md]] — Skill 调用协议
+- [[remotion-skill/references/scene-assets.md]] — sceneAssets 数据结构建议
+- [[remotion-skill/references/remotion-skill-ts-relationship.md]] — 与当前 `RemotionSkill.ts` 的关系说明
+
+### subtask-receipt-writer v1.0（2026-06-04）
+
+来源：跳蛛先生本轮规则确认——每次执行完工作后，判断是否是子任务；若是子任务，则按照 [[交接文档书写规范]] 书写回执文档。
+
+- [[subtask-receipt-writer/SKILL.md]] — Claude + Codex
 
 调用方式：在对话开始时告知 Claude SKILL_INDEX.md 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
 

@@ -179,6 +179,8 @@
 
 - [[07_skill存档索引]] —— skill 存档区入口 + 已存档清单
 - [[prompt-master_v1.6.0_SKILL.md]] —— 提示词优化 skill,覆盖图片 / 视频 / LLM / Agent 全工具路由,对应 [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]]
+- [[remotion-skill/SKILL.md]] —— Remotion 科普解释视频工作流 skill,主路线为 sceneSpecs / sceneAssets / Skill 调用协议驱动的扁平矢量解释动画
+- [[subtask-receipt-writer/SKILL.md]] —— 子任务完成后自动判断是否需要回流,并按交接文档规范写回执 / 回函 / 收口简报
 
 ---
 

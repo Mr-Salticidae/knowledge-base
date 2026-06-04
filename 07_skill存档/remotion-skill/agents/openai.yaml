@@ -1,0 +1,4 @@
+interface:
+  display_name: "Remotion Explainer Workflow"
+  short_description: "Plan data-driven Remotion explainer videos"
+  default_prompt: "Create a Remotion explainer workflow plan from scene specs."

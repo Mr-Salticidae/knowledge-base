@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subtask Receipt Writer"
+  short_description: "Write handoff receipts after subtasks"
+  default_prompt: "Judge whether the completed work is a subtask and write a compliant receipt if needed."
