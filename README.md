@@ -185,7 +185,7 @@
 - [[remotion-skill/SKILL.md]] —— Remotion 科普解释视频工作流 skill,主路线为 sceneSpecs / sceneAssets / Skill 调用协议驱动的扁平矢量解释动画
 - [[subtask-receipt-writer/SKILL.md]] —— 子任务完成后自动判断是否需要回流,并按交接文档规范写回执 / 回函 / 收口简报
 - [[ai-short-film-screenwriting/SKILL.md]] —— AI 短片剧作辅助 skill,把灵感 / 主题 / 现实素材 / 梗概转成可制作短片方案
-- [[maieutic-skill/SKILL.md]] —— 苏格拉底式共学 skill,按问题类型切换知识 / 探索 / 反思 / 创作模式,必要时信息收集,输出 Insight 与 Beacon
+- [[maieutic-skill/SKILL.md]] —— 苏格拉底式共学 skill,首轮测试通过;按问题类型切换知识 / 探索 / 反思 / 创作模式,必要时信息收集,Insight / Beacon 采用事件触发输出
 
 ---
 

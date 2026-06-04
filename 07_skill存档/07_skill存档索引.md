@@ -17,7 +17,7 @@ tags: [类型/skill存档]
 | Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
 |---|---|---|---|---|---|
 | prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
-| aigc-prompt-optimizer | v1.0 | 2026-06-04 | 口语化需求 → 专业 prompt（MJ / gpt-image / Seedance 等） | Claude + Codex | 待测试 |
+| aigc-prompt-optimizer | v1.2 | 2026-06-05 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一与冠军图复盘 | Claude + Codex | 待正式复盘 |
 | blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
 | suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
 | character-consistency-mj | v1.0 | 2026-06-04 | MJ 角色一致性四层金字塔 | Claude + Codex | 待测试 |
@@ -26,8 +26,8 @@ tags: [类型/skill存档]
 | ai-short-film-breakdown | v1.0 | 2026-06-04 | AI 短片类型判断与创作策略 | Claude + Codex | 待测试 |
 | ai-short-film-screenwriting | v1.0 | 2026-06-04 | AI 短片剧作辅助（灵感 → 可制作短片方案） | Claude + Codex | 待测试 |
 | remotion-explainer-workflow | v0.1 | 2026-06-04 | Remotion 科普解释视频工作流（sceneSpecs / sceneAssets / Skill 调用协议） | Codex | 待测试 |
-| subtask-receipt-writer | v1.0 | 2026-06-04 | 子任务完成后的回执 / 回函 / 收口简报书写流程 | Claude + Codex | 待测试 |
-| maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | 待测试 |
+| subtask-receipt-writer | v1.1 | 2026-06-05 | 子任务完成后的回执 / 回函 / 收口简报书写流程；支持显式免回执 | Claude + Codex | 待测试 |
+| maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 
 ### prompt-master v1.6.0 备注
 
@@ -49,6 +49,14 @@ tags: [类型/skill存档]
 - [[aigc-postmortem/SKILL.md]] — Claude only
 - [[ai-short-film-breakdown/SKILL.md]] — Claude only
 
+### aigc-prompt-optimizer v1.2（2026-06-05）
+
+来源：`请你吃个冰淇淋` Midjourney prompt battle 实测迭代与冠军图复盘。
+
+- [[aigc-prompt-optimizer/SKILL.md]] — Claude + Codex
+
+本次升级补入 prompt battle 工作流：先做题眼发散，再收束主视觉；看图反馈时先诊断主体关系、题眼清晰度、构图光影与质感，再只改关键 prompt 变量；二选一时必须给明确判断；看到冠军图 / 获奖图时先反向复盘其获胜原因并提炼可迁移规则。
+
 ### remotion-explainer-workflow v0.1（2026-06-04）
 
 来源：`Remotion_Skill_设计总纲领_交接给_Codex.md` 与当前 Remotion MVP 工程。
@@ -64,6 +72,8 @@ tags: [类型/skill存档]
 
 - [[subtask-receipt-writer/SKILL.md]] — Claude + Codex
 
+2026-06-05 补充：当跳蛛先生明确说明是子会话临时任务且“不需要写回执”时，当前指令优先，不写回执。
+
 调用方式：在对话开始时告知 Claude SKILL_INDEX.md 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
 
 ### ai-short-film-screenwriting v1.0（2026-06-04）
@@ -74,7 +84,7 @@ tags: [类型/skill存档]
 
 定位：从初始灵感、主题、现实素材或已有梗概生成可制作 AI 短片方案；与 [[ai-short-film-breakdown/SKILL.md]] 的区别是前者偏剧作生成与诊断，后者偏拉片分析与类型判断。
 
-### maieutic-skill v0.1（2026-06-05）
+### maieutic-skill v0.1（2026-06-05，首轮测试通过）
 
 来源：`D:\AIGC工作站\Maieutic_Skill_MVP\` 与 `Maieutic_Skill_MVP_交接资料包.zip`。当前版本是 Skill 化 MVP，不继续 Web App，不接数据库，不做长期记忆。
 
@@ -83,8 +93,10 @@ tags: [类型/skill存档]
 - [[maieutic-skill/prompts/mode_classifier.md]] — Knowledge / Exploration / Reflection / Creation 模式判定
 - [[maieutic-skill/prompts/reflection_output.md]] — Insight / Beacon 标准输出模板
 - [[maieutic-skill/tests/test_cases.md]] — 5 个 MVP 测试案例
+- [[maieutic-skill/测试复盘_MaieuticSkill_v0.1_20260605.md]] — 首轮测试复盘
+- [[maieutic-skill/路线图_MaieuticSkill_v0.2_国内适配.md]] — v0.2 国内可用适配路线图
 
-定位：帮助使用者把问题想清楚，并在必要时补足信息。核心输出是一个具体 Insight 与一个 24 小时内可执行 Beacon。
+定位：帮助使用者把问题想清楚，并在必要时补足信息。首轮测试后已确认 Insight / Beacon 采用事件触发输出：Insight 只在出现真实认知推进时出现，Beacon 只在需要实操下一步时出现。
 
 ## 关联文档
 

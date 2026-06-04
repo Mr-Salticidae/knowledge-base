@@ -29,6 +29,9 @@ Do not write a receipt for:
 - same-session micro edits with no downstream reader;
 - private/personal conversation;
 - temporary experiments that the user did not ask to preserve.
+- sub-session temporary tasks when 跳蛛先生 explicitly says “不需要写回执”, “不用回执”, “临时任务”, or equivalent.
+
+If receipt-required and receipt-not-required rules conflict, the user's explicit current instruction wins. For example: if a task changes Skill docs but 跳蛛先生 says it is a sub-session temporary task and does not need a receipt, do not write a receipt; mention the skipped receipt in the final response if useful.
 
 ## Required Preflight
 
