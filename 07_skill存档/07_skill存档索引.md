@@ -28,6 +28,7 @@ tags: [类型/skill存档]
 | remotion-explainer-workflow | v0.1 | 2026-06-04 | Remotion 科普解释视频工作流（sceneSpecs / sceneAssets / Skill 调用协议） | Codex | 待测试 |
 | subtask-receipt-writer | v1.1 | 2026-06-05 | 子任务完成后的回执 / 回函 / 收口简报书写流程；支持显式免回执 | Claude + Codex | 待测试 |
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
+| maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
 
 ### prompt-master v1.6.0 备注
 
@@ -99,6 +100,20 @@ tags: [类型/skill存档]
 - [[maieutic-skill/路线图_MaieuticSkill_v0.2_国内适配.md]] — v0.2 国内可用适配路线图
 
 定位：帮助使用者把问题想清楚，并在必要时补足信息。首轮测试后已确认 Insight / Beacon 采用事件触发输出：Insight 只在出现真实认知推进时出现，Beacon 只在需要实操下一步时出现。
+
+### maieutic-deepseek-adapter v0.2（2026-06-05，国内适配 MVP）
+
+来源：`Maieutic_Skill_v0.2国内适配任务包.zip` 与 [[maieutic-skill/路线图_MaieuticSkill_v0.2_国内适配]]。当前版本不改动 v0.1 核心 Skill，只把 v0.1 行为迁移成国内模型 / 工作流平台可复制的 prompt 包。
+
+- [[maieutic-deepseek-adapter/SKILL.md]] — 适配包入口
+- [[maieutic-deepseek-adapter/README.md]] — DeepSeek / Dify / Coze / 通义 / 豆包 / Kimi 部署说明
+- [[maieutic-deepseek-adapter/prompts/system_prompt.md]] — 国内模型 system prompt
+- [[maieutic-deepseek-adapter/prompts/mode_classifier.md]] — 四模式分类规则
+- [[maieutic-deepseek-adapter/prompts/research_trigger.md]] — Research-Assisted 国内环境触发与限制说明
+- [[maieutic-deepseek-adapter/prompts/event_output_protocol.md]] — Insight / Beacon 事件触发协议
+- [[maieutic-deepseek-adapter/tests/test_cases.md]] — 5 个 v0.1 回归测试案例
+
+定位：面向国内可访问环境的最小可执行适配层。重点是可复制、可测试、可迁移，而不是新增产品功能。
 
 ## 关联文档
 
