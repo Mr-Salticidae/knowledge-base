@@ -17,7 +17,7 @@ tags: [类型/skill存档]
 | Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
 |---|---|---|---|---|---|
 | prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
-| aigc-prompt-optimizer | v1.3 | 2026-06-05 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘与尺度跃迁 | Claude + Codex | 待正式复盘 |
+| aigc-prompt-optimizer | v1.4 | 2026-06-05 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘、尺度跃迁与巨物地貌化 | Claude + Codex | 待正式复盘 |
 | blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
 | suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
 | character-consistency-mj | v1.0 | 2026-06-04 | MJ 角色一致性四层金字塔 | Claude + Codex | 待测试 |
@@ -50,7 +50,7 @@ tags: [类型/skill存档]
 - [[aigc-postmortem/SKILL.md]] — Claude only
 - [[ai-short-film-breakdown/SKILL.md]] — Claude only
 
-### aigc-prompt-optimizer v1.3（2026-06-05）
+### aigc-prompt-optimizer v1.4（2026-06-05）
 
 来源：`请你吃个冰淇淋` Midjourney prompt battle 实测迭代与冠军图复盘。
 
@@ -59,6 +59,8 @@ tags: [类型/skill存档]
 本次升级补入 prompt battle 工作流：先做题眼发散，再收束主视觉；看图反馈时先诊断主体关系、题眼清晰度、构图光影与质感，再只改关键 prompt 变量；二选一时必须给明确判断；看到冠军图 / 获奖图时先反向复盘其获胜原因并提炼可迁移规则。
 
 2026-06-05 追加：从"请你吃个冰淇淋"主题下的冰淇淋彗星图提炼"尺度跃迁"规则。日常物件题除了关系叙事，也要发散一条宏观奇观路线：把小物件转译为天体、气象、地貌、海面或城市事件，同时保留原物件轮廓、材质和物理痕迹。
+
+2026-06-05 追加：从《童话镇里的纸飞机》获奖图复盘提炼"巨物地貌化"规则。具体物件题除了作为道具或自然现象,也可以变成微型居民可攀爬、探索、定居或围观的空间地貌;LEGO / 玩具沙盘 / 微缩摄影可把潜在危险的巨物事件转成童年想象和公共冒险。
 
 ### remotion-explainer-workflow v0.1（2026-06-04）
 
