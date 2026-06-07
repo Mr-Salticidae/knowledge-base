@@ -125,6 +125,35 @@ MJ 的 personalize 通过 **ranking pairs** 流程训练：用户在 N 对图里
 
 这是 personalize 在做**默认值回落**：不是它不懂，是它训练样本里这个组合被用户隐性筛掉了。
 
+### 3.5 Niji 6 personalize 的"活动题重映射"风险（2026-06-06 追加）
+
+**触发案例**：快手官方图文活动《看看风景放松心情》,用户用 niji 6 默认开启 personalize 生成 3:4 风景自拍图集。
+
+**显性 prompt 目标**:
+- 风景自拍
+- 海边黄昏 / 湖畔 / 山顶 / 城市天台
+- 放松、治愈、旅行感
+- 活动要求的风景主题
+
+**实际输出倾向**:
+- 风景被压成背景或虚化
+- 女性近景和身体曲线成为主视觉
+- 服装被自动解释为吊带、内衣感、露肩
+- 整体从"风景放松"滑向"擦边写真"
+
+**机制判断**:
+
+这不是单一关键词触发,而是 personalize 私货注入的组合效应。`close-up selfie`、`casual outfit`、`windbreaker slipping off one shoulder`、`soft light` 等词本身都可以合法,但在已经偏向近脸 / 女性身体曲线 / 暖昧光线的 personalize 上,会被重映射为更高浓度的擦边构图。
+
+**操作含义**:
+
+- personalize 可以让 prompt 看起来很干净,但让出图更接近账号历史偏好。
+- 做官方活动、品牌稿、儿童/治愈/风景题时,如果历史 personalize 偏向强人像或擦边,应先做开/关 personalize A/B。
+- 需要"反 personalize"时,不能只加 `beautiful landscape`;要从构图和服装层压制:  
+  `landscape occupies half of the frame`, `modest casual outdoor outfit`, `body below chest not visible`, `no lingerie-like clothing`, `no cleavage emphasis`。
+
+**验证状态**:首次发现 / 强疑似。需要同 prompt 开 personalize vs 关 personalize 各跑 4 张后再升级为稳定规律。
+
 ---
 
 ## 四、Prompt Craft 心法（机制层）
