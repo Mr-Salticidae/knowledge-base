@@ -81,6 +81,71 @@ prompt 是你"现在的想法",personalize 是你"长期的审美"。
 
 ---
 
+## 现象 3.0 · 风景自拍 → 擦边人像
+
+> 追加:2026-06-06
+> 触发:快手官方图文活动《看看风景放松心情》测试
+> 工具:niji 6,默认开启 personalize
+> 验证状态:首次发现 / 强疑似,待 personalize 开关 A/B 验证
+
+### 实测情形
+
+用户原本想做一组契合活动的"风景自拍图集":3:4,至少 4 张,主题是看风景、放松心情。prompt 里强调了:
+
+- `travel selfie`
+- `beautiful relaxing landscape`
+- `golden sunset by the sea`
+- `mountain viewpoint`
+- `lakeside`
+- `peaceful vacation mood`
+
+但实际出图明显滑向:
+
+- 近距离女性人像优先于风景
+- 吊带 / 内衣感 / 露肩 / 胸部视觉权重显著
+- 风景背景被虚化或让位给身体曲线
+- 氛围从"放松风景"变成"擦边写真"
+
+本次样本路径:
+
+- `{Downloads}/mr_jumping_spider_semi-realistic_style_artistic_close-up_travel_4325d6ea-7d8a-4e0d-ad3c-9fb5a52bae9f.png`
+- `{Downloads}/mr_jumping_spider_semi-realistic_style_artistic_close-up_portra_fd7e7e90-76ec-4a93-9cfe-471bad8febd7.png`
+- `{Downloads}/mr_jumping_spider_semi-realistic_style_artistic_close-up_selfie_7678e34f-a202-4953-8f47-c2d3aa2281a3.png`
+- `{Downloads}/mr_jumping_spider_semi-realistic_style_artistic_medium_close-up_84001403-22ac-4b2d-af0d-64b494d0e817.png`
+
+### 为什么发生
+
+这不是单纯 prompt 写错。prompt 的显性任务是"风景自拍",但 personalize 可能已经从用户长期选择里学到了更强的隐性偏好:
+
+- 近脸
+- 强眼神
+- 半写实女性
+- 露肩 / 吊带 / 黑色服装
+- 胸口高光和身体曲线
+- 暖昧光线
+
+当 prompt 里出现 `close-up selfie`、`casual outfit`、`slipping slightly off one shoulder` 等可被解释为空间时,personalize 会把它们重映射回自己熟悉的高权重签名构图。
+
+### 结论
+
+**personalize 不只会保护审美,也会暴露审美。**
+
+它不区分"用户此刻想做官方活动风景图"和"用户长期偏好的高吸附人像构图"。当两者冲突时,它会把官方活动题重新解释成用户历史偏好里的那类图。
+
+这也是"温柔违抗"的风险面:AI 不是故意跑题,而是在用长期偏好修正短期任务。
+
+### 实操修正
+
+如果目标是压回"风景放松心情",下一轮必须做控制:
+
+1. **先关 personalize 重跑同 prompt**,确认问题是否来自 personalize。
+2. 把 `close-up selfie` 改成 `landscape travel photo with a person in the foreground`。
+3. 把服装从开放式描述改成 `modest casual outdoor outfit, zippered windbreaker fully worn`。
+4. 加强构图约束:`landscape occupies half of the frame, body below chest not visible`。
+5. 避免 `slipping off shoulder`、`sleeveless`、`body-hugging` 这类会被 personalize 放大的词。
+
+---
+
 ## 战略含义
 
 ### 1 · 写 prompt 时的心法
@@ -124,6 +189,7 @@ prompt 是你"现在的想法",personalize 是你"长期的审美"。
 ## 关联文档
 
 - 关联工具:[[personalize与moodboard分工]]
-- 关联现象:AI 写作语言 vs 阅读语言(待重新沉淀) · [[AI甜妹脸vs复古东方美人]]
+- 关联现象:AI 写作语言 vs 阅读语言(待重新沉淀) · [[AI甜妹脸vs复古东方美人]] · [[AI图像生成审核机制探索笔记]]
+- 关联案例:[[2026-06-06_霓雨_快手图集爆量复盘]]
 - 关联战略:反知识付费的论据(待重新沉淀)
 - 主线作品:`{AIGC工作站}/02_角色一致性锚点\03_我的复盘笔记.md`
