@@ -29,6 +29,7 @@ tags: [类型/skill存档]
 | subtask-receipt-writer | v1.1 | 2026-06-05 | 子任务完成后的回执 / 回函 / 收口简报书写流程；支持显式免回执 | Claude + Codex | 待测试 |
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 | maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
+| song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] |
 
 ### prompt-master v1.6.0 备注
 
@@ -116,6 +117,14 @@ tags: [类型/skill存档]
 - [[maieutic-deepseek-adapter/tests/test_cases.md]] — 5 个 v0.1 回归测试案例
 
 定位：面向国内可访问环境的最小可执行适配层。重点是可复制、可测试、可迁移，而不是新增产品功能。
+
+### song-caption-mv-workflow v0.1（2026-06-07，Stay alive 实战跑通）
+
+来源：《Stay alive》AI 音乐公益 MV 从 Suno 创作、MJ 抽象视觉、蒙眼剪辑、电影感渲染，到 Demucs + WhisperX GPU 字幕链路的完整实战。
+
+- [[song-caption-mv-workflow/SKILL.md]] — Codex
+- [[song-caption-mv-workflow/references/stay-alive-case-notes.md]] — 实战环境与关键经验
+- 对应复盘：[[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
 
 ## 关联文档
 
