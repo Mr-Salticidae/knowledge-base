@@ -33,10 +33,10 @@ tags: [类型/skill存档]
 
 ### prompt-master v1.6.0 备注
 
-- 文件:[[prompt-master_v1.6.0_SKILL.md]]
+- 文件:[[prompt-master/SKILL.md]]
 - 来源:`https://github.com/nidhinjs/prompt-master`
 - 一份 skill 覆盖图片(Midjourney / DALL-E / SD / SeeDream / gpt-image)与视频(Sora / Runway / Kling / Seedance 等)两类路由。本次「图片 prompt 优化」与「视频 prompt 优化」两组测试实际都由它驱动。
-- 已补归档公开仓库引用文件:[[prompt-master_refs/templates.md]]、[[prompt-master_refs/patterns.md]]。
+- 已补归档公开仓库引用文件:[[prompt-master/references/templates.md]]、[[prompt-master/references/patterns.md]]。
 - `templates.md` 已核对包含 Template A-M;`patterns.md` 为公开源原文,保留其末行原样。
 
 ### 本次封装的 7 个 Skill（v1.0，2026-06-04）
