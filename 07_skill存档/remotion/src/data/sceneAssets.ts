@@ -16,7 +16,7 @@ export const sceneAssets: SceneAsset[] = [
     id: 'asset_global_suno_workflow_theme',
     sceneId: 'global',
     kind: 'audio',
-    status: 'planned',
+    status: 'requested',
     role: 'music',
     description:
       'Suno instrumental BGM for the full Skill Is All You Need film: clear educational pulse in the teaching section, warmer determined variation in the author-note ending.',
@@ -33,6 +33,11 @@ export const sceneAssets: SceneAsset[] = [
       'avoid lyrics, choir, heavy trailer drums, EDM drops, or sentimental piano-ballad mood',
       'prefer a 10-15 second loopable section for Remotion extension',
     ],
+    metadata: {
+      briefPath: 'production/full_film_2026-06-09_suno_bgm_brief.md',
+      targetComposition: 'SkillIsAllYouNeedFullFilm',
+      targetDurationSeconds: 224.87,
+    },
   },
   {
     id: 'asset_scene_04_remotion_native_fallback',

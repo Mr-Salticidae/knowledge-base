@@ -1,0 +1,543 @@
+{
+  "provider": "elevenlabs",
+  "modelId": "eleven_v3",
+  "voiceId": "y21PymyxmnSzXtl6mRI0",
+  "source": "fullFilmVoiceoverBeats",
+  "outputFormat": "mp3_44100_128",
+  "fps": 30,
+  "totalFrames": 6746,
+  "tailHoldFrames": 45,
+  "createdAt": "2026-06-08T22:42:40.244Z",
+  "beats": [
+    {
+      "id": "intro_01_same_ai_forgets",
+      "section": "intro",
+      "sceneId": "scene_00_intro_question",
+      "caption": "同一个 AI，昨天刚教会它你的偏好，今天换个新对话，它又像第一次见你一样。",
+      "audioSrc": "audio/full_film_20260609/intro_01_same_ai_forgets.mp3",
+      "startFrame": 0,
+      "durationInFrames": 238,
+      "durationSeconds": 7.52
+    },
+    {
+      "id": "intro_02_repeat_process",
+      "section": "intro",
+      "sceneId": "scene_00_intro_question",
+      "caption": "你明明已经总结过流程，但每次开工，还是要重新解释一遍。",
+      "audioSrc": "audio/full_film_20260609/intro_02_repeat_process.mp3",
+      "startFrame": 238,
+      "durationInFrames": 171,
+      "durationSeconds": 5.28
+    },
+    {
+      "id": "intro_03_should_remember",
+      "section": "intro",
+      "sceneId": "scene_00_intro_question",
+      "caption": "如果 AI 真的能帮我们工作，那它不该只会回答问题。",
+      "audioSrc": "audio/full_film_20260609/intro_03_should_remember.mp3",
+      "startFrame": 409,
+      "durationInFrames": 147,
+      "durationSeconds": 4.48
+    },
+    {
+      "id": "intro_04_skill_promise",
+      "section": "intro",
+      "sceneId": "scene_00_intro_question",
+      "caption": "它应该记住流程，调用工具，并且稳定复现一套做事方法。这就是这期视频要讲的东西：Skill。",
+      "audioSrc": "audio/full_film_20260609/intro_04_skill_promise.mp3",
+      "startFrame": 556,
+      "durationInFrames": 264,
+      "durationSeconds": 8.4
+    },
+    {
+      "id": "teaching_01_skill_word",
+      "section": "teaching",
+      "sceneId": "scene_01_hook",
+      "caption": "你可能听过一个很酷的词：Skill。",
+      "audioSrc": "audio/full_film_20260609/teaching_01_skill_word.mp3",
+      "startFrame": 820,
+      "durationInFrames": 116,
+      "durationSeconds": 3.44
+    },
+    {
+      "id": "teaching_02_plugin_misread",
+      "section": "teaching",
+      "sceneId": "scene_01_hook",
+      "caption": "很多人以为它是神秘插件。",
+      "audioSrc": "audio/full_film_20260609/teaching_02_plugin_misread.mp3",
+      "startFrame": 936,
+      "durationInFrames": 80,
+      "durationSeconds": 2.24
+    },
+    {
+      "id": "teaching_03_not_magic",
+      "section": "teaching",
+      "sceneId": "scene_01_hook",
+      "caption": "但真正有用的地方，不在神秘感。",
+      "audioSrc": "audio/full_film_20260609/teaching_03_not_magic.mp3",
+      "startFrame": 1016,
+      "durationInFrames": 92,
+      "durationSeconds": 2.64
+    },
+    {
+      "id": "teaching_04_smart_assistant",
+      "section": "teaching",
+      "sceneId": "scene_02_forgetful_assistant",
+      "caption": "想象你雇了一位聪明的 AI 助理。",
+      "audioSrc": "audio/full_film_20260609/teaching_04_smart_assistant.mp3",
+      "startFrame": 1108,
+      "durationInFrames": 96,
+      "durationSeconds": 2.8
+    },
+    {
+      "id": "teaching_05_fast_execution",
+      "section": "teaching",
+      "sceneId": "scene_02_forgetful_assistant",
+      "caption": "它理解很快，执行也很快。",
+      "audioSrc": "audio/full_film_20260609/teaching_05_fast_execution.mp3",
+      "startFrame": 1204,
+      "durationInFrames": 84,
+      "durationSeconds": 2.4
+    },
+    {
+      "id": "teaching_06_forgets_every_time",
+      "section": "teaching",
+      "sceneId": "scene_02_forgetful_assistant",
+      "caption": "但每次新对话前，它都会失忆。",
+      "audioSrc": "audio/full_film_20260609/teaching_06_forgets_every_time.mp3",
+      "startFrame": 1288,
+      "durationInFrames": 92,
+      "durationSeconds": 2.64
+    },
+    {
+      "id": "teaching_07_manual_metaphor",
+      "section": "teaching",
+      "sceneId": "scene_03_skill_as_manual",
+      "caption": "Skill 更像一本岗位手册。",
+      "audioSrc": "audio/full_film_20260609/teaching_07_manual_metaphor.mp3",
+      "startFrame": 1380,
+      "durationInFrames": 75,
+      "durationSeconds": 2.08
+    },
+    {
+      "id": "teaching_08_role_workflow_rules",
+      "section": "teaching",
+      "sceneId": "scene_03_skill_as_manual",
+      "caption": "它把角色、流程和规则写清楚。",
+      "audioSrc": "audio/full_film_20260609/teaching_08_role_workflow_rules.mp3",
+      "startFrame": 1455,
+      "durationInFrames": 96,
+      "durationSeconds": 2.8
+    },
+    {
+      "id": "teaching_09_repeatable_work",
+      "section": "teaching",
+      "sceneId": "scene_03_skill_as_manual",
+      "caption": "下次 AI 接手，就不用从头教。",
+      "audioSrc": "audio/full_film_20260609/teaching_09_repeatable_work.mp3",
+      "startFrame": 1551,
+      "durationInFrames": 89,
+      "durationSeconds": 2.56
+    },
+    {
+      "id": "teaching_10_repeated_instruction",
+      "section": "teaching",
+      "sceneId": "scene_04_repeat_to_skill",
+      "caption": "反复教同一件事，先别急着加 prompt。",
+      "audioSrc": "audio/full_film_20260609/teaching_10_repeated_instruction.mp3",
+      "startFrame": 1640,
+      "durationInFrames": 106,
+      "durationSeconds": 3.12
+    },
+    {
+      "id": "teaching_11_patterns_emerge",
+      "section": "teaching",
+      "sceneId": "scene_04_repeat_to_skill",
+      "caption": "重复的格式、流程和避坑，就是模式。",
+      "audioSrc": "audio/full_film_20260609/teaching_11_patterns_emerge.mp3",
+      "startFrame": 1746,
+      "durationInFrames": 113,
+      "durationSeconds": 3.36
+    },
+    {
+      "id": "teaching_12_compress_to_skill",
+      "section": "teaching",
+      "sceneId": "scene_04_repeat_to_skill",
+      "caption": "把模式压缩成手册，它就变成 Skill。",
+      "audioSrc": "audio/full_film_20260609/teaching_12_compress_to_skill.mp3",
+      "startFrame": 1859,
+      "durationInFrames": 118,
+      "durationSeconds": 3.52
+    },
+    {
+      "id": "teaching_13_markdown_file",
+      "section": "teaching",
+      "sceneId": "scene_05_markdown_structure",
+      "caption": "它通常就是一个 Markdown 文件。",
+      "audioSrc": "audio/full_film_20260609/teaching_13_markdown_file.mp3",
+      "startFrame": 1977,
+      "durationInFrames": 84,
+      "durationSeconds": 2.4
+    },
+    {
+      "id": "teaching_14_yaml_trigger",
+      "section": "teaching",
+      "sceneId": "scene_05_markdown_structure",
+      "caption": "前面写触发条件：什么时候调用。",
+      "audioSrc": "audio/full_film_20260609/teaching_14_yaml_trigger.mp3",
+      "startFrame": 2061,
+      "durationInFrames": 101,
+      "durationSeconds": 2.96
+    },
+    {
+      "id": "teaching_15_body_rules",
+      "section": "teaching",
+      "sceneId": "scene_05_markdown_structure",
+      "caption": "正文写工作规则：怎么执行。",
+      "audioSrc": "audio/full_film_20260609/teaching_15_body_rules.mp3",
+      "startFrame": 2162,
+      "durationInFrames": 101,
+      "durationSeconds": 2.96
+    },
+    {
+      "id": "teaching_16_index_metaphor",
+      "section": "teaching",
+      "sceneId": "scene_06_skill_index",
+      "caption": "SKILL_INDEX 像图书馆索引。",
+      "audioSrc": "audio/full_film_20260609/teaching_16_index_metaphor.mp3",
+      "startFrame": 2263,
+      "durationInFrames": 45,
+      "durationSeconds": 0.32
+    },
+    {
+      "id": "teaching_17_where_to_find",
+      "section": "teaching",
+      "sceneId": "scene_06_skill_index",
+      "caption": "它告诉 AI：有哪些手册、放在哪里。",
+      "audioSrc": "audio/full_film_20260609/teaching_17_where_to_find.mp3",
+      "startFrame": 2308,
+      "durationInFrames": 113,
+      "durationSeconds": 3.36
+    },
+    {
+      "id": "teaching_18_when_to_use",
+      "section": "teaching",
+      "sceneId": "scene_06_skill_index",
+      "caption": "也告诉 AI：什么时候取哪一本。",
+      "audioSrc": "audio/full_film_20260609/teaching_18_when_to_use.mp3",
+      "startFrame": 2421,
+      "durationInFrames": 96,
+      "durationSeconds": 2.8
+    },
+    {
+      "id": "teaching_19_not_magic",
+      "section": "teaching",
+      "sceneId": "scene_07_common_mistakes",
+      "caption": "第一个误区：把 Skill 当魔法。",
+      "audioSrc": "audio/full_film_20260609/teaching_19_not_magic.mp3",
+      "startFrame": 2517,
+      "durationInFrames": 96,
+      "durationSeconds": 2.8
+    },
+    {
+      "id": "teaching_20_missing_files",
+      "section": "teaching",
+      "sceneId": "scene_07_common_mistakes",
+      "caption": "第二个误区：漏掉引用文件。",
+      "audioSrc": "audio/full_film_20260609/teaching_20_missing_files.mp3",
+      "startFrame": 2613,
+      "durationInFrames": 89,
+      "durationSeconds": 2.56
+    },
+    {
+      "id": "teaching_21_no_backup",
+      "section": "teaching",
+      "sceneId": "scene_07_common_mistakes",
+      "caption": "第三个误区：没有版本存档。",
+      "audioSrc": "audio/full_film_20260609/teaching_21_no_backup.mp3",
+      "startFrame": 2702,
+      "durationInFrames": 87,
+      "durationSeconds": 2.48
+    },
+    {
+      "id": "teaching_22_not_the_end",
+      "section": "teaching",
+      "sceneId": "scene_08_ending_system",
+      "caption": "最后，Skill 不是终点。",
+      "audioSrc": "audio/full_film_20260609/teaching_22_not_the_end.mp3",
+      "startFrame": 2789,
+      "durationInFrames": 72,
+      "durationSeconds": 2
+    },
+    {
+      "id": "teaching_23_personal_system",
+      "section": "teaching",
+      "sceneId": "scene_08_ending_system",
+      "caption": "它让工作流变成个人系统。",
+      "audioSrc": "audio/full_film_20260609/teaching_23_personal_system.mp3",
+      "startFrame": 2861,
+      "durationInFrames": 84,
+      "durationSeconds": 2.4
+    },
+    {
+      "id": "teaching_24_skill_library",
+      "section": "teaching",
+      "sceneId": "scene_08_ending_system",
+      "caption": "手册越多，能力库越完整。",
+      "audioSrc": "audio/full_film_20260609/teaching_24_skill_library.mp3",
+      "startFrame": 2945,
+      "durationInFrames": 89,
+      "durationSeconds": 2.56
+    },
+    {
+      "id": "author_01_thanks",
+      "section": "author-note",
+      "sceneId": "author_01_loop_closed",
+      "caption": "感谢你看到这里。",
+      "audioSrc": "audio/full_film_20260609/author_01_thanks.mp3",
+      "startFrame": 3034,
+      "durationInFrames": 56,
+      "durationSeconds": 1.44
+    },
+    {
+      "id": "author_02_loop_closed",
+      "section": "author-note",
+      "sceneId": "author_01_loop_closed",
+      "caption": "如果你喜欢这期视频，那么这条链路就顺利完成了闭环。",
+      "audioSrc": "audio/full_film_20260609/author_02_loop_closed.mp3",
+      "startFrame": 3090,
+      "durationInFrames": 142,
+      "durationSeconds": 4.32
+    },
+    {
+      "id": "author_03_ai_made_this",
+      "section": "author-note",
+      "sceneId": "author_02_ai_made_this",
+      "caption": "这条视频，除了文稿的核心，以及我现在说的这些话以外，全部是 AI 制作的。",
+      "audioSrc": "audio/full_film_20260609/author_03_ai_made_this.mp3",
+      "startFrame": 3232,
+      "durationInFrames": 200,
+      "durationSeconds": 6.24
+    },
+    {
+      "id": "author_04_assets",
+      "section": "author-note",
+      "sceneId": "author_02_ai_made_this",
+      "caption": "包括但不限于：图片、动画、配音、配乐，以及剪辑。",
+      "audioSrc": "audio/full_film_20260609/author_04_assets.mp3",
+      "startFrame": 3432,
+      "durationInFrames": 173,
+      "durationSeconds": 5.36
+    },
+    {
+      "id": "author_05_goal",
+      "section": "author-note",
+      "sceneId": "author_03_motivation",
+      "caption": "这也是我追求的目标。",
+      "audioSrc": "audio/full_film_20260609/author_05_goal.mp3",
+      "startFrame": 3605,
+      "durationInFrames": 60,
+      "durationSeconds": 1.6
+    },
+    {
+      "id": "author_06_cant_edit",
+      "section": "author-note",
+      "sceneId": "author_03_motivation",
+      "caption": "我有很多稀奇古怪的想法，但是苦于不会剪辑，无法表达。",
+      "audioSrc": "audio/full_film_20260609/author_06_cant_edit.mp3",
+      "startFrame": 3665,
+      "durationInFrames": 173,
+      "durationSeconds": 5.36
+    },
+    {
+      "id": "author_07_project_reason",
+      "section": "author-note",
+      "sceneId": "author_03_motivation",
+      "caption": "所以我做了这个项目。",
+      "audioSrc": "audio/full_film_20260609/author_07_project_reason.mp3",
+      "startFrame": 3838,
+      "durationInFrames": 58,
+      "durationSeconds": 1.52
+    },
+    {
+      "id": "author_08_not_showoff",
+      "section": "author-note",
+      "sceneId": "author_03_motivation",
+      "caption": "它不是为了炫技，而是为了把不会剪辑的人，也接入视频表达。",
+      "audioSrc": "audio/full_film_20260609/author_08_not_showoff.mp3",
+      "startFrame": 3896,
+      "durationInFrames": 166,
+      "durationSeconds": 5.12
+    },
+    {
+      "id": "author_09_stack",
+      "section": "author-note",
+      "sceneId": "author_04_stack",
+      "caption": "技术栈其实很简单：Midjourney，Seedance，Eleven，Remotion，Suno，还有 Codex。",
+      "audioSrc": "audio/full_film_20260609/author_09_stack.mp3",
+      "startFrame": 4062,
+      "durationInFrames": 219,
+      "durationSeconds": 6.88
+    },
+    {
+      "id": "author_10_roles_hint",
+      "section": "author-note",
+      "sceneId": "author_04_stack",
+      "caption": "你大体可以猜到它们各自的分工。",
+      "audioSrc": "audio/full_film_20260609/author_10_roles_hint.mp3",
+      "startFrame": 4281,
+      "durationInFrames": 89,
+      "durationSeconds": 2.56
+    },
+    {
+      "id": "author_11_tool_roles",
+      "section": "author-note",
+      "sceneId": "author_04_stack",
+      "caption": "Midjourney 负责建立视觉锚点。Seedance 负责让图里的机制动起来。Eleven 负责把文稿变成声音。Suno 负责让情绪有一条底层轨道。Remotion 负责时间线、字幕和最终合成。",
+      "audioSrc": "audio/full_film_20260609/author_11_tool_roles.mp3",
+      "startFrame": 4370,
+      "durationInFrames": 502,
+      "durationSeconds": 16.32
+    },
+    {
+      "id": "author_12_codex_conductor",
+      "section": "author-note",
+      "sceneId": "author_05_codex_conductor",
+      "caption": "而 Codex，是总指挥。",
+      "audioSrc": "audio/full_film_20260609/author_12_codex_conductor.mp3",
+      "startFrame": 4872,
+      "durationInFrames": 77,
+      "durationSeconds": 2.16
+    },
+    {
+      "id": "author_13_skill_process",
+      "section": "author-note",
+      "sceneId": "author_05_codex_conductor",
+      "caption": "一切由 Skill 充当标准流程。Codex 引导众多 AI 工具各司其职。",
+      "audioSrc": "audio/full_film_20260609/author_13_skill_process.mp3",
+      "startFrame": 4949,
+      "durationInFrames": 180,
+      "durationSeconds": 5.6
+    },
+    {
+      "id": "author_14_industrialize",
+      "section": "author-note",
+      "sceneId": "author_06_industrialization",
+      "caption": "理论上，只要把 prompt 调优到足够稳定，就可以把任意文稿，工业化地、自动化地，生产成任意风格的视频。",
+      "audioSrc": "audio/full_film_20260609/author_14_industrialize.mp3",
+      "startFrame": 5129,
+      "durationInFrames": 276,
+      "durationSeconds": 8.8
+    },
+    {
+      "id": "author_15_need_you",
+      "section": "author-note",
+      "sceneId": "author_06_industrialization",
+      "caption": "而这个调优过程，需要各位的参与。",
+      "audioSrc": "audio/full_film_20260609/author_15_need_you.mp3",
+      "startFrame": 5405,
+      "durationInFrames": 99,
+      "durationSeconds": 2.88
+    },
+    {
+      "id": "author_16_limited",
+      "section": "author-note",
+      "sceneId": "author_06_industrialization",
+      "caption": "我的能力有限，只能抛砖引玉。",
+      "audioSrc": "audio/full_film_20260609/author_16_limited.mp3",
+      "startFrame": 5504,
+      "durationInFrames": 89,
+      "durationSeconds": 2.56
+    },
+    {
+      "id": "author_17_personal_view",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "最后，我想记录一些个人看法。",
+      "audioSrc": "audio/full_film_20260609/author_17_personal_view.mp3",
+      "startFrame": 5593,
+      "durationInFrames": 94,
+      "durationSeconds": 2.72
+    },
+    {
+      "id": "author_18_can_close",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "不感兴趣的话，现在可以酌情关闭视频了。",
+      "audioSrc": "audio/full_film_20260609/author_18_can_close.mp3",
+      "startFrame": 5687,
+      "durationInFrames": 120,
+      "durationSeconds": 3.6
+    },
+    {
+      "id": "author_19_question",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "有朋友问我：这个项目这么有价值，还要坚持开源吗？",
+      "audioSrc": "audio/full_film_20260609/author_19_question.mp3",
+      "startFrame": 5807,
+      "durationInFrames": 147,
+      "durationSeconds": 4.48
+    },
+    {
+      "id": "author_20_open_source",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "我的回答是：开源。而且是一定要开源。",
+      "audioSrc": "audio/full_film_20260609/author_20_open_source.mp3",
+      "startFrame": 5954,
+      "durationInFrames": 171,
+      "durationSeconds": 5.28
+    },
+    {
+      "id": "author_21_face",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "就要狠狠打字节的脸。",
+      "audioSrc": "audio/full_film_20260609/author_21_face.mp3",
+      "startFrame": 6125,
+      "durationInFrames": 68,
+      "durationSeconds": 1.84
+    },
+    {
+      "id": "author_22_final_statement",
+      "section": "author-note",
+      "sceneId": "author_07_open_source",
+      "caption": "因为，正如群星必须回归轨道，“无产阶级”的铡刀也终将落下。",
+      "audioSrc": "audio/full_film_20260609/author_22_final_statement.mp3",
+      "startFrame": 6193,
+      "durationInFrames": 200,
+      "durationSeconds": 6.24
+    },
+    {
+      "id": "outro_01_title",
+      "section": "outro",
+      "sceneId": "author_08_final_words",
+      "caption": "Skill Is All You Need。",
+      "audioSrc": "audio/full_film_20260609/outro_01_title.mp3",
+      "startFrame": 6393,
+      "durationInFrames": 75,
+      "durationSeconds": 2.08
+    },
+    {
+      "id": "outro_02_method",
+      "section": "outro",
+      "sceneId": "author_08_final_words",
+      "caption": "把流程写成手册，把手册交给 AI，把想法变成作品。",
+      "audioSrc": "audio/full_film_20260609/outro_02_method.mp3",
+      "startFrame": 6468,
+      "durationInFrames": 168,
+      "durationSeconds": 5.2
+    },
+    {
+      "id": "outro_03_credit",
+      "section": "outro",
+      "sceneId": "author_08_final_words",
+      "caption": "作者：跳蛛先生。",
+      "audioSrc": "audio/full_film_20260609/outro_03_credit.mp3",
+      "startFrame": 6636,
+      "durationInFrames": 65,
+      "durationSeconds": 1.76
+    }
+  ]
+}

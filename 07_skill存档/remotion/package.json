@@ -11,6 +11,8 @@
     "save:scene04-designed-voice": "tsx scripts/save-scene04-designed-voice.ts",
     "generate:scene04-voiceover": "tsx scripts/generate-scene04-voiceover.ts",
     "generate:formal-clip-voiceover": "tsx scripts/generate-formal-clip-voiceover.ts",
+    "generate:full-film-voiceover": "tsx scripts/generate-full-film-voiceover.ts",
+    "export:full-film-voiceover-plan": "tsx scripts/export-full-film-voiceover-plan.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
