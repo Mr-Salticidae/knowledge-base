@@ -158,7 +158,8 @@
 - [[青春记忆MV_四镜头组验证法_v1]] —— 青春记忆型 MV 阶段复盘:先验证核心意象/手部关系/普通动作/现在闭环 4 镜,再扩大全片生产
 - [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] —— AI 音乐公益 MV 实战复盘:Suno + MJ 抽象视觉 + 蒙眼剪辑 + Demucs/WhisperX 字幕链路
 - [[2026-06-08_Remotion_MJ_Seedance混合动画闭环复盘]] —— Remotion v0.2 单场景验证,沉淀"MJ 建视觉锚 / Seedance 动机制 / Remotion 管信息层"的混合动画闭环
-- [[Remotion正式小片段实验工作流防偏移]] —— Remotion 正式 20-30s 小片段实验防偏移约束:必须按 MJ → Seedance 2.0 → Eleven v3 → Remotion 顺序执行,不能用 Remotion-only 草稿冒充正式验证
+- [[2026-06-08_Remotion正式小片段v3复盘]] —— `Skill is All You Need` 正式 30s 小片段通过版复盘,沉淀"Eleven v3 前置,用口播时长反推 Seedance 时长"规则
+- [[Remotion正式小片段实验工作流防偏移]] —— Remotion 正式 20-30s 小片段实验防偏移约束:必须先锁定分段 TTS timing,再进入 MJ / Seedance / Remotion,不能用 Remotion-only 草稿冒充正式验证
 
 ### 主题脉络七:IP 视觉系统
 
