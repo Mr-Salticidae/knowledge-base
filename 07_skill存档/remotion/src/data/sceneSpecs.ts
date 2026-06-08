@@ -70,6 +70,15 @@ export type TextSpec = {
   delayFrames?: number;
 };
 
+export type NarrationBeat = {
+  id: string;
+  startFrame: number;
+  durationInFrames: number;
+  text: string;
+  emphasis?: boolean;
+  linkedSubjectIds?: string[];
+};
+
 export type MotionType =
   | 'fade-in'
   | 'pop-in'
@@ -98,6 +107,7 @@ export type SceneSpec = {
   goal: string;
   concept: string;
   narration: string;
+  narrationBeats?: NarrationBeat[];
   layout: LayoutType;
   background: BackgroundType;
   subjects: SubjectSpec[];
@@ -117,6 +127,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '建立误区：Skill 不是神秘插件。',
     concept: '创作者看着发光的 SKILL 方块。',
     narration: '很多人第一次听到 Skill，会以为它是某种神秘插件。其实不是。',
+    narrationBeats: [
+      { id: 'beat_01_skill_word', startFrame: 0, durationInFrames: 70, text: '你可能听过一个很酷的词：Skill。', emphasis: true, linkedSubjectIds: ['skill_block'] },
+      { id: 'beat_02_plugin_misread', startFrame: 70, durationInFrames: 90, text: '很多人以为它是神秘插件。', linkedSubjectIds: ['creator', 'skill_block'] },
+      { id: 'beat_03_not_magic', startFrame: 160, durationInFrames: 80, text: '但真正有用的地方，不在神秘感。', linkedSubjectIds: ['spark'] },
+    ],
     layout: 'center-focus',
     background: 'space',
     subjects: [
@@ -141,6 +156,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '说明 AI 聪明但会失忆。',
     concept: 'AI 助理醒来，记忆条归零。',
     narration: 'AI 很聪明，但每次新对话，它都可能忘掉你之前教过的偏好、规则和坑。',
+    narrationBeats: [
+      { id: 'beat_01_smart_assistant', startFrame: 0, durationInFrames: 90, text: '想象你雇了一位聪明的 AI 助理。', emphasis: true, linkedSubjectIds: ['assistant'] },
+      { id: 'beat_02_fast_execution', startFrame: 90, durationInFrames: 100, text: '它理解很快，执行也很快。', linkedSubjectIds: ['assistant', 'packet_a'] },
+      { id: 'beat_03_forgets_every_time', startFrame: 190, durationInFrames: 140, text: '但每次新对话前，它都会失忆。', emphasis: true, linkedSubjectIds: ['memory_bar', 'packet_b'] },
+    ],
     layout: 'left-right-contrast',
     background: 'data',
     subjects: [
@@ -167,6 +187,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '把 Skill 定义为岗位手册。',
     concept: '手册打开，出现 Role / Workflow / Rules。',
     narration: 'Skill 更像一本岗位手册，把角色、流程、规则和输出要求写清楚。',
+    narrationBeats: [
+      { id: 'beat_01_manual_metaphor', startFrame: 0, durationInFrames: 100, text: 'Skill 更像一本岗位手册。', emphasis: true, linkedSubjectIds: ['manual'] },
+      { id: 'beat_02_role_workflow_rules', startFrame: 100, durationInFrames: 110, text: '它把角色、流程和规则写清楚。', linkedSubjectIds: ['role', 'workflow', 'rules'] },
+      { id: 'beat_03_repeatable_work', startFrame: 210, durationInFrames: 120, text: '下次 AI 接手，就不用从头教。', linkedSubjectIds: ['manual'] },
+    ],
     layout: 'center-focus',
     background: 'workspace',
     subjects: [
@@ -193,6 +218,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '说明重复教 AI 的内容值得沉淀。',
     concept: 'prompt 气泡堆积并压缩成手册。',
     narration: '当你反复教 AI 同一件事，那件事就值得沉淀成 Skill。',
+    narrationBeats: [
+      { id: 'beat_01_repeated_instruction', startFrame: 0, durationInFrames: 110, text: '反复教同一件事，先别急着加 prompt。', linkedSubjectIds: ['bubble_1', 'bubble_2'] },
+      { id: 'beat_02_patterns_emerge', startFrame: 110, durationInFrames: 100, text: '重复的格式、流程和避坑，就是模式。', linkedSubjectIds: ['bubble_1', 'bubble_2', 'bubble_3'] },
+      { id: 'beat_03_compress_to_skill', startFrame: 210, durationInFrames: 120, text: '把模式压缩成手册，它就变成 Skill。', emphasis: true, linkedSubjectIds: ['manual'] },
+    ],
     layout: 'vertical-scale',
     background: 'abstract',
     subjects: [
@@ -219,6 +249,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '解释 Skill 的物理形态。',
     concept: 'Markdown 文件拆成 YAML + 工作流正文。',
     narration: '在文件形态上，它通常就是一个 Markdown 文件，前面是触发描述，正文是工作规则。',
+    narrationBeats: [
+      { id: 'beat_01_markdown_file', startFrame: 0, durationInFrames: 100, text: '它通常就是一个 Markdown 文件。', emphasis: true, linkedSubjectIds: ['md'] },
+      { id: 'beat_02_yaml_trigger', startFrame: 100, durationInFrames: 110, text: '前面写触发条件：什么时候调用。', linkedSubjectIds: ['yaml', 'arrow'] },
+      { id: 'beat_03_body_rules', startFrame: 210, durationInFrames: 120, text: '正文写工作规则：怎么执行。', linkedSubjectIds: ['body'] },
+    ],
     layout: 'zoom-in-cross-section',
     background: 'plain',
     subjects: [
@@ -245,6 +280,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '说明 SKILL_INDEX 是索引。',
     concept: 'AI 进入图书馆查索引并取书。',
     narration: 'SKILL_INDEX 像图书馆索引，告诉 AI 有哪些手册、何时调用、去哪里找。',
+    narrationBeats: [
+      { id: 'beat_01_index_metaphor', startFrame: 0, durationInFrames: 120, text: 'SKILL_INDEX 像图书馆索引。', emphasis: true, linkedSubjectIds: ['index', 'shelf'] },
+      { id: 'beat_02_where_to_find', startFrame: 120, durationInFrames: 130, text: '它告诉 AI：有哪些手册、放在哪里。', linkedSubjectIds: ['assistant', 'shelf', 'index'] },
+      { id: 'beat_03_when_to_use', startFrame: 250, durationInFrames: 130, text: '也告诉 AI：什么时候取哪一本。', linkedSubjectIds: ['book', 'assistant'] },
+    ],
     layout: 'library-system',
     background: 'library',
     subjects: [
@@ -271,6 +311,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '列出三个常见误区。',
     concept: 'Not Magic / Missing Files / No Backup。',
     narration: '常见误区有三个：把 Skill 当魔法、漏掉附属文件、没有版本存档。',
+    narrationBeats: [
+      { id: 'beat_01_not_magic', startFrame: 0, durationInFrames: 100, text: '第一个误区：把 Skill 当魔法。', linkedSubjectIds: ['mistake_1'] },
+      { id: 'beat_02_missing_files', startFrame: 100, durationInFrames: 110, text: '第二个误区：漏掉引用文件。', linkedSubjectIds: ['mistake_2'] },
+      { id: 'beat_03_no_backup', startFrame: 210, durationInFrames: 110, text: '第三个误区：没有版本存档。', linkedSubjectIds: ['mistake_3'] },
+    ],
     layout: 'left-right-contrast',
     background: 'data',
     subjects: [
@@ -295,6 +340,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '收束：工作流变成个人系统。',
     concept: '多本手册环绕创作者形成能力库。',
     narration: '最后，Skill 不是终点。它是把你的工作流变成个人系统的开始。',
+    narrationBeats: [
+      { id: 'beat_01_not_the_end', startFrame: 0, durationInFrames: 80, text: '最后，Skill 不是终点。', linkedSubjectIds: ['creator'] },
+      { id: 'beat_02_personal_system', startFrame: 80, durationInFrames: 80, text: '它让工作流变成个人系统。', emphasis: true, linkedSubjectIds: ['manual_a', 'manual_b'] },
+      { id: 'beat_03_skill_library', startFrame: 160, durationInFrames: 80, text: '手册越多，能力库越完整。', linkedSubjectIds: ['manual_c', 'manual_d'] },
+    ],
     layout: 'circular-system',
     background: 'workspace',
     subjects: [

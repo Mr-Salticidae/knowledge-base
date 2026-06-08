@@ -32,13 +32,25 @@ const TextInside: React.FC<{ label?: string; color?: string; size?: number }> = 
   ) : null;
 
 const Manual: React.FC<{ color: string; label?: string }> = ({ color, label }) => (
-  <div style={{ position: 'absolute', inset: 0, borderRadius: 24, background: color, border: '8px solid rgba(15,23,42,0.65)' }}>
-    <div style={{ position: 'absolute', left: '48%', top: 0, bottom: 0, width: 8, background: 'rgba(15,23,42,0.28)' }} />
-    <div style={{ position: 'absolute', left: '12%', right: '56%', top: '22%', height: 12, borderRadius: 10, background: 'rgba(15,23,42,0.32)' }} />
-    <div style={{ position: 'absolute', left: '56%', right: '12%', top: '36%', height: 12, borderRadius: 10, background: 'rgba(15,23,42,0.32)' }} />
-    <div style={{ position: 'absolute', left: '56%', right: '20%', top: '52%', height: 12, borderRadius: 10, background: 'rgba(15,23,42,0.22)' }} />
-    <TextInside label={label} />
-  </div>
+  <svg viewBox="0 0 520 360" width="100%" height="100%" role="img" aria-label={label ?? 'Manual'}>
+    <filter id="manualShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#020617" floodOpacity="0.28" />
+    </filter>
+    <g filter="url(#manualShadow)">
+      <path d="M46 62c0-22 18-40 40-40h178c24 0 44 20 44 44v272H86c-22 0-40-18-40-40Z" fill={color} stroke="#0F172A" strokeWidth="10" />
+      <path d="M474 62c0-22-18-40-40-40H304c-24 0-44 20-44 44v272h174c22 0 40-18 40-40Z" fill="#F8FAFC" stroke="#0F172A" strokeWidth="10" />
+      <path d="M260 54v284" stroke="#0F172A" strokeWidth="8" strokeLinecap="round" opacity="0.42" />
+      <path d="M96 92h142M96 132h112M96 216h126M96 256h86" stroke="#0F172A" strokeWidth="12" strokeLinecap="round" opacity="0.36" />
+      <path d="M318 90h110M318 132h82M318 190h124M318 230h92" stroke="#0F172A" strokeWidth="12" strokeLinecap="round" opacity="0.32" />
+      <rect x="92" y="158" width="126" height="44" rx="18" fill="#F8FAFC" stroke="#0F172A" strokeWidth="7" opacity="0.92" />
+      <rect x="316" y="260" width="110" height="44" rx="18" fill={color} stroke="#0F172A" strokeWidth="7" />
+      {label ? (
+        <text x="155" y="190" textAnchor="middle" fill="#0F172A" fontFamily="Microsoft YaHei, sans-serif" fontSize="30" fontWeight="900">
+          {label}
+        </text>
+      ) : null}
+    </g>
+  </svg>
 );
 
 const Human: React.FC<{ color: string }> = ({ color }) => (
@@ -51,23 +63,50 @@ const Human: React.FC<{ color: string }> = ({ color }) => (
 );
 
 const AiAssistant: React.FC<{ color: string }> = ({ color }) => (
-  <div style={{ position: 'absolute', inset: 0 }}>
-    <div style={{ position: 'absolute', left: '13%', top: '12%', width: '74%', height: '62%', borderRadius: 44, background: color, border: '8px solid #0F172A' }} />
-    <div style={{ position: 'absolute', left: '31%', top: '32%', width: '11%', height: '11%', borderRadius: '50%', background: '#0F172A' }} />
-    <div style={{ position: 'absolute', right: '31%', top: '32%', width: '11%', height: '11%', borderRadius: '50%', background: '#0F172A' }} />
-    <div style={{ position: 'absolute', left: '36%', top: '55%', width: '28%', height: '7%', borderRadius: 999, background: '#0F172A' }} />
-    <div style={{ position: 'absolute', left: '47%', top: 0, width: '6%', height: '16%', background: '#0F172A' }} />
-    <div style={{ position: 'absolute', left: '43%', top: '-6%', width: '14%', height: '14%', borderRadius: '50%', background: '#FACC15', border: '6px solid #0F172A' }} />
-  </div>
+  <svg viewBox="0 0 360 360" width="100%" height="100%" role="img" aria-label="AI assistant">
+    <filter id="assistantShadow" x="-15%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="9" floodColor="#020617" floodOpacity="0.26" />
+    </filter>
+    <g filter="url(#assistantShadow)">
+      <path d="M180 54V24" stroke="#0F172A" strokeWidth="10" strokeLinecap="round" />
+      <circle cx="180" cy="22" r="18" fill="#FACC15" stroke="#0F172A" strokeWidth="8" />
+      <rect x="62" y="68" width="236" height="184" rx="58" fill={color} stroke="#0F172A" strokeWidth="10" />
+      <rect x="88" y="94" width="184" height="116" rx="38" fill="#E0F2FE" stroke="#0F172A" strokeWidth="7" opacity="0.95" />
+      <circle cx="132" cy="144" r="16" fill="#0F172A" />
+      <circle cx="220" cy="144" r="16" fill="#0F172A" />
+      <circle cx="138" cy="138" r="5" fill="#F8FAFC" />
+      <circle cx="226" cy="138" r="5" fill="#F8FAFC" />
+      <path d="M146 176c22 16 48 16 70 0" fill="none" stroke="#0F172A" strokeWidth="9" strokeLinecap="round" />
+      <rect x="94" y="236" width="52" height="54" rx="18" fill={color} stroke="#0F172A" strokeWidth="8" />
+      <rect x="214" y="236" width="52" height="54" rx="18" fill={color} stroke="#0F172A" strokeWidth="8" />
+      <rect x="132" y="248" width="96" height="70" rx="28" fill="#F8FAFC" stroke="#0F172A" strokeWidth="9" />
+      <path d="M154 274h52M166 296h28" stroke="#0F172A" strokeWidth="8" strokeLinecap="round" opacity="0.45" />
+      <circle cx="280" cy="84" r="14" fill="#4ADE80" stroke="#0F172A" strokeWidth="6" />
+      <path d="M74 170h-22M308 170h-22" stroke="#0F172A" strokeWidth="10" strokeLinecap="round" />
+    </g>
+  </svg>
 );
 
 const MarkdownFile: React.FC<{ color: string; label?: string }> = ({ color, label }) => (
-  <div style={{ position: 'absolute', inset: 0, borderRadius: 22, background: color, border: '8px solid #0F172A', overflow: 'hidden' }}>
-    <div style={{ height: '20%', background: '#0F172A', color: '#F8FAFC', display: 'flex', alignItems: 'center', paddingLeft: 30, fontSize: 30, fontWeight: 800 }}>{label}</div>
-    {['---', 'name: skill', 'description: workflow', '---', '## Rules'].map((line, index) => (
-      <div key={line} style={{ position: 'absolute', left: 34, right: 34, top: `${30 + index * 12}%`, height: 10, borderRadius: 999, background: index < 3 ? '#22D3EE' : '#94A3B8' }} />
-    ))}
-  </div>
+  <svg viewBox="0 0 360 480" width="100%" height="100%" role="img" aria-label={label ?? 'Markdown file'}>
+    <filter id="fileShadow" x="-10%" y="-8%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" floodColor="#020617" floodOpacity="0.24" />
+    </filter>
+    <g filter="url(#fileShadow)">
+      <path d="M44 22h228l84 84v330c0 24-20 44-44 44H44c-24 0-44-20-44-44V66c0-24 20-44 44-44Z" fill={color} stroke="#0F172A" strokeWidth="10" />
+      <path d="M270 24v68c0 18 14 32 32 32h54Z" fill="#E2E8F0" stroke="#0F172A" strokeWidth="8" strokeLinejoin="round" />
+      <rect x="28" y="56" width="202" height="58" rx="20" fill="#0F172A" />
+      <text x="48" y="96" fill="#F8FAFC" fontFamily="JetBrains Mono, Fira Code, monospace" fontSize="30" fontWeight="900">
+        {label ?? 'SKILL.md'}
+      </text>
+      <rect x="38" y="152" width="118" height="30" rx="15" fill="#22D3EE" stroke="#0F172A" strokeWidth="5" />
+      <rect x="174" y="152" width="84" height="30" rx="15" fill="#FACC15" stroke="#0F172A" strokeWidth="5" />
+      <path d="M44 220h230M44 260h278M44 300h204M44 354h250M44 394h158" stroke="#0F172A" strokeWidth="14" strokeLinecap="round" opacity="0.34" />
+      <path d="M44 190h76" stroke="#0F172A" strokeWidth="10" strokeLinecap="round" opacity="0.58" />
+      <path d="M74 222v78" stroke="#22D3EE" strokeWidth="9" strokeLinecap="round" opacity="0.9" />
+      <path d="M72 354v42" stroke="#FACC15" strokeWidth="9" strokeLinecap="round" opacity="0.9" />
+    </g>
+  </svg>
 );
 
 const IndexCard: React.FC<{ color: string; label?: string }> = ({ color, label }) => (

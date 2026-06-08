@@ -111,9 +111,23 @@ sceneAssets describes how each visual/audio/media item will be produced, found, 
 
 Current implementation module:
 
-`D:\AIGC工作站\知识库\07_skill存档\remotion\src\skills\RemotionSkill.ts`
+`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts`
 
 Treat that file as the prototype orchestration module. This SKILL.md is the productized agent instruction layer. See `references/remotion-skill-ts-relationship.md` for how to keep them aligned.
+
+Current dryRun interface:
+
+```ts
+createVideo(params: {
+  sceneSpecs: SceneSpec[];
+  style?: RemotionVideoStyle;
+  callExistingSkills?: ExistingSkillName[];
+  outputPath?: string;
+  dryRun?: boolean;
+}) => Promise<RenderResult>
+```
+
+In dryRun mode, return `status: "dryRun"`, logs, simulated `skillResults`, and planned `sceneAssets`. Do not start Remotion render/export.
 
 ## Hard Boundaries
 

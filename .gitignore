@@ -55,6 +55,8 @@ env/
 node_modules/
 .npm/
 .pnpm-store/
+07_skill存档/remotion/public/audio/*
+!07_skill存档/remotion/public/audio/.gitkeep
 
 # --- 凭据与本机配置 ---
 .env

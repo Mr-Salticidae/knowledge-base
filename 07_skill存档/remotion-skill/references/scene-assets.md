@@ -101,6 +101,16 @@ const sceneAssets: SceneAsset[] = [
 - `filePath` appears only after an asset is linked/generated.
 - `prompt` can exist before any file exists.
 
+## Current RemotionSkill DryRun Binding
+
+`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts` now creates planned placeholder assets for:
+
+- each scene background;
+- each `subjects[].id` as a subject-bound asset;
+- simulated outputs from requested existing Skills, such as prompt assets from `aigc-prompt-optimizer` or a global editing-plan asset from `blind-editing-workflow`.
+
+DryRun binding confirms structure only. It does not render video, execute ffmpeg, generate audio, or link production files.
+
 ## Production States
 
 Use the smallest honest status:
