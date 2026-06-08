@@ -122,6 +122,71 @@ export const HEIGHT = 1080;
 
 export const sceneSpecs: SceneSpec[] = [
   {
+    id: 'scene_00_intro_question',
+    durationInFrames: 660,
+    goal: '用简短问题建立观看动机：为什么观众需要 Skill。',
+    concept: '新对话反复归零，散落的流程卡最终聚合成 SKILL。',
+    narration:
+      '你有没有遇到过这种情况：同一个 AI，昨天刚教会它你的偏好，今天换个新对话，它又像第一次见你一样。你明明已经总结过流程，但每次开工，还是要重新解释一遍。如果 AI 真的能帮我们工作，那它不该只会回答问题。它应该记住流程，调用工具，并且稳定复现一套做事方法。这就是这期视频要讲的东西：Skill。',
+    narrationBeats: [
+      {
+        id: 'beat_01_same_ai_forgets',
+        startFrame: 0,
+        durationInFrames: 150,
+        text: '同一个 AI，昨天刚教会它你的偏好，今天又像第一次见你一样。',
+        emphasis: true,
+        linkedSubjectIds: ['assistant', 'memory_bar'],
+      },
+      {
+        id: 'beat_02_repeat_process',
+        startFrame: 150,
+        durationInFrames: 150,
+        text: '你明明已经总结过流程，但每次开工，还是要重新解释一遍。',
+        linkedSubjectIds: ['process_a', 'process_b', 'process_c'],
+      },
+      {
+        id: 'beat_03_should_remember',
+        startFrame: 300,
+        durationInFrames: 170,
+        text: '如果 AI 真的能帮我们工作，它不该只会回答问题。',
+        linkedSubjectIds: ['assistant', 'tool_node'],
+      },
+      {
+        id: 'beat_04_skill_promise',
+        startFrame: 470,
+        durationInFrames: 160,
+        text: '它应该记住流程，调用工具，稳定复现一套做事方法。',
+        emphasis: true,
+        linkedSubjectIds: ['skill_block', 'process_a', 'tool_node'],
+      },
+    ],
+    layout: 'network-map',
+    background: 'workspace',
+    subjects: [
+      { id: 'assistant', type: 'ai-assistant', position: { x: 26, y: 52 }, size: { w: 280, h: 280 }, colorToken: 'cyan' },
+      { id: 'memory_bar', type: 'abstract-shape', position: { x: 50, y: 30 }, size: { w: 420, h: 110 }, colorToken: 'red', label: 'Memory 0%' },
+      { id: 'process_a', type: 'index-card', position: { x: 44, y: 58 }, size: { w: 260, h: 140 }, colorToken: 'sky', label: '偏好' },
+      { id: 'process_b', type: 'index-card', position: { x: 58, y: 50 }, size: { w: 280, h: 150 }, colorToken: 'green', label: '流程' },
+      { id: 'process_c', type: 'index-card', position: { x: 72, y: 58 }, size: { w: 260, h: 140 }, colorToken: 'orange', label: '避坑' },
+      { id: 'tool_node', type: 'data-packet', position: { x: 66, y: 30 }, size: { w: 140, h: 120 }, colorToken: 'purple', label: 'Tools' },
+      { id: 'skill_block', type: 'manual', position: { x: 50, y: 54 }, size: { w: 360, h: 260 }, colorToken: 'yellow', label: 'SKILL' },
+    ],
+    texts: [
+      { id: 'top', text: 'AI 真的能记住你的流程吗？', position: 'top', emphasis: true },
+      { id: 'bottom', text: '从反复解释，到稳定复现', position: 'bottom' },
+    ],
+    motion: [
+      { targetId: 'assistant', type: 'slide-in', startFrame: 0, durationFrames: 36, direction: 'left' },
+      { targetId: 'memory_bar', type: 'wipe', startFrame: 30, durationFrames: 58 },
+      { targetId: 'process_a', type: 'scatter', startFrame: 132, durationFrames: 110 },
+      { targetId: 'process_b', type: 'scatter', startFrame: 150, durationFrames: 110 },
+      { targetId: 'process_c', type: 'scatter', startFrame: 168, durationFrames: 110 },
+      { targetId: 'tool_node', type: 'pulse', startFrame: 310, durationFrames: 180 },
+      { targetId: 'skill_block', type: 'compress', startFrame: 450, durationFrames: 90 },
+    ],
+    transitionOut: 'zoom-in',
+  },
+  {
     id: 'scene_01_hook',
     durationInFrames: 240,
     goal: '建立误区：Skill 不是神秘插件。',

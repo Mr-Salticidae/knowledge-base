@@ -13,6 +13,28 @@ export const FORMAL_CLIP_05_TOOL_LOOP_SEEDANCE_PATH = 'assets/formal_clip_202606
 
 export const sceneAssets: SceneAsset[] = [
   {
+    id: 'asset_global_suno_workflow_theme',
+    sceneId: 'global',
+    kind: 'audio',
+    status: 'planned',
+    role: 'music',
+    description:
+      'Suno instrumental BGM for the full Skill Is All You Need film: clear educational pulse in the teaching section, warmer determined variation in the author-note ending.',
+    provider: 'manual-import',
+    binding: 'reference-only',
+    sourceSkill: 'suno-music-brief',
+    prompt:
+      'An instrumental background track for an AI-made educational explainer video about turning creative workflows into reusable Skills. The mood starts clear, intelligent, and friendly, then gradually becomes more personal and quietly determined near the ending. It should support spoken narration without competing with it: modern, clean, slightly futuristic, with a sense of process, coordination, and creative momentum.',
+    expectedPath: 'audio/suno/skill-is-all-you-need-workflow-theme.mp3',
+    styleTags: ['suno', 'instrumental', 'bgm', 'workflow-theme', 'full-film'],
+    constraints: [
+      'instrumental only',
+      'must not compete with Chinese narration',
+      'avoid lyrics, choir, heavy trailer drums, EDM drops, or sentimental piano-ballad mood',
+      'prefer a 10-15 second loopable section for Remotion extension',
+    ],
+  },
+  {
     id: 'asset_scene_04_remotion_native_fallback',
     sceneId: 'scene_04_repeat_to_skill',
     kind: 'placeholder',
