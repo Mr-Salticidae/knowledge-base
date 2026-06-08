@@ -2,6 +2,8 @@ import type { SceneAsset } from '../skills/RemotionSkill';
 
 export const SCENE_04_MJ_KEY_VISUAL_PATH = 'assets/scene_04/mj_prompt_to_skill_key_visual.png';
 export const SCENE_04_SEEDANCE_MOTION_PATH = 'assets/scene_04/seedance_prompt_to_skill_motion.mp4';
+export const SCENE_05_MJ_KEY_VISUAL_PATH = 'assets/scene_05/mj_markdown_structure_key_visual.png';
+export const SCENE_05_SEEDANCE_MOTION_PATH = 'assets/scene_05/seedance_markdown_structure_motion.mp4';
 
 export const sceneAssets: SceneAsset[] = [
   {
@@ -20,7 +22,7 @@ export const sceneAssets: SceneAsset[] = [
     id: 'asset_scene_04_mj_key_visual',
     sceneId: 'scene_04_repeat_to_skill',
     kind: 'image',
-    status: 'linked',
+    status: 'verified',
     role: 'subject',
     description: 'Midjourney key visual for the concept of repeated prompt bubbles compressing into a reusable Skill manual.',
     provider: 'midjourney',
@@ -66,6 +68,65 @@ export const sceneAssets: SceneAsset[] = [
       sourceFps: 60,
       durationSeconds: 4.062993,
       archiveSource: 'C:\\Users\\Administrator\\Downloads\\jimeng-2026-06-08-2329- as the first frame and visual style ref....mp4',
+    },
+  },
+  {
+    id: 'asset_scene_05_mj_key_visual',
+    sceneId: 'scene_05_markdown_structure',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Midjourney key visual for a SKILL.md file splitting into YAML trigger conditions and workflow rules.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    assetPrompt:
+      'premium flat-vector educational explainer illustration, a clean markdown document labeled SKILL.md in the center, the document is visibly split into two structured sections: a small top YAML header card labeled TRIGGER and a larger body card labeled WORKFLOW RULES, arrows show the YAML section deciding when to call the skill and the body section guiding how to execute the work, simple geometric UI cards, thick dark ink outlines, warm off-white paper background, restrained science explainer style, clear cause-and-effect composition, enough clean empty space at the bottom for subtitles, no photorealism, no anime, no realistic human faces, no 3D realism, no cinematic lighting, no tiny unreadable paragraphs, no logo, no watermark --ar 16:9 --style raw',
+    expectedPath: SCENE_05_MJ_KEY_VISUAL_PATH,
+    filePath: SCENE_05_MJ_KEY_VISUAL_PATH,
+    styleTags: ['midjourney', 'flat-vector', 'markdown-structure', 'key-visual', 'in-a-nutshell-inspired'],
+    constraints: [
+      'must clearly show SKILL.md as one file with two functional parts',
+      'keep labels readable: SKILL.md, TRIGGER, WORKFLOW RULES',
+      'leave lower subtitle area clean',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_educational_explainer_i_44a127e2-77be-476a-adae-774574136e5d_1.png',
+    },
+  },
+  {
+    id: 'asset_scene_05_seedance_motion_insert',
+    sceneId: 'scene_05_markdown_structure',
+    kind: 'video',
+    status: 'verified',
+    role: 'subject',
+    description: 'Seedance 2.0 motion insert: the SKILL.md file opens and separates into trigger and workflow-rule layers.',
+    provider: 'seedance-2.0',
+    binding: 'video-insert',
+    assetPrompt:
+      '@Image1 as the first frame and visual style reference. Create a 5-second premium flat-vector educational explainer animation based on @Image1. Keep the same warm off-white paper texture, thick dark ink outlines, simple geometric UI cards, SKILL.md document, TRIGGER header card, and WORKFLOW RULES body card. 0-1s: the SKILL.md document settles in the center with a subtle paper bounce; the camera stays mostly locked with a very slow push-in. 1-2.5s: the top YAML/TRIGGER header gently lifts upward and becomes a separate small card, while a thin arrow points from TRIGGER to a small call-decision icon. 2.5-4s: the lower WORKFLOW RULES body expands downward into stacked rule cards, with two or three clean line blocks appearing in sequence. 4-5s: the TRIGGER card and WORKFLOW RULES cards reconnect visually to the SKILL.md file, forming a stable two-layer structure. Leave the bottom area clean for Remotion subtitles. Style: premium editorial flat-vector science explainer, restrained motion, calm intelligent tone, no photorealism, no anime, no 3D realism, no realistic human faces, no extra text beyond SKILL.md, TRIGGER, WORKFLOW RULES, no logo, no watermark.',
+    expectedPath: SCENE_05_SEEDANCE_MOTION_PATH,
+    filePath: SCENE_05_SEEDANCE_MOTION_PATH,
+    durationInFrames: 150,
+    timeRange: {
+      startFrame: 60,
+      endFrame: 210,
+    },
+    styleTags: ['seedance-2.0', 'motion-insert', 'markdown-structure', 'flat-vector', 'in-a-nutshell-inspired'],
+    constraints: [
+      '4-6 seconds only',
+      'central visual insert, not a full-video replacement',
+      'preserve readable labels and subtitle-safe lower area',
+    ],
+    metadata: {
+      intendedDurationSeconds: 5,
+      width: 1280,
+      height: 720,
+      sourceFps: 60,
+      durationSeconds: 5.06195,
+      archiveSource: 'C:\\Users\\Administrator\\Downloads\\jimeng-2026-06-08-8492- as the first frame and visual style ref....mp4',
     },
   },
 ];
