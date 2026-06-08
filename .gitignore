@@ -57,6 +57,13 @@ node_modules/
 .pnpm-store/
 07_skill存档/remotion/public/audio/*
 !07_skill存档/remotion/public/audio/.gitkeep
+!07_skill存档/remotion/public/audio/scene_04/
+07_skill存档/remotion/public/audio/scene_04/*
+!07_skill存档/remotion/public/audio/scene_04/scene04-voiceover.manifest.json
+!07_skill存档/remotion/public/audio/scene_04/scene04_beat01_repeated_input.mp3
+!07_skill存档/remotion/public/audio/scene_04/scene04_beat02_compress_to_process.mp3
+!07_skill存档/remotion/public/audio/scene_04/scene04_beat03_skill_manual.mp3
+07_skill存档/remotion/out/
 
 # --- 凭据与本机配置 ---
 .env

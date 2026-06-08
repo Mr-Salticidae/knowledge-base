@@ -1,24 +1,26 @@
 import type { ColorToken } from '../data/sceneSpecs';
 
 export const palette: Record<ColorToken, string> = {
-  navy: '#172554',
-  sky: '#38BDF8',
-  cyan: '#22D3EE',
-  yellow: '#FACC15',
-  orange: '#FB923C',
-  red: '#F87171',
-  green: '#4ADE80',
-  purple: '#A78BFA',
-  white: '#F8FAFC',
-  ink: '#111827',
+  navy: '#244E9A',
+  sky: '#41B6E6',
+  cyan: '#26D0CE',
+  yellow: '#FFD84D',
+  orange: '#FF9F43',
+  red: '#FF5C5C',
+  green: '#48C774',
+  purple: '#8E7CFF',
+  white: '#FFF7E6',
+  ink: '#18233A',
 };
 
 export const theme = {
-  darkText: '#0F172A',
-  text: '#F8FAFC',
-  mutedText: '#CBD5E1',
-  panel: '#111827',
-  panelSoft: '#1F2937',
-  border: '#334155',
-  lightPanel: 'rgba(15, 23, 42, 0.86)',
+  darkText: '#18233A',
+  text: '#18233A',
+  mutedText: '#5D6B86',
+  paper: '#FFF7E6',
+  paperWarm: '#FFE8AD',
+  panel: '#FFFFFF',
+  panelSoft: '#E9F6FF',
+  border: '#18233A',
+  lightPanel: 'rgba(255, 255, 255, 0.9)',
 };

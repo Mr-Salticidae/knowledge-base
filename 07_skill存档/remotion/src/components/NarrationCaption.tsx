@@ -1,6 +1,7 @@
 import React from 'react';
 import { interpolate, useCurrentFrame } from 'remotion';
 import type { NarrationBeat, TextSpec } from '../data/sceneSpecs';
+import { theme } from '../styles/palette';
 
 type Props = {
   beats?: NarrationBeat[];
@@ -38,19 +39,19 @@ export const NarrationCaption: React.FC<Props> = ({ beats, fallbackTexts }) => {
       style={{
         position: 'absolute',
         left: '50%',
-        bottom: 56,
+        bottom: 54,
         transform: `translateX(-50%) translateY(${translateY}px)`,
         zIndex: 30,
-        maxWidth: '76%',
-        padding: emphasis ? '16px 34px' : '14px 30px',
-        borderRadius: 999,
-        background: 'rgba(16, 24, 39, 0.84)',
-        border: '1px solid rgba(255,255,255,0.16)',
-        boxShadow: '0 16px 36px rgba(2, 6, 23, 0.18)',
-        color: '#F8FAFC',
+        maxWidth: '68%',
+        padding: emphasis ? '18px 34px' : '16px 32px',
+        borderRadius: 28,
+        background: '#FFFFFF',
+        border: `6px solid ${theme.border}`,
+        boxShadow: '12px 12px 0 rgba(24, 35, 58, 0.14)',
+        color: theme.darkText,
         fontFamily: '"Microsoft YaHei", "PingFang SC", sans-serif',
-        fontSize: emphasis ? 40 : 32,
-        fontWeight: emphasis ? 800 : 680,
+        fontSize: emphasis ? 42 : 34,
+        fontWeight: emphasis ? 900 : 750,
         lineHeight: 1.25,
         textAlign: 'center',
         whiteSpace: 'normal',

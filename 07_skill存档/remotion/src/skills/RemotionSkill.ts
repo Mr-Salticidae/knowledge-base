@@ -1,10 +1,11 @@
 import type { SceneSpec } from '../data/sceneSpecs';
+import { sceneAssets as plannedSceneAssets } from '../data/sceneAssets';
 
 export type RemotionVideoStyle = {
   visualLanguage?: 'in-a-nutshell-inspired' | 'minimal-card' | 'flat-vector';
   palette?: 'vivid-controlled' | 'dark-card' | 'light-workspace';
   motionPreset?: 'calm' | 'snappy' | 'playful';
-  assetMode?: 'placeholder' | 'svg' | 'image';
+  assetMode?: 'placeholder' | 'svg' | 'image' | 'video' | 'hybrid';
 };
 
 export type ExistingSkillName =
@@ -66,6 +67,15 @@ export type SceneAssetRole =
   | 'caption'
   | 'reference';
 
+export type SceneAssetProvider = 'remotion-native' | 'midjourney' | 'seedance-2.0' | 'manual-import';
+
+export type SceneAssetBinding =
+  | 'native-subject'
+  | 'background-image'
+  | 'foreground-image'
+  | 'video-insert'
+  | 'reference-only';
+
 export type SceneAsset = {
   id: string;
   sceneId: string;
@@ -74,9 +84,13 @@ export type SceneAsset = {
   status: SceneAssetStatus;
   role: SceneAssetRole;
   description: string;
+  provider?: SceneAssetProvider;
+  binding?: SceneAssetBinding;
   sourceSkill?: ExistingSkillName;
   prompt?: string;
+  assetPrompt?: string;
   filePath?: string;
+  expectedPath?: string;
   durationInFrames?: number;
   timeRange?: {
     startFrame: number;
@@ -245,8 +259,11 @@ const createSkillAssets = (skillName: ExistingSkillName, sceneSpecs: SceneSpec[]
         status: 'planned',
         role: 'subject',
         description: `Flat-vector visual prompt request for ${firstScene.concept}`,
+        provider: 'manual-import',
+        binding: 'reference-only',
         sourceSkill: skillName,
         prompt: `Create an in-a-nutshell-inspired flat-vector explainer visual for: ${firstScene.concept}`,
+        assetPrompt: `Create an in-a-nutshell-inspired flat-vector explainer visual for: ${firstScene.concept}`,
         styleTags: ['flat-vector', 'vivid-controlled', 'explainer'],
       },
     ];
@@ -261,6 +278,8 @@ const createSkillAssets = (skillName: ExistingSkillName, sceneSpecs: SceneSpec[]
         status: 'planned',
         role: 'transition',
         description: 'Dry-run editing plan placeholder for future ffmpeg or BGM cut workflow.',
+        provider: 'remotion-native',
+        binding: 'reference-only',
         sourceSkill: skillName,
         durationInFrames: getDuration(sceneSpecs),
         constraints: ['dryRun only', 'no render', 'no ffmpeg execution'],
@@ -277,6 +296,8 @@ const createSkillAssets = (skillName: ExistingSkillName, sceneSpecs: SceneSpec[]
         status: 'requested',
         role: 'music',
         description: 'Dry-run BGM brief request reserved for later audio stage.',
+        provider: 'manual-import',
+        binding: 'reference-only',
         sourceSkill: skillName,
         durationInFrames: getDuration(sceneSpecs),
         constraints: ['do not generate audio in this stage'],
@@ -292,6 +313,8 @@ const createSkillAssets = (skillName: ExistingSkillName, sceneSpecs: SceneSpec[]
       status: 'planned',
       role: 'reference',
       description: `Dry-run placeholder showing ${skillName} is callable from RemotionSkill.`,
+      provider: 'remotion-native',
+      binding: 'reference-only',
       sourceSkill: skillName,
     },
   ];
@@ -349,6 +372,8 @@ const createBaseSceneAssets = (sceneSpecs: SceneSpec[]): SceneAsset[] =>
       status: 'planned',
       role: 'background',
       description: `${scene.background} background placeholder for ${scene.goal}`,
+      provider: 'remotion-native',
+      binding: 'background-image',
       styleTags: [scene.background, scene.layout],
     },
     ...scene.subjects.map<SceneAsset>((subject) => ({
@@ -359,6 +384,8 @@ const createBaseSceneAssets = (sceneSpecs: SceneSpec[]): SceneAsset[] =>
       status: 'planned',
       role: 'subject',
       description: `${subject.type} subject placeholder bound to ${scene.id}.${subject.id}`,
+      provider: 'remotion-native',
+      binding: 'native-subject',
       styleTags: [subject.type, subject.colorToken],
       metadata: {
         x: subject.position.x,
@@ -402,7 +429,11 @@ export const createVideo = async (params: CreateVideoParams): Promise<RenderResu
     logs.push(...validateSceneSpecs(params.sceneSpecs));
 
     const skillResults = await callSkillAdapters(params);
-    const sceneAssets = [...createBaseSceneAssets(params.sceneSpecs), ...skillResults.flatMap((result) => result.assets ?? [])];
+    const sceneAssets = [
+      ...createBaseSceneAssets(params.sceneSpecs),
+      ...plannedSceneAssets,
+      ...skillResults.flatMap((result) => result.assets ?? []),
+    ];
     const durationInFrames = getDuration(params.sceneSpecs, params.durationInFrames);
 
     logs.push(`sceneSpecs 已绑定：${params.sceneSpecs.length} scenes。`);
@@ -410,6 +441,7 @@ export const createVideo = async (params: CreateVideoParams): Promise<RenderResu
     logs.push(`风格：${style.visualLanguage} / ${style.palette} / ${style.motionPreset} / ${style.assetMode}。`);
 
     logs.push(`sceneAssets 已生成：${sceneAssets.length} assets。`);
+    logs.push(`v0.2 计划资产已挂载：${plannedSceneAssets.length} assets。`);
 
     if (params.dryRun === false) {
       logs.push('实际 Remotion 渲染接口尚未启用，当前返回 planned 状态。');

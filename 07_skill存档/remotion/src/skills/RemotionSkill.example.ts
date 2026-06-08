@@ -4,7 +4,7 @@ import { createVideo } from './RemotionSkill';
 export const runRemotionSkillExample = async () =>
   createVideo({
     sceneSpecs,
-    callExistingSkills: ['ai-short-film-breakdown', 'aigc-prompt-optimizer', 'blind-editing-workflow'],
+    callExistingSkills: ['ai-short-film-breakdown', 'aigc-prompt-optimizer', 'blind-editing-workflow', 'character-consistency-mj'],
     outputPath: 'out/skill-is-all-you-need.mp4',
     dryRun: true,
     style: {
