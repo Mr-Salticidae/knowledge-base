@@ -80,7 +80,7 @@ tags: [类型/skill存档]
 
 2026-06-05 补充：当跳蛛先生明确说明是子会话临时任务且“不需要写回执”时，当前指令优先，不写回执。
 
-调用方式：在对话开始时告知 Claude SKILL_INDEX.md 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
+调用方式：在对话开始时告知 Claude `07_skill存档/SKILL_INDEX.md` 位置，Claude 读取索引后自动判断触发并 Read 对应 SKILL.md 执行，无需安装。
 
 ### ai-short-film-screenwriting v1.0（2026-06-04）
 
