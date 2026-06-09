@@ -1,6 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, Series } from 'remotion';
 import { fullFilmVoiceoverTiming } from '../audio/generated/fullFilmVoiceoverTiming';
+import { FullFilmBgmAudio } from '../components/FullFilmBgmAudio';
 import { FullFilmVoiceoverAudio } from '../components/FullFilmVoiceoverAudio';
 import { SceneRenderer } from '../components/SceneRenderer';
 import { sceneSpecs, type NarrationBeat, type SceneSpec } from '../data/sceneSpecs';
@@ -48,6 +49,7 @@ const tailHoldFrames = Math.max(
 
 export const FullFilmVideo: React.FC = () => (
   <AbsoluteFill style={{ background: '#0F172A' }}>
+    <FullFilmBgmAudio />
     <FullFilmVoiceoverAudio />
     <Series>
       {timelineScenes.map((scene, index) => (

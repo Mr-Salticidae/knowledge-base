@@ -78,5 +78,5 @@ status: `brief_ready`
 notes:
 
 - 旁白已由 Eleven 生成并接入 `SkillIsAllYouNeedFullFilm`；
-- 全片真实时长为 6746 帧，30fps，约 224.87 秒；
+- 全片真实时长为 6765 帧，30fps，约 225.50 秒；
 - 本阶段只执行 Suno 探索 brief，不直接锁死 Custom Mode。

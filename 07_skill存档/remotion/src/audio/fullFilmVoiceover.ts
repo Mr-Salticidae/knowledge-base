@@ -6,8 +6,6 @@ export type FullFilmVoiceoverBeat = {
   ttsText: string;
 };
 
-const captionFrom = (text: string) => text.replace(/\[[^\]]+\]\s*/g, '').trim();
-
 const beat = (
   id: string,
   section: FullFilmVoiceoverBeat['section'],
@@ -17,7 +15,7 @@ const beat = (
   id,
   section,
   sceneId,
-  caption: captionFrom(ttsText),
+  caption: ttsText,
   ttsText,
 });
 
@@ -26,7 +24,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
     'intro_01_same_ai_forgets',
     'intro',
     'scene_00_intro_question',
-    '[curious] 同一个 AI，昨天刚教会它你的偏好，今天换个新对话，它又像第一次见你一样。',
+    '同一个 AI，昨天刚教会它你的偏好，今天换个新对话，它又像第一次见你一样。',
   ),
   beat(
     'intro_02_repeat_process',
@@ -44,9 +42,9 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
     'intro_04_skill_promise',
     'intro',
     'scene_00_intro_question',
-    '[slight pause] 它应该记住流程，调用工具，并且稳定复现一套做事方法。这就是这期视频要讲的东西：Skill。',
+    '它应该记住流程，调用工具，并且稳定复现一套做事方法。这就是这期视频要讲的东西：Skill。',
   ),
-  beat('teaching_01_skill_word', 'teaching', 'scene_01_hook', '[calm] 你可能听过一个很酷的词：Skill。'),
+  beat('teaching_01_skill_word', 'teaching', 'scene_01_hook', '你可能听过一个很酷的词：Skill。'),
   beat('teaching_02_plugin_misread', 'teaching', 'scene_01_hook', '很多人以为它是神秘插件。'),
   beat('teaching_03_not_magic', 'teaching', 'scene_01_hook', '但真正有用的地方，不在神秘感。'),
   beat('teaching_04_smart_assistant', 'teaching', 'scene_02_forgetful_assistant', '想象你雇了一位聪明的 AI 助理。'),
@@ -61,7 +59,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   beat('teaching_13_markdown_file', 'teaching', 'scene_05_markdown_structure', '它通常就是一个 Markdown 文件。'),
   beat('teaching_14_yaml_trigger', 'teaching', 'scene_05_markdown_structure', '前面写触发条件：什么时候调用。'),
   beat('teaching_15_body_rules', 'teaching', 'scene_05_markdown_structure', '正文写工作规则：怎么执行。'),
-  beat('teaching_16_index_metaphor', 'teaching', 'scene_06_skill_index', 'SKILL_INDEX 像图书馆索引。'),
+  beat('teaching_16_index_metaphor', 'teaching', 'scene_06_skill_index', '技能索引像图书馆索引。'),
   beat('teaching_17_where_to_find', 'teaching', 'scene_06_skill_index', '它告诉 AI：有哪些手册、放在哪里。'),
   beat('teaching_18_when_to_use', 'teaching', 'scene_06_skill_index', '也告诉 AI：什么时候取哪一本。'),
   beat('teaching_19_not_magic', 'teaching', 'scene_07_common_mistakes', '第一个误区：把 Skill 当魔法。'),
@@ -70,7 +68,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   beat('teaching_22_not_the_end', 'teaching', 'scene_08_ending_system', '最后，Skill 不是终点。'),
   beat('teaching_23_personal_system', 'teaching', 'scene_08_ending_system', '它让工作流变成个人系统。'),
   beat('teaching_24_skill_library', 'teaching', 'scene_08_ending_system', '手册越多，能力库越完整。'),
-  beat('author_01_thanks', 'author-note', 'author_01_loop_closed', '[warm] 感谢你看到这里。'),
+  beat('author_01_thanks', 'author-note', 'author_01_loop_closed', '感谢你看到这里。'),
   beat('author_02_loop_closed', 'author-note', 'author_01_loop_closed', '如果你喜欢这期视频，那么这条链路就顺利完成了闭环。'),
   beat(
     'author_03_ai_made_this',
@@ -111,7 +109,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
     'author_04_stack',
     'Midjourney 负责建立视觉锚点。Seedance 负责让图里的机制动起来。Eleven 负责把文稿变成声音。Suno 负责让情绪有一条底层轨道。Remotion 负责时间线、字幕和最终合成。',
   ),
-  beat('author_12_codex_conductor', 'author-note', 'author_05_codex_conductor', '[confident] 而 Codex，是总指挥。'),
+  beat('author_12_codex_conductor', 'author-note', 'author_05_codex_conductor', '而 Codex，是总指挥。'),
   beat(
     'author_13_skill_process',
     'author-note',
@@ -126,10 +124,10 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   ),
   beat('author_15_need_you', 'author-note', 'author_06_industrialization', '而这个调优过程，需要各位的参与。'),
   beat('author_16_limited', 'author-note', 'author_06_industrialization', '我的能力有限，只能抛砖引玉。'),
-  beat('author_17_personal_view', 'author-note', 'author_07_open_source', '[slight pause] 最后，我想记录一些个人看法。'),
+  beat('author_17_personal_view', 'author-note', 'author_07_open_source', '最后，我想记录一些个人看法。'),
   beat('author_18_can_close', 'author-note', 'author_07_open_source', '不感兴趣的话，现在可以酌情关闭视频了。'),
   beat('author_19_question', 'author-note', 'author_07_open_source', '有朋友问我：这个项目这么有价值，还要坚持开源吗？'),
-  beat('author_20_open_source', 'author-note', 'author_07_open_source', '[firm] 我的回答是：开源。而且是一定要开源。'),
+  beat('author_20_open_source', 'author-note', 'author_07_open_source', '我的回答是：开源。而且是一定要开源。'),
   beat('author_21_face', 'author-note', 'author_07_open_source', '就要狠狠打字节的脸。'),
   beat(
     'author_22_final_statement',
@@ -137,7 +135,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
     'author_07_open_source',
     '因为，正如群星必须回归轨道，“无产阶级”的铡刀也终将落下。',
   ),
-  beat('outro_01_title', 'outro', 'author_08_final_words', '[calm] Skill Is All You Need。'),
+  beat('outro_01_title', 'outro', 'author_08_final_words', 'Skill Is All You Need。'),
   beat('outro_02_method', 'outro', 'author_08_final_words', '把流程写成手册，把手册交给 AI，把想法变成作品。'),
   beat('outro_03_credit', 'outro', 'author_08_final_words', '作者：跳蛛先生。'),
 ];

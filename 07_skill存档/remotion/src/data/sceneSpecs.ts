@@ -342,11 +342,11 @@ export const sceneSpecs: SceneSpec[] = [
   {
     id: 'scene_06_skill_index',
     durationInFrames: 420,
-    goal: '说明 SKILL_INDEX 是索引。',
+    goal: '说明技能索引是索引层。',
     concept: 'AI 进入图书馆查索引并取书。',
-    narration: 'SKILL_INDEX 像图书馆索引，告诉 AI 有哪些手册、何时调用、去哪里找。',
+    narration: '技能索引像图书馆索引，告诉 AI 有哪些手册、何时调用、去哪里找。',
     narrationBeats: [
-      { id: 'beat_01_index_metaphor', startFrame: 0, durationInFrames: 120, text: 'SKILL_INDEX 像图书馆索引。', emphasis: true, linkedSubjectIds: ['index', 'shelf'] },
+      { id: 'beat_01_index_metaphor', startFrame: 0, durationInFrames: 120, text: '技能索引像图书馆索引。', emphasis: true, linkedSubjectIds: ['index', 'shelf'] },
       { id: 'beat_02_where_to_find', startFrame: 120, durationInFrames: 130, text: '它告诉 AI：有哪些手册、放在哪里。', linkedSubjectIds: ['assistant', 'shelf', 'index'] },
       { id: 'beat_03_when_to_use', startFrame: 250, durationInFrames: 130, text: '也告诉 AI：什么时候取哪一本。', linkedSubjectIds: ['book', 'assistant'] },
     ],
@@ -359,7 +359,7 @@ export const sceneSpecs: SceneSpec[] = [
       { id: 'book', type: 'manual', position: { x: 74, y: 64 }, size: { w: 220, h: 180 }, colorToken: 'green', label: 'Prompt Skill' },
     ],
     texts: [
-      { id: 'top', text: 'SKILL_INDEX 是索引', position: 'top', emphasis: true },
+      { id: 'top', text: '技能索引是索引', position: 'top', emphasis: true },
       { id: 'bottom', text: 'AI 先查目录，再取手册', position: 'bottom' },
     ],
     motion: [

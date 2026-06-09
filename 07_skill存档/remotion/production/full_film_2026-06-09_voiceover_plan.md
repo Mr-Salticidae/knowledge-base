@@ -40,7 +40,7 @@ ELEVENLABS_MODEL_ID=eleven_v3
 | 17 | teaching | scene_05_markdown_structure | teaching_13_markdown_file | 它通常就是一个 Markdown 文件。 |
 | 18 | teaching | scene_05_markdown_structure | teaching_14_yaml_trigger | 前面写触发条件：什么时候调用。 |
 | 19 | teaching | scene_05_markdown_structure | teaching_15_body_rules | 正文写工作规则：怎么执行。 |
-| 20 | teaching | scene_06_skill_index | teaching_16_index_metaphor | SKILL_INDEX 像图书馆索引。 |
+| 20 | teaching | scene_06_skill_index | teaching_16_index_metaphor | 技能索引像图书馆索引。 |
 | 21 | teaching | scene_06_skill_index | teaching_17_where_to_find | 它告诉 AI：有哪些手册、放在哪里。 |
 | 22 | teaching | scene_06_skill_index | teaching_18_when_to_use | 也告诉 AI：什么时候取哪一本。 |
 | 23 | teaching | scene_07_common_mistakes | teaching_19_not_magic | 第一个误区：把 Skill 当魔法。 |
