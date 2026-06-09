@@ -160,6 +160,7 @@
 - [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] —— AI 音乐公益 MV 实战复盘:Suno + MJ 抽象视觉 + 蒙眼剪辑 + Demucs/WhisperX 字幕链路
 - [[2026-06-08_Remotion_MJ_Seedance混合动画闭环复盘]] —— Remotion v0.2 单场景验证,沉淀"MJ 建视觉锚 / Seedance 动机制 / Remotion 管信息层"的混合动画闭环
 - [[2026-06-08_Remotion正式小片段v3复盘]] —— `Skill is All You Need` 正式 30s 小片段通过版复盘,沉淀"Eleven v3 前置,用口播时长反推 Seedance 时长"规则
+- [[2026-06-09_Remotion全片音频字幕BGM复盘]] —— `Skill Is All You Need` 全片草稿音频复盘,沉淀"字幕口播同文 / Suno 成品二次剪辑 / 旁白驱动视频音频先行"规则
 - [[Remotion正式小片段实验工作流防偏移]] —— Remotion 正式 20-30s 小片段实验防偏移约束:必须先锁定分段 TTS timing,再进入 MJ / Seedance / Remotion,不能用 Remotion-only 草稿冒充正式验证
 
 ### 主题脉络七:IP 视觉系统
