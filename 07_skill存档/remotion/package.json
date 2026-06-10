@@ -6,6 +6,7 @@
     "start": "remotion studio src/index.ts",
     "dev": "remotion studio src/index.ts",
     "render": "remotion render src/index.ts SkillIsAllYouNeed out/skill-is-all-you-need.mp4",
+    "render:full-film": "remotion render src/index.ts SkillIsAllYouNeedFullFilm out/skill-is-all-you-need-full-film.mp4",
     "generate:voiceover": "tsx scripts/generate-voiceover.ts",
     "design:scene04-voice": "tsx scripts/design-scene04-voice.ts",
     "save:scene04-designed-voice": "tsx scripts/save-scene04-designed-voice.ts",
