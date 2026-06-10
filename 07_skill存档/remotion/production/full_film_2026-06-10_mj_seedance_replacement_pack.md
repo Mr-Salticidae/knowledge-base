@@ -295,3 +295,65 @@ Seedance:
 ## 下一步
 
 先生成 A 批次的 6 张 Midjourney 关键图。选图通过后，再按对应 6 条 Seedance prompt 生成 5 秒动效。
+
+## Intake - 2026-06-10 A 批次 Midjourney
+
+### Intake - scene_00_intro_question
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_educational_explainer_f_215e52a5-09fc-4492-9c9c-726f232ce3ef_0.png`
+- Public path: `public/assets/full_film_20260610/scene_00_intro_question_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 画面有 AI 助理、反复对话气泡、散落流程卡和右下角 Skill 手册，叙事对应度高；底部留白足够，适合叠字幕。
+- Visual issues: 右侧新对话窗口和 Skill 手册之间的因果关系还可以通过 Seedance 动效加强。
+- Integration decision: 归档为 `scene_00_intro_question` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 让左侧旧气泡淡出，散落卡片向 Skill 手册聚合，最后 Skill 手册稳定发光。
+
+### Intake - scene_02_forgetful_assistant
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_educational_explainer_f_a6e92681-609d-4695-942e-7b690cb6d545_1.png`
+- Public path: `public/assets/full_film_20260610/scene_02_forgetful_assistant_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 中央机器人和周围记忆卡片清楚，适合表达“聪明但需要记忆层”；底部安全区干净。
+- Visual issues: 静态图中“失忆 / 重置”不够强，Seedance 需要强化 memory reset 或卡片熄灭。
+- Integration decision: 归档为 `scene_02_forgetful_assistant` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 先点亮记忆卡片，再出现 reset pulse，让卡片变暗或错位，机器人保持困惑。
+
+### Intake - scene_06_skill_index
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_educational_explainer_f_6cef656e-641a-4051-8f11-2d40c9690a39_2.png`
+- Public path: `public/assets/full_film_20260610/scene_06_skill_index_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 机器人持卡和书架关系清楚，图书馆索引隐喻成立；`SKILL` 标签可读但不喧宾夺主。
+- Visual issues: 原 prompt 目标是 `SKILL_INDEX`，当前图只显示 `SKILL`；Remotion 字幕可补足“技能索引”的语义。
+- Integration decision: 归档为 `scene_06_skill_index` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 卡片指向书架，扫描并选中一本手册，强化“索引找到对应 Skill”的动作。
+
+### Intake - author_03_motivation
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_editorial_explainer_fra_50b02dd3-0f23-4363-b65c-f12d46771028_2.png`
+- Public path: `public/assets/full_film_20260610/author_03_motivation_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 创作者桌面、想法云、文稿/输出流向明确，个人动机氛围成立；右侧留白非常适合字幕。
+- Visual issues: “不会剪辑的门槛”在静态图中偏弱，Seedance 需要补充时间线门槛或阻挡感。
+- Integration decision: 归档为 `author_03_motivation` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 想法云从屏幕溢出，先被剪辑门槛挡住，再流入 Skill 或文稿路径。
+
+### Intake - author_04_stack
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_workflow_diagram_six_cl_a1a3baf0-8113-4a98-99a7-c2a5e8619084_0.png`
+- Public path: `public/assets/full_film_20260610/author_04_stack_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 六模块和中心项目卡清楚，图标化程度高，不依赖小字；非常适合作为工具链分工段的主视觉。
+- Visual issues: 中央卡片没有明确 `Skill` 标签，但可以由旁白和字幕承担语义。
+- Integration decision: 归档为 `author_04_stack` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 六模块依次点亮，连线形成环路，最后一圈 pulse 表达 Codex 调度。
+
+### Intake - author_06_industrialization
+
+- MJ selected file: `mr_jumping_spider_premium_flat-vector_educational_workflow_fr_06571a20-40a3-4845-aa18-478cc4e9a2c0_1.png`
+- Public path: `public/assets/full_film_20260610/author_06_industrialization_mj_key_visual.png`
+- Dimensions: `1456x816`
+- Analysis: 文稿进入模块流水线、输出多种视频缩略图的关系明确，适合“工业化地生产成任意风格视频”的段落。
+- Visual issues: 画面线条较细，Seedance 动效不宜过快，否则流程关系会变乱。
+- Integration decision: 归档为 `author_06_industrialization` 的 MJ key visual，状态 `linked`。
+- Seedance direction: 文稿进入管线，模块逐个发光，右侧输出缩略图依次出现并稳定。

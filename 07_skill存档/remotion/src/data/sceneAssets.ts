@@ -10,6 +10,12 @@ export const FORMAL_CLIP_04_SKILL_INDEX_MJ_PATH = 'assets/formal_clip_20260608/0
 export const FORMAL_CLIP_04_SKILL_INDEX_SEEDANCE_PATH = 'assets/formal_clip_20260608/04_skill_index_seedance_motion.mp4';
 export const FORMAL_CLIP_05_TOOL_LOOP_MJ_PATH = 'assets/formal_clip_20260608/05_tool_loop_mj_key_visual.png';
 export const FORMAL_CLIP_05_TOOL_LOOP_SEEDANCE_PATH = 'assets/formal_clip_20260608/05_tool_loop_seedance_motion.mp4';
+export const FULL_FILM_20260610_SCENE_00_MJ_PATH = 'assets/full_film_20260610/scene_00_intro_question_mj_key_visual.png';
+export const FULL_FILM_20260610_SCENE_02_MJ_PATH = 'assets/full_film_20260610/scene_02_forgetful_assistant_mj_key_visual.png';
+export const FULL_FILM_20260610_SCENE_06_MJ_PATH = 'assets/full_film_20260610/scene_06_skill_index_mj_key_visual.png';
+export const FULL_FILM_20260610_AUTHOR_03_MJ_PATH = 'assets/full_film_20260610/author_03_motivation_mj_key_visual.png';
+export const FULL_FILM_20260610_AUTHOR_04_MJ_PATH = 'assets/full_film_20260610/author_04_stack_mj_key_visual.png';
+export const FULL_FILM_20260610_AUTHOR_06_MJ_PATH = 'assets/full_film_20260610/author_06_industrialization_mj_key_visual.png';
 
 export const sceneAssets: SceneAsset[] = [
   {
@@ -71,6 +77,156 @@ export const sceneAssets: SceneAsset[] = [
       crossfadeFrames: 90,
       startFrameInSource: 150,
       editNotesPath: 'production/full_film_2026-06-09_bgm_edit_notes.md',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_scene_00_intro_question_mj_key_visual',
+    sceneId: 'scene_00_intro_question',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: forgetful AI assistant, repeated chat context, scattered workflow cards, and a SKILL handbook solution.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_SCENE_00_MJ_PATH,
+    filePath: FULL_FILM_20260610_SCENE_00_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'intro-question', 'ai-forgets', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the intro question scene',
+      'lower area remains available for Remotion captions',
+      'chat bubbles are abstract and should not be treated as readable text',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_educational_explainer_f_215e52a5-09fc-4492-9c9c-726f232ce3ef_0.png',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_scene_02_forgetful_assistant_mj_key_visual',
+    sceneId: 'scene_02_forgetful_assistant',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: smart assistant with surrounding memory cards and reset-like ambiguity.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_SCENE_02_MJ_PATH,
+    filePath: FULL_FILM_20260610_SCENE_02_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'forgetful-assistant', 'memory-cards', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the forgetful assistant scene',
+      'preserve bottom caption-safe area',
+      'Seedance should make the memory reset more explicit because the static image reads more like memory display shelves',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_educational_explainer_f_a6e92681-609d-4695-942e-7b690cb6d545_1.png',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_scene_06_skill_index_mj_key_visual',
+    sceneId: 'scene_06_skill_index',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: AI assistant holding a SKILL index card beside a library shelf.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_SCENE_06_MJ_PATH,
+    filePath: FULL_FILM_20260610_SCENE_06_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'skill-index', 'library-metaphor', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the skill index scene',
+      'preserve the SKILL label on the index card',
+      'left character and right shelf relationship should remain readable after motion',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_educational_explainer_f_6cef656e-641a-4051-8f11-2d40c9690a39_2.png',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_author_03_motivation_mj_key_visual',
+    sceneId: 'author_03_motivation',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: creator desk, idea cloud, and document flow for the personal motivation section.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_AUTHOR_03_MJ_PATH,
+    filePath: FULL_FILM_20260610_AUTHOR_03_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'author-motivation', 'idea-flow', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the author motivation scene',
+      'image has strong empty right-side space that can support subtitle and motion path',
+      'Seedance should introduce the editing barrier more clearly because the static frame is softer than the prompt target',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_editorial_explainer_fra_50b02dd3-0f23-4363-b65c-f12d46771028_2.png',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_author_04_stack_mj_key_visual',
+    sceneId: 'author_04_stack',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: six production modules arranged around a central project card.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_AUTHOR_04_MJ_PATH,
+    filePath: FULL_FILM_20260610_AUTHOR_04_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'tool-stack', 'workflow-loop', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the tool stack scene',
+      'module icons are abstract enough to avoid tiny unreadable labels',
+      'Seedance should animate the coordination pulse without adding text',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_workflow_diagram_six_cl_a1a3baf0-8113-4a98-99a7-c2a5e8619084_0.png',
+    },
+  },
+  {
+    id: 'asset_full_film_20260610_author_06_industrialization_mj_key_visual',
+    sceneId: 'author_06_industrialization',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description: 'Full-film A-batch Midjourney key visual: manuscript entering modular production stages and producing multiple output thumbnails.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260610_AUTHOR_06_MJ_PATH,
+    filePath: FULL_FILM_20260610_AUTHOR_06_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-a-batch', 'industrialization', 'workflow-pipeline', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the industrialized workflow scene',
+      'line-work pipeline should remain readable after motion',
+      'Seedance should animate staged activation and output thumbnails without making it look like a literal factory',
+    ],
+    metadata: {
+      width: 1456,
+      height: 816,
+      intakeNotesPath: 'production/full_film_2026-06-10_mj_seedance_replacement_pack.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_premium_flat-vector_educational_workflow_fr_06571a20-40a3-4845-aa18-478cc4e9a2c0_1.png',
     },
   },
   {
