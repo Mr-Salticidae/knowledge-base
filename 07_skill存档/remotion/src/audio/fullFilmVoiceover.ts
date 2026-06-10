@@ -128,7 +128,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   beat('author_18_can_close', 'author-note', 'author_07_open_source', '不感兴趣的话，现在可以酌情关闭视频了。'),
   beat('author_19_question', 'author-note', 'author_07_open_source', '有朋友问我：这个项目这么有价值，还要坚持开源吗？'),
   beat('author_20_open_source', 'author-note', 'author_07_open_source', '我的回答是：开源。而且是一定要开源。'),
-  beat('author_21_face', 'author-note', 'author_07_open_source', '就要狠狠打字节的脸。'),
+  beat('author_21_face', 'author-note', 'author_07_open_source', '就要狠狠打所谓大厂的脸。'),
   beat(
     'author_22_final_statement',
     'author-note',

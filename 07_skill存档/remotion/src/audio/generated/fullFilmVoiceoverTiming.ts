@@ -12,7 +12,8 @@ export type FullFilmVoiceoverTimingBeat = {
 export const fullFilmVoiceoverTiming = {
   hasGeneratedAudio: true,
   fps: 30,
-  totalFrames: 6765,
+  playbackRate: 1.05,
+  totalFrames: 6492,
   beats: [
     {
         "id": "intro_01_same_ai_forgets",
@@ -21,7 +22,7 @@ export const fullFilmVoiceoverTiming = {
         "caption": "同一个 AI，昨天刚教会它你的偏好，今天换个新对话，它又像第一次见你一样。",
         "audioSrc": "audio/full_film_20260609/intro_01_same_ai_forgets.mp3",
         "startFrame": 0,
-        "durationInFrames": 230,
+        "durationInFrames": 219,
         "durationSeconds": 7.235918
     },
     {
@@ -30,8 +31,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_00_intro_question",
         "caption": "你明明已经总结过流程，但每次开工，还是要重新解释一遍。",
         "audioSrc": "audio/full_film_20260609/intro_02_repeat_process.mp3",
-        "startFrame": 230,
-        "durationInFrames": 172,
+        "startFrame": 219,
+        "durationInFrames": 165,
         "durationSeconds": 5.32898
     },
     {
@@ -40,8 +41,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_00_intro_question",
         "caption": "如果 AI 真的能帮我们工作，那它不该只会回答问题。",
         "audioSrc": "audio/full_film_20260609/intro_03_should_remember.mp3",
-        "startFrame": 402,
-        "durationInFrames": 148,
+        "startFrame": 384,
+        "durationInFrames": 142,
         "durationSeconds": 4.519184
     },
     {
@@ -50,8 +51,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_00_intro_question",
         "caption": "它应该记住流程，调用工具，并且稳定复现一套做事方法。这就是这期视频要讲的东西：Skill。",
         "audioSrc": "audio/full_film_20260609/intro_04_skill_promise.mp3",
-        "startFrame": 550,
-        "durationInFrames": 273,
+        "startFrame": 526,
+        "durationInFrames": 260,
         "durationSeconds": 8.672653
     },
     {
@@ -60,8 +61,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_01_hook",
         "caption": "你可能听过一个很酷的词：Skill。",
         "audioSrc": "audio/full_film_20260609/teaching_01_skill_word.mp3",
-        "startFrame": 823,
-        "durationInFrames": 98,
+        "startFrame": 786,
+        "durationInFrames": 94,
         "durationSeconds": 2.847347
     },
     {
@@ -70,8 +71,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_01_hook",
         "caption": "很多人以为它是神秘插件。",
         "audioSrc": "audio/full_film_20260609/teaching_02_plugin_misread.mp3",
-        "startFrame": 921,
-        "durationInFrames": 81,
+        "startFrame": 880,
+        "durationInFrames": 77,
         "durationSeconds": 2.272653
     },
     {
@@ -80,8 +81,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_01_hook",
         "caption": "但真正有用的地方，不在神秘感。",
         "audioSrc": "audio/full_film_20260609/teaching_03_not_magic.mp3",
-        "startFrame": 1002,
-        "durationInFrames": 93,
+        "startFrame": 957,
+        "durationInFrames": 89,
         "durationSeconds": 2.690612
     },
     {
@@ -90,8 +91,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_02_forgetful_assistant",
         "caption": "想象你雇了一位聪明的 AI 助理。",
         "audioSrc": "audio/full_film_20260609/teaching_04_smart_assistant.mp3",
-        "startFrame": 1095,
-        "durationInFrames": 98,
+        "startFrame": 1046,
+        "durationInFrames": 94,
         "durationSeconds": 2.847347
     },
     {
@@ -100,8 +101,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_02_forgetful_assistant",
         "caption": "它理解很快，执行也很快。",
         "audioSrc": "audio/full_film_20260609/teaching_05_fast_execution.mp3",
-        "startFrame": 1193,
-        "durationInFrames": 85,
+        "startFrame": 1140,
+        "durationInFrames": 82,
         "durationSeconds": 2.429388
     },
     {
@@ -110,8 +111,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_02_forgetful_assistant",
         "caption": "但每次新对话前，它都会失忆。",
         "audioSrc": "audio/full_film_20260609/teaching_06_forgets_every_time.mp3",
-        "startFrame": 1278,
-        "durationInFrames": 93,
+        "startFrame": 1222,
+        "durationInFrames": 89,
         "durationSeconds": 2.690612
     },
     {
@@ -120,8 +121,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_skill_as_manual",
         "caption": "Skill 更像一本岗位手册。",
         "audioSrc": "audio/full_film_20260609/teaching_07_manual_metaphor.mp3",
-        "startFrame": 1371,
-        "durationInFrames": 76,
+        "startFrame": 1311,
+        "durationInFrames": 73,
         "durationSeconds": 2.115918
     },
     {
@@ -130,8 +131,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_skill_as_manual",
         "caption": "它把角色、流程和规则写清楚。",
         "audioSrc": "audio/full_film_20260609/teaching_08_role_workflow_rules.mp3",
-        "startFrame": 1447,
-        "durationInFrames": 98,
+        "startFrame": 1384,
+        "durationInFrames": 94,
         "durationSeconds": 2.847347
     },
     {
@@ -140,8 +141,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_skill_as_manual",
         "caption": "下次 AI 接手，就不用从头教。",
         "audioSrc": "audio/full_film_20260609/teaching_09_repeatable_work.mp3",
-        "startFrame": 1545,
-        "durationInFrames": 90,
+        "startFrame": 1478,
+        "durationInFrames": 86,
         "durationSeconds": 2.586122
     },
     {
@@ -150,8 +151,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_04_repeat_to_skill",
         "caption": "反复教同一件事，先别急着加 prompt。",
         "audioSrc": "audio/full_film_20260609/teaching_10_repeated_instruction.mp3",
-        "startFrame": 1635,
-        "durationInFrames": 107,
+        "startFrame": 1564,
+        "durationInFrames": 103,
         "durationSeconds": 3.160816
     },
     {
@@ -160,8 +161,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_04_repeat_to_skill",
         "caption": "重复的格式、流程和避坑，就是模式。",
         "audioSrc": "audio/full_film_20260609/teaching_11_patterns_emerge.mp3",
-        "startFrame": 1742,
-        "durationInFrames": 114,
+        "startFrame": 1667,
+        "durationInFrames": 110,
         "durationSeconds": 3.395918
     },
     {
@@ -170,8 +171,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_04_repeat_to_skill",
         "caption": "把模式压缩成手册，它就变成 Skill。",
         "audioSrc": "audio/full_film_20260609/teaching_12_compress_to_skill.mp3",
-        "startFrame": 1856,
-        "durationInFrames": 119,
+        "startFrame": 1777,
+        "durationInFrames": 114,
         "durationSeconds": 3.552653
     },
     {
@@ -180,8 +181,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_05_markdown_structure",
         "caption": "它通常就是一个 Markdown 文件。",
         "audioSrc": "audio/full_film_20260609/teaching_13_markdown_file.mp3",
-        "startFrame": 1975,
-        "durationInFrames": 85,
+        "startFrame": 1891,
+        "durationInFrames": 82,
         "durationSeconds": 2.429388
     },
     {
@@ -190,8 +191,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_05_markdown_structure",
         "caption": "前面写触发条件：什么时候调用。",
         "audioSrc": "audio/full_film_20260609/teaching_14_yaml_trigger.mp3",
-        "startFrame": 2060,
-        "durationInFrames": 103,
+        "startFrame": 1973,
+        "durationInFrames": 98,
         "durationSeconds": 3.004082
     },
     {
@@ -200,8 +201,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_05_markdown_structure",
         "caption": "正文写工作规则：怎么执行。",
         "audioSrc": "audio/full_film_20260609/teaching_15_body_rules.mp3",
-        "startFrame": 2163,
-        "durationInFrames": 103,
+        "startFrame": 2071,
+        "durationInFrames": 98,
         "durationSeconds": 3.004082
     },
     {
@@ -210,8 +211,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_skill_index",
         "caption": "技能索引像图书馆索引。",
         "audioSrc": "audio/full_film_20260609/teaching_16_index_metaphor.mp3",
-        "startFrame": 2266,
-        "durationInFrames": 85,
+        "startFrame": 2169,
+        "durationInFrames": 82,
         "durationSeconds": 2.429388
     },
     {
@@ -220,8 +221,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_skill_index",
         "caption": "它告诉 AI：有哪些手册、放在哪里。",
         "audioSrc": "audio/full_film_20260609/teaching_17_where_to_find.mp3",
-        "startFrame": 2351,
-        "durationInFrames": 114,
+        "startFrame": 2251,
+        "durationInFrames": 110,
         "durationSeconds": 3.395918
     },
     {
@@ -230,8 +231,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_skill_index",
         "caption": "也告诉 AI：什么时候取哪一本。",
         "audioSrc": "audio/full_film_20260609/teaching_18_when_to_use.mp3",
-        "startFrame": 2465,
-        "durationInFrames": 98,
+        "startFrame": 2361,
+        "durationInFrames": 94,
         "durationSeconds": 2.847347
     },
     {
@@ -240,8 +241,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_common_mistakes",
         "caption": "第一个误区：把 Skill 当魔法。",
         "audioSrc": "audio/full_film_20260609/teaching_19_not_magic.mp3",
-        "startFrame": 2563,
-        "durationInFrames": 98,
+        "startFrame": 2455,
+        "durationInFrames": 94,
         "durationSeconds": 2.847347
     },
     {
@@ -250,8 +251,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_common_mistakes",
         "caption": "第二个误区：漏掉引用文件。",
         "audioSrc": "audio/full_film_20260609/teaching_20_missing_files.mp3",
-        "startFrame": 2661,
-        "durationInFrames": 90,
+        "startFrame": 2549,
+        "durationInFrames": 86,
         "durationSeconds": 2.586122
     },
     {
@@ -260,8 +261,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_common_mistakes",
         "caption": "第三个误区：没有版本存档。",
         "audioSrc": "audio/full_film_20260609/teaching_21_no_backup.mp3",
-        "startFrame": 2751,
-        "durationInFrames": 88,
+        "startFrame": 2635,
+        "durationInFrames": 84,
         "durationSeconds": 2.507755
     },
     {
@@ -270,8 +271,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_ending_system",
         "caption": "最后，Skill 不是终点。",
         "audioSrc": "audio/full_film_20260609/teaching_22_not_the_end.mp3",
-        "startFrame": 2839,
-        "durationInFrames": 74,
+        "startFrame": 2719,
+        "durationInFrames": 71,
         "durationSeconds": 2.037551
     },
     {
@@ -280,8 +281,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_ending_system",
         "caption": "它让工作流变成个人系统。",
         "audioSrc": "audio/full_film_20260609/teaching_23_personal_system.mp3",
-        "startFrame": 2913,
-        "durationInFrames": 85,
+        "startFrame": 2790,
+        "durationInFrames": 82,
         "durationSeconds": 2.429388
     },
     {
@@ -290,8 +291,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_ending_system",
         "caption": "手册越多，能力库越完整。",
         "audioSrc": "audio/full_film_20260609/teaching_24_skill_library.mp3",
-        "startFrame": 2998,
-        "durationInFrames": 90,
+        "startFrame": 2872,
+        "durationInFrames": 86,
         "durationSeconds": 2.586122
     },
     {
@@ -300,8 +301,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_01_loop_closed",
         "caption": "感谢你看到这里。",
         "audioSrc": "audio/full_film_20260609/author_01_thanks.mp3",
-        "startFrame": 3088,
-        "durationInFrames": 64,
+        "startFrame": 2958,
+        "durationInFrames": 62,
         "durationSeconds": 1.724082
     },
     {
@@ -310,8 +311,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_01_loop_closed",
         "caption": "如果你喜欢这期视频，那么这条链路就顺利完成了闭环。",
         "audioSrc": "audio/full_film_20260609/author_02_loop_closed.mp3",
-        "startFrame": 3152,
-        "durationInFrames": 143,
+        "startFrame": 3020,
+        "durationInFrames": 137,
         "durationSeconds": 4.362449
     },
     {
@@ -320,8 +321,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_02_ai_made_this",
         "caption": "这条视频，除了文稿的核心，以及我现在说的这些话以外，全部是 AI 制作的。",
         "audioSrc": "audio/full_film_20260609/author_03_ai_made_this.mp3",
-        "startFrame": 3295,
-        "durationInFrames": 201,
+        "startFrame": 3157,
+        "durationInFrames": 192,
         "durationSeconds": 6.269388
     },
     {
@@ -330,8 +331,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_02_ai_made_this",
         "caption": "包括但不限于：图片、动画、配音、配乐，以及剪辑。",
         "audioSrc": "audio/full_film_20260609/author_04_assets.mp3",
-        "startFrame": 3496,
-        "durationInFrames": 175,
+        "startFrame": 3349,
+        "durationInFrames": 167,
         "durationSeconds": 5.407347
     },
     {
@@ -340,8 +341,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_03_motivation",
         "caption": "这也是我追求的目标。",
         "audioSrc": "audio/full_film_20260609/author_05_goal.mp3",
-        "startFrame": 3671,
-        "durationInFrames": 62,
+        "startFrame": 3516,
+        "durationInFrames": 60,
         "durationSeconds": 1.645714
     },
     {
@@ -350,8 +351,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_03_motivation",
         "caption": "我有很多稀奇古怪的想法，但是苦于不会剪辑，无法表达。",
         "audioSrc": "audio/full_film_20260609/author_06_cant_edit.mp3",
-        "startFrame": 3733,
-        "durationInFrames": 175,
+        "startFrame": 3576,
+        "durationInFrames": 167,
         "durationSeconds": 5.407347
     },
     {
@@ -360,8 +361,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_03_motivation",
         "caption": "所以我做了这个项目。",
         "audioSrc": "audio/full_film_20260609/author_07_project_reason.mp3",
-        "startFrame": 3908,
-        "durationInFrames": 60,
+        "startFrame": 3743,
+        "durationInFrames": 57,
         "durationSeconds": 1.567347
     },
     {
@@ -370,8 +371,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_03_motivation",
         "caption": "它不是为了炫技，而是为了把不会剪辑的人，也接入视频表达。",
         "audioSrc": "audio/full_film_20260609/author_08_not_showoff.mp3",
-        "startFrame": 3968,
-        "durationInFrames": 167,
+        "startFrame": 3800,
+        "durationInFrames": 160,
         "durationSeconds": 5.146122
     },
     {
@@ -380,8 +381,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_04_stack",
         "caption": "技术栈其实很简单：Midjourney，Seedance，Eleven，Remotion，Suno，还有 Codex。",
         "audioSrc": "audio/full_film_20260609/author_09_stack.mp3",
-        "startFrame": 4135,
-        "durationInFrames": 220,
+        "startFrame": 3960,
+        "durationInFrames": 210,
         "durationSeconds": 6.922449
     },
     {
@@ -390,8 +391,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_04_stack",
         "caption": "你大体可以猜到它们各自的分工。",
         "audioSrc": "audio/full_film_20260609/author_10_roles_hint.mp3",
-        "startFrame": 4355,
-        "durationInFrames": 90,
+        "startFrame": 4170,
+        "durationInFrames": 86,
         "durationSeconds": 2.586122
     },
     {
@@ -400,8 +401,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_04_stack",
         "caption": "Midjourney 负责建立视觉锚点。Seedance 负责让图里的机制动起来。Eleven 负责把文稿变成声音。Suno 负责让情绪有一条底层轨道。Remotion 负责时间线、字幕和最终合成。",
         "audioSrc": "audio/full_film_20260609/author_11_tool_roles.mp3",
-        "startFrame": 4445,
-        "durationInFrames": 503,
+        "startFrame": 4256,
+        "durationInFrames": 480,
         "durationSeconds": 16.352653
     },
     {
@@ -410,8 +411,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_05_codex_conductor",
         "caption": "而 Codex，是总指挥。",
         "audioSrc": "audio/full_film_20260609/author_12_codex_conductor.mp3",
-        "startFrame": 4948,
-        "durationInFrames": 69,
+        "startFrame": 4736,
+        "durationInFrames": 66,
         "durationSeconds": 1.880816
     },
     {
@@ -420,8 +421,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_05_codex_conductor",
         "caption": "一切由 Skill 充当标准流程。Codex 引导众多 AI 工具各司其职。",
         "audioSrc": "audio/full_film_20260609/author_13_skill_process.mp3",
-        "startFrame": 5017,
-        "durationInFrames": 182,
+        "startFrame": 4802,
+        "durationInFrames": 174,
         "durationSeconds": 5.642449
     },
     {
@@ -430,8 +431,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_06_industrialization",
         "caption": "理论上，只要把 prompt 调优到足够稳定，就可以把任意文稿，工业化地、自动化地，生产成任意风格的视频。",
         "audioSrc": "audio/full_film_20260609/author_14_industrialize.mp3",
-        "startFrame": 5199,
-        "durationInFrames": 277,
+        "startFrame": 4976,
+        "durationInFrames": 265,
         "durationSeconds": 8.829388
     },
     {
@@ -440,8 +441,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_06_industrialization",
         "caption": "而这个调优过程，需要各位的参与。",
         "audioSrc": "audio/full_film_20260609/author_15_need_you.mp3",
-        "startFrame": 5476,
-        "durationInFrames": 100,
+        "startFrame": 5241,
+        "durationInFrames": 96,
         "durationSeconds": 2.925714
     },
     {
@@ -450,8 +451,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_06_industrialization",
         "caption": "我的能力有限，只能抛砖引玉。",
         "audioSrc": "audio/full_film_20260609/author_16_limited.mp3",
-        "startFrame": 5576,
-        "durationInFrames": 90,
+        "startFrame": 5337,
+        "durationInFrames": 86,
         "durationSeconds": 2.586122
     },
     {
@@ -460,8 +461,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_07_open_source",
         "caption": "最后，我想记录一些个人看法。",
         "audioSrc": "audio/full_film_20260609/author_17_personal_view.mp3",
-        "startFrame": 5666,
-        "durationInFrames": 93,
+        "startFrame": 5423,
+        "durationInFrames": 89,
         "durationSeconds": 2.690612
     },
     {
@@ -470,8 +471,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_07_open_source",
         "caption": "不感兴趣的话，现在可以酌情关闭视频了。",
         "audioSrc": "audio/full_film_20260609/author_18_can_close.mp3",
-        "startFrame": 5759,
-        "durationInFrames": 121,
+        "startFrame": 5512,
+        "durationInFrames": 116,
         "durationSeconds": 3.63102
     },
     {
@@ -480,8 +481,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_07_open_source",
         "caption": "有朋友问我：这个项目这么有价值，还要坚持开源吗？",
         "audioSrc": "audio/full_film_20260609/author_19_question.mp3",
-        "startFrame": 5880,
-        "durationInFrames": 148,
+        "startFrame": 5628,
+        "durationInFrames": 142,
         "durationSeconds": 4.519184
     },
     {
@@ -490,19 +491,19 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_07_open_source",
         "caption": "我的回答是：开源。而且是一定要开源。",
         "audioSrc": "audio/full_film_20260609/author_20_open_source.mp3",
-        "startFrame": 6028,
-        "durationInFrames": 128,
+        "startFrame": 5770,
+        "durationInFrames": 123,
         "durationSeconds": 3.866122
     },
     {
         "id": "author_21_face",
         "section": "author-note",
         "sceneId": "author_07_open_source",
-        "caption": "就要狠狠打字节的脸。",
+        "caption": "就要狠狠打所谓大厂的脸。",
         "audioSrc": "audio/full_film_20260609/author_21_face.mp3",
-        "startFrame": 6156,
-        "durationInFrames": 69,
-        "durationSeconds": 1.880816
+        "startFrame": 5893,
+        "durationInFrames": 80,
+        "durationSeconds": 2.35102
     },
     {
         "id": "author_22_final_statement",
@@ -510,8 +511,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_07_open_source",
         "caption": "因为，正如群星必须回归轨道，“无产阶级”的铡刀也终将落下。",
         "audioSrc": "audio/full_film_20260609/author_22_final_statement.mp3",
-        "startFrame": 6225,
-        "durationInFrames": 201,
+        "startFrame": 5973,
+        "durationInFrames": 192,
         "durationSeconds": 6.269388
     },
     {
@@ -520,8 +521,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_08_final_words",
         "caption": "Skill Is All You Need。",
         "audioSrc": "audio/full_film_20260609/outro_01_title.mp3",
-        "startFrame": 6426,
-        "durationInFrames": 57,
+        "startFrame": 6165,
+        "durationInFrames": 55,
         "durationSeconds": 1.48898
     },
     {
@@ -530,8 +531,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_08_final_words",
         "caption": "把流程写成手册，把手册交给 AI，把想法变成作品。",
         "audioSrc": "audio/full_film_20260609/outro_02_method.mp3",
-        "startFrame": 6483,
-        "durationInFrames": 170,
+        "startFrame": 6220,
+        "durationInFrames": 163,
         "durationSeconds": 5.250612
     },
     {
@@ -540,8 +541,8 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "author_08_final_words",
         "caption": "作者：跳蛛先生。",
         "audioSrc": "audio/full_film_20260609/outro_03_credit.mp3",
-        "startFrame": 6653,
-        "durationInFrames": 67,
+        "startFrame": 6383,
+        "durationInFrames": 64,
         "durationSeconds": 1.802449
     }
 ] satisfies FullFilmVoiceoverTimingBeat[],

@@ -6,7 +6,7 @@ export const FullFilmVoiceoverAudio: React.FC = () => (
   <>
     {fullFilmVoiceoverTiming.beats.map((beat) => (
       <Sequence key={beat.id} from={beat.startFrame} durationInFrames={beat.durationInFrames}>
-        <Audio src={staticFile(beat.audioSrc)} />
+        <Audio src={staticFile(beat.audioSrc)} playbackRate={fullFilmVoiceoverTiming.playbackRate} />
       </Sequence>
     ))}
   </>

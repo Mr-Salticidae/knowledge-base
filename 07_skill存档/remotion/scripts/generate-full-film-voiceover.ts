@@ -9,6 +9,7 @@ const projectRoot = path.resolve(__dirname, '..');
 const envPath = path.join(projectRoot, '.env');
 const fps = 30;
 const outputFormat = 'mp3_44100_128';
+const voiceoverPlaybackRate = Number(process.env.FULL_FILM_VOICEOVER_PLAYBACK_RATE ?? '1.05');
 const audioDir = path.join(projectRoot, 'public', 'audio', 'full_film_20260609');
 const manifestPath = path.join(audioDir, 'voiceover.manifest.json');
 const timingPath = path.join(projectRoot, 'src', 'audio', 'generated', 'fullFilmVoiceoverTiming.ts');
@@ -94,6 +95,7 @@ const writeTimingFile = (beats: GeneratedBeat[], totalFrames: number) => {
 export const fullFilmVoiceoverTiming = {
   hasGeneratedAudio: true,
   fps: ${fps},
+  playbackRate: ${voiceoverPlaybackRate},
   totalFrames: ${totalFrames},
   beats: ${JSON.stringify(beats, null, 4)} satisfies FullFilmVoiceoverTimingBeat[],
 };
@@ -104,6 +106,10 @@ export const fullFilmVoiceoverTiming = {
 
 const main = async () => {
   loadLocalEnv();
+
+  if (!Number.isFinite(voiceoverPlaybackRate) || voiceoverPlaybackRate <= 0) {
+    throw new Error('FULL_FILM_VOICEOVER_PLAYBACK_RATE must be a positive number.');
+  }
 
   const apiKey = requiredEnv('ELEVENLABS_API_KEY');
   const voiceId = requiredEnv('ELEVENLABS_VOICE_ID');
@@ -153,7 +159,7 @@ const main = async () => {
     }
 
     const durationSeconds = durationSecondsFor(filePath);
-    const durationInFrames = Math.max(45, Math.ceil(durationSeconds * fps) + 12);
+    const durationInFrames = Math.max(45, Math.ceil((durationSeconds * fps) / voiceoverPlaybackRate) + 12);
     const audioSrc = `${fullFilmVoiceover.audioPublicDir}/${fileName}`;
 
     generatedBeats.push({
@@ -183,6 +189,7 @@ const main = async () => {
         voiceId,
         source: fullFilmVoiceover.source,
         outputFormat,
+        playbackRate: voiceoverPlaybackRate,
         fps,
         totalFrames,
         tailHoldFrames,

@@ -69,7 +69,7 @@ ELEVENLABS_MODEL_ID=eleven_v3
 | 46 | author-note | author_07_open_source | author_18_can_close | 不感兴趣的话，现在可以酌情关闭视频了。 |
 | 47 | author-note | author_07_open_source | author_19_question | 有朋友问我：这个项目这么有价值，还要坚持开源吗？ |
 | 48 | author-note | author_07_open_source | author_20_open_source | 我的回答是：开源。而且是一定要开源。 |
-| 49 | author-note | author_07_open_source | author_21_face | 就要狠狠打字节的脸。 |
+| 49 | author-note | author_07_open_source | author_21_face | 就要狠狠打所谓大厂的脸。 |
 | 50 | author-note | author_07_open_source | author_22_final_statement | 因为，正如群星必须回归轨道，“无产阶级”的铡刀也终将落下。 |
 | 51 | outro | author_08_final_words | outro_01_title | Skill Is All You Need。 |
 | 52 | outro | author_08_final_words | outro_02_method | 把流程写成手册，把手册交给 AI，把想法变成作品。 |
