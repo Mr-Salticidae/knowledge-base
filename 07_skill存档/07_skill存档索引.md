@@ -17,7 +17,7 @@ tags: [类型/skill存档]
 | Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
 |---|---|---|---|---|---|
 | prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
-| aigc-prompt-optimizer | v1.4 | 2026-06-05 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘、尺度跃迁与巨物地貌化 | Claude + Codex | 待正式复盘 |
+| aigc-prompt-optimizer | v1.5 | 2026-06-09 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘、尺度跃迁、巨物地貌化与构图意图层 | Claude + Codex | 待正式复盘 |
 | blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
 | suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
 | character-consistency-mj | v1.0 | 2026-06-04 | MJ 角色一致性四层金字塔 | Claude + Codex | 待测试 |
@@ -51,11 +51,13 @@ tags: [类型/skill存档]
 - [[aigc-postmortem/SKILL.md]] — Claude only
 - [[ai-short-film-breakdown/SKILL.md]] — Claude only
 
-### aigc-prompt-optimizer v1.4（2026-06-05）
+### aigc-prompt-optimizer v1.5（2026-06-09）
 
 来源：`请你吃个冰淇淋` Midjourney prompt battle 实测迭代与冠军图复盘。
 
 - [[aigc-prompt-optimizer/SKILL.md]] — Claude + Codex
+
+2026-06-09 升级：补入 AIGC 构图意图层 / 画面生成判断层。图片 prompt 在主体、外观、环境之后必须补构图意图，再进入光影、调色和风格；看图反馈时必须判断主体是否明确、视觉重心是否稳定、留白是否服务情绪、背景是否抢戏、是否有前中后景层次。该升级优先服务 MJ / gpt-image 图片生成；Seedance 只做轻量迁移，将静态构图翻译成镜头段落和画面层次。
 
 本次升级补入 prompt battle 工作流：先做题眼发散，再收束主视觉；看图反馈时先诊断主体关系、题眼清晰度、构图光影与质感，再只改关键 prompt 变量；二选一时必须给明确判断；看到冠军图 / 获奖图时先反向复盘其获胜原因并提炼可迁移规则。
 
