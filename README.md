@@ -153,6 +153,7 @@
 - [[蒙眼剪辑法_方法论笔记]] —— AI 初标节奏方案,人类审核反馈;已扩展到 BGM + 角色独白双轨角色 PV
 - [[SKILL入门完全指南]] —— 给没用过 Skill 的 AIGC 同好:SKILL_INDEX 挂载机制、测试、调用、避坑和版本存档
 - [[AIGC_Skill到Remotion视频闭环]] —— Codex Skill + Remotion 的笔记/结构 → TSX → 预览 → 微调 → MP4 视频生产闭环
+- [[Coze技能包创建待验证操作路线]] —— GPT 整理稿转入库的 Coze Agent / Knowledge / Workflow 搭建路线;尚未完成真实 Coze 实操验证
 - [[概念推演型AI短片_TotalPixelSpace]] —— Total Pixel Space 拉片沉淀:用理性前提 + 概念递进 + AI 影像,替代传统三幕剧推进
 - [[现实悖论型AI短片_Jailbird]] —— Jailbird 拉片沉淀:角色一致性不是唯一一致性;视角、情绪和命题稳定也能支撑 AI 短片
 - [[多线交叉型AI短片_TheWindshieldWiper]] —— The Windshield Wiper 拉片沉淀:多角色轮播、少量文字、环境声替代旁白,用主题和情绪统一多线短片
