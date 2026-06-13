@@ -35,6 +35,9 @@ $RECYCLE.BIN/
 # --- 本地实验文件 ---
 日本7天自然放松旅行攻略_东京富士山镰仓.doc
 
+# --- Claude Code 本机 skill 装载(指向 07_skill存档 的目录联接) ---
+.claude/skills/
+
 # --- 编辑器与 IDE 本机配置 ---
 *.swp
 *.swo
