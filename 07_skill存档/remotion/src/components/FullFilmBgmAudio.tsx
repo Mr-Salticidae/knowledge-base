@@ -4,7 +4,7 @@ import { fullFilmVoiceoverTiming } from '../audio/generated/fullFilmVoiceoverTim
 
 const FULL_FILM_FRAMES = fullFilmVoiceoverTiming.totalFrames;
 const AUTHOR_NOTE_START_FRAME =
-  fullFilmVoiceoverTiming.beats.find((beat) => beat.id === 'author_01_thanks')?.startFrame ?? 3034;
+  fullFilmVoiceoverTiming.beats.find((beat) => beat.id === 'author_01_cant_edit')?.startFrame ?? 3000;
 const CROSSFADE_FRAMES = 90;
 const OPEN_BENCH_START_FRAME = 300;
 const NIGHT_WORKSHOP_START_FRAME = 150;
