@@ -146,10 +146,8 @@ def card_cover(path):
     text_tracking(d, (0, sy2), "相隔三千年的同一个动作 —— 书写", deng(34), MUTED,
                   tracking=2, anchor_center=W)
 
-    # 底注(克制:无署名、无名次)
-    d.line([(W//2-70, H-128), (W//2+70, H-128)], fill=HAIR, width=2)
-    text_tracking(d, (0, H-104), "Prompt Battle · 2026.06", msyh(25), MUTED,
-                  tracking=3, anchor_center=W)
+    # 底注:留空,只保留一条克制的居中细线收尾
+    d.line([(W//2-44, H-118), (W//2+44, H-118)], fill=HAIR, width=2)
 
     c.save(path, quality=95)
     print("saved", path)
