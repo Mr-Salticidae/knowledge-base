@@ -137,7 +137,7 @@ tags: [类型/skill存档]
 - [[prompt-master-series/assets/make_cards.py]] — 参数化小红书双卡生成器(Pillow,每期只改顶部 CONFIG)
 - [[prompt-master-series/templates/episode_note_template.md]] — 小白独立笔记骨架(长 · 存档)
 - [[prompt-master-series/templates/xiaohongshu_caption_template.md]] — 小红书正文骨架(短 · 发布,内敛克制)
-- 首期实例:`目标是成为 Prompt 大师/01_对话/`
+- 首期实例:`E:\目标是成为 Prompt 大师\01_对话\`(已独立出库)
 - 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘]]
 
 v1.1.0 升级:新增「阶段 C2 · 写小红书正文」——区分「存档笔记(长)」与「发布正文(短、钩子前置、内敛克制)」,补正文模板与硬规则(不写名次 / 不署名 / emoji 克制 / 标题前置 / 留看图钩子)。
