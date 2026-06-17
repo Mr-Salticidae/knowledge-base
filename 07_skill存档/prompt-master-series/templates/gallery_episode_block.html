@@ -1,0 +1,26 @@
+<!-- 画廊新增一期:复制进 index.html 的 <section class="episodes"> 内,改下面 5 处占位 -->
+<!-- {{NN}} 期号(01/02…) · {{N}} 第几期 · {{主题}} · {{副标题}} · {{小红书链接}} -->
+<article class="ep" id="ep{{NN}}">
+  <div class="ep-head">
+    <span class="ep-no">第 {{N}} 期</span>
+    <span class="ep-title">《{{主题}}》</span>
+  </div>
+  <p class="ep-sub">{{副标题}}</p>
+
+  <div class="gallery">
+    <figure>
+      <img src="{{NN}}_{{主题}}/{{主题}}_封面卡.png" alt="《{{主题}}》封面" loading="lazy">
+      <figcaption>封面</figcaption>
+    </figure>
+    <figure>
+      <img src="{{NN}}_{{主题}}/{{主题}}_prompt拆解卡.png" alt="《{{主题}}》prompt 四层拆解" loading="lazy">
+      <figcaption>prompt 四层拆解</figcaption>
+    </figure>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/Mr-Salticidae/becoming-a-prompt-master/blob/main/{{NN}}_{{主题}}/{{主题}}_笔记.md"><i>›</i>小白笔记</a>
+    <a href="{{小红书链接}}" target="_blank" rel="noopener"><i>›</i>小红书原帖</a>
+    <a href="{{NN}}_{{主题}}/{{主题}}_原图.png"><i>›</i>查看原图</a>
+  </div>
+</article>

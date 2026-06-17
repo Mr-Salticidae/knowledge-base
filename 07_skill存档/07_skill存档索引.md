@@ -30,7 +30,7 @@ tags: [类型/skill存档]
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 | maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
 | song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] |
-| prompt-master-series | v1.1.0 | 2026-06-17 | 系列内容生产:prompt 作品 → 小红书双卡 + 小红书正文 + 小白独立笔记 + 归档封版 | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] |
+| prompt-master-series | v1.2.0 | 2026-06-17 | 系列内容生产:prompt 作品 → 小红书双卡 + 正文 + 小白笔记 + GitHub Pages 画廊上线 | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] |
 
 ### prompt-master v1.6.0 备注
 
@@ -129,18 +129,22 @@ tags: [类型/skill存档]
 - [[song-caption-mv-workflow/references/stay-alive-case-notes.md]] — 实战环境与关键经验
 - 对应复盘：[[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
 
-### prompt-master-series v1.1.0(2026-06-17,首期《对话》跑通)
+### prompt-master-series v1.2.0(2026-06-17,首期《对话》跑通并上线画廊)
 
-来源:本会话把「《对话》获奖图 → 小红书双卡 → 小红书正文 → 小白独立笔记 → 系列归档」的全流程沉淀为可复用 skill。
+来源:本会话把「《对话》获奖图 → 小红书双卡 → 小红书正文 → 小白独立笔记 → 系列归档 → GitHub Pages 画廊」的全流程沉淀为可复用 skill。
 
 - [[prompt-master-series/SKILL.md]] — Claude + Codex
 - [[prompt-master-series/assets/make_cards.py]] — 参数化小红书双卡生成器(Pillow,每期只改顶部 CONFIG)
 - [[prompt-master-series/templates/episode_note_template.md]] — 小白独立笔记骨架(长 · 存档)
 - [[prompt-master-series/templates/xiaohongshu_caption_template.md]] — 小红书正文骨架(短 · 发布,内敛克制)
+- [[prompt-master-series/templates/gallery_episode_block.html]] — 画廊新增一期的 article 区块(小红书入口=活帖直链)
 - 首期实例:`E:\目标是成为 Prompt 大师\01_对话\`(已独立出库)
+- 在线画廊:https://mr-salticidae.github.io/becoming-a-prompt-master/
 - 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘]]
 
 v1.1.0 升级:新增「阶段 C2 · 写小红书正文」——区分「存档笔记(长)」与「发布正文(短、钩子前置、内敛克制)」,补正文模板与硬规则(不写名次 / 不署名 / emoji 克制 / 标题前置 / 留看图钩子)。
+
+v1.2.0 升级:发布物独立到 `E:\目标是成为 Prompt 大师\` 并上线 GitHub Pages 画廊;新增「阶段 E · 发布与上线画廊」与画廊区块模板。约定:画廊「小红书」入口**直链已发布的活帖**(xhslink / 帖子 URL),md 仅作内部存档;帖子链接回填到正文顶部。
 
 定位:面向 AIGC 小白的系列内容生产。克制内敛(不写名次 / 不署名),小白第一(去双链 / 降术语 / 名词小抄)。
 
