@@ -1,6 +1,6 @@
 ---
 name: prompt-master-series
-version: 1.2.1
+version: 1.2.2
 description: 《目标是成为 Prompt 大师》系列内容生产工作流。把一个 prompt battle 主题作品,做成面向 AIGC 小白的一期系列内容:抽象主题破题拆解 + 小红书双卡(封面卡 + prompt 四层拆解卡)+ 内敛克制的小红书正文 + 零前置可独立阅读的小白笔记 + 系列归档封版。当用户说「做成一期 Prompt 大师」「把这个 prompt 拆解成小红书卡片」「写小红书正文 / 发小红书」「写一份小白能看懂的 prompt 笔记」「出 prompt 四层拆解卡」时触发。
 ---
 
@@ -120,7 +120,7 @@ E:\目标是成为 Prompt 大师\
 3. 该区块的「小红书」入口**直链这条帖子链接**(`target="_blank" rel="noopener"`),**不要指向 md 文件**——md 是内部存档,画廊给读者看的是**活帖**。同时把链接回填到 `主题_小红书正文.md` 顶部。
 4. `git add -A && git commit && git push`;GitHub Pages 约 30–60 秒自动重建,画廊更新。
 
-> 画廊每期四件套:**一键复制 Prompt**(读隐藏 `<pre>`)· **小白笔记**(站内弹窗,`marked` 渲染笔记 md,自动修正图片相对路径)· **小红书原帖**(活帖直链)· **原图内嵌可下载**(点击放大 + 下载原图);另含一枚克制的**点赞**按钮(localStorage 记忆 + 轻动画)。
+> 画廊每期四件套:**一键复制 Prompt**(读隐藏 `<pre>`)· **小白笔记**(站内弹窗,`marked` 渲染笔记 md,自动修正图片相对路径)· **小红书原帖**(活帖直链)· **原图内嵌可下载**(点击放大 + 下载原图);另含一枚克制的**点赞**按钮——**全局真实计数**(Abacus serverless 计数,命名空间 `becoming-a-prompt-master`、key `ep{{NN}}`,无需注册/密钥,CORS 已验证;每浏览器一次,localStorage 防重复;轻 pop + 浮心动画)。
 > 公共的 灯箱 / 笔记弹窗 / toast / `<script>` 全站只在 `index.html` 留一份,新增期只追加 `<article>` 区块。
 > xhslink 短链可能带时效;失效就换新链接重新 commit。
 

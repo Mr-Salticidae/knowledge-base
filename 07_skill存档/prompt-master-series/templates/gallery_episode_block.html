@@ -2,6 +2,7 @@
 <!-- 占位:{{NN}}期号(01/02) · {{N}}第几期 · {{主题}} · {{副标题}} · {{小红书链接}} · {{完整prompt}} -->
 <!-- 注意:每期的 prompt <pre> id、复制按钮 data-target、点赞 data-key 都要带 {{NN}} 以保持唯一 -->
 <!-- 依赖:index.html 末尾的公共 灯箱 / 笔记弹窗 / toast / <script>(全站一份,勿重复) -->
+<!-- 点赞=全局计数:Abacus serverless,命名空间 becoming-a-prompt-master,key=ep{{NN}};每浏览器一次(localStorage 防重复),无需注册/密钥;data-counter 必须唯一 -->
 <article class="ep" id="ep{{NN}}" data-folder="{{NN}}_{{主题}}">
   <div class="ep-head">
     <span class="ep-no">第 {{N}} 期</span>
@@ -24,9 +25,10 @@
     <button class="btn note-btn" data-folder="{{NN}}_{{主题}}" data-file="{{主题}}_笔记.md" data-title="第 {{N}} 期《{{主题}}》· 小白笔记"><span class="ic">▤</span>小白笔记</button>
     <a class="btn" href="{{小红书链接}}" target="_blank" rel="noopener"><span class="ic">↗</span>小红书原帖</a>
     <span class="spacer"></span>
-    <button class="like" data-key="like_ep{{NN}}" aria-label="点赞">
+    <button class="like" data-counter="ep{{NN}}" aria-label="点赞">
       <svg viewBox="0 0 24 24"><path d="M12 20.5C5.5 16 3 12.5 3 9.2 3 6.6 5 4.7 7.4 4.7c1.6 0 3 .8 3.8 2.1.2.3.6.3.8 0 .8-1.3 2.2-2.1 3.8-2.1C21 4.7 23 6.6 23 9.2c0 3.3-2.5 6.8-9 11.3-.6.4-1.4.4-2 0z" transform="translate(-1,0)"/></svg>
       <span class="like-txt">喜欢</span>
+      <span class="like-count" aria-hidden="true"></span>
     </button>
   </div>
 
