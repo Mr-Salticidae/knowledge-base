@@ -1,6 +1,6 @@
 ---
 name: prompt-master-series
-version: 1.2.0
+version: 1.2.1
 description: 《目标是成为 Prompt 大师》系列内容生产工作流。把一个 prompt battle 主题作品,做成面向 AIGC 小白的一期系列内容:抽象主题破题拆解 + 小红书双卡(封面卡 + prompt 四层拆解卡)+ 内敛克制的小红书正文 + 零前置可独立阅读的小白笔记 + 系列归档封版。当用户说「做成一期 Prompt 大师」「把这个 prompt 拆解成小红书卡片」「写小红书正文 / 发小红书」「写一份小白能看懂的 prompt 笔记」「出 prompt 四层拆解卡」时触发。
 ---
 
@@ -116,11 +116,12 @@ E:\目标是成为 Prompt 大师\
 ### 阶段 E · 发布与上线画廊
 
 1. 发到小红书,拿到这期帖子的**分享链接**(xhslink 短链或帖子 URL)。
-2. 在 `index.html` 里照 `templates/gallery_episode_block.html` 复制一个 `<article class="ep">` 区块,改 5 处:期号、主题、一句副标、两张卡的图片路径(`NN_主题/...`)、小红书链接。
-3. 该区块的「小红书」入口**直链这条帖子链接**(`target="_blank" rel="noopener"`),**不要再指向 md 文件**——md 是内部存档,画廊给读者看的是**活帖**。同时把链接回填到 `主题_小红书正文.md` 顶部。
+2. 在 `index.html` 里照 `templates/gallery_episode_block.html` 复制一个 `<article class="ep">` 区块,改占位:期号、主题、副标、两张卡图片路径(`NN_主题/...`)、小红书链接、`{{完整prompt}}`;并确保该期的 `prompt{{NN}}` id、复制按钮 `data-target`、点赞 `data-key` 都带唯一 `NN`。
+3. 该区块的「小红书」入口**直链这条帖子链接**(`target="_blank" rel="noopener"`),**不要指向 md 文件**——md 是内部存档,画廊给读者看的是**活帖**。同时把链接回填到 `主题_小红书正文.md` 顶部。
 4. `git add -A && git commit && git push`;GitHub Pages 约 30–60 秒自动重建,画廊更新。
 
-> 画廊三入口约定:**小白笔记**(GitHub blob)· **小红书原帖**(活帖直链)· **查看原图**(站内 png)。
+> 画廊每期四件套:**一键复制 Prompt**(读隐藏 `<pre>`)· **小白笔记**(站内弹窗,`marked` 渲染笔记 md,自动修正图片相对路径)· **小红书原帖**(活帖直链)· **原图内嵌可下载**(点击放大 + 下载原图);另含一枚克制的**点赞**按钮(localStorage 记忆 + 轻动画)。
+> 公共的 灯箱 / 笔记弹窗 / toast / `<script>` 全站只在 `index.html` 留一份,新增期只追加 `<article>` 区块。
 > xhslink 短链可能带时效;失效就换新链接重新 commit。
 
 ---
