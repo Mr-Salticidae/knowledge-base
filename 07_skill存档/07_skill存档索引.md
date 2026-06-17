@@ -30,6 +30,7 @@ tags: [类型/skill存档]
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 | maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
 | song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] |
+| prompt-master-series | v1.0.0 | 2026-06-17 | 系列内容生产:prompt 作品 → 小红书双卡 + 小白独立笔记 + 归档封版 | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] |
 
 ### prompt-master v1.6.0 备注
 
@@ -127,6 +128,18 @@ tags: [类型/skill存档]
 - [[song-caption-mv-workflow/SKILL.md]] — Codex
 - [[song-caption-mv-workflow/references/stay-alive-case-notes.md]] — 实战环境与关键经验
 - 对应复盘：[[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
+
+### prompt-master-series v1.0.0(2026-06-17,首期《对话》跑通)
+
+来源:本会话把「《对话》获奖图 → 小红书双卡 → 小白独立笔记 → 系列归档」的全流程沉淀为可复用 skill。
+
+- [[prompt-master-series/SKILL.md]] — Claude + Codex
+- [[prompt-master-series/assets/make_cards.py]] — 参数化小红书双卡生成器(Pillow,每期只改顶部 CONFIG)
+- [[prompt-master-series/templates/episode_note_template.md]] — 小白独立笔记骨架
+- 首期实例:`目标是成为 Prompt 大师/01_对话/`
+- 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘]]
+
+定位:面向 AIGC 小白的系列内容生产。克制内敛(不写名次 / 不署名),小白第一(去双链 / 降术语 / 名词小抄)。
 
 ## 关联文档
 
