@@ -95,6 +95,25 @@ def draw_annotated(d, segments, x0, y0, max_w, fnt, line_h, ul_dy=8, ul_w=4):
         x += ww + space_w
     return y + line_h
 
+def series_tag(d, y, fsize=28, line_len=70):
+    """系列刊头:两侧细线 + 居中系列名。"""
+    label = "目标是成为 PROMPT 大师"
+    f = deng(fsize)
+    tracking = 6
+    widths = [d.textlength(ch, font=f) for ch in label]
+    tw = sum(widths) + tracking * (len(label) - 1)
+    gap = 22
+    block = line_len + gap + tw + gap + line_len
+    x = (W - block) / 2
+    cy = y + fsize * 0.62
+    d.line([(x, cy), (x + line_len, cy)], fill=HAIR, width=2)
+    tx = x + line_len + gap
+    for ch, wch in zip(label, widths):
+        d.text((tx, y), ch, font=f, fill=MUTED)
+        tx += wch + tracking
+    rx = x + line_len + gap + tw + gap
+    d.line([(rx, cy), (rx + line_len, cy)], fill=HAIR, width=2)
+
 # ============================================================
 # 卡片 1 · 封面
 # ============================================================
@@ -102,20 +121,16 @@ def card_cover(path):
     c = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(c)
 
-    img_bottom = place_image(c, box_w=W - MARGIN*2, top=120, radius=20)
+    series_tag(d, 92)
+    img_bottom = place_image(c, box_w=W - MARGIN*2, top=172, radius=20)
 
-    # kicker
-    ky = img_bottom + 78
-    text_tracking(d, (0, ky), "PROMPT BATTLE · 获奖复盘", deng(26), MUTED,
-                  tracking=8, anchor_center=W)
-
-    # 大标题「对话」
-    ty = ky + 60
-    title_f = msyhb(150)
-    text_tracking(d, (0, ty), "对话", title_f, INK, tracking=36, anchor_center=W)
+    # 主标题《对话》
+    ty = img_bottom + 94
+    title_f = msyhb(140)
+    text_tracking(d, (0, ty), "《对话》", title_f, INK, tracking=10, anchor_center=W)
 
     # 四色短线(题意:四层)
-    ly = ty + 210
+    ly = ty + 196
     seg_w, gap = 84, 14
     total = seg_w*4 + gap*3
     sx = (W - total) // 2
@@ -133,7 +148,7 @@ def card_cover(path):
 
     # 底注
     d.line([(MARGIN, H-118), (W-MARGIN, H-118)], fill=HAIR, width=2)
-    d.text((MARGIN, H-92), "主题「对话」· 2026-06-12", font=msyh(28), fill=MUTED)
+    d.text((MARGIN, H-92), "Prompt Battle 获奖复盘 · 2026-06-12", font=msyh(26), fill=MUTED)
     handle = "@跳蛛先生"
     hw = d.textlength(handle, font=msyh(28))
     d.text((W-MARGIN-hw, H-92), handle, font=msyh(28), fill=MUTED)
@@ -148,12 +163,13 @@ def card_breakdown(path):
     c = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(c)
 
+    series_tag(d, 64, fsize=24, line_len=56)
     # 标题
-    d.text((MARGIN, 80), "获奖 prompt", font=msyhb(56), fill=INK)
-    d.text((MARGIN, 154), "四层拆解 · 哪些动了,哪些没动", font=deng(31), fill=MUTED)
+    d.text((MARGIN, 122), "《对话》· prompt 拆解", font=msyhb(50), fill=INK)
+    d.text((MARGIN, 192), "四层标注 · 哪些动了,哪些没动", font=deng(30), fill=MUTED)
 
     # 小图
-    img_bottom = place_image(c, box_w=560, top=222, radius=16)
+    img_bottom = place_image(c, box_w=520, top=252, radius=16)
 
     # 图例
     ly = img_bottom + 42
