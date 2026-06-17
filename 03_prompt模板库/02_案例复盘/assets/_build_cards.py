@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""生成「对话」获奖图小红书知识卡片(3:4 双卡)。"""
+"""生成「对话」小红书知识卡片(3:4 双卡)。"""
 import os
 from PIL import Image, ImageDraw, ImageFont
 
@@ -146,12 +146,10 @@ def card_cover(path):
     text_tracking(d, (0, sy2), "相隔三千年的同一个动作 —— 书写", deng(34), MUTED,
                   tracking=2, anchor_center=W)
 
-    # 底注
-    d.line([(MARGIN, H-118), (W-MARGIN, H-118)], fill=HAIR, width=2)
-    d.text((MARGIN, H-92), "Prompt Battle 获奖复盘 · 2026-06-12", font=msyh(26), fill=MUTED)
-    handle = "@跳蛛先生"
-    hw = d.textlength(handle, font=msyh(28))
-    d.text((W-MARGIN-hw, H-92), handle, font=msyh(28), fill=MUTED)
+    # 底注(克制:无署名、无名次)
+    d.line([(W//2-70, H-128), (W//2+70, H-128)], fill=HAIR, width=2)
+    text_tracking(d, (0, H-104), "Prompt Battle · 2026.06", msyh(25), MUTED,
+                  tracking=3, anchor_center=W)
 
     c.save(path, quality=95)
     print("saved", path)
@@ -174,7 +172,7 @@ def card_breakdown(path):
     # 图例
     ly = img_bottom + 42
     legend = [("叙事核心 · 三轮没动", C_NARR), ("风格基底 · 整组置换", C_STYLE),
-              ("软过渡 · 拿奖关键", C_TRANS), ("负面词 · 逐版疫苗", C_NEG)]
+              ("软过渡 · 收尾关键", C_TRANS), ("负面词 · 逐版疫苗", C_NEG)]
     col_x = [MARGIN, W//2 + 10]
     lf = msyh(26)
     for i, (lab, col) in enumerate(legend):
