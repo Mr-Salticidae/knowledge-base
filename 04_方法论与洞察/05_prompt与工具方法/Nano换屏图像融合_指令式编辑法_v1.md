@@ -68,18 +68,21 @@ tags: [类型/方法论, 工具/nano, 工具/即梦, 通用/prompt工程, 图像
 
 ## 四、可复用成品(以「换屏」为例)
 
-### 英文版(推荐,成功率更高)
+### 英文版(推荐,成功率更高 · liblib.tv 原格式一条出)
 
-> Using the two provided images: Image 1 is a game result screenshot (a red-and-gold ornate banner with the Chinese characters "失败" in the center). Image 2 is a rainy-night desk scene with a green banker's lamp, a mechanical keyboard, and a monitor.
->
-> Take the full content of Image 1 and place it onto the monitor screen in Image 2, completely replacing the game image currently displayed on that screen.
->
-> - Match the screenshot to the monitor's exact perspective and angle, aligning its edges to the inner bezel of the screen.
-> - Make the screen look genuinely powered on: subtle reflections, slight glare, and realistic brightness.
-> - Let the screen's cool blue glow spill naturally onto the keyboard, desk surface, and the area around the lamp, blending with the existing lighting.
-> - Keep everything else unchanged — the green lamp, keyboard, rainy window, poster, papers, and overall color grading must stay exactly as in Image 2.
->
-> Photorealistic, cinematic contrast between the warm green lamp light and the cool blue screen light.
+> 平台:liblib.tv 的 Nano 节点。`{{Image 1}}` / `{{Image 2}}` 是平台的**图槽占位符**——分别对应你上传的第 1、2 张图,运行时自动替换。换平台时把占位符改回 `Image 1` / `Image 2` 即可。
+
+```text
+Using the two provided images: {{Image 1}} is a game result screenshot (a red-and-gold ornate banner with the Chinese characters "失败" in the center). {{Image 2}} is a rainy-night desk scene with a green banker's lamp, a mechanical keyboard, and a monitor.
+
+Take the full content of {{Image 1}} and place it onto the monitor screen in {{Image 2}} , completely replacing the game image currently displayed on that screen.
+
+Match the screenshot to the monitor's exact perspective and angle, aligning its edges to the inner bezel of the screen.
+Make the screen look genuinely powered on: subtle reflections, slight glare, and realistic brightness.
+Let the screen's cool blue glow spill naturally onto the keyboard, desk surface, and the area around the lamp, blending with the existing lighting.
+Keep everything else unchanged — the green lamp, keyboard, rainy window, poster, papers, and overall color grading must stay exactly as in {{Image 2}} 
+Photorealistic, cinematic contrast between the warm green lamp light and the cool blue screen light.
+```
 
 ### 中文版(即梦/国内 Nano 接口可用)
 
@@ -124,4 +127,5 @@ tags: [类型/方法论, 工具/nano, 工具/即梦, 通用/prompt工程, 图像
 - [[Nano场景换机位_四段锚定法_v1]] —— 同为 Nano 工程规律(同场景换机位 vs 局部换屏融合),共享"锚定不变 + 指定变化"底层结构
 - [[prompt的三段式结构_v1]] —— 同源的"结构沉淀 + 变量前置"思路
 - [[MJ出图绕开抠图陷阱]] —— 同为"选对做减法的工具"的工具选择智慧
+- [[生成式vs编辑式工具选择律_v1]] —— 本案例提炼出的一句话工具选择律
 - 索引入口:[[04_方法论与洞察索引]]
