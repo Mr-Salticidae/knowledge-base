@@ -256,6 +256,8 @@
 │   ├── 07_skill存档索引.md  ← 存档区入口 + 已存档清单
 │   ├── prompt-master_v1.6.0_SKILL.md
 │   └── prompt-master_refs/  ← prompt-master 引用文件归档(templates / patterns)
+├── 08_对外分发/            面向学员/读者的独立成篇资料(无双链,可直接转发)
+│   └── 08_对外分发索引.md   ← 对外稿清单 + 对应内核文档溯源
 └── README.md               ← 你现在在这里(MOC + 链接规范,全库唯一 README)
 ```
 

@@ -128,4 +128,5 @@ Photorealistic, cinematic contrast between the warm green lamp light and the coo
 - [[prompt的三段式结构_v1]] —— 同源的"结构沉淀 + 变量前置"思路
 - [[MJ出图绕开抠图陷阱]] —— 同为"选对做减法的工具"的工具选择智慧
 - [[生成式vs编辑式工具选择律_v1]] —— 本案例提炼出的一句话工具选择律
+- 对外讲解版(独立可读,无双链):`08_对外分发/Nano换屏融合_学员版教程.md`
 - 索引入口:[[04_方法论与洞察索引]]
