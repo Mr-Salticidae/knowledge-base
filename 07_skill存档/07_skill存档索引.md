@@ -30,7 +30,7 @@ tags: [类型/skill存档]
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 | maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
 | song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] |
-| prompt-master-series | v1.2.2 | 2026-06-17 | 系列内容生产:prompt 作品 → 小红书双卡 + 正文 + 小白笔记 + GitHub Pages 互动画廊(全局点赞) | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] |
+| prompt-master-series | v1.3.0 | 2026-06-19 | 系列内容生产:prompt 作品 → 小红书双卡 + 正文 + 小白笔记 + GitHub Pages 站(数据驱动两层结构:分类封面墙 + 详情,全局点赞) | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] · [[2026-06-05_童话镇里的纸飞机_LEGO小镇获奖图复盘]] |
 | knowledge-base-curator | v1.0 | 2026-06-18 | 知识库策展:答疑成果 → 内核版存档(双链+索引+MOC+一句话律)+ 学员版对外分发(无双链) | Claude | 本次封装(Nano 换屏融合沉淀流程) |
 
 ### prompt-master v1.6.0 备注
@@ -138,7 +138,7 @@ tags: [类型/skill存档]
 - [[prompt-master-series/assets/make_cards.py]] — 参数化小红书双卡生成器(Pillow,每期只改顶部 CONFIG)
 - [[prompt-master-series/templates/episode_note_template.md]] — 小白独立笔记骨架(长 · 存档)
 - [[prompt-master-series/templates/xiaohongshu_caption_template.md]] — 小红书正文骨架(短 · 发布,内敛克制)
-- [[prompt-master-series/templates/gallery_episode_block.html]] — 画廊新增一期的 article 区块(小红书入口=活帖直链)
+- [[prompt-master-series/templates/episode_manifest_entry.js]] — 新增一期往 `index.html` 的 `EPISODES` 数组加的那条对象模板(v1.3.0 起;旧 `gallery_episode_block.html` 已废弃)
 - 首期实例:`E:\目标是成为 Prompt 大师\01_对话\`(已独立出库)
 - 在线画廊:https://mr-salticidae.github.io/becoming-a-prompt-master/
 - 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘]]
@@ -150,6 +150,8 @@ v1.2.0 升级:发布物独立到 `E:\目标是成为 Prompt 大师\` 并上线 G
 v1.2.1 升级:画廊每期四件套——一键复制 Prompt(读隐藏 `<pre>`)、小白笔记站内弹窗(`marked` 渲染、自动修正图片相对路径,不再跳转 GitHub)、原图内嵌可下载、克制点赞按钮(localStorage 记忆 + 轻动画);`gallery_episode_block.html` 模板同步为新结构。
 
 v1.2.2 升级:点赞改为**全局真实计数**——接入 Abacus serverless 计数服务(命名空间 `becoming-a-prompt-master`、key `ep{{NN}}`,无需注册/密钥,CORS `*` 已验证),`/get` 读数、`/hit` 递增;每浏览器一次(localStorage 防重复),保留轻动画。短链/计数服务若失效不影响画廊主体。
+
+v1.3.0 升级(2026-06-19,第 2 期《童话镇里的纸飞机》上线):`index.html` 重构为**数据驱动两层结构**——首页改「分类封面墙 + 详情」(hash 路由),所有渲染由脚本顶部 `EPISODES` 数组驱动,**新增一期 = 加文件夹 + 数组加一条对象**(不再复制 `<article>` 区块);阶段 E 同步改写,旧 `gallery_episode_block.html` 废弃、替为 `episode_manifest_entry.js`;四层模型补「具体物件题 flex」(概念转译胜负手 / 真实手作锚点);阶段 B 补「HTML→Chrome 无头截图」卡片量产替代法。结构律另立库内文档 [[长期更新展示站_两层结构与无头卡片量产_v1]]。
 
 定位:面向 AIGC 小白的系列内容生产。克制内敛(不写名次 / 不署名),小白第一(去双链 / 降术语 / 名词小抄)。
 
