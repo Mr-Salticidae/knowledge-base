@@ -138,6 +138,7 @@ E:\目标是成为 Prompt 大师\
    - 若这期是**新分类**,在数组上方的 `CATS` 里加一行 `key:{name,color}`(颜色复用四色之一);筛选 chip 会自动出现。
    - **不用再复制 HTML / 改 id / 改 data-target**——这些全由数组渲染,旧的「复制 `<article>` 区块」流程已废弃。
 3. `xhs` 字段**直填帖子链接**(详情页「小红书原帖」按钮 `target="_blank"`);留空则该按钮自动不显示。**别指向 md**(md 是内部存档,给读者看的是活帖)。同时把链接回填到 `主题_小红书正文.md` 顶部。
+   - ⚠️ **小红书反外链坑**:从外站点击 xhslink 会带 `Referer`,小红书弹「当前笔记暂时无法浏览 / 扫码查看」拦截页(地址栏直接打开却正常,因为没 referer)。按钮必须带 **`referrerpolicy="no-referrer"`**(配合 `rel="noopener noreferrer"`)才放行——本站 `renderDetail` 已内置,沿用即可。
 4. `git add -A && git commit && git push`;GitHub Pages 约 30–60 秒自动重建(可能命中 CDN 缓存,轮询线上加 `?cb=随机` 绕缓存确认;中文文件名上线要 URL 编码)。
 
 > 详情页每期四件套保持不变:**一键复制 Prompt**(读隐藏 `<pre class="prompt-src">`)· **小白笔记**(站内弹窗,`marked` 渲染笔记 md,自动修正图片相对路径)· **小红书原帖**(活帖直链)· **原图内嵌可下载**(点击放大 + 下载);另含一枚**点赞**——**全局真实计数**(Abacus serverless,命名空间 `becoming-a-prompt-master`、key = 该期 `id`,无需注册/密钥,CORS 已验证;每浏览器一次,localStorage 防重复;轻 pop + 浮心动画)。
