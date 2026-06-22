@@ -220,18 +220,33 @@ def main():
             raise SystemExit("feishu_config.json 缺 target_space_id(成员加成功后填)")
         state.setdefault("space_id", wiki.space_id)
 
+    failures = []
     if not args.backfill_only:
-        log("\n--- Pass 1: 建树 + 上正文 ---")
-        for rp in targets:
-            sync_doc(wiki, rp, files_meta, state, bi, pi, args.dry_run)
+        log(f"\n--- Pass 1: 建树 + 上正文 ({len(targets)}) ---")
+        for n, rp in enumerate(targets, 1):
+            try:
+                sync_doc(wiki, rp, files_meta, state, bi, pi, args.dry_run)
+            except Exception as e:
+                failures.append((rp, "pass1", str(e)))
+                log(f"  ✗ [{n}/{len(targets)}] 跳过(出错) {rp.split('/')[-1]}: {e}")
 
     log("\n--- Pass 2: 回填双链 ---")
     total = 0
     for rp in targets:
-        total += backfill(wiki, rp, state, args.dry_run) if wiki else 0
-        if args.dry_run:
-            backfill(None, rp, state, True)
-    log(f"\n完成。回填改块合计 {total}。state -> {os.path.basename(STATE_PATH)}")
+        try:
+            total += backfill(wiki, rp, state, args.dry_run) if wiki else 0
+            if args.dry_run:
+                backfill(None, rp, state, True)
+        except Exception as e:
+            failures.append((rp, "pass2", str(e)))
+            log(f"  ✗ 回填出错 {rp.split('/')[-1]}: {e}")
+
+    log(f"\n完成。回填改块合计 {total}。成功 {len(state['files'])} 篇,"
+        f"失败 {len(failures)} 篇。state -> {os.path.basename(STATE_PATH)}")
+    if failures:
+        log("失败清单(重跑可续传):")
+        for rp, ph, err in failures:
+            log(f"  - [{ph}] {rp}: {err[:80]}")
 
 
 if __name__ == "__main__":
