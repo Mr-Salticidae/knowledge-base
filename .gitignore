@@ -103,3 +103,9 @@ vectorstore/
 .sync-log/
 sync.log
 *.log
+
+# 飞书同步工具:生成物与密钥不入库
+06_代码/feishu_sync/_out/
+06_代码/feishu_sync/feishu_config.json
+06_代码/feishu_sync/.env
+06_代码/feishu_sync/feishu_sync_state.json
