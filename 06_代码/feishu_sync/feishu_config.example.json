@@ -1,0 +1,6 @@
+{
+  "_说明": "复制本文件为 feishu_config.json 并填入真实值。feishu_config.json 已被 gitignore,不会入库。",
+  "app_id": "cli_xxxxxxxxxxxxxxxx",
+  "app_secret": "在飞书开放平台-凭证与基础信息里获取,填这里",
+  "target_space_id": "可留空;连通性测试会列出你的知识空间,届时把目标空间的 space_id 填回这里"
+}
