@@ -148,7 +148,10 @@ def draw_annotated(d, segments, x0, y0, max_w, fnt, line_h, ul_dy=7, ul_w=3):
 def card_cover(cfg, path):
     c = Image.new("RGB", (W, H), BG); d = ImageDraw.Draw(c)
     series_tag(d, cfg["series_label"], 92)
-    img_bottom = place_image(c, cfg["_src"], W - MARGIN*2, 172, radius=20)
+    # 限高:竖版原图(如 3:4)不限高会占满整卡,把标题/副标挤出画布(横/方图取全宽,不受影响)
+    _t = Image.open(cfg["_src"]); _sw, _sh = _t.size; _t.close()
+    cover_w = min(W - MARGIN*2, int(640 * _sw / _sh))
+    img_bottom = place_image(c, cfg["_src"], cover_w, 172, radius=20)
     ty = img_bottom + 94
     text_tracking(d, (0, ty), cfg["title"], msyhb(140), INK, tracking=10, anchor_center=W)
     ly = ty + 196
