@@ -118,7 +118,10 @@ def sync_doc(wiki, relpath, files_meta, state, bi, pi, dry):
     save_state(state)
     log(f"+ 上墙 {title} -> node={node_token}")
     if imgs:
-        log(f"    ⚠ {len(imgs)} 张本地图片待嵌入(docx media API,POC 首跑联调)")  # 待真机验证
+        img_abs = [os.path.join(REPO_ROOT, a.replace("/", os.sep))
+                   for _, _, a in imgs]
+        done = wiki.embed_images(docx_token, img_abs)
+        log(f"    + 嵌入图片 {done}/{len(imgs)}")
 
 
 # ---------- Pass 2:回填双链 ----------
@@ -133,9 +136,13 @@ def backfill(wiki, relpath, state, dry):
     blocks = wiki.list_blocks(doc_id)
     fixed = 0
     for b in blocks:
-        # 文本类块:elements 在 b['text']['elements'] 或具体类型字段;# 待真机验证(块结构)
-        container = b.get("text") or b.get("heading1") or b.get("bullet") or {}
-        elements = container.get("elements")
+        # 块类型无关:找出该块里承载 elements 的字段(text/headingN/bullet/ordered/quote/...)
+        container = None
+        for k, v in b.items():
+            if isinstance(v, dict) and isinstance(v.get("elements"), list):
+                container = v
+                break
+        elements = container.get("elements") if container else None
         if not elements:
             continue
         changed = False
@@ -147,13 +154,15 @@ def backfill(wiki, relpath, state, dry):
             url = link.get("url") if link else None
             if not url:
                 continue
+            # Feishu 可能对 link.url 做了百分号编码,解码后再判前缀
             target = MT.decode_target(_url_unescape(url))
             if target is None:
                 continue
             tgt_meta = state["files"].get(target + ".md")
             if tgt_meta and tgt_meta.get("node_token"):
                 real = wiki.wiki_url(tgt_meta["node_token"])
-                tr["text_element_style"]["link"]["url"] = _url_escape(real)
+                # Feishu 存储时会自行编码,这里写明文 URL
+                tr["text_element_style"]["link"]["url"] = real
                 changed = True
             else:
                 # 目标未同步(POC 子集外):降级为纯文本(去链接)

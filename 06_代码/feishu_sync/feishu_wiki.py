@@ -130,6 +130,73 @@ class FeishuWiki:
             raise RuntimeError(f"改块失败: {d}")
         return d["data"]
 
+    # ---------- 图片嵌入 ----------
+    def upload_docx_image(self, block_id, file_name, data_bytes):
+        """上传图片到某图片块,返回 file_token。parent_type=docx_image。"""
+        import requests
+        files = {
+            "file_name": (None, file_name),
+            "parent_type": (None, "docx_image"),
+            "parent_node": (None, block_id),
+            "size": (None, str(len(data_bytes))),
+            "file": (file_name, data_bytes, "image/png"),
+        }
+        r = requests.post(f"{BASE}/drive/v1/medias/upload_all",
+                          headers={"Authorization": f"Bearer {self.c.token()}"},
+                          files=files, timeout=180)
+        d = r.json()
+        if d.get("code") != 0:
+            raise RuntimeError(f"上传图片失败: {d}")
+        return d["data"]["file_token"]
+
+    def set_image(self, doc_id, block_id, file_token):
+        code, d = self.c.req(
+            "PATCH", f"/docx/v1/documents/{doc_id}/blocks/{block_id}",
+            json={"replace_image": {"token": file_token}})
+        if d.get("code") != 0:
+            raise RuntimeError(f"填图失败: {d}")
+
+    def embed_images(self, doc_id, image_paths):
+        """把本地图片按顺序嵌入文档里的图片占位块。
+        策略:导入后每张图留一个空图块(type=27,尺寸是坏的默认值);
+        删掉占位块→同位置新建空图块→上传图片(新块按图自然尺寸自适应)。
+        倒序处理避免删块导致的 index 偏移。返回成功嵌入张数。"""
+        import os
+        blocks = self.list_blocks(doc_id)
+        root = blocks[0]
+        children = root.get("children", [])
+        placeholders = [b for b in blocks if b.get("block_type") == 27]
+        n = min(len(placeholders), len(image_paths))
+        # 配对(按文档顺序),再按 index 倒序处理
+        pairs = []
+        for i in range(n):
+            bid = placeholders[i]["block_id"]
+            idx = children.index(bid) if bid in children else None
+            pairs.append((idx, bid, image_paths[i]))
+        done = 0
+        for idx, bid, imgpath in sorted(pairs, key=lambda x: -(x[0] or 0)):
+            if idx is None or not os.path.exists(imgpath):
+                continue
+            # 删占位
+            self.c.req("DELETE",
+                       f"/docx/v1/documents/{doc_id}/blocks/{root['block_id']}"
+                       f"/children/batch_delete",
+                       json={"start_index": idx, "end_index": idx + 1})
+            # 新建空图块
+            code, d = self.c.post(
+                f"/docx/v1/documents/{doc_id}/blocks/{root['block_id']}/children",
+                json={"index": idx, "children": [{"block_type": 27,
+                                                  "image": {"token": ""}}]})
+            newid = d.get("data", {}).get("children", [{}])[0].get("block_id")
+            if not newid:
+                continue
+            with open(imgpath, "rb") as f:
+                data = f.read()
+            ftok = self.upload_docx_image(newid, os.path.basename(imgpath), data)
+            self.set_image(doc_id, newid, ftok)
+            done += 1
+        return done
+
     def wiki_url(self, node_token):
         dom = self.domain or "feishu.cn"
         return f"https://{dom}/wiki/{node_token}"
