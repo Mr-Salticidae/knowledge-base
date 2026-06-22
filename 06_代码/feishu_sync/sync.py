@@ -104,7 +104,11 @@ def sync_doc(wiki, relpath, files_meta, state, bi, pi, dry):
 
     # 上传 -> 导入 -> 轮询 -> 挂入 wiki
     fname = os.path.splitext(os.path.basename(relpath))[0] + ".md"
-    mount = state.get("import_folder_token")  # POC 首跑需配置可写 drive 文件夹  # 待真机验证
+    mount = state.get("import_folder_token")
+    if not mount:
+        mount = wiki.app_root_folder()
+        state["import_folder_token"] = mount
+        save_state(state)
     file_token = wiki.upload_media_for_import(fname, new_text.encode("utf-8"))
     ticket = wiki.create_import_task(file_token, fname, mount)
     docx_token, _ = wiki.poll_import(ticket)

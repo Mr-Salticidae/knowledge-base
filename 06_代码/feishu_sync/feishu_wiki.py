@@ -22,13 +22,17 @@ class FeishuWiki:
         self.domain = self.c.cfg.get("tenant_domain")  # 如 ncnnb044q88x.feishu.cn
 
     # ---------- 导入:md → docx ----------
-    def upload_media_for_import(self, file_name, data_bytes):
-        """上传素材供导入用,返回 file_token。# 待真机验证(字段名/parent_type)"""
-        import requests
+    def upload_media_for_import(self, file_name, data_bytes,
+                                file_extension="md", obj_type="docx"):
+        """上传素材供导入用,返回 file_token。
+        关键:parent_type=ccm_import_open 且必须带 extra(否则 1061004 forbidden)。"""
+        import requests, json as _json
         files = {
             "file_name": (None, file_name),
             "parent_type": (None, "ccm_import_open"),
             "size": (None, str(len(data_bytes))),
+            "extra": (None, _json.dumps({"obj_type": obj_type,
+                                         "file_extension": file_extension})),
             "file": (file_name, data_bytes),
         }
         r = requests.post(f"{BASE}/drive/v1/medias/upload_all",
@@ -80,17 +84,25 @@ class FeishuWiki:
             raise RuntimeError(f"建节点失败: {d}")
         return d["data"]["node"]
 
-    def move_doc_to_wiki(self, obj_token, parent_wiki_token=None, obj_type="docx"):
-        """把已导入的 docx 挂进 wiki,返回 wiki_token(node_token)。# 待真机验证(可能异步返回 task)"""
+    def move_doc_to_wiki(self, obj_token, parent_wiki_token=None, obj_type="docx",
+                         retries=4):
+        """把已导入的 docx 挂进 wiki,返回 wiki_token。
+        实测:首次可能异步返回空 wiki_token,重试即拿到(幂等)。"""
         body = {"obj_type": obj_type, "obj_token": obj_token}
         if parent_wiki_token:
             body["parent_wiki_token"] = parent_wiki_token
-        code, d = self.c.post(
-            f"/wiki/v2/spaces/{self.space_id}/nodes/move_docs_to_wiki", json=body)
-        if d.get("code") != 0:
-            raise RuntimeError(f"挂入wiki失败: {d}")
-        data = d["data"]
-        return data.get("wiki_token") or data.get("node", {}).get("node_token")
+        last = None
+        for _ in range(retries):
+            code, d = self.c.post(
+                f"/wiki/v2/spaces/{self.space_id}/nodes/move_docs_to_wiki", json=body)
+            if d.get("code") != 0:
+                raise RuntimeError(f"挂入wiki失败: {d}")
+            wt = d["data"].get("wiki_token")
+            if wt:
+                return wt
+            last = d
+            time.sleep(1.5)
+        raise RuntimeError(f"挂入wiki未返回wiki_token: {last}")
 
     # ---------- docx 块(双链回填) ----------
     def list_blocks(self, doc_id, page_size=500):
@@ -121,3 +133,10 @@ class FeishuWiki:
     def wiki_url(self, node_token):
         dom = self.domain or "feishu.cn"
         return f"https://{dom}/wiki/{node_token}"
+
+    def app_root_folder(self):
+        """取应用云空间根目录 token(导入挂载点)。"""
+        code, d = self.c.get("/drive/explorer/v2/root_folder/meta")
+        if d.get("code") != 0:
+            raise RuntimeError(f"取根目录失败: {d}")
+        return d["data"]["token"]
