@@ -197,6 +197,51 @@ class FeishuWiki:
             done += 1
         return done
 
+    # ---------- 四层标注上色 ----------
+    LAYER_COLOR = {"🟦": 5, "🟩": 4, "🟨": 3, "🟥": 1}
+
+    def colorize_layer_blocks(self, doc_id):
+        """把以 🟦🟩🟨🟥 开头的文本块整段上色,并去掉前导 emoji。返回上色条数。"""
+        blocks = self.list_blocks(doc_id)
+        done = 0
+        for b in blocks:
+            container = None
+            for k, v in b.items():
+                if isinstance(v, dict) and isinstance(v.get("elements"), list):
+                    container = v
+                    break
+            if not container:
+                continue
+            elements = container["elements"]
+            if not elements:
+                continue
+            first = elements[0].get("text_run")
+            if not first:
+                continue
+            content = first.get("content", "")
+            sq = content.lstrip()[:1]
+            if sq not in self.LAYER_COLOR:
+                continue
+            color = self.LAYER_COLOR[sq]
+            # 去掉前导 "🟦 "(含其后空格)
+            first["content"] = content.replace(sq, "", 1).lstrip()
+            # 给整块每个 text_run 上色
+            for el in elements:
+                tr = el.get("text_run")
+                if not tr:
+                    continue
+                style = tr.setdefault("text_element_style", {})
+                style["text_color"] = color
+            self.patch_block_elements(doc_id, b["block_id"], elements)
+            done += 1
+        return done
+
+    def delete_doc(self, doc_token):
+        """删除 docx(连带其 wiki 节点),进回收站。"""
+        code, d = self.c.req("DELETE", f"/drive/v1/files/{doc_token}",
+                             params={"type": "docx"})
+        return d.get("code") == 0
+
     def wiki_url(self, node_token):
         dom = self.domain or "feishu.cn"
         return f"https://{dom}/wiki/{node_token}"

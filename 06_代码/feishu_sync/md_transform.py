@@ -24,6 +24,11 @@ IMG_RE = re.compile(r"!\[([^\]]*)\]\(([^)]+)\)")
 
 TEMP_PREFIX = "https://kb-sync.local/n/"
 
+# 四层标注色块 → 飞书 docx text_color 枚举(实测:1红 3黄 4绿 5蓝)
+LAYER_SQUARES = "🟦🟩🟨🟥"
+LAYER_COLOR = {"🟦": 5, "🟩": 4, "🟨": 3, "🟥": 1}
+SQUARE_RE = re.compile(r"([🟦🟩🟨🟥])")
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PARSE_DATA = os.path.join(SCRIPT_DIR, "_out", "parse_data.json")
 
@@ -86,9 +91,64 @@ def resolve(target, from_relpath, basename_index, path_index):
     return None  # 0 或歧义都按未解析处理(纯文本)
 
 
+# ---------- 四层标注:代码块 → 彩色 bullet ----------
+def expand_layer_blocks(text):
+    """把含 🟦🟩🟨🟥 的 prompt 标注代码块,拆成彩色 bullet 列表(纯文字加标色)。
+    飞书代码块不渲染文字色且会截断右侧注释,故拿出来做成 bullet,
+    每条保留前导色块 emoji 作为上色标记(Pass1 之后由 colorize 上色并去 emoji)。
+    不含色块的代码块(如"完整一行"干净 prompt)原样保留。"""
+    out, i = [], 0
+    lines = text.split("\n")
+    while i < len(lines):
+        line = lines[i]
+        m = re.match(r"^(\s*)```", line)
+        if not m:
+            out.append(line)
+            i += 1
+            continue
+        # 收集到闭合 ```
+        body, j = [], i + 1
+        while j < len(lines) and not re.match(r"^\s*```", lines[j]):
+            body.append(lines[j])
+            j += 1
+        fence = lines[i:j + 1]
+        if not any(s in "\n".join(body) for s in LAYER_SQUARES):
+            out.extend(fence)          # 干净代码块,原样
+        else:
+            out.extend(_layer_bullets(body))
+        i = j + 1
+    return "\n".join(out)
+
+
+def _layer_bullets(body):
+    """把标注代码块的行解析为彩色 bullet。续行(无色块)并入下一条色块行的 code。"""
+    res, buf = [], []
+    for raw in body:
+        s = raw.rstrip()
+        if not s.strip():
+            continue
+        mm = SQUARE_RE.search(s)
+        if mm:
+            sq = mm.group(1)
+            code = s[:mm.start()].strip()
+            ann = s[mm.end():].strip()
+            full = " ".join([b for b in buf] + ([code] if code else [])).strip()
+            buf = []
+            # 前导 emoji 作为上色标记;纯文字:英文 prompt 片段 —— 中文注释
+            seg = f"{full} —— " if full else ""
+            res.append(f"- {sq} {seg}{ann}")
+        else:
+            buf.append(s.strip())
+    if buf:  # 尾部无色块行(如 --ar ...)
+        res.append(f"- {' '.join(buf).strip()}")
+    res.append("")  # 末尾空行,与后续内容分隔
+    return res
+
+
 # ---------- 主转换 ----------
 def transform(text, from_relpath, basename_index, path_index):
     """把一篇 md 的双链转成临时链接 / 纯文本。返回 (新文本, 统计)。"""
+    text = expand_layer_blocks(text)
     stats = {"linked": 0, "plain": 0}
 
     def repl(m):

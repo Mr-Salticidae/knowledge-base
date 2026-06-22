@@ -91,6 +91,10 @@ def sync_doc(wiki, relpath, files_meta, state, bi, pi, dry):
         return
     new_text, st = MT.transform(raw, relpath, bi, pi)
     imgs = MT.extract_images(raw, relpath)
+    # 内容变更:先删旧节点再重建(避免重复)
+    if prev and not dry and prev.get("doc_token"):
+        wiki.delete_doc(prev["doc_token"])
+        log(f"  ~ 变更,删旧节点 {relpath.split('/')[-1]}")
     parent = ensure_dir_node(wiki, os.path.dirname(relpath).replace("\\", "/"),
                              state, dry)
     title = files_meta.get(relpath, {}).get("title") or \
@@ -122,6 +126,9 @@ def sync_doc(wiki, relpath, files_meta, state, bi, pi, dry):
                    for _, _, a in imgs]
         done = wiki.embed_images(docx_token, img_abs)
         log(f"    + 嵌入图片 {done}/{len(imgs)}")
+    colored = wiki.colorize_layer_blocks(docx_token)
+    if colored:
+        log(f"    + 四层标注上色 {colored} 条")
 
 
 # ---------- Pass 2:回填双链 ----------
