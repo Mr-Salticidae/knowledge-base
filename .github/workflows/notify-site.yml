@@ -1,0 +1,34 @@
+name: Notify Site Rebuild
+
+# 知识库内容更新 → 通知展示站(above-the-web)即时重建并部署。
+# 机制:push 到 main 后,向 above-the-web 发 repository_dispatch(kb-updated),
+# 该仓库的 Build & Deploy 工作流已监听此事件 → 拉取最新知识库重新构建上线。
+# 需要仓库 Secret: SITE_DISPATCH_TOKEN(对 above-the-web 有 contents 写权限的 token)。
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '0*/**'          # 仅内容目录变更才触发,避免无谓重建
+      - 'README.md'
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 通知 above-the-web 重建
+        env:
+          TOKEN: ${{ secrets.SITE_DISPATCH_TOKEN }}
+        run: |
+          # 未配置 SITE_DISPATCH_TOKEN 时优雅跳过(不报错),配上即自动生效
+          if [ -z "$TOKEN" ]; then
+            echo "未配置 SITE_DISPATCH_TOKEN,跳过即时通知(站点仍按定时兜底同步)。"
+            exit 0
+          fi
+          curl -sS -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/Mr-Salticidae/above-the-web/dispatches \
+            -d '{"event_type":"kb-updated"}'
+          echo "[已通知 above-the-web 重建]"
