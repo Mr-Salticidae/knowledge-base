@@ -232,6 +232,7 @@
 - [[song-caption-mv-workflow/SKILL.md]] —— AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流,对应 [[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
 - [[prompt-master-series/SKILL.md]] —— 把 prompt 作品做成《目标是成为 Prompt 大师》系列一期:抽象题破题 + 小红书双卡 + 小红书正文 + 小白独立笔记 + 归档,克制内敛、小白可读
 - [[knowledge-base-curator/SKILL.md]] —— 知识库策展工作流:把一次答疑成果沉淀为内核版(双链+索引+MOC+一句话律)+ 学员版(无双链可转发),编码本库 CLAUDE.md + README 全部归档规范
+- [[aigc-video-cover-gpt/SKILL.md]] —— 视频封面生成 skill:人物参考图 + 脚本 → GPT Image 2 一步出 16:9 商单封面,内置从模板提炼的封面公式 + 标题钩子发散 + 锁脸三级补救([[GPTImage2锁脸的脸占比上限_v1]])
 
 ---
 
