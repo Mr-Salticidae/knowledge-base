@@ -41,6 +41,20 @@ npx.cmd remotion render src/index.ts SkillIsAllYouNeedFullFilm out/full-film-202
 - [ ] 小瑕疵：warning-icon 三角下方白色标签在浅底偏淡，可改深色描边。
 - [ ] BGM：双曲拼接仍在，新片更短，取段点/音量待随新节奏微调。
 
+## 续：2026-06-27（真实音频 + 真片渲染）
+
+> 时隔搁置，周末续推。把 6-16 checkpoint 的「明日接续」两步实际跑完。
+
+1. **真实 Eleven 音频已生成**：`npm run generate:full-film-voiceover` → 23 段 mp3 落 `public/audio/full_film_20260616/`（2.5M）；`fullFilmVoiceoverTiming.ts` 已写回 `hasGeneratedAudio=true`，真实 `totalFrames=4792`（≈2:40，比估算 2:34 略长）。motion 随 P0 自动重锚。
+2. **真片已渲染**：`out/full-film-20260616-v3.1.mp4`（14.1M / 1920×1080 / h264 + AAC 立体声，含配音 + 双曲 BGM）。
+3. **视觉抽帧验过**（t=4/75/130/150s）：中文渲染、扁平矢量布局、字幕、重锚 motion 均正常。冷开场/冻结事实/完整一生闭环/作者话开源结尾四处 on-message。
+4. **gitignore**：镜像 20260609 先例，白名单放行 `full_film_20260616/`，把这批付费音频入库（保护不丢失 + 可复现，呼应"代码开源"主题）。
+
+### 仍待办（交回跳蛛先生）
+- [ ] **审节奏**（只有亲耳听算数）：作者独白是否压到位、三误区快切是否清楚、真实翻车案例是否讲明白、2:40 整体有无拖段。
+- [ ] 节奏定稿后做 P1：9 个新场景重做 MJ/Seedance（当前全是 Remotion 原生几何图形占位）。
+- [ ] warning-icon 浅底白标签描边、BGM 取段/音量随新节奏微调（旧待办仍在）。
+
 ## 关联
 - 文稿：`production/full_film_2026-06-16_script_v3.1_locked.md`
 - 旧版工作日志：`production/full_film_2026-06-10_worklog_archive.md`
