@@ -76,9 +76,6 @@ node_modules/
 !07_skill存档/remotion/public/audio/suno/open-bench.mp3
 !07_skill存档/remotion/public/audio/suno/night-workshop-manifesto.mp3
 07_skill存档/remotion/out/
-# fraud-desk 短视频 pilot:忽略大录屏与临时文件,保留小体积配音+时间轴+代码
-07_skill存档/remotion/public/fraud-desk/capture/
-07_skill存档/remotion/public/fraud-desk/audio/_*
 
 # --- 凭据与本机配置 ---
 .env

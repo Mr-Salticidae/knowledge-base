@@ -4,18 +4,9 @@ import { FormalClip20260608, FORMAL_CLIP_20260608_FRAMES } from './compositions/
 import { FullFilmVideo, FULL_FILM_FRAMES } from './compositions/FullFilmVideo';
 import { Scene04MotionTest, SCENE_04_MOTION_TEST_FRAMES } from './compositions/Scene04MotionTest';
 import { Scene05MotionTest, SCENE_05_MOTION_TEST_FRAMES } from './compositions/Scene05MotionTest';
-import { FraudDeskShort, FRAUD_DESK_SHORT_FRAMES } from './fraud-desk/FraudDeskShort';
 
 export const RemotionRoot: React.FC = () => (
   <>
-    <Composition
-      id="FraudDeskShort"
-      component={FraudDeskShort}
-      durationInFrames={FRAUD_DESK_SHORT_FRAMES}
-      fps={30}
-      width={1080}
-      height={1920}
-    />
     <Composition
       id="SkillIsAllYouNeed"
       component={ExplainerVideo}
