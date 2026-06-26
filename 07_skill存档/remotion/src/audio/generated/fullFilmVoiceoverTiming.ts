@@ -13,7 +13,7 @@ export const fullFilmVoiceoverTiming = {
   hasGeneratedAudio: true,
   fps: 30,
   playbackRate: 1.12,
-  totalFrames: 4458,
+  totalFrames: 4452,
   beats: [
     {
         "id": "intro_01_two_partners",
@@ -79,11 +79,11 @@ export const fullFilmVoiceoverTiming = {
         "id": "teaching_03_investigate_coroner",
         "section": "teaching",
         "sceneId": "scene_02_coroner_rule",
-        "caption": "篇幅原因，我们先来调研一下法医。它只有一条铁律：先冻结事实，再写判断。",
+        "caption": "篇幅原因，我们先来研究一下法医。它只有一条铁律：先冻结事实，再写判断。",
         "audioSrc": "audio/full_film_20260616/teaching_03_investigate_coroner.mp3",
         "startFrame": 889,
-        "durationInFrames": 206,
-        "durationSeconds": 7.235918
+        "durationInFrames": 200,
+        "durationSeconds": 7.000816
     },
     {
         "id": "teaching_04_double_contest",
@@ -91,7 +91,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_crash_case",
         "caption": "上个月我打了一场双题比赛，两道题的方案票数都靠前，但都没获奖。可我自己整理记录的时候，顺手就把它写成了“获奖图复盘”。",
         "audioSrc": "audio/full_film_20260616/teaching_04_double_contest.mp3",
-        "startFrame": 1095,
+        "startFrame": 1089,
         "durationInFrames": 346,
         "durationSeconds": 12.434286
     },
@@ -101,7 +101,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_crash_case",
         "caption": "AI 接着这份记录往下整合，真就当成获奖作品，给我分析出十一条“成功经验”。",
         "audioSrc": "audio/full_film_20260616/teaching_05_eleven_claims.mp3",
-        "startFrame": 1441,
+        "startFrame": 1435,
         "durationInFrames": 202,
         "durationSeconds": 7.079184
     },
@@ -111,7 +111,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_03_crash_case",
         "caption": "可它根本没获奖。我把我偏爱的方案，当成了获胜的方案。",
         "audioSrc": "audio/full_film_20260616/teaching_06_not_won.mp3",
-        "startFrame": 1643,
+        "startFrame": 1637,
         "durationInFrames": 146,
         "durationSeconds": 4.989388
     },
@@ -121,7 +121,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_04_freeze_facts",
         "caption": "法医这份手册，逼 AI 动笔前，先在文档最顶上锁死一行事实：这东西到底获奖没有？这行填完，才准往下写。",
         "audioSrc": "audio/full_film_20260616/teaching_07_freeze_first.mp3",
-        "startFrame": 1789,
+        "startFrame": 1783,
         "durationInFrames": 320,
         "durationSeconds": 11.467755
     },
@@ -131,7 +131,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_04_freeze_facts",
         "caption": "于是同一份记录，这次它先把我拦下来：先说清楚，它获奖了吗？那十一条自我表扬，从源头就没了。",
         "audioSrc": "audio/full_film_20260616/teaching_08_payoff.mp3",
-        "startFrame": 2109,
+        "startFrame": 2103,
         "durationInFrames": 266,
         "durationSeconds": 9.482449
     },
@@ -141,7 +141,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_05_markdown_form",
         "caption": "说穿了，这手册就是个 Markdown 文件。开头写它什么时候被调用，正文写它要守的规矩，头一条就是：禁止把你偏爱的方案，写成获胜的方案。",
         "audioSrc": "audio/full_film_20260616/teaching_09_markdown_form.mp3",
-        "startFrame": 2375,
+        "startFrame": 2369,
         "durationInFrames": 365,
         "durationSeconds": 13.165714
     },
@@ -151,7 +151,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_three_mistakes",
         "caption": "用 Skill，最容易踩三个坑。",
         "audioSrc": "audio/full_film_20260616/teaching_10_mistakes_intro.mp3",
-        "startFrame": 2740,
+        "startFrame": 2734,
         "durationInFrames": 75,
         "durationSeconds": 2.35102
     },
@@ -161,7 +161,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_three_mistakes",
         "caption": "一，把它当魔法。它不让烂内容变好，只让流程变稳。",
         "audioSrc": "audio/full_film_20260616/teaching_11_not_magic.mp3",
-        "startFrame": 2815,
+        "startFrame": 2809,
         "durationInFrames": 148,
         "durationSeconds": 5.067755
     },
@@ -171,7 +171,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_three_mistakes",
         "caption": "二，漏掉它引用的文件。点名的模板没带上，AI 照样抓瞎。",
         "audioSrc": "audio/full_film_20260616/teaching_12_missing_files.mp3",
-        "startFrame": 2963,
+        "startFrame": 2957,
         "durationInFrames": 153,
         "durationSeconds": 5.250612
     },
@@ -181,7 +181,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_06_three_mistakes",
         "caption": "三，不存版本。调好的手册被随手一改覆盖，连备份都没有。",
         "audioSrc": "audio/full_film_20260616/teaching_13_no_backup.mp3",
-        "startFrame": 3116,
+        "startFrame": 3110,
         "durationInFrames": 172,
         "durationSeconds": 5.955918
     },
@@ -191,7 +191,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_whole_life_close",
         "caption": "一个助产士，一个法医，一头一尾。中间那段创作，还是我自己来。",
         "audioSrc": "audio/full_film_20260616/teaching_14_two_ends.mp3",
-        "startFrame": 3288,
+        "startFrame": 3282,
         "durationInFrames": 222,
         "durationSeconds": 7.810612
     },
@@ -201,7 +201,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_whole_life_close",
         "caption": "但有了这两份手册，我不再是每次从零开始，AI 也不再是转头就忘的临时工。",
         "audioSrc": "audio/full_film_20260616/teaching_15_not_from_zero.mp3",
-        "startFrame": 3510,
+        "startFrame": 3504,
         "durationInFrames": 194,
         "durationSeconds": 6.765714
     },
@@ -211,7 +211,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_07_whole_life_close",
         "caption": "从一个念头出生，到一个作品落幕。这一回，有人替我认真对待了它的一生。",
         "audioSrc": "audio/full_film_20260616/teaching_16_life_loop.mp3",
-        "startFrame": 3704,
+        "startFrame": 3698,
         "durationInFrames": 204,
         "durationSeconds": 7.157551
     },
@@ -221,7 +221,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_author_note",
         "caption": "一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。",
         "audioSrc": "audio/full_film_20260616/author_01_cant_edit.mp3",
-        "startFrame": 3908,
+        "startFrame": 3902,
         "durationInFrames": 222,
         "durationSeconds": 7.810612
     },
@@ -231,7 +231,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_author_note",
         "caption": "我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。",
         "audioSrc": "audio/full_film_20260616/author_02_validate.mp3",
-        "startFrame": 4130,
+        "startFrame": 4124,
         "durationInFrames": 190,
         "durationSeconds": 6.60898
     },
@@ -241,7 +241,7 @@ export const fullFilmVoiceoverTiming = {
         "sceneId": "scene_08_author_note",
         "caption": "代码会开源，欢迎一起来调试。",
         "audioSrc": "audio/full_film_20260616/author_03_open_source.mp3",
-        "startFrame": 4320,
+        "startFrame": 4314,
         "durationInFrames": 93,
         "durationSeconds": 3.004082
     }

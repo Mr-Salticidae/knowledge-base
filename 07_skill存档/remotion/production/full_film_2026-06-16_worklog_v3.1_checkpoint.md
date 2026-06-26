@@ -57,6 +57,14 @@ npx.cmd remotion render src/index.ts SkillIsAllYouNeedFullFilm out/full-film-202
 - **节奏**：重生成时 `FULL_FILM_VOICEOVER_PLAYBACK_RATE=1.12`（原 1.05）。
 - 结果：`totalFrames 4792→4458`（2:40→**2:28**）；真片 `out/full-film-20260616-v3.1-take2.mp4`（13.4M）；抽帧确认作者话字幕「调试」+ 四卡正常。
 
+### take3（2026-06-27 三轮，又一多音字）
+反馈：结尾外又发现「调研」被念成 tiáo研（应 diào研）。按知识库既有方案修（[[2026-06-09_Remotion全片音频字幕BGM复盘]] 问题一：TTS 误读就换无歧义词，caption=ttsText 不分叉）：
+- `调研`→`研究`（fullFilmVoiceover.ts teaching_03 + sceneSpecs scene_02 同步）。
+- 只重生成 teaching_03 一段（`FORCE_BEAT_IDS` + 保持 `PLAYBACK_RATE=1.12`，省钱不全量）。
+- 结果：`totalFrames 4458→4452`；真片 `out/full-film-20260616-v3.1-take3.mp4`（13.4M / 2:28）；抽帧确认字幕「研究」。
+- 顺手把该复盘文档补强：多音字误读→换词，记下 Eleven v3 对「调」的 tiáo 偏向（两个方向都可能错，最稳绕开「调」字）。
+- **跳蛛先生确认其余都 OK**（语调、节奏、其它发音）。take3 即"三轮听感反馈"封口版。
+
 ### 仍待办（交回跳蛛先生）
 - [ ] **审节奏**（只有亲耳听算数）：作者独白是否压到位、三误区快切是否清楚、真实翻车案例是否讲明白、2:40 整体有无拖段。
 - [ ] 节奏定稿后做 P1：9 个新场景重做 MJ/Seedance（当前全是 Remotion 原生几何图形占位）。

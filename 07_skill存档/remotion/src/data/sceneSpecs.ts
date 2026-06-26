@@ -188,9 +188,9 @@ export const sceneSpecs: SceneSpec[] = [
     durationInFrames: 190,
     goal: '聚焦法医，给出它唯一的铁律。',
     concept: '法医手册旁，浮出"先冻结事实，再写判断"。',
-    narration: '篇幅原因，我们先来调研一下法医。它只有一条铁律：先冻结事实，再写判断。',
+    narration: '篇幅原因，我们先来研究一下法医。它只有一条铁律：先冻结事实，再写判断。',
     narrationBeats: [
-      { id: 'teaching_03_investigate_coroner', startFrame: 0, durationInFrames: 190, text: '篇幅原因，我们先来调研一下法医。它只有一条铁律：先冻结事实，再写判断。', emphasis: true, linkedSubjectIds: ['coroner', 'rule_card'] },
+      { id: 'teaching_03_investigate_coroner', startFrame: 0, durationInFrames: 190, text: '篇幅原因，我们先来研究一下法医。它只有一条铁律：先冻结事实，再写判断。', emphasis: true, linkedSubjectIds: ['coroner', 'rule_card'] },
     ],
     layout: 'center-focus',
     background: 'plain',

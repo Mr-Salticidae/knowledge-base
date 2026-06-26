@@ -33,7 +33,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   beat('teaching_02_called_skill', 'teaching', 'scene_01_what_is_skill', '这种手册，有个名字，叫 Skill。'),
 
   // 段落 2 · 拆开法医（铁律 → 真实翻车 → 修复 → 形态）
-  beat('teaching_03_investigate_coroner', 'teaching', 'scene_02_coroner_rule', '篇幅原因，我们先来调研一下法医。它只有一条铁律：先冻结事实，再写判断。'),
+  beat('teaching_03_investigate_coroner', 'teaching', 'scene_02_coroner_rule', '篇幅原因，我们先来研究一下法医。它只有一条铁律：先冻结事实，再写判断。'),
   beat('teaching_04_double_contest', 'teaching', 'scene_03_crash_case', '上个月我打了一场双题比赛，两道题的方案票数都靠前，但都没获奖。可我自己整理记录的时候，顺手就把它写成了“获奖图复盘”。'),
   beat('teaching_05_eleven_claims', 'teaching', 'scene_03_crash_case', 'AI 接着这份记录往下整合，真就当成获奖作品，给我分析出十一条“成功经验”。'),
   beat('teaching_06_not_won', 'teaching', 'scene_03_crash_case', '可它根本没获奖。我把我偏爱的方案，当成了获胜的方案。'),
