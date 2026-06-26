@@ -370,11 +370,11 @@ export const sceneSpecs: SceneSpec[] = [
     goal: '作者的话（压缩版）：不会剪辑也能表达，代码开源。',
     concept: '画面/配音/剪辑都来自 AI，最后落到开源。',
     narration:
-      '一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。代码会开源，欢迎一起来调。',
+      '一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。代码会开源，欢迎一起来调试。',
     narrationBeats: [
       { id: 'author_01_cant_edit', startFrame: 0, durationInFrames: 190, text: '一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。', emphasis: true, linkedSubjectIds: ['ai_core', 'image', 'voice', 'edit'] },
       { id: 'author_02_validate', startFrame: 190, durationInFrames: 170, text: '我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。', linkedSubjectIds: ['ai_core'] },
-      { id: 'author_03_open_source', startFrame: 360, durationInFrames: 90, text: '代码会开源，欢迎一起来调。', emphasis: true, linkedSubjectIds: ['opensource'] },
+      { id: 'author_03_open_source', startFrame: 360, durationInFrames: 90, text: '代码会开源，欢迎一起来调试。', emphasis: true, linkedSubjectIds: ['opensource'] },
     ],
     layout: 'network-map',
     background: 'data',

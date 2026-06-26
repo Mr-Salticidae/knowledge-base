@@ -142,9 +142,9 @@ const main = async () => {
           text: item.ttsText,
           model_id: modelId,
           voice_settings: {
-            stability: 0.52,
+            stability: 0.35,
             similarity_boost: 0.75,
-            style: item.section === 'author-note' ? 0.3 : 0.22,
+            style: item.section === 'author-note' ? 0.48 : 0.38,
             use_speaker_boost: true,
           },
         }),

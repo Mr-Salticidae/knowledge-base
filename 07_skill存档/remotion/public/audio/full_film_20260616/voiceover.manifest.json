@@ -4,11 +4,11 @@
   "voiceId": "y21PymyxmnSzXtl6mRI0",
   "source": "fullFilmVoiceoverBeats",
   "outputFormat": "mp3_44100_128",
-  "playbackRate": 1.05,
+  "playbackRate": 1.12,
   "fps": 30,
-  "totalFrames": 4792,
+  "totalFrames": 4458,
   "tailHoldFrames": 45,
-  "createdAt": "2026-06-26T22:40:35.169Z",
+  "createdAt": "2026-06-26T23:03:16.032Z",
   "beats": [
     {
       "id": "intro_01_two_partners",
@@ -17,8 +17,8 @@
       "caption": "我给我的创作，配了俩搭档：一个助产士，一个法医。",
       "audioSrc": "audio/full_film_20260616/intro_01_two_partners.mp3",
       "startFrame": 0,
-      "durationInFrames": 165,
-      "durationSeconds": 5.32898
+      "durationInFrames": 150,
+      "durationSeconds": 5.146122
     },
     {
       "id": "intro_02_midwife",
@@ -26,9 +26,9 @@
       "sceneId": "scene_00_two_partners",
       "caption": "创作之前，助产士帮我把脑子里那团乱麻，接生成一个清楚的想法。",
       "audioSrc": "audio/full_film_20260616/intro_02_midwife.mp3",
-      "startFrame": 165,
-      "durationInFrames": 174,
-      "durationSeconds": 5.642449
+      "startFrame": 150,
+      "durationInFrames": 176,
+      "durationSeconds": 6.112653
     },
     {
       "id": "intro_03_coroner",
@@ -36,9 +36,9 @@
       "sceneId": "scene_00_two_partners",
       "caption": "作品做完，法医给它来一次冷静的尸检，不许自我美化。",
       "audioSrc": "audio/full_film_20260616/intro_03_coroner.mp3",
-      "startFrame": 339,
-      "durationInFrames": 151,
-      "durationSeconds": 4.832653
+      "startFrame": 326,
+      "durationInFrames": 140,
+      "durationSeconds": 4.754286
     },
     {
       "id": "intro_04_whole_life",
@@ -46,9 +46,9 @@
       "sceneId": "scene_00_two_partners",
       "caption": "一头接生，一头验尸。我想给我做的每个东西，一个完整的一生。",
       "audioSrc": "audio/full_film_20260616/intro_04_whole_life.mp3",
-      "startFrame": 490,
-      "durationInFrames": 185,
-      "durationSeconds": 6.034286
+      "startFrame": 466,
+      "durationInFrames": 164,
+      "durationSeconds": 5.642449
     },
     {
       "id": "teaching_01_not_mystery",
@@ -56,9 +56,9 @@
       "sceneId": "scene_01_what_is_skill",
       "caption": "这俩搭档，不是什么神秘 AI。说穿了，就是两份我写给 AI 的工作手册。",
       "audioSrc": "audio/full_film_20260616/teaching_01_not_mystery.mp3",
-      "startFrame": 675,
-      "durationInFrames": 194,
-      "durationSeconds": 6.347755
+      "startFrame": 630,
+      "durationInFrames": 174,
+      "durationSeconds": 6.034286
     },
     {
       "id": "teaching_02_called_skill",
@@ -66,9 +66,9 @@
       "sceneId": "scene_01_what_is_skill",
       "caption": "这种手册，有个名字，叫 Skill。",
       "audioSrc": "audio/full_film_20260616/teaching_02_called_skill.mp3",
-      "startFrame": 869,
-      "durationInFrames": 96,
-      "durationSeconds": 2.925714
+      "startFrame": 804,
+      "durationInFrames": 85,
+      "durationSeconds": 2.690612
     },
     {
       "id": "teaching_03_investigate_coroner",
@@ -76,9 +76,9 @@
       "sceneId": "scene_02_coroner_rule",
       "caption": "篇幅原因，我们先来调研一下法医。它只有一条铁律：先冻结事实，再写判断。",
       "audioSrc": "audio/full_film_20260616/teaching_03_investigate_coroner.mp3",
-      "startFrame": 965,
-      "durationInFrames": 221,
-      "durationSeconds": 7.314286
+      "startFrame": 889,
+      "durationInFrames": 206,
+      "durationSeconds": 7.235918
     },
     {
       "id": "teaching_04_double_contest",
@@ -86,9 +86,9 @@
       "sceneId": "scene_03_crash_case",
       "caption": "上个月我打了一场双题比赛，两道题的方案票数都靠前，但都没获奖。可我自己整理记录的时候，顺手就把它写成了“获奖图复盘”。",
       "audioSrc": "audio/full_film_20260616/teaching_04_double_contest.mp3",
-      "startFrame": 1186,
-      "durationInFrames": 374,
-      "durationSeconds": 12.669388
+      "startFrame": 1095,
+      "durationInFrames": 346,
+      "durationSeconds": 12.434286
     },
     {
       "id": "teaching_05_eleven_claims",
@@ -96,9 +96,9 @@
       "sceneId": "scene_03_crash_case",
       "caption": "AI 接着这份记录往下整合，真就当成获奖作品，给我分析出十一条“成功经验”。",
       "audioSrc": "audio/full_film_20260616/teaching_05_eleven_claims.mp3",
-      "startFrame": 1560,
-      "durationInFrames": 217,
-      "durationSeconds": 7.157551
+      "startFrame": 1441,
+      "durationInFrames": 202,
+      "durationSeconds": 7.079184
     },
     {
       "id": "teaching_06_not_won",
@@ -106,9 +106,9 @@
       "sceneId": "scene_03_crash_case",
       "caption": "可它根本没获奖。我把我偏爱的方案，当成了获胜的方案。",
       "audioSrc": "audio/full_film_20260616/teaching_06_not_won.mp3",
-      "startFrame": 1777,
-      "durationInFrames": 153,
-      "durationSeconds": 4.91102
+      "startFrame": 1643,
+      "durationInFrames": 146,
+      "durationSeconds": 4.989388
     },
     {
       "id": "teaching_07_freeze_first",
@@ -116,9 +116,9 @@
       "sceneId": "scene_04_freeze_facts",
       "caption": "法医这份手册，逼 AI 动笔前，先在文档最顶上锁死一行事实：这东西到底获奖没有？这行填完，才准往下写。",
       "audioSrc": "audio/full_film_20260616/teaching_07_freeze_first.mp3",
-      "startFrame": 1930,
-      "durationInFrames": 350,
-      "durationSeconds": 11.807347
+      "startFrame": 1789,
+      "durationInFrames": 320,
+      "durationSeconds": 11.467755
     },
     {
       "id": "teaching_08_payoff",
@@ -126,9 +126,9 @@
       "sceneId": "scene_04_freeze_facts",
       "caption": "于是同一份记录，这次它先把我拦下来：先说清楚，它获奖了吗？那十一条自我表扬，从源头就没了。",
       "audioSrc": "audio/full_film_20260616/teaching_08_payoff.mp3",
-      "startFrame": 2280,
-      "durationInFrames": 309,
-      "durationSeconds": 10.370612
+      "startFrame": 2109,
+      "durationInFrames": 266,
+      "durationSeconds": 9.482449
     },
     {
       "id": "teaching_09_markdown_form",
@@ -136,9 +136,9 @@
       "sceneId": "scene_05_markdown_form",
       "caption": "说穿了，这手册就是个 Markdown 文件。开头写它什么时候被调用，正文写它要守的规矩，头一条就是：禁止把你偏爱的方案，写成获胜的方案。",
       "audioSrc": "audio/full_film_20260616/teaching_09_markdown_form.mp3",
-      "startFrame": 2589,
-      "durationInFrames": 409,
-      "durationSeconds": 13.87102
+      "startFrame": 2375,
+      "durationInFrames": 365,
+      "durationSeconds": 13.165714
     },
     {
       "id": "teaching_10_mistakes_intro",
@@ -146,9 +146,9 @@
       "sceneId": "scene_06_three_mistakes",
       "caption": "用 Skill，最容易踩三个坑。",
       "audioSrc": "audio/full_film_20260616/teaching_10_mistakes_intro.mp3",
-      "startFrame": 2998,
-      "durationInFrames": 77,
-      "durationSeconds": 2.272653
+      "startFrame": 2740,
+      "durationInFrames": 75,
+      "durationSeconds": 2.35102
     },
     {
       "id": "teaching_11_not_magic",
@@ -156,9 +156,9 @@
       "sceneId": "scene_06_three_mistakes",
       "caption": "一，把它当魔法。它不让烂内容变好，只让流程变稳。",
       "audioSrc": "audio/full_film_20260616/teaching_11_not_magic.mp3",
-      "startFrame": 3075,
-      "durationInFrames": 139,
-      "durationSeconds": 4.440816
+      "startFrame": 2815,
+      "durationInFrames": 148,
+      "durationSeconds": 5.067755
     },
     {
       "id": "teaching_12_missing_files",
@@ -166,9 +166,9 @@
       "sceneId": "scene_06_three_mistakes",
       "caption": "二，漏掉它引用的文件。点名的模板没带上，AI 照样抓瞎。",
       "audioSrc": "audio/full_film_20260616/teaching_12_missing_files.mp3",
-      "startFrame": 3214,
+      "startFrame": 2963,
       "durationInFrames": 153,
-      "durationSeconds": 4.91102
+      "durationSeconds": 5.250612
     },
     {
       "id": "teaching_13_no_backup",
@@ -176,8 +176,8 @@
       "sceneId": "scene_06_three_mistakes",
       "caption": "三，不存版本。调好的手册被随手一改覆盖，连备份都没有。",
       "audioSrc": "audio/full_film_20260616/teaching_13_no_backup.mp3",
-      "startFrame": 3367,
-      "durationInFrames": 183,
+      "startFrame": 3116,
+      "durationInFrames": 172,
       "durationSeconds": 5.955918
     },
     {
@@ -186,9 +186,9 @@
       "sceneId": "scene_07_whole_life_close",
       "caption": "一个助产士，一个法医，一头一尾。中间那段创作，还是我自己来。",
       "audioSrc": "audio/full_film_20260616/teaching_14_two_ends.mp3",
-      "startFrame": 3550,
-      "durationInFrames": 224,
-      "durationSeconds": 7.392653
+      "startFrame": 3288,
+      "durationInFrames": 222,
+      "durationSeconds": 7.810612
     },
     {
       "id": "teaching_15_not_from_zero",
@@ -196,9 +196,9 @@
       "sceneId": "scene_07_whole_life_close",
       "caption": "但有了这两份手册，我不再是每次从零开始，AI 也不再是转头就忘的临时工。",
       "audioSrc": "audio/full_film_20260616/teaching_15_not_from_zero.mp3",
-      "startFrame": 3774,
-      "durationInFrames": 217,
-      "durationSeconds": 7.157551
+      "startFrame": 3510,
+      "durationInFrames": 194,
+      "durationSeconds": 6.765714
     },
     {
       "id": "teaching_16_life_loop",
@@ -206,9 +206,9 @@
       "sceneId": "scene_07_whole_life_close",
       "caption": "从一个念头出生，到一个作品落幕。这一回，有人替我认真对待了它的一生。",
       "audioSrc": "audio/full_film_20260616/teaching_16_life_loop.mp3",
-      "startFrame": 3991,
-      "durationInFrames": 247,
-      "durationSeconds": 8.202449
+      "startFrame": 3704,
+      "durationInFrames": 204,
+      "durationSeconds": 7.157551
     },
     {
       "id": "author_01_cant_edit",
@@ -216,9 +216,9 @@
       "sceneId": "scene_08_author_note",
       "caption": "一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。",
       "audioSrc": "audio/full_film_20260616/author_01_cant_edit.mp3",
-      "startFrame": 4238,
-      "durationInFrames": 230,
-      "durationSeconds": 7.627755
+      "startFrame": 3908,
+      "durationInFrames": 222,
+      "durationSeconds": 7.810612
     },
     {
       "id": "author_02_validate",
@@ -226,19 +226,19 @@
       "sceneId": "scene_08_author_note",
       "caption": "我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。",
       "audioSrc": "audio/full_film_20260616/author_02_validate.mp3",
-      "startFrame": 4468,
-      "durationInFrames": 199,
-      "durationSeconds": 6.530612
+      "startFrame": 4130,
+      "durationInFrames": 190,
+      "durationSeconds": 6.60898
     },
     {
       "id": "author_03_open_source",
       "section": "author-note",
       "sceneId": "scene_08_author_note",
-      "caption": "代码会开源，欢迎一起来调。",
+      "caption": "代码会开源，欢迎一起来调试。",
       "audioSrc": "audio/full_film_20260616/author_03_open_source.mp3",
-      "startFrame": 4667,
-      "durationInFrames": 80,
-      "durationSeconds": 2.35102
+      "startFrame": 4320,
+      "durationInFrames": 93,
+      "durationSeconds": 3.004082
     }
   ]
 }

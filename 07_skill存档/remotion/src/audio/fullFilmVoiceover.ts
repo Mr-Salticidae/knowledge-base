@@ -55,7 +55,7 @@ export const fullFilmVoiceoverBeats: FullFilmVoiceoverBeat[] = [
   // 段落 5 · 作者的话（压缩版）
   beat('author_01_cant_edit', 'author-note', 'scene_08_author_note', '一句私心：我自己不会剪辑，这条片子从画面、配音到剪辑，全是 AI 按 Skill 做的。'),
   beat('author_02_validate', 'author-note', 'scene_08_author_note', '我想验证的就是，只要把流程写清楚，不会剪辑的人，也能把想法变成作品。'),
-  beat('author_03_open_source', 'author-note', 'scene_08_author_note', '代码会开源，欢迎一起来调。'),
+  beat('author_03_open_source', 'author-note', 'scene_08_author_note', '代码会开源，欢迎一起来调试。'),
 ];
 
 export const fullFilmVoiceoverText = fullFilmVoiceoverBeats.map((item) => item.ttsText).join('\n\n');

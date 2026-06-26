@@ -50,6 +50,13 @@ npx.cmd remotion render src/index.ts SkillIsAllYouNeedFullFilm out/full-film-202
 3. **视觉抽帧验过**（t=4/75/130/150s）：中文渲染、扁平矢量布局、字幕、重锚 motion 均正常。冷开场/冻结事实/完整一生闭环/作者话开源结尾四处 on-message。
 4. **gitignore**：镜像 20260609 先例，白名单放行 `full_film_20260616/`，把这批付费音频入库（保护不丢失 + 可复现，呼应"代码开源"主题）。
 
+### take2（2026-06-27 二轮，按跳蛛先生听感反馈修）
+反馈：①整体偏慢 ②语调太平太冷静 ③结尾"一起来调"被念成 diào。三处各自独立修，一次重生成全修掉：
+- **多音字**：`fullFilmVoiceover.ts` author_03 `一起来调`→`一起来调试`（tiáoshì 无歧义；caption=ttsText，字幕同步变「调试」）。
+- **语调**：`generate-full-film-voiceover.ts` voice_settings `stability 0.52→0.35`、`style 0.22→0.38`（author 0.3→0.48），更有情绪起伏。
+- **节奏**：重生成时 `FULL_FILM_VOICEOVER_PLAYBACK_RATE=1.12`（原 1.05）。
+- 结果：`totalFrames 4792→4458`（2:40→**2:28**）；真片 `out/full-film-20260616-v3.1-take2.mp4`（13.4M）；抽帧确认作者话字幕「调试」+ 四卡正常。
+
 ### 仍待办（交回跳蛛先生）
 - [ ] **审节奏**（只有亲耳听算数）：作者独白是否压到位、三误区快切是否清楚、真实翻车案例是否讲明白、2:40 整体有无拖段。
 - [ ] 节奏定稿后做 P1：9 个新场景重做 MJ/Seedance（当前全是 Remotion 原生几何图形占位）。
