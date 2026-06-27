@@ -101,9 +101,9 @@ const sceneAssets: SceneAsset[] = [
 - `filePath` appears only after an asset is linked/generated.
 - `prompt` can exist before any file exists.
 
-## Current RemotionSkill DryRun Binding
+## RemotionSkill DryRun Binding
 
-`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts` now creates planned placeholder assets for:
+If the project has an orchestration module (e.g. `src/skills/RemotionSkill.ts`), in dryRun it creates planned placeholder assets for:
 
 - each scene background;
 - each `subjects[].id` as a subject-bound asset;

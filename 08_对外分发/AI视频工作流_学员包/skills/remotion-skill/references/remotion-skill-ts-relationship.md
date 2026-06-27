@@ -1,12 +1,12 @@
-# Relationship To Current RemotionSkill.ts
+# Relationship To An Optional RemotionSkill.ts
 
-Current prototype module:
+Prototype module (optional, only if the project has one):
 
-`D:\AIGC工作站\知识库\07_skill存档\remotion\src\skills\RemotionSkill.ts`
+`<your-remotion-project>/src/skills/RemotionSkill.ts`
 
 Productized Skill:
 
-`D:\AIGC工作站\知识库\07_skill存档\remotion-skill\SKILL.md`
+this skill's `SKILL.md`
 
 ## Relationship
 

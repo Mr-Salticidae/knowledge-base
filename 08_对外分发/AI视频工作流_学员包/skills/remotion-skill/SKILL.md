@@ -107,15 +107,11 @@ sceneAssets describes how each visual/audio/media item will be produced, found, 
 - `done`: requested deliverable exists and was verified.
 - `error`: a blocking issue occurred; include `error` and next recovery step.
 
-## Relationship To Current Remotion Project
+## Relationship To The Remotion Project
 
-Current implementation module:
+This SKILL.md is the productized agent instruction layer. If the user's Remotion project later includes an orchestration module (e.g. a `RemotionSkill.ts` that validates sceneSpecs, stores sceneAssets, and calls render), treat that module as the engineering prototype and keep it aligned with the contract below. If no such module exists yet, scaffold a fresh project with `npx create-video` and apply these rules directly. See `references/remotion-skill-ts-relationship.md` for the conceptual mapping.
 
-`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts`
-
-Treat that file as the prototype orchestration module. This SKILL.md is the productized agent instruction layer. See `references/remotion-skill-ts-relationship.md` for how to keep them aligned.
-
-Current dryRun interface:
+Design dryRun interface:
 
 ```ts
 createVideo(params: {
