@@ -16,6 +16,7 @@ export const FULL_FILM_20260610_SCENE_06_MJ_PATH = 'assets/full_film_20260610/sc
 export const FULL_FILM_20260610_AUTHOR_03_MJ_PATH = 'assets/full_film_20260610/author_03_motivation_mj_key_visual.png';
 export const FULL_FILM_20260610_AUTHOR_04_MJ_PATH = 'assets/full_film_20260610/author_04_stack_mj_key_visual.png';
 export const FULL_FILM_20260610_AUTHOR_06_MJ_PATH = 'assets/full_film_20260610/author_06_industrialization_mj_key_visual.png';
+export const FULL_FILM_20260627_SCENE_01_MJ_PATH = 'assets/full_film_20260627/scene_01_what_is_skill/mj_key_visual.png';
 
 export const sceneAssets: SceneAsset[] = [
   {
@@ -530,6 +531,32 @@ export const sceneAssets: SceneAsset[] = [
       verifiedBy: 'FormalClip20260608 v3 render approved by user',
       verifiedOutput: 'out/formal-clip-20260608-voiced-v3.mp4',
       archiveSource: 'C:\\Users\\Administrator\\Downloads\\jimeng-2026-06-08-6630- as the first frame and visual style ref....mp4',
+    },
+  },
+  {
+    id: 'asset_full_film_20260627_scene_01_what_is_skill_mj',
+    sceneId: 'scene_01_what_is_skill',
+    kind: 'image',
+    status: 'linked',
+    role: 'subject',
+    description:
+      'Full-film v3.2 surreal-photography key visual: a faceless midwife (warm amber left) and a faceless coroner (cold blue right) both lean in to read from the same glowing manual at the center of the steel table — the shared manual is the Skill.',
+    provider: 'midjourney',
+    binding: 'foreground-image',
+    expectedPath: FULL_FILM_20260627_SCENE_01_MJ_PATH,
+    filePath: FULL_FILM_20260627_SCENE_01_MJ_PATH,
+    styleTags: ['midjourney', 'full-film-v32', 'surreal-photography', 'crewdson', 'what-is-skill', 'key-visual'],
+    constraints: [
+      'use as Seedance first-frame reference for the what-is-skill scene',
+      'lower third stays clean for Remotion captions',
+      'figures must stay faceless; do not treat the glowing pages as readable text',
+    ],
+    metadata: {
+      width: 2944,
+      height: 1648,
+      visualPackPath: 'production/full_film_2026-06-29_visual_pack_v3.2_photographic.md',
+      archiveSource:
+        'C:\\Users\\Administrator\\Downloads\\mr_jumping_spider_At_the_exact_center_of_a_long_stainless_ste_7bd4cd64-7a4c-4c5f-81a3-97b61c6a3a69_0.png',
     },
   },
 ];
