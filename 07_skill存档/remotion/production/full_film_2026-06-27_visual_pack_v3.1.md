@@ -1,3 +1,5 @@
+> ⚠️ **已作废（2026-06-29）**：风格改向超现实摄影+真实人物，本扁平矢量包不再使用。见 `full_film_2026-06-29_visual_pack_v3.2_photographic.md`。下方内容仅作历史参照。
+
 # 全片 v3.1 视觉生产包（2026-06-27）· P1 九场景 MJ + Seedance
 
 > 项目：Skill Is All You Need / SkillIsAllYouNeedFullFilm
