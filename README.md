@@ -240,7 +240,7 @@
 - [[prompt-master-series/SKILL.md]] —— 把 prompt 作品做成《目标是成为 Prompt 大师》系列一期:抽象题破题 + 小红书双卡 + 小红书正文 + 小白独立笔记 + 归档,克制内敛、小白可读
 - [[knowledge-base-curator/SKILL.md]] —— 知识库策展工作流:把一次答疑成果沉淀为内核版(双链+索引+MOC+一句话律)+ 学员版(无双链可转发),编码本库 CLAUDE.md + README 全部归档规范
 - [[aigc-video-cover-gpt/SKILL.md]] —— 视频封面生成 skill:人物参考图 + 脚本 → GPT Image 2 一步出 16:9 商单封面,内置从模板提炼的封面公式 + 标题钩子发散 + 锁脸三级补救([[GPTImage2锁脸的脸占比上限_v1]])
-- [[creator-weekly-report/SKILL.md]] —— 创作者周报 skill:把一周活动(git 提交轨迹 + 复盘 + skill 迭代 + 发布)聚合成事实先行的结构化周报,日频复盘之上的「周」聚合层;自用内核版归 `00_仓库维护/周报/`,可选对外版;首期实例 [[2026-W26_创作周报]]
+- [[work-weekly-report/SKILL.md]] —— 公司工作周报 skill:跨工作区所有仓库(公司平台 taowhale-site / 个人创作主业 / 知识库沉淀 / 游戏桌面应用 / 维护)聚合一周 git 活动,产出提交给公司的标准三段式周报(本周总结 / 下周计划 / 协助·思考·总结·成长),成品写入并推送 work-reports 仓库(不进本库)
 
 ### 主题脉络十二:平台工程(2026-06-25 新增)
 
