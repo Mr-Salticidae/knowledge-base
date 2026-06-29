@@ -128,7 +128,22 @@ const WarningIcon: React.FC<{ color: string; label?: string }> = ({ color, label
     <div style={{ position: 'absolute', left: '19%', top: '12%', width: '62%', height: '60%', clipPath: 'polygon(50% 0, 100% 100%, 0 100%)', background: color }} />
     <div style={{ position: 'absolute', left: '47%', top: '31%', width: '6%', height: '23%', borderRadius: 999, background: '#0F172A' }} />
     <div style={{ position: 'absolute', left: '46%', top: '60%', width: '8%', height: '8%', borderRadius: '50%', background: '#0F172A' }} />
-    <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, textAlign: 'center', color: '#F8FAFC', fontSize: 26, fontWeight: 800 }}>{label}</div>
+    <div
+      style={{
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        textAlign: 'center',
+        color: '#F8FAFC',
+        fontSize: 26,
+        fontWeight: 800,
+        textShadow:
+          '2px 0 0 #0F172A, -2px 0 0 #0F172A, 0 2px 0 #0F172A, 0 -2px 0 #0F172A, 2px 2px 0 #0F172A, -2px 2px 0 #0F172A, 2px -2px 0 #0F172A, -2px -2px 0 #0F172A',
+      }}
+    >
+      {label}
+    </div>
   </div>
 );
 
