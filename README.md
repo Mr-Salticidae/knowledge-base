@@ -162,6 +162,7 @@
 
 - [[图生视频_ForwardOnly原则]]
 - [[蒙眼剪辑法_方法论笔记]] —— AI 初标节奏方案,人类审核反馈;已扩展到 BGM + 角色独白双轨角色 PV
+- [[音频也能蒙眼剪辑_突然静音是剪出来的_v1]] —— 蒙眼剪辑法的音频域扩展:Suno 给不出突然静音,DROP 是剪出来的;代码读波形找乐章天然分界线、人审听感裁决
 - [[SKILL入门完全指南]] —— 给没用过 Skill 的 AIGC 同好:SKILL_INDEX 挂载机制、测试、调用、避坑和版本存档
 - [[AIGC_Skill到Remotion视频闭环]] —— Codex Skill + Remotion 的笔记/结构 → TSX → 预览 → 微调 → MP4 视频生产闭环
 - [[Coze技能包创建待验证操作路线]] —— GPT 整理稿转入库的 Coze Agent / Knowledge / Workflow 搭建路线;尚未完成真实 Coze 实操验证
