@@ -89,6 +89,6 @@ tags: [类型/方法论, 主题/prompt, 主题/构图, 主题/AIGC]
 
 - [[AIGC构图层实验协议_v1]]
 - [[aigc-prompt-optimizer/SKILL.md]]
-- [[prompt的三段式结构_v1]]
+- [[prompt的四段式结构_v1]]
 - [[主体不看镜头律]]
 - [[光暗作为空间叙事工具]]
