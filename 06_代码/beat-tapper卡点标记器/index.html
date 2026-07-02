@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12141f">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🥁</text></svg>">
+<title>BeatTapper 卡点标记器 · 蒙眼剪辑法打点工具</title>
+<style>
+  :root {
+    --bg: #12141f;
+    --card: #1b1e2e;
+    --card2: #232741;
+    --line: #32365a;
+    --text: #eef0ff;
+    --dim: #8b90b5;
+    --gold: #ffd23f;
+    --pink: #ff5d8f;
+    --cyan: #3be8b0;
+    --purple: #9d8cff;
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    background: radial-gradient(1200px 600px at 50% -10%, #1e2340 0%, var(--bg) 55%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 18px 14px 48px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .wrap { width: 100%; max-width: 760px; display: flex; flex-direction: column; gap: 14px; }
+
+  header { text-align: center; padding: 4px 0 2px; }
+  header h1 {
+    margin: 0; font-size: 24px; letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--gold), var(--pink), var(--purple));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  header p { margin: 6px 0 0; color: var(--dim); font-size: 13px; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; }
+
+  /* ---------- 文件加载 ---------- */
+  #drop {
+    border: 2px dashed var(--line); border-radius: var(--radius);
+    padding: 26px 16px; text-align: center; color: var(--dim);
+    cursor: pointer; transition: border-color .2s, color .2s; font-size: 15px;
+  }
+  #drop.over { border-color: var(--cyan); color: var(--cyan); }
+  #drop.loaded { border-style: solid; border-color: var(--cyan); color: var(--cyan); padding: 12px 16px; }
+  #drop small { display: block; margin-top: 6px; font-size: 12px; opacity: .7; }
+
+  /* ---------- 波形 ---------- */
+  #waveCard { padding: 10px 14px 12px; }
+  .timeRow { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
+  #timeNow { font-size: 34px; font-variant-numeric: tabular-nums; font-weight: 700; }
+  #timeNow small { font-size: 15px; color: var(--dim); font-weight: 400; }
+  #modeBadge { font-size: 12px; color: var(--bg); background: var(--gold); border-radius: 20px; padding: 3px 12px; font-weight: 700; display: none; }
+  #modeBadge.on { display: inline-block; animation: badgePulse 1s infinite; }
+  @keyframes badgePulse { 50% { opacity: .55; } }
+  #wave { width: 100%; height: 130px; display: block; border-radius: 10px; background: #14172a; cursor: crosshair; touch-action: none; }
+  .waveHint { color: var(--dim); font-size: 11px; margin-top: 6px; text-align: right; }
+
+  /* ---------- 打点区 ---------- */
+  #tapzone {
+    position: relative; overflow: hidden;
+    height: 190px; border-radius: var(--radius);
+    background: linear-gradient(160deg, var(--card2), var(--card));
+    border: 2px solid var(--line);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    user-select: none; -webkit-user-select: none; cursor: pointer; touch-action: none;
+    transition: border-color .12s, box-shadow .12s;
+  }
+  #tapzone .label { font-size: 20px; color: var(--dim); pointer-events: none; }
+  #tapzone .sub { font-size: 12px; color: var(--dim); opacity: .7; margin-top: 6px; pointer-events: none; }
+  #tapzone.flash { border-color: var(--gold); box-shadow: 0 0 26px rgba(255,210,63,.35), inset 0 0 40px rgba(255,210,63,.12); }
+  #tapzone.flash-P { border-color: var(--gold);  box-shadow: 0 0 30px rgba(255,210,63,.5),  inset 0 0 46px rgba(255,210,63,.16); }
+  #tapzone.flash-G { border-color: var(--cyan);  box-shadow: 0 0 26px rgba(59,232,176,.45), inset 0 0 40px rgba(59,232,176,.13); }
+  #tapzone.flash-O { border-color: var(--purple);box-shadow: 0 0 24px rgba(157,140,255,.4), inset 0 0 36px rgba(157,140,255,.12); }
+
+  #combo {
+    position: absolute; top: 12px; right: 16px; font-weight: 800; font-size: 22px;
+    color: var(--gold); text-shadow: 0 0 14px rgba(255,210,63,.6);
+    opacity: 0; transition: opacity .2s; pointer-events: none; font-variant-numeric: tabular-nums;
+  }
+  #combo.on { opacity: 1; }
+
+  .pop {
+    position: absolute; font-weight: 900; font-size: 30px; pointer-events: none;
+    animation: popUp .75s ease-out forwards; letter-spacing: 2px;
+    transform: translate(-50%, -50%);
+  }
+  .pop.P { color: var(--gold);   text-shadow: 0 0 18px rgba(255,210,63,.8); }
+  .pop.G { color: var(--cyan);   text-shadow: 0 0 16px rgba(59,232,176,.7); }
+  .pop.O { color: var(--purple); text-shadow: 0 0 14px rgba(157,140,255,.7); }
+  .pop.F { color: var(--dim); font-size: 22px; }
+  .pop.R { color: var(--gold); font-size: 40px; text-shadow: 0 0 22px rgba(255,210,63,.9); }
+  @keyframes popUp {
+    0%   { opacity: 0; transform: translate(-50%, -30%) scale(.6); }
+    18%  { opacity: 1; transform: translate(-50%, -55%) scale(1.15); }
+    100% { opacity: 0; transform: translate(-50%, -130%) scale(1); }
+  }
+  .ripple {
+    position: absolute; border: 2px solid var(--gold); border-radius: 50%;
+    pointer-events: none; animation: rip .5s ease-out forwards;
+    transform: translate(-50%, -50%);
+  }
+  @keyframes rip {
+    0%   { width: 10px; height: 10px; opacity: .9; }
+    100% { width: 130px; height: 130px; opacity: 0; }
+  }
+
+  /* ---------- 按钮 ---------- */
+  .btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  button {
+    background: var(--card2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px 18px; font-size: 15px; cursor: pointer;
+    font-family: inherit; transition: background .15s, transform .05s;
+  }
+  button:hover { background: #2b3052; }
+  button:active { transform: scale(.96); }
+  button.primary { background: var(--gold); color: #1a1500; border-color: var(--gold); font-weight: 700; }
+  button.primary:hover { background: #ffdd6b; }
+  button.accent { background: transparent; border-color: var(--cyan); color: var(--cyan); }
+  button.accent.on { background: var(--cyan); color: #002a1d; font-weight: 700; }
+  button.danger { color: var(--pink); border-color: #5a3248; }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+
+  /* ---------- 设置 ---------- */
+  .settings { display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; font-size: 14px; color: var(--dim); }
+  .settings label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+  .settings input[type=checkbox] { accent-color: var(--gold); width: 17px; height: 17px; }
+  .settings select, .settings input[type=number] {
+    background: var(--card2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 8px; padding: 4px 8px; font-size: 14px; font-family: inherit;
+  }
+  .settings input[type=number] { width: 70px; }
+
+  /* ---------- 结果 ---------- */
+  .statRow { display: flex; gap: 16px; flex-wrap: wrap; font-size: 14px; color: var(--dim); margin-bottom: 8px; }
+  .statRow b { color: var(--text); font-variant-numeric: tabular-nums; }
+  .statRow .sp { color: var(--gold); } .statRow .sg { color: var(--cyan); }
+  textarea {
+    width: 100%; height: 96px; background: #14172a; color: #b8ffd9;
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px;
+    font-size: 13px; font-family: Consolas, monospace; resize: vertical;
+  }
+  .hint { color: var(--dim); font-size: 13px; line-height: 1.8; margin: 0; }
+  .hint b { color: var(--gold); font-weight: 600; }
+
+  #toast {
+    position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%);
+    background: var(--card2); border: 1px solid var(--line); color: var(--text);
+    padding: 10px 22px; border-radius: 24px; font-size: 14px;
+    opacity: 0; transition: opacity .25s; pointer-events: none; z-index: 99; white-space: nowrap;
+  }
+  #toast.on { opacity: 1; }
+
+  footer { color: #565b80; font-size: 12px; text-align: center; margin-top: 6px; }
+  footer a { color: #8b90b5; text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 620px) {
+    body { padding: 12px 10px 40px; }
+    header h1 { font-size: 20px; }
+    #timeNow { font-size: 27px; }
+    #wave { height: 96px; }
+    #tapzone { height: 34vh; min-height: 170px; }
+    button { padding: 12px 14px; font-size: 14px; flex: 1 1 auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🥁 BeatTapper 卡点标记器</h1>
+    <p>跟着音乐打点 → 机器吸附到攻击峰 → 导出时间戳交给剪辑脚本 · 蒙眼剪辑法配套工具</p>
+  </header>
+
+  <div id="drop" class="card" style="background:transparent">
+    🎵 点击选择音频文件，或直接拖进来
+    <small>支持 wav / mp3 / m4a / ogg 等浏览器可解码格式 · 全程本地处理，不上传任何数据</small>
+  </div>
+  <input type="file" id="file" accept="audio/*" style="display:none">
+
+  <div id="waveCard" class="card">
+    <div class="timeRow">
+      <div id="timeNow">0.00<small> / 0.0 s</small></div>
+      <span id="modeBadge">🔁 回放检验中</span>
+    </div>
+    <canvas id="wave"></canvas>
+    <div class="waveHint">点击波形跳转 · 黄线=打点(吸附后) · 灰点=原始手打位置</div>
+  </div>
+
+  <div id="tapzone">
+    <div id="combo"></div>
+    <div class="label">空格 / 点击这里 = 打点</div>
+    <div class="sub">J K 键也行 · Backspace 撤销</div>
+  </div>
+
+  <div class="btns">
+    <button id="playBtn" class="primary">▶ 播放</button>
+    <button id="rewBtn">⏮ 回开头</button>
+    <button id="replayBtn" class="accent">🔁 回放检验</button>
+    <button id="undoBtn">⌫ 撤销</button>
+    <button id="clearBtn" class="danger">🗑 清空</button>
+  </div>
+
+  <div class="card settings">
+    <label><input type="checkbox" id="snapOn" checked> 吸附到攻击峰</label>
+    <label><input type="checkbox" id="leadOn" checked> 切点提前 1 帧
+      <select id="fpsSel"><option value="30" selected>30fps</option><option value="24">24fps</option><option value="25">25fps</option><option value="60">60fps</option></select>
+    </label>
+    <label><input type="checkbox" id="clickOn" checked> 回放咔哒声</label>
+    <label>延迟补偿 <input type="number" id="latency" value="0" step="10" min="-200" max="400"> ms</label>
+  </div>
+
+  <div class="card">
+    <div class="statRow">
+      <span>已打点 <b id="count">0</b> 个</span>
+      <span class="sp">PERFECT <b id="nP">0</b></span>
+      <span class="sg">GOOD <b id="nG">0</b></span>
+      <span>最高连击 <b id="maxCombo">0</b></span>
+    </div>
+    <textarea id="out" placeholder="打点结果(秒)会实时出现在这里" readonly></textarea>
+    <div class="btns" style="margin-top:10px; justify-content:flex-start">
+      <button id="copyBtn">📋 复制列表</button>
+      <button id="jsonBtn">⬇ 导出 JSON</button>
+      <button id="csvBtn">⬇ 导出 CSV</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="hint">
+      <b>怎么用:</b> 先完整听一遍不打点；第二遍只在"你觉得画面必须换"的重击上按空格，宁缺勿滥。
+      打点不用担心手速——开启<b>吸附</b>后，每个点会自动贴到 ±0.18s 内最强的真实攻击峰上，你只负责"选哪些拍"，机器负责"精确到毫秒"。<br>
+      <b>回放检验:</b> 打完点按"🔁 回放检验"，音乐会重放，每到一个打点处闪光+咔哒声，用耳朵检查有没有打歪。<br>
+      <b>判定反馈:</b> PERFECT = 手打离真实攻击峰 ≤45ms，GOOD ≤90ms，还行 ≤180ms——只是手感反馈，吸附后都一样准。<br>
+      <b>延迟补偿:</b> 蓝牙耳机有延迟，若总感觉判定偏"晚"，试试填 100~200ms。
+    </p>
+  </div>
+
+  <footer>BeatTapper · 纯前端零依赖 · 蒙眼剪辑法(Blind Editing Workflow)配套 · <a href="../">↩ 蛛网之上</a></footer>
+</div>
+<div id="toast"></div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const actx = new (window.AudioContext || window.webkitAudioContext)();
+
+/* ================= 状态 ================= */
+let audioBuf = null;          // AudioBuffer
+let fileName = "";
+let flux = null;              // 能量流量数组 (onset strength), hop=5ms
+const HOP = 0.005;            // 秒
+const SNAP_WIN = 0.18;        // 吸附搜索窗口 ±s
+let src = null;               // 当前 BufferSource
+let playing = false;
+let t0 = 0;                   // 播放起点对应的 actx.currentTime
+let offset = 0;               // 暂停位置(秒)
+let stopFlag = false;         // 区分手动停止与自然播完
+let mode = "tap";             // tap | replay
+let taps = [];                // {raw, peak|null, delta|null, judge}
+let combo = 0, maxCombo = 0;
+let replayIdx = 0, replayMarks = [], clickNodes = [];
+
+/* ================= 工具 ================= */
+function position() {
+  const p = playing ? offset + (actx.currentTime - t0) : offset;
+  return audioBuf ? Math.min(p, audioBuf.duration) : 0;
+}
+let toastTimer = 0;
+function toast(msg) {
+  const el = $("toast"); el.textContent = msg; el.classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove("on"), 1600);
+}
+function fmt(t) { return t.toFixed(3); }
+
+/* ================= 文件加载 ================= */
+const drop = $("drop");
+drop.onclick = () => $("file").click();
+drop.ondragover = e => { e.preventDefault(); drop.classList.add("over"); };
+drop.ondragleave = () => drop.classList.remove("over");
+drop.ondrop = e => { e.preventDefault(); drop.classList.remove("over"); load(e.dataTransfer.files[0]); };
+$("file").onchange = e => load(e.target.files[0]);
+
+async function load(f) {
+  if (!f) return;
+  stopPlayback(); taps = []; combo = 0; maxCombo = 0; offset = 0; exitReplay(true);
+  drop.textContent = "⏳ 解码中…";
+  try {
+    audioBuf = await actx.decodeAudioData(await f.arrayBuffer());
+  } catch (err) {
+    drop.innerHTML = "❌ 解码失败，换个格式试试<small>浏览器不支持该编码</small>";
+    drop.classList.remove("loaded");
+    audioBuf = null; fileName = ""; return;
+  }
+  fileName = f.name;
+  drop.classList.add("loaded");
+  drop.innerHTML = `✅ ${f.name} · ${audioBuf.duration.toFixed(1)}s <small>点击可换一首（会清空打点）</small>`;
+  computeFlux();
+  buildWavePeaks();
+  render();
+  updateTime();
+  toast("加载完成，按 ▶ 播放开始打点");
+}
+
+/* ================= Onset 检测(能量流量法, 同 snap_user_taps.py) ================= */
+function computeFlux() {
+  const sr = audioBuf.sampleRate;
+  const wl = Math.round(sr * HOP);
+  // 混成单声道
+  const n = audioBuf.length;
+  const mono = new Float32Array(n);
+  for (let c = 0; c < audioBuf.numberOfChannels; c++) {
+    const d = audioBuf.getChannelData(c);
+    for (let i = 0; i < n; i++) mono[i] += d[i];
+  }
+  const nb = Math.floor(n / wl);
+  const rms = new Float32Array(nb);
+  const ch = audioBuf.numberOfChannels;
+  for (let b = 0; b < nb; b++) {
+    let s = 0;
+    const base = b * wl;
+    for (let i = 0; i < wl; i++) { const v = mono[base + i] / ch; s += v * v; }
+    rms[b] = Math.sqrt(s / wl);
+  }
+  flux = new Float32Array(nb);
+  for (let b = 1; b < nb; b++) {
+    const d = rms[b] - rms[b - 1];
+    flux[b] = d > 0 ? d : 0;
+  }
+}
+// 在 tap±WIN 内找最强攻击峰; 返回 {peak, delta} 或 null
+function findPeak(t) {
+  if (!flux) return null;
+  const lo = Math.max(0, Math.round((t - SNAP_WIN) / HOP));
+  const hi = Math.min(flux.length - 1, Math.round((t + SNAP_WIN) / HOP));
+  if (hi <= lo) return null;
+  let bi = lo, bv = -1;
+  for (let i = lo; i <= hi; i++) if (flux[i] > bv) { bv = flux[i]; bi = i; }
+  if (bv <= 0) return null;
+  const peak = bi * HOP;
+  return { peak, delta: peak - t };
+}
+
+/* ================= 打点 & 判定 ================= */
+function judgeOf(delta) {
+  if (delta === null) return "F";
+  const a = Math.abs(delta);
+  if (a <= 0.045) return "P";
+  if (a <= 0.09)  return "G";
+  if (a <= 0.18)  return "O";
+  return "F";
+}
+const JTEXT = { P: "PERFECT", G: "GOOD", O: "还行", F: "自由拍" };
+
+function tap(px, py) {
+  if (mode === "replay") return;
+  if (!audioBuf) { toast("先加载音乐文件"); return; }
+  if (!playing) { toast("先按 ▶ 播放，再跟着节奏打点"); return; }
+  const comp = (parseFloat($("latency").value) || 0) / 1000;
+  const t = Math.max(0, position() - comp);
+  const pk = findPeak(t);
+  const judge = judgeOf(pk ? pk.delta : null);
+  taps.push({ raw: t, peak: pk ? pk.peak : null, delta: pk ? pk.delta : null, judge });
+  if (judge === "P" || judge === "G") { combo++; maxCombo = Math.max(maxCombo, combo); }
+  else combo = 0;
+  feedback(judge, px, py);
+  render();
+}
+
+function feedback(judge, px, py) {
+  const z = $("tapzone");
+  const r = z.getBoundingClientRect();
+  const x = px !== undefined ? px - r.left : r.width / 2 + (Math.random() * 60 - 30);
+  const y = py !== undefined ? py - r.top : r.height / 2;
+  // 判定文字
+  const pop = document.createElement("div");
+  pop.className = "pop " + judge;
+  pop.textContent = JTEXT[judge];
+  pop.style.left = x + "px"; pop.style.top = y + "px";
+  z.appendChild(pop);
+  setTimeout(() => pop.remove(), 800);
+  // 波纹
+  const rip = document.createElement("div");
+  rip.className = "ripple";
+  rip.style.left = x + "px"; rip.style.top = y + "px";
+  z.appendChild(rip);
+  setTimeout(() => rip.remove(), 520);
+  // 边框闪光
+  z.classList.remove("flash", "flash-P", "flash-G", "flash-O");
+  void z.offsetWidth;
+  z.classList.add("flash-" + (judge === "F" ? "O" : judge));
+  setTimeout(() => z.classList.remove("flash-P", "flash-G", "flash-O"), 140);
+  // 连击
+  const c = $("combo");
+  if (combo >= 2) { c.textContent = "×" + combo; c.classList.add("on"); }
+  else c.classList.remove("on");
+}
+
+function finalTime(tp) {
+  const snap = $("snapOn").checked;
+  if (!snap || tp.peak === null) return tp.raw;
+  const lead = $("leadOn").checked ? 1 / (parseFloat($("fpsSel").value) || 30) : 0;
+  return Math.max(0, tp.peak - lead);
+}
+function finalTimes() { return taps.map(finalTime); }
+
+/* ================= 播放控制 ================= */
+function startPlayback(from) {
+  if (!audioBuf) { toast("先加载音乐文件"); return; }
+  stopPlayback();
+  offset = Math.max(0, Math.min(from, audioBuf.duration - 0.01));
+  src = actx.createBufferSource();
+  src.buffer = audioBuf;
+  src.connect(actx.destination);
+  actx.resume();
+  stopFlag = false;
+  const mySrc = src;                 // 只响应"当前"source 的自然播完, 避免旧回调竞态
+  src.onended = () => {
+    if (mySrc !== src || stopFlag) return;
+    playing = false; offset = 0;
+    $("playBtn").textContent = "▶ 播放";
+    if (mode === "replay") { exitReplay(); toast("回放结束 ✓"); }
+  };
+  src.start(0, offset);
+  t0 = actx.currentTime;
+  playing = true;
+  $("playBtn").textContent = "⏸ 暂停";
+}
+function stopPlayback() {           // 暂停在当前位置
+  if (src && playing) {
+    offset = position();
+    stopFlag = true;
+    try { src.stop(); } catch (e) {}
+  }
+  playing = false;
+  $("playBtn").textContent = "▶ 播放";
+  cancelClicks();
+}
+function togglePlay() {
+  if (playing) { stopPlayback(); if (mode === "replay") exitReplay(); }
+  else startPlayback(offset);
+}
+function seek(t) {
+  const wasPlaying = playing;
+  stopPlayback();
+  offset = Math.max(0, Math.min(t, audioBuf ? audioBuf.duration : 0));
+  if (mode === "replay") exitReplay();
+  if (wasPlaying) startPlayback(offset);
+}
+
+$("playBtn").onclick = togglePlay;
+$("rewBtn").onclick = () => { const was = playing || mode === "replay"; stopPlayback(); if (mode === "replay") exitReplay(); offset = 0; if (was) startPlayback(0); };
+
+/* ================= 回放检验 ================= */
+$("replayBtn").onclick = () => {
+  if (mode === "replay") { stopPlayback(); exitReplay(); return; }
+  if (!audioBuf) { toast("先加载音乐文件"); return; }
+  if (!taps.length) { toast("还没有打点，先打几个再回放"); return; }
+  mode = "replay";
+  $("replayBtn").classList.add("on");
+  $("modeBadge").classList.add("on");
+  replayMarks = finalTimes().slice().sort((a, b) => a - b);
+  replayIdx = 0;
+  startPlayback(0);
+  scheduleClicks();
+  toast("回放检验：每到打点处会闪光" + ($("clickOn").checked ? "+咔哒声" : ""));
+};
+function exitReplay(silent) {
+  mode = "tap";
+  $("replayBtn").classList.remove("on");
+  $("modeBadge").classList.remove("on");
+  cancelClicks();
+}
+function scheduleClicks() {
+  if (!$("clickOn").checked) return;
+  const base = t0 - offset;              // actx 时间基准
+  for (const m of replayMarks) {
+    if (m < offset) continue;
+    const when = base + m;
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.type = "square"; o.frequency.value = 1600;
+    g.gain.setValueAtTime(0.35, when);
+    g.gain.exponentialRampToValueAtTime(0.001, when + 0.05);
+    o.connect(g); g.connect(actx.destination);
+    o.start(when); o.stop(when + 0.06);
+    clickNodes.push(o);
+  }
+}
+function cancelClicks() {
+  for (const o of clickNodes) { try { o.stop(); } catch (e) {} }
+  clickNodes = [];
+}
+
+/* ================= 撤销/清空/导出 ================= */
+$("undoBtn").onclick = undo;
+function undo() {
+  if (mode === "replay") return;
+  if (!taps.length) return;
+  taps.pop(); combo = 0; $("combo").classList.remove("on");
+  render(); toast("已撤销最后一个点");
+}
+$("clearBtn").onclick = () => {
+  if (!taps.length) return;
+  if (!confirm(`确定清空全部 ${taps.length} 个打点？`)) return;
+  taps = []; combo = 0; maxCombo = 0; $("combo").classList.remove("on");
+  render();
+};
+$("copyBtn").onclick = async () => {
+  const text = finalTimes().map(fmt).join(", ");
+  if (!text) { toast("还没有打点"); return; }
+  try { await navigator.clipboard.writeText(text); toast("已复制 " + taps.length + " 个时间戳"); }
+  catch (e) { $("out").removeAttribute("readonly"); $("out").select(); document.execCommand("copy"); $("out").setAttribute("readonly", ""); toast("已复制"); }
+};
+function download(name, mime, content) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([content], { type: mime }));
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 3000);
+}
+function baseName() { return (fileName || "taps").replace(/\.[^.]+$/, ""); }
+$("jsonBtn").onclick = () => {
+  if (!taps.length) { toast("还没有打点"); return; }
+  const data = {
+    tool: "BeatTapper",
+    file: fileName,
+    duration: audioBuf ? +audioBuf.duration.toFixed(3) : null,
+    exported_at: new Date().toISOString(),
+    settings: {
+      snap: $("snapOn").checked,
+      lead_one_frame: $("leadOn").checked,
+      fps: parseFloat($("fpsSel").value),
+      latency_comp_ms: parseFloat($("latency").value) || 0,
+      snap_window_s: SNAP_WIN
+    },
+    taps: taps.map((tp, i) => ({
+      i: i + 1,
+      raw: +tp.raw.toFixed(3),
+      peak: tp.peak === null ? null : +tp.peak.toFixed(3),
+      final: +finalTime(tp).toFixed(3),
+      judge: JTEXT[tp.judge]
+    }))
+  };
+  download(baseName() + "_taps.json", "application/json", JSON.stringify(data, null, 2));
+};
+$("csvBtn").onclick = () => {
+  if (!taps.length) { toast("还没有打点"); return; }
+  let csv = "index,raw_s,peak_s,final_s,judge\n";
+  taps.forEach((tp, i) => {
+    csv += `${i + 1},${fmt(tp.raw)},${tp.peak === null ? "" : fmt(tp.peak)},${fmt(finalTime(tp))},${JTEXT[tp.judge]}\n`;
+  });
+  download(baseName() + "_taps.csv", "text/csv", String.fromCharCode(0xFEFF) + csv);
+};
+
+/* ================= 渲染 ================= */
+function render() {
+  $("count").textContent = taps.length;
+  $("nP").textContent = taps.filter(t => t.judge === "P").length;
+  $("nG").textContent = taps.filter(t => t.judge === "G").length;
+  $("maxCombo").textContent = maxCombo;
+  $("out").value = finalTimes().map(fmt).join(", ");
+}
+["snapOn", "leadOn", "fpsSel"].forEach(id => $(id).addEventListener("change", render));
+
+/* ================= 波形 ================= */
+const wave = $("wave");
+const wctx = wave.getContext("2d");
+let peaksLo = null, peaksHi = null;   // 每列 min/max
+let waveW = 0, waveH = 0, dpr = 1;
+
+function resizeWave() {
+  dpr = window.devicePixelRatio || 1;
+  const r = wave.getBoundingClientRect();
+  waveW = Math.round(r.width * dpr);
+  waveH = Math.round(r.height * dpr);
+  if (wave.width !== waveW) { wave.width = waveW; wave.height = waveH; }
+  if (audioBuf) buildWavePeaks();
+}
+window.addEventListener("resize", resizeWave);
+
+function buildWavePeaks() {
+  resizeOnce();
+  const d = audioBuf.getChannelData(0);
+  const cols = Math.max(1, Math.floor(waveW));
+  peaksLo = new Float32Array(cols); peaksHi = new Float32Array(cols);
+  const spp = d.length / cols;
+  for (let x = 0; x < cols; x++) {
+    let lo = 1, hi = -1;
+    const s = Math.floor(x * spp), e = Math.min(d.length, Math.floor((x + 1) * spp));
+    const step = Math.max(1, Math.floor((e - s) / 200));   // 采样加速
+    for (let i = s; i < e; i += step) { const v = d[i]; if (v < lo) lo = v; if (v > hi) hi = v; }
+    peaksLo[x] = lo; peaksHi[x] = hi;
+  }
+}
+function resizeOnce() {
+  if (!waveW) {
+    dpr = window.devicePixelRatio || 1;
+    const r = wave.getBoundingClientRect();
+    waveW = Math.round(r.width * dpr); waveH = Math.round(r.height * dpr);
+    wave.width = waveW; wave.height = waveH;
+  }
+}
+
+let flashMark = -1, flashUntil = 0;    // 回放时脉冲的标记
+function drawWave() {
+  if (!waveW) resizeOnce();
+  wctx.clearRect(0, 0, waveW, waveH);
+  if (!audioBuf || !peaksHi) {
+    wctx.fillStyle = "#3a3f66";
+    wctx.font = `${13 * dpr}px sans-serif`;
+    wctx.textAlign = "center";
+    wctx.fillText("加载音频后显示波形", waveW / 2, waveH / 2);
+    return;
+  }
+  const dur = audioBuf.duration;
+  const pos = position();
+  const px = pos / dur * waveW;
+  const mid = waveH / 2, amp = waveH * 0.46;
+
+  // 已播区高亮底色
+  wctx.fillStyle = "rgba(255,210,63,.06)";
+  wctx.fillRect(0, 0, px, waveH);
+
+  // 波形
+  for (let x = 0; x < waveW; x++) {
+    const played = x < px;
+    wctx.fillStyle = played ? "rgba(255,210,63,.85)" : "rgba(110,120,190,.65)";
+    const y1 = mid - peaksHi[x] * amp, y2 = mid - peaksLo[x] * amp;
+    wctx.fillRect(x, y1, 1, Math.max(1, y2 - y1));
+  }
+
+  // 打点标记
+  const nowT = performance.now();
+  const finals = finalTimes();
+  for (let i = 0; i < taps.length; i++) {
+    const fx = finals[i] / dur * waveW;
+    // 原始手打位置(灰点)
+    const rx = taps[i].raw / dur * waveW;
+    wctx.fillStyle = "rgba(200,205,235,.5)";
+    wctx.beginPath(); wctx.arc(rx, waveH - 6 * dpr, 2.5 * dpr, 0, 7); wctx.fill();
+    // 最终切点(黄线)
+    const pulse = (i === flashMark && nowT < flashUntil);
+    wctx.strokeStyle = pulse ? "#ffffff" : "#ffd23f";
+    wctx.lineWidth = (pulse ? 3 : 1.5) * dpr;
+    wctx.beginPath(); wctx.moveTo(fx, 0); wctx.lineTo(fx, waveH); wctx.stroke();
+    if (pulse) {
+      wctx.fillStyle = "rgba(255,210,63,.28)";
+      wctx.fillRect(fx - 8 * dpr, 0, 16 * dpr, waveH);
+    }
+  }
+
+  // 播放头
+  wctx.strokeStyle = "#3be8b0";
+  wctx.lineWidth = 2 * dpr;
+  wctx.beginPath(); wctx.moveTo(px, 0); wctx.lineTo(px, waveH); wctx.stroke();
+}
+
+// 点击/拖动波形跳转
+let waveDown = false;
+wave.addEventListener("pointerdown", e => { waveDown = true; wave.setPointerCapture(e.pointerId); waveSeek(e); });
+wave.addEventListener("pointermove", e => { if (waveDown) waveSeek(e); });
+wave.addEventListener("pointerup", () => waveDown = false);
+function waveSeek(e) {
+  if (!audioBuf) return;
+  const r = wave.getBoundingClientRect();
+  seek((e.clientX - r.left) / r.width * audioBuf.duration);
+}
+
+/* ================= 主循环 ================= */
+function updateTime() {
+  const pos = position();
+  $("timeNow").innerHTML = pos.toFixed(2) + `<small> / ${audioBuf ? audioBuf.duration.toFixed(1) : "0.0"} s</small>`;
+}
+function frame() {
+  const pos = position();
+  updateTime();
+  // 回放模式: 检测越过打点
+  if (mode === "replay" && playing) {
+    while (replayIdx < replayMarks.length && replayMarks[replayIdx] <= pos) {
+      replayFlash(replayIdx);
+      replayIdx++;
+    }
+  }
+  drawWave();
+  requestAnimationFrame(frame);
+}
+function replayFlash(i) {
+  const z = $("tapzone");
+  z.classList.remove("flash"); void z.offsetWidth; z.classList.add("flash");
+  setTimeout(() => z.classList.remove("flash"), 130);
+  const pop = document.createElement("div");
+  pop.className = "pop R"; pop.textContent = "✦";
+  pop.style.left = (20 + Math.random() * 60) + "%"; pop.style.top = "50%";
+  z.appendChild(pop);
+  setTimeout(() => pop.remove(), 800);
+  // 波形上的标记脉冲: 找到对应 final 时间的下标
+  flashMark = finalTimes().findIndex(t => Math.abs(t - replayMarks[i]) < 1e-6);
+  flashUntil = performance.now() + 200;
+}
+requestAnimationFrame(frame);
+
+/* ================= 输入 ================= */
+$("tapzone").addEventListener("pointerdown", e => { e.preventDefault(); tap(e.clientX, e.clientY); });
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "SELECT" || e.target.tagName === "TEXTAREA") return;
+  if (e.repeat) { if (e.code === "Space") e.preventDefault(); return; }
+  switch (e.code) {
+    case "Space": case "KeyJ": case "KeyK":
+      e.preventDefault(); tap(); break;
+    case "Backspace":
+      e.preventDefault(); undo(); break;
+    case "KeyZ":
+      if (e.ctrlKey || e.metaKey) { e.preventDefault(); undo(); }
+      break;
+    case "Enter": case "KeyP":
+      e.preventDefault(); togglePlay(); break;
+  }
+});
+// 移动端阻止双击缩放
+document.addEventListener("dblclick", e => e.preventDefault(), { passive: false });
+</script>
+</body>
+</html>
