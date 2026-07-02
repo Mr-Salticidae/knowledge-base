@@ -1,6 +1,6 @@
 ---
 tags: [类型/方法论, 工具/Suno, 领域/配乐]
-状态: 🔍网络检索沉淀,待实战首验(50号快节奏60s版)
+状态: ✅50号快版首验通过(2026-07-02)
 ---
 # Suno 时长控制:结构标签代替秒数 v1
 
@@ -43,6 +43,12 @@ tags: [类型/方法论, 工具/Suno, 领域/配乐]
 ### 4. Style 词偏置(弱杠杆)
 
 "short"、"60-second trailer cue"、"sting"、"jingle" 类词把先验拉向短;"full length"、"extended arrangement" 拉向长。只偏置,不保证。
+
+## 首验数据点(2026-07-02,50号快节奏60s版)
+
+7 段骨架(Intro/Build/Drop/Break/Drop 2/Outro: Cold End/[End])+ style 带 "short track"
+→ 产出《Neon Pulse》78.8s(有效内容 74.2s,尾部衰减至 78.1s),创作者一次满意。
+落点略超 55-75s 预期区间但完全可用——衰减尾天然是片尾字区。头部无爆音,[End] 收尾干净无幻觉拖尾。
 
 ## 期望管理
 
