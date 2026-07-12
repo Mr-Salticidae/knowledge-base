@@ -229,3 +229,5 @@ v1.1 变更：
 - 依赖工具：pb-arena 仓库 `tools/feishu-doc-sync/sync.mjs`（该 CLI 本身的重建史与 API 链路见其 README；API 实现源自本库 [[06_代码]]/feishu_sync 的真机验证版本）
 
 定位：把「发布 Markdown 到飞书云文档」固化为可重复流程。编码的关键经验——① **还原盘机器上凭证丢失是常态**，`~/.feishu/config.json` 每次 C 盘还原即清空，凭据本身不变，直接向作者要 App ID/Secret 重建即可；② 便携 Node 优先翻旧会话 scratchpad（`Temp\claude` 下搜 node.exe），别急着重新下载；③ owner_mobile 必填否则作者对自己的文档只读（导入 API 文档归应用所有）；④ 本 CLI 不上传本地图片，含图文档改走 Python 版 feishu_sync；⑤ 发布前必跑 `--test`，坏凭证别进发布流程。
+
+对外版：`08_对外分发/让AI助理一句话发飞书文档_零依赖CLI链路搭建_同好版.md`（面向 AIGC 同好的冷读讲解版，2026-07-12）。
