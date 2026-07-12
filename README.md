@@ -263,6 +263,7 @@
 - [[aigc-video-cover-gpt/SKILL.md]] —— 视频封面生成 skill:人物参考图 + 脚本 → GPT Image 2 一步出 16:9 商单封面,内置从模板提炼的封面公式 + 标题钩子发散 + 锁脸三级补救([[GPTImage2锁脸的脸占比上限_v1]])
 - [[work-weekly-report/SKILL.md]] —— 公司工作周报 skill:跨工作区所有仓库(公司平台 taowhale-site / 个人创作主业 / 知识库沉淀 / 游戏桌面应用 / 维护)聚合一周 git 活动,产出提交给公司的标准三段式周报(本周总结 / 下周计划 / 协助·思考·总结·成长),成品写入并推送 work-reports 仓库(不进本库)
 - [[insight-public-post/SKILL.md]] —— 对外分发 skill:知识库内核档 → 面向所有用户的公开版对外帖(B 站 AI 开发者小站首发);08 分发体例(零双链/名词小抄加粗标题+普通列表/全角标点程序化校验)+ B 站人设 + 三层脱敏 + 发布后回收终稿保持库内版=线上版(v1.1)
+- [[feishu-doc-publish/SKILL.md]] —— 飞书发布 skill:本地 md → 飞书云文档 + 组织内可阅读链接 + owner 授权;封装 pb-arena feishu-doc-sync CLI 全流程(还原盘凭证丢失是常态/便携 Node 翻旧会话 scratchpad/owner_mobile 必填否则自己的文档只读)
 
 ### 主题脉络十二:平台工程(2026-06-25 新增)
 
