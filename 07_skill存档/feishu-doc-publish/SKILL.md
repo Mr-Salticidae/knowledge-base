@@ -31,18 +31,20 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 
 凭证按此顺序查找：环境变量 `FEISHU_APP_ID`/`FEISHU_APP_SECRET` → CLI 同目录 `feishu_config.json` → `~/.feishu/config.json`（推荐）。
 
-**网吧机陷阱：C 盘每次还原都会清掉 `~/.feishu/config.json`，缺凭证是常态，不是异常。** 凭据本身永远不变——直接向用户要 App ID 和 App Secret（飞书开放平台 open.feishu.cn → 开发者后台 → 应用 → 凭证与基础信息），同时要 `owner_mobile`（用户飞书绑定手机号）。拿到后写入 `~/.feishu/config.json`：
+**网吧机陷阱：C 盘每次还原都会清掉 `~/.feishu/config.json`，缺凭证是常态，不是异常。** 凭据本身永远不变——直接向用户要 App ID 和 App Secret（飞书开放平台 open.feishu.cn → 开发者后台 → 应用 → 凭证与基础信息），同时要 `owner_open_id`（用户本人 open_id，拿法见下方 ⚠️）。拿到后写入 `~/.feishu/config.json`：
 
 ```json
 {
   "app_id": "cli_...",
   "app_secret": "...",
   "tenant_domain": "ncnnb044q88x.feishu.cn",
-  "owner_mobile": "..."
+  "owner_open_id": "ou_..."
 }
 ```
 
-`owner_mobile` 不是可选项的原因：导入 API 生成的文档归应用所有，不授权的话**用户自己打开自己的文档只有只读权**（2026-07-09 实际踩坑）。填了它，每次发布完会自动把用户账号加为协作者（full_access）。
+`owner_open_id` 不是可选项的原因：导入 API 生成的文档归应用所有，不授权的话**用户自己打开自己的文档只有只读权**。填了它，每次发布完会自动把用户账号加为协作者（full_access）。
+
+> ⚠️ **别用 owner_mobile / owner_email（2026-07-14 证伪）**：本租户 `contact:user.id:readonly` 只给"用户身份"，应用身份用手机号解析报 `99991672`（发版也没用）；邮箱 `member_type=email` 报 `1063001`。**唯 open_id 可靠**。免通讯录权限拿 open_id：读该应用所在 wiki 空间成员表 `GET /wiki/v2/spaces/<space_id>/members`，用户那条 `member_id` 即 `ou_...`。完整复盘见 `04_方法论与洞察/06_协作运营与发布/飞书应用文档授用户编辑权_唯open_id可靠_v1.md`。
 
 ## 第 4 步：连通性测试
 
@@ -69,13 +71,13 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 
 ## 第 7 步：授权兜底
 
-如果发布时配置里还没填 owner（比如用户后补手机号），单独补授权：
+如果发布时配置里还没填 owner（比如 open_id 后补），单独补授权：
 
 ```powershell
 <node> <pb-arena>\tools\feishu-doc-sync\sync.mjs --grant <doc_token>
 ```
 
-`doc_token` 是链接里 `/docx/` 后面那串。补完把 `owner_mobile` 写回配置，下次自动带上。
+`doc_token` 是链接里 `/docx/` 后面那串。补完把 `owner_open_id` 写回配置，下次自动带上。
 
 ## 故障速查
 
