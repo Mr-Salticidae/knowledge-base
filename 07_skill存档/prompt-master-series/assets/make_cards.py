@@ -170,7 +170,10 @@ def card_breakdown(cfg, path):
     series_tag(d, cfg["series_label"], 64, fsize=24, line_len=56)
     d.text((MARGIN, 122), cfg["bd_title"], font=msyhb(50), fill=INK)
     d.text((MARGIN, 192), cfg["bd_sub"], font=deng(30), fill=MUTED)
-    img_bottom = place_image(c, cfg["_src"], 520, 252, radius=16)
+    # 限高:竖版原图(如 3:4)不限高会把 prompt 区挤出页脚(2026-07-17 第 10 期实测溢出后补,与封面卡同款逻辑)
+    _t = Image.open(cfg["_src"]); _sw, _sh = _t.size; _t.close()
+    bd_w = min(520, int(440 * _sw / _sh))
+    img_bottom = place_image(c, cfg["_src"], bd_w, 252, radius=16)
     ly = img_bottom + 42
     col_x = [MARGIN, W//2 + 10]; lf = msyh(26)
     for i, (lab, key) in enumerate(cfg["legend"]):
