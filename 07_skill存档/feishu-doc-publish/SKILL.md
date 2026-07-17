@@ -90,3 +90,7 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 ## 交付
 
 把链接给用户，一并说明：文档已开组织内可阅读、账号已授权可编辑。若本次是在还原盘机器上重建过凭证，提醒一句「下次还原后需要再提供一次 App ID/Secret」。
+
+## 延伸：发布后由 bot 直发群（CLI 不覆盖，裸调 API）
+
+用户要求「发布并发到群里」时，文档发布完不必人肉粘贴：同一份凭据换 tenant token 后，`GET /im/v1/chats` 列 bot 所在群拿 chat_id，再 `POST /im/v1/messages?receive_id_type=chat_id` 发摘要+链接（content 是 JSON **字符串**，双重序列化）。前置：bot 已在目标群、应用有 IM 权限（本应用已具备，2026-07-17 真机验证）。完整链路与坑见 `04_方法论与洞察/06_协作运营与发布/飞书应用发群消息_免webhook直发_v1.md`。
