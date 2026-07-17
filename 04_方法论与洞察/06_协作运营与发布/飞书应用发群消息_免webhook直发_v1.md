@@ -64,3 +64,4 @@ const r = await fetch('https://open.feishu.cn/open-apis/im/v1/messages?receive_i
 - 同应用文档授权与分享档位（本档链路的前半段）：[[飞书应用文档授用户编辑权_唯open_id可靠_v1]]
 - 封装文档发布段的 skill（发群是其未覆盖的延伸，见本档）：[[feishu-doc-publish/SKILL.md]]
 - 读探测先行的同族心法：[[交付前实测证伪律_v1]]
+- 本档对外白话版（「进阶：让助理直接发群」一节）：`08_对外分发/让AI助理一句话发飞书文档_零依赖CLI链路搭建_同好版.md`
