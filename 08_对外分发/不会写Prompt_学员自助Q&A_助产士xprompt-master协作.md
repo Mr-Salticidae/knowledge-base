@@ -76,21 +76,29 @@ tags: [类型/学员教程, 类型/Q&A, 主题/prompt工程, 主题/skill使用,
 
 **能。我们有三种方式，从"零安装"到"手动安装"，你挑适合自己的。**
 
-### 方式一：SKILL_INDEX 挂载（推荐，零安装）
+### 方式一：直接上传 Skill 文件给 AI（推荐，零安装，通用）
 
-这是目前最稳的方式，**不需要安装任何东西**。原理是：把"手册"放在知识库里，让 AI 知道去哪找。
+这是最稳的方式，**不需要安装任何东西，Claude / GPT / 国内模型都能用**。原理：直接把"手册"文件发给 AI，AI 读完就知道怎么干。
 
-**你只需要做一件事**：每次开始新对话时，把下面这段话发给 AI（根据你实际的知识库路径改一下）：
+**Skill 文件在知识库中的位置**：
+
+| Skill | 知识库路径 | 说明 |
+| --- | --- | --- |
+| 助产士（Maieutic） | `07_skill存档/maieutic-skill/SKILL.md` | 含苏格拉底式提问的四模式判断规则 |
+| 助产士 — 系统提示词 | `07_skill存档/maieutic-skill/prompts/system_prompt.md` | 身份、灯塔原则、禁止事项 |
+| 助产士 — 模式分类器 | `07_skill存档/maieutic-skill/prompts/mode_classifier.md` | Knowledge / Exploration / Reflection / Creation 模式判定 |
+| 助产士 — 输出模板 | `07_skill存档/maieutic-skill/prompts/reflection_output.md` | Insight / Beacon 标准输出模板 |
+| Prompt Master | `07_skill存档/prompt-master/SKILL.md` | 全工具路由的 prompt 工程规则 |
+| Prompt Master — 模板库 | `07_skill存档/prompt-master/references/templates.md` | 13 套场景模板（RTF / CO-STAR / Midjourney / Cursor / Claude Code 等） |
+| Prompt Master — 模式库 | `07_skill存档/prompt-master/references/patterns.md` | 35 种 Prompt 反模式诊断参考 |
+
+**你只需要做一件事**：每次开始新对话时，把对应 Skill 文件的内容复制粘贴发给 AI（或在对话里上传文件），加一句：
 
 ```
-你好，我的知识库在 <你的知识库路径>，
-请先读取 SKILL_INDEX.md（路径：<你的知识库路径>\07_skill存档\SKILL_INDEX.md），
-后续对话中自动判断何时调用哪个 skill。
+请按照这份手册的规则，先用助产士帮我想清楚需求，需求明确后再用 Prompt Master 写提示词。
 ```
 
-发完之后，正常说你的需求就行。AI 会自动识别该调用助产士还是 Prompt Master。
-
-> **注意**：AI 每次开新对话都会"失忆"，所以每次新对话都要发一次开场白。建议存到手机备忘录或输入法快捷短语，粘贴一下就行。
+> **注意**：AI 每次开新对话都会"失忆"，所以每次新对话都要重新发一次文件。建议把文件保存到本地，随时粘贴。如果用的是 Claude Code，也可以把文件内容存成项目级的 CLAUDE.md 或 AGENTS.md，每次启动自动加载。
 
 ### 方式二：手动安装（适合 Claude Code / Codex 用户）
 
