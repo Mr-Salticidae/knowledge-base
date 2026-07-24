@@ -296,6 +296,7 @@
 - ⚠️ [[OpenAI区域封锁与Worker就近执行陷阱_北美DO跳板_v1]] —— OpenAI 区域封锁跟调用方 IP 走,CF Worker 就近执行等于没挂;钉区域用 locationHint 的 Durable Object;公开站零密钥走真 AI 的同域中转 + 分层安全闸标准架构(镜像自我线上收口实录)
 - ⚠️ [[OpenAI兼容止于对话端点_多提供商视频接口分流与真key首测_v1]] —— 「OpenAI 兼容」只兼容到 `/chat/completions`,模态越边缘越自定义:视频端点三家三套需按 Base URL 分流;标识符不许猜要拉列表,且 `GET /models` 默认列表常带分类过滤;附 flex 列压缩子项 / 可滚动面板内浮层被裁 / 错误文案截断掩盖诊断三坑(LibreCanvas 真 key 首测炸出 8 问题实录)
 - ⚠️ [[双部署目标的base路径陷阱_根路径拼出双斜杠_v1]] —— 根路径部署拼出 `//slug` 协议相对 URL 致全站内链失效,只在一个镜像现形
+- ⚠️ [[导出运行时无系统字体回退律_CJK豆腐块_v1]] —— 桌面靠 OS 字体隐式补缺字形,Web/嵌入式导出无系统字体可借,拉丁字体画的中文变豆腐块(桌面自测测不出);修法=主力字体显式挂 `fallbacks` 把兜底固化进产物;附 headless 报错无细节回 GUI 定位、ETC2/ASTC 两坑(LastStand→Toy 实录)
 - ⚠️ [[Claude预览环境不派发滚动事件_滚动类功能无法行为验证_v1]] —— 预览 iframe 不派发 scroll/IO 事件 + 冻结动画时钟,滚动/动效类无法行为验证
 - ⚠️ [[B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]] —— B站 Toy 三环断裂诊断:版本指纹(`-v1`)先定性再拆管道 / 校验器 ERROR 先复现解析逻辑 / 沙箱 iframe 外部协议静默失效 / 多镜像取最新;「GitHub schedule 不可靠」升 ⭐⭐ 并落地外部 cron 兜底
 - 🚧 [[网页主图logo流动动效迭代_液态变形与碎裂问题_v1]] —— logo 整体液态流动=feTurbulence+feDisplacementMap;当前「画面太碎」待降频(周一续修),含抠图保色/contain自适应/SPA静态资源等复用要点
