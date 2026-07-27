@@ -121,19 +121,48 @@ def series_tag(d, label, y, fsize=28, line_len=70):
     rx = x + line_len + gap + tw + gap
     d.line([(rx, cy), (rx + line_len, cy)], fill=HAIR, width=2)
 
+def _is_cjk(ch):
+    o = ord(ch)
+    return (0x4E00 <= o <= 0x9FFF or 0x3000 <= o <= 0x303F or
+            0xFF00 <= o <= 0xFFEF or 0x2000 <= o <= 0x206F)
+
+def _has_cjk(segments):
+    return any(_is_cjk(ch) for txt, _ in segments for ch in txt)
+
+def _tokenize(segments):
+    """CJK 逐字成 token(后不加空格);ASCII 连续段按空格切词(词间加空格)。
+    2026-07-27 第 12 期补:全中文 prompt 若按空格切词会整段不换行。
+    token = (text, col, seg_idx, add_space_after)"""
+    tokens = []
+    for seg_idx, (txt, key) in enumerate(segments):
+        col = LAYERS.get(key) if key else None
+        buf = ""
+        for ch in txt:
+            if _is_cjk(ch):
+                if buf.strip():
+                    for w in buf.split(" "):
+                        if w:
+                            tokens.append((w, col, seg_idx, True))
+                buf = ""
+                tokens.append((ch, col, seg_idx, False))
+            else:
+                buf += ch
+        if buf.strip():
+            for w in buf.split(" "):
+                if w:
+                    tokens.append((w, col, seg_idx, True))
+    return tokens
+
+NO_LINE_START = set("，。、；：？！）》」』%，,.;:?!)")  # 避头点:这些字符不出现在行首
+
 def draw_annotated(d, segments, x0, y0, max_w, fnt, line_h, ul_dy=7, ul_w=3):
     space_w = d.textlength(" ", font=fnt)
-    tokens = []
-    for seg, (txt, key) in enumerate(segments):
-        col = LAYERS.get(key) if key else None
-        for word in txt.split(" "):
-            if word:
-                tokens.append((word, col, seg))
+    tokens = _tokenize(segments)
     x, y = x0, y0
     prev = None
-    for word, col, seg in tokens:
+    for word, col, seg, sp in tokens:
         ww = d.textlength(word, font=fnt)
-        if x > x0 and x + ww > x0 + max_w:
+        if x > x0 and x + ww > x0 + max_w and word not in NO_LINE_START:
             x, y, prev = x0, y + line_h, None
         if prev and prev[1] == y and prev[3] == seg and col is not None:
             d.line([(prev[0], y + fnt.size + ul_dy), (x, y + fnt.size + ul_dy)], fill=col, width=ul_w)
@@ -141,7 +170,7 @@ def draw_annotated(d, segments, x0, y0, max_w, fnt, line_h, ul_dy=7, ul_w=3):
         if col is not None:
             d.line([(x, y + fnt.size + ul_dy), (x + ww, y + fnt.size + ul_dy)], fill=col, width=ul_w)
         prev = (x + ww, y, col, seg)
-        x += ww + space_w
+        x += ww + (space_w if sp else 0)
     return y + line_h
 
 # ============================================================
@@ -180,7 +209,9 @@ def card_breakdown(cfg, path):
         cx, cy = col_x[i % 2], ly + (i // 2) * 48
         d.line([(cx, cy+17), (cx+38, cy+17)], fill=LAYERS[key], width=6)
         d.text((cx+52, cy), lab, font=lf, fill=INK)
-    end_y = draw_annotated(d, cfg["segments"], MARGIN, ly + 116, W - MARGIN*2, mono(PF), LINE_H)
+    # 全中文 prompt 用微软雅黑(Consolas 无 CJK 字形会出豆腐块);纯英文仍用 Consolas
+    pfont = msyh(PF) if _has_cjk(cfg["segments"]) else mono(PF)
+    end_y = draw_annotated(d, cfg["segments"], MARGIN, ly + 116, W - MARGIN*2, pfont, LINE_H)
     d.line([(MARGIN, H-128), (W-MARGIN, H-128)], fill=HAIR, width=2)
     d.text((MARGIN, H-104), cfg["footer_tag"], font=msyhb(28), fill=LAYERS["trans"])
     d.text((MARGIN, H-62), cfg["footer_line"], font=msyh(28), fill=INK)
