@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>报告长图母版</title>
+<style>
+/* ============================================================
+   报告长图母版 · PB Arena「简洁低疲劳 V2」视觉规范
+   暖白底 / 炭黑字 / 珊瑚红只占 5%-8%
+   取消渐变、光晕、厚阴影与玻璃拟态，层级靠字重、对齐、留白和细分隔线建立。
+   token 源:E:\pb-arena\pb-arena-optimized\styles.css 的 :root
+   ============================================================ */
+:root{
+  --bg:#fafaf8;        /* 暖白，页面底 */
+  --paper:#ffffff;     /* 纸白，指标栏/表头/方框 */
+  --ink:#171717;       /* 炭黑，正文 */
+  --muted:#6b6b68;     /* 次级信息 */
+  --line:#e6e5e1;      /* 细分隔线，几乎所有层级都靠它 */
+  --accent:#ff5a52;    /* 珊瑚红，全页占比控制在 5%-8% */
+  --accent-deep:#e6453d;/* 珊瑚红加深，用于红字正文（保证对比度） */
+  --green:#3ea36e;     /* 唯一的第二色，只用于「是/通过」类判定 */
+  --sans:"Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* ⚠ CJK 必须排在 generic monospace 之前接住，否则中文掉进宋体，与整套无衬线体系打架 */
+  --mono:"DM Mono", Consolas, "Cascadia Mono", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
+  --radius-sm:6px;     /* 普通控件 */
+  --radius:8px;
+  --radius-lg:12px;    /* 主要面板 */
+  --radius-pill:999px; /* 只给徽章 */
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#f1f0ec;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:14px;}
+.page{background:var(--bg);border:1px solid var(--line);border-radius:14px;margin:14px;padding:64px 76px 40px;}
+
+/* ---------- 页眉 ---------- */
+.eyebrow{color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.30em;margin-bottom:26px;}
+h1{margin:0;font-size:44px;font-weight:800;line-height:1.30;letter-spacing:-.01em;}
+.meta{display:flex;gap:34px;margin-top:26px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.06em;}
+.rule{border:0;border-top:1px solid var(--line);margin:34px 0 32px;}
+.lead{margin:0;font-size:17px;line-height:2.00;font-weight:400;}
+
+/* ---------- 指标栏（导语之后、正文之前，只放一次） ---------- */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);margin:38px 0 0;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--paper);}
+.metrics > div{padding:24px 18px 22px;text-align:center;border-left:1px solid var(--line);}
+.metrics > div:first-child{border-left:0;}
+.m-label{color:var(--muted);font-size:11.5px;letter-spacing:.14em;}
+.m-value{margin:12px 0 10px;font-family:var(--mono);font-size:31px;font-weight:600;line-height:1;letter-spacing:-.01em;}
+.m-value.accent{color:var(--accent);}   /* 最多 1-2 格标红，全标等于没标 */
+.m-note{color:var(--muted);font-size:11.5px;}
+
+/* ---------- 章节 ---------- */
+section{margin-top:56px;padding-top:30px;border-top:1px solid var(--line);}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;}
+.sec-no{color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;}
+h2{margin:0;font-size:22px;font-weight:700;letter-spacing:-.005em;}
+h3{margin:34px 0 12px;font-size:15px;font-weight:700;}
+h3:first-of-type{margin-top:0;}
+p{margin:0 0 14px;font-size:14px;line-height:1.95;}
+p:last-child{margin-bottom:0;}
+b,strong{font-weight:700;}
+.hl{color:var(--accent-deep);font-weight:700;}   /* 全页最多 5-8 处，超了红就失效 */
+code{font-family:var(--mono);font-size:12.5px;background:#f0efeb;border-radius:4px;padding:1px 5px;}
+
+/* ---------- 列表 ---------- */
+ul{margin:0 0 14px;padding:0;list-style:none;}
+ul li{position:relative;padding-left:18px;margin-bottom:10px;font-size:14px;line-height:1.90;}
+ul li::before{content:"";position:absolute;left:1px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+ul li:last-child{margin-bottom:0;}
+ol.qs{margin:0;padding:0;list-style:none;counter-reset:q;}
+ol.qs li{position:relative;counter-increment:q;padding-left:38px;margin-bottom:16px;font-size:14px;line-height:1.90;}
+ol.qs li:last-child{margin-bottom:0;}
+ol.qs li::before{content:counter(q,decimal-leading-zero);position:absolute;left:0;top:1px;color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:13.5px;}
+thead th{padding:11px 14px;text-align:left;background:#f4f3ef;color:var(--muted);font-weight:500;font-size:12px;letter-spacing:.08em;border-bottom:1px solid var(--line);}
+thead th:first-child{border-top-left-radius:var(--radius-sm);}
+thead th:last-child{border-top-right-radius:var(--radius-sm);}
+tbody td{padding:13px 14px;border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr.total td{font-weight:700;border-top:1px solid var(--ink);border-bottom:0;}  /* 合计行 */
+td.y{color:var(--green);font-weight:700;white-space:nowrap;}
+.t-narrow td:first-child{width:34%;color:var(--muted);}
+
+/* ---------- 强调块 ---------- */
+.callout{margin:20px 0;padding:20px 24px;border-left:2px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;background:#fdf5f4;}
+.callout .c-title{color:var(--accent-deep);font-size:12px;font-weight:700;letter-spacing:.10em;margin-bottom:10px;}
+.callout p{font-size:13.5px;line-height:1.90;}
+.quote{margin:20px 0;padding:22px 26px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--paper);font-size:15.5px;font-weight:700;line-height:1.85;}
+.redline{margin:20px 0;padding:22px 26px;border:1px solid var(--accent);border-radius:var(--radius-lg);background:#fdf5f4;}
+.redline .c-title{color:var(--accent-deep);font-size:12px;font-weight:700;letter-spacing:.10em;margin-bottom:10px;}
+.redline p{font-size:14.5px;font-weight:700;line-height:1.90;}
+.chain{margin:16px 0 18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);font-family:var(--mono);font-size:13.5px;letter-spacing:.02em;text-align:center;}
+.chain em{font-style:normal;color:var(--accent);font-weight:600;}
+.chain span{color:var(--muted);padding:0 6px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.box{padding:20px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);}
+.box .b-title{color:var(--muted);font-size:11.5px;letter-spacing:.12em;margin-bottom:10px;}
+.box p{font-size:13.5px;line-height:1.85;}
+
+/* ---------- 页脚 ---------- */
+footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);}
+.f-row{display:flex;align-items:center;justify-content:space-between;}
+.f-brand{display:flex;align-items:center;gap:13px;}
+.f-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--ink);border-radius:50%;font-size:13px;font-weight:600;}
+.f-name strong{display:block;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.13em;}
+.f-name small{display:block;margin-top:3px;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;}
+.f-badges{display:flex;gap:9px;}
+.badge{padding:6px 13px;border:1px solid var(--line);border-radius:var(--radius-pill);background:var(--paper);color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;}
+.f-foot{margin-top:24px;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ========== 页眉:眉标 / 标题 / 元信息行 ========== -->
+  <div class="eyebrow">类目 · 副标签</div>
+  <h1>主标题第一行<br>主标题第二行</h1>
+  <div class="meta">
+    <span>2026-07-31</span>
+    <span>跳蛛先生</span>
+    <span>tiaozhuxiansheng.com</span>
+  </div>
+
+  <hr class="rule">
+
+  <!-- 导语:交代「这是什么 + 结论」,一段读完能走人 -->
+  <p class="lead">导语。先交代对象和背景，再一句话给结论，加粗收尾：<b>最重要的那句判断放这里。</b></p>
+
+  <!-- ========== 指标栏:全页只出现一次,固定四格 ========== -->
+  <div class="metrics">
+    <div><div class="m-label">指标一</div><div class="m-value">数值</div><div class="m-note">补充说明</div></div>
+    <div><div class="m-label">指标二</div><div class="m-value">0 元</div><div class="m-note">补充说明</div></div>
+    <div><div class="m-label">指标三</div><div class="m-value accent">$0.1</div><div class="m-note">对照值</div></div>
+    <div><div class="m-label">指标四</div><div class="m-value accent">¥5–15</div><div class="m-note">口径说明</div></div>
+  </div>
+
+  <!-- ========== 章节:sec-no 两位数字 + h2 ========== -->
+  <section>
+    <div class="sec-head"><span class="sec-no">01</span><h2>结论块示例</h2></div>
+    <div class="quote">quote：整段加粗的核心判断，用来放一句话结论或值得被单独记住的那句。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">02</span><h2>表格与提示块</h2></div>
+    <p>正文段落。<span class="hl">hl 类是珊瑚红加粗</span>，全页控制在 5-8 处，超了红就不起作用了。行内代码写成 <code>com.example.app</code>。</p>
+    <table>
+      <thead><tr><th style="width:34%">列一</th><th style="width:8%">判定</th><th>列三</th></tr></thead>
+      <tbody>
+        <tr><td>条目</td><td class="y">真</td><td>依据说明，可以带 <b>加粗</b></td></tr>
+        <tr><td>条目</td><td class="y">否</td><td>依据说明</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="c-title">callout 小标题</div>
+      <p>需要单独拎出来、但不至于上红框的补充说明放这里。左侧珊瑚红竖线 + 淡粉底。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">03</span><h2>列表、链路、对照</h2></div>
+
+    <h3>1 · 无序列表（珊瑚红圆点）</h3>
+    <ul>
+      <li><b>要点加粗开头。</b>后面接解释，一条一个意思。</li>
+      <li><b>第二条。</b>解释。</li>
+    </ul>
+
+    <h3>2 · chain 链路条</h3>
+    <p>用来展示层级/转包/流程，末端用 <code>&lt;em&gt;</code> 标红指出「你在哪一格」：</p>
+    <div class="chain">甲方 <span>→</span> 中间层 <span>→</span> 中间层 <span>→</span> <em>你</em></div>
+
+    <h3>3 · 两栏对照</h3>
+    <div class="grid2">
+      <div class="box"><div class="b-title">左侧标签</div><p>左侧内容。适合放「宣传口径 vs 免责口径」「修复前 vs 修复后」这类对照。</p></div>
+      <div class="box"><div class="b-title">右侧标签</div><p>右侧内容。</p></div>
+    </div>
+
+    <h3>4 · 测算表（带合计行）</h3>
+    <table class="t-narrow">
+      <thead><tr><th style="width:34%">口径</th><th>数值</th></tr></thead>
+      <tbody>
+        <tr><td>分项</td><td>数值说明</td></tr>
+        <tr><td>分项</td><td>数值说明</td></tr>
+        <tr class="total"><td>合计</td><td>结果</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">04</span><h2>编号清单与红线</h2></div>
+    <ol class="qs">
+      <li><b>编号问题一？</b>补充说明。序号自动补零成 01/02。</li>
+      <li><b>编号问题二？</b>补充说明。</li>
+    </ol>
+    <div class="redline">
+      <div class="c-title">红线标题</div>
+      <p>全页最重的一块。整篇最多出现一次，出现两次就都不重了。</p>
+    </div>
+  </section>
+
+  <!-- ========== 页脚:圆形 mark + 署名 + 胶囊徽章 + 来源行 ========== -->
+  <footer>
+    <div class="f-row">
+      <div class="f-brand">
+        <div class="f-mark">尽</div>
+        <div class="f-name">
+          <strong>跳蛛先生</strong>
+          <small>DUE DILIGENCE</small>
+        </div>
+      </div>
+      <div class="f-badges">
+        <div class="badge">日期 2026-07-31</div>
+        <div class="badge">免责/口径声明</div>
+      </div>
+    </div>
+    <div class="f-foot">依据来源 · 来源一 / 来源二 / 来源三 —— 口径说明</div>
+  </footer>
+
+</div>
+<!-- ⚠ 这一行是两趟截图的第一趟读高度用的，删了 render.sh 就跑不了 -->
+<script>document.title = "H" + document.documentElement.scrollHeight;</script>
+</body>
+</html>
