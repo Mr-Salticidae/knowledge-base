@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>海外短剧剪辑拉新副业尽调</title>
+<style>
+/* 简洁低疲劳 V2 视觉规范：暖白底 / 炭黑字 / 珊瑚红只占 5%-8%
+   取消渐变、光晕、厚阴影与玻璃拟态，层级靠字重、对齐、留白和细分隔线建立。 */
+:root{
+  --bg:#fafaf8;
+  --paper:#ffffff;
+  --ink:#171717;
+  --muted:#6b6b68;
+  --line:#e6e5e1;
+  --accent:#ff5a52;
+  --accent-deep:#e6453d;
+  --green:#3ea36e;
+  --sans:"Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* CJK 必须在 generic monospace 之前接住，否则落到宋体，与暖白无衬线体系打架 */
+  --mono:"DM Mono", Consolas, "Cascadia Mono", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
+  --radius-sm:6px;
+  --radius:8px;
+  --radius-lg:12px;
+  --radius-pill:999px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:#f1f0ec;
+  color:var(--ink);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  font-size:14px;
+}
+.page{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin:14px;
+  padding:64px 76px 40px;
+}
+
+/* ---------- 页眉 ---------- */
+.eyebrow{
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.30em;
+  margin-bottom:26px;
+}
+h1{
+  margin:0;
+  font-size:44px;
+  font-weight:800;
+  line-height:1.30;
+  letter-spacing:-.01em;
+}
+.meta{
+  display:flex;
+  gap:34px;
+  margin-top:26px;
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:12px;
+  letter-spacing:.06em;
+}
+.rule{border:0;border-top:1px solid var(--line);margin:34px 0 32px;}
+.lead{
+  margin:0;
+  font-size:17px;
+  line-height:2.00;
+  font-weight:400;
+}
+.lead b{font-weight:700;}
+
+/* ---------- 指标栏 ---------- */
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  margin:38px 0 0;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:var(--paper);
+}
+.metrics > div{
+  padding:24px 18px 22px;
+  text-align:center;
+  border-left:1px solid var(--line);
+}
+.metrics > div:first-child{border-left:0;}
+.m-label{color:var(--muted);font-size:11.5px;letter-spacing:.14em;}
+.m-value{
+  margin:12px 0 10px;
+  font-family:var(--mono);
+  font-size:31px;
+  font-weight:600;
+  line-height:1;
+  letter-spacing:-.01em;
+}
+.m-value.accent{color:var(--accent);}
+.m-note{color:var(--muted);font-size:11.5px;}
+
+/* ---------- 章节 ---------- */
+section{
+  margin-top:56px;
+  padding-top:30px;
+  border-top:1px solid var(--line);
+}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;}
+.sec-no{
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.16em;
+}
+h2{margin:0;font-size:22px;font-weight:700;letter-spacing:-.005em;}
+h3{margin:34px 0 12px;font-size:15px;font-weight:700;}
+h3:first-of-type{margin-top:0;}
+p{margin:0 0 14px;font-size:14px;line-height:1.95;}
+p:last-child{margin-bottom:0;}
+b,strong{font-weight:700;}
+.hl{color:var(--accent-deep);font-weight:700;}
+code{
+  font-family:var(--mono);
+  font-size:12.5px;
+  background:#f0efeb;
+  border-radius:4px;
+  padding:1px 5px;
+}
+
+/* ---------- 列表 ---------- */
+ul{margin:0 0 14px;padding:0;list-style:none;}
+ul li{
+  position:relative;
+  padding-left:18px;
+  margin-bottom:10px;
+  font-size:14px;
+  line-height:1.90;
+}
+ul li::before{
+  content:"";
+  position:absolute;
+  left:1px;top:11px;
+  width:5px;height:5px;
+  border-radius:50%;
+  background:var(--accent);
+}
+ul li:last-child{margin-bottom:0;}
+ol.qs{margin:0;padding:0;list-style:none;counter-reset:q;}
+ol.qs li{
+  position:relative;
+  counter-increment:q;
+  padding-left:38px;
+  margin-bottom:16px;
+  font-size:14px;
+  line-height:1.90;
+}
+ol.qs li:last-child{margin-bottom:0;}
+ol.qs li::before{
+  content:counter(q,decimal-leading-zero);
+  position:absolute;left:0;top:1px;
+  color:var(--accent);
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+}
+
+/* ---------- 表格 ---------- */
+table{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:13.5px;}
+thead th{
+  padding:11px 14px;
+  text-align:left;
+  background:#f4f3ef;
+  color:var(--muted);
+  font-weight:500;
+  font-size:12px;
+  letter-spacing:.08em;
+  border-bottom:1px solid var(--line);
+}
+thead th:first-child{border-top-left-radius:var(--radius-sm);}
+thead th:last-child{border-top-right-radius:var(--radius-sm);}
+tbody td{padding:13px 14px;border-bottom:1px solid var(--line);line-height:1.75;vertical-align:top;}
+tbody tr:last-child td{border-bottom:0;}
+tbody tr.total td{font-weight:700;border-top:1px solid var(--ink);border-bottom:0;}
+td.y{color:var(--green);font-weight:700;white-space:nowrap;}
+.t-narrow td:first-child{width:34%;color:var(--muted);}
+
+/* ---------- 提示块 ---------- */
+.callout{
+  margin:20px 0;
+  padding:20px 24px;
+  border-left:2px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0;
+  background:#fdf5f4;
+}
+.callout .c-title{
+  color:var(--accent-deep);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.10em;
+  margin-bottom:10px;
+}
+.callout p{font-size:13.5px;line-height:1.90;}
+.quote{
+  margin:20px 0;
+  padding:22px 26px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  background:var(--paper);
+  font-size:15.5px;
+  font-weight:700;
+  line-height:1.85;
+}
+.redline{
+  margin:20px 0;
+  padding:22px 26px;
+  border:1px solid var(--accent);
+  border-radius:var(--radius-lg);
+  background:#fdf5f4;
+}
+.redline .c-title{color:var(--accent-deep);font-size:12px;font-weight:700;letter-spacing:.10em;margin-bottom:10px;}
+.redline p{font-size:14.5px;font-weight:700;line-height:1.90;}
+.chain{
+  margin:16px 0 18px;
+  padding:18px 22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--paper);
+  font-family:var(--mono);
+  font-size:13.5px;
+  letter-spacing:.02em;
+  text-align:center;
+}
+.chain em{font-style:normal;color:var(--accent);font-weight:600;}
+.chain span{color:var(--muted);padding:0 6px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.box{
+  padding:20px 22px;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:var(--paper);
+}
+.box .b-title{color:var(--muted);font-size:11.5px;letter-spacing:.12em;margin-bottom:10px;}
+.box p{font-size:13.5px;line-height:1.85;}
+
+/* ---------- 页脚 ---------- */
+footer{
+  margin-top:56px;
+  padding-top:26px;
+  border-top:1px solid var(--line);
+}
+.f-row{display:flex;align-items:center;justify-content:space-between;}
+.f-brand{display:flex;align-items:center;gap:13px;}
+.f-mark{
+  display:grid;place-items:center;
+  width:38px;height:38px;
+  border:1px solid var(--ink);
+  border-radius:50%;
+  font-size:13px;font-weight:600;
+}
+.f-name strong{display:block;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.13em;}
+.f-name small{display:block;margin-top:3px;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;}
+.f-badges{display:flex;gap:9px;}
+.badge{
+  padding:6px 13px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-pill);
+  background:var(--paper);
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.06em;
+}
+.f-foot{
+  margin-top:24px;
+  color:var(--muted);
+  font-family:var(--mono);
+  font-size:10.5px;
+  letter-spacing:.06em;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">学员答疑 · 副业项目尽调</div>
+  <h1>「海外短剧剪辑拉新」<br>这个副业能做吗</h1>
+  <div class="meta">
+    <span>2026-07-31</span>
+    <span>跳蛛先生</span>
+    <span>tiaozhuxiansheng.com</span>
+  </div>
+
+  <hr class="rule">
+
+  <p class="lead">学员转来一份招募：合作方承接 Melolo（字节旗下印尼短剧 APP）在 TikTok 的拉新业务，学员负责把短剧剪成短视频，按有效下载结算，基础单价 0.1 美元／个，账号与发布由项目方统一处理。核查结论：<b>不是骗局，但对剪辑方是一笔很不划算的买卖。</b></p>
+
+  <div class="metrics">
+    <div>
+      <div class="m-label">平台核查</div>
+      <div class="m-value">字节系</div>
+      <div class="m-note">Melolo 真实存在</div>
+    </div>
+    <div>
+      <div class="m-label">前置收费</div>
+      <div class="m-value">0 元</div>
+      <div class="m-note">无课程费与押金</div>
+    </div>
+    <div>
+      <div class="m-label">给到你的单价</div>
+      <div class="m-value accent">$0.1</div>
+      <div class="m-note">同类行价 $0.22</div>
+    </div>
+    <div>
+      <div class="m-label">估算时薪</div>
+      <div class="m-value accent">¥5–15</div>
+      <div class="m-note">已按乐观口径</div>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">01</span><h2>一句话结论</h2></div>
+    <div class="quote">不是骗局，但对剪辑方极不划算。可以当「有人给素材、有人给 SOP」的免费实训试两周，不该当副业收入来源。报名前有 6 个问题必须问清楚。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">02</span><h2>事实核查：哪些是真的</h2></div>
+    <p>先把能查证的部分查证掉，不要凭感觉判断。</p>
+    <table>
+      <thead><tr><th style="width:34%">招募里的说法</th><th style="width:8%">结论</th><th>核查依据</th></tr></thead>
+      <tbody>
+        <tr><td>Melolo 是印尼短剧平台</td><td class="y">真</td><td>字节跳动 2024 年 11 月上线的海外免费短剧 APP，包名 <code>com.worldance.drama</code>（Worldance 是字节海外主体），首发印尼、菲律宾，现覆盖 17 个地区</td></tr>
+        <tr><td>平台确实需要拉新</td><td class="y">真</td><td>Melolo 是免费 + 广告变现模式（对标国内「红果」），生死看 DAU，有真实的买量预算</td></tr>
+        <tr><td>按下载结算佣金的模式存在</td><td class="y">真</td><td>海外短剧 affiliate 是成熟玩法，同类平台 ReelShort 公开的 CPA offer 约 <b>0.22 美元／下载</b></td></tr>
+        <tr><td>需要交钱吗</td><td class="y">否</td><td>招募文案里没有任何收费项 —— 这是最重要的正面信号</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <div class="c-title">关于「没收钱」要专门说一句</div>
+      <p>央视和多家媒体曝光过的短剧推广骗局，核心特征高度统一：<b>先收费</b>。典型套路是 4880 元课程费、8980 至 999 元不等的「授权费」、以「免费培训」为名要求办手机卡，或者设置「新用户充值 99 元会员才算有效拉新 + 满 500 元才能提现」的双重门槛。</p>
+      <p>这个项目目前<b>一条都不占</b>。所以别一棍子打死 —— 它不是那类骗局。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">03</span><h2>真正的问题：不是骗不骗，是划不划算</h2></div>
+
+    <h3>1 · 0.1 美元是链条末端的价格</h3>
+    <p>ReelShort（付费订阅制、主打欧美）给渠道的 CPA 是 0.22 美元。Melolo 是免费 APP、投印尼这种低 ARPU 市场，平台给出的价格未公开，但中间必然有转包：</p>
+    <div class="chain">Melolo <span>→</span> 广告渠道／网盟 <span>→</span> 合作方 <span>→</span> 组织者 <span>→</span> <em>你</em></div>
+    <p>你站在最后一格，出的是全部内容生产劳动，拿的是被层层削过的价。至于「后期表现好可提到 0.5 美元」—— 提价权和评价标准全在对方手里，没有书面标准。<span class="hl">这是画饼，不是承诺。</span></p>
+
+    <h3>2 · 最致命的一条：账号和发布由项目方统一处理</h3>
+    <p>招募文案把这句写成了福利（你不用操心），但它的真实含义是三件事：</p>
+    <ul>
+      <li><b>结算数据由对方单方面掌握。</b>你不拥有账号 → 看不到播放后台 → 看不到归因下载数 → 无法核对任何数字。这不是怀疑对方人品，是<b>结构上你根本没有对账能力</b>。</li>
+      <li><b>「有效下载」没有定义。</b>这是整份协议里最值钱的一个词，而文案里完全空着。是安装即算？激活即算？打开看完一集才算？次日还在才算？<span class="hl">每加一个条件，你的收入砍一半。</span></li>
+      <li><b>你不积累任何资产。</b>干半年，你没有账号、没有粉丝、没有可展示的作品集（作品挂在别人号上）、没有可证明的运营履历。只剩下剪辑手速 —— 而剪辑手速恰恰是最容易被替代的那部分。</li>
+    </ul>
+
+    <h3>3 · 收入量级：自己算一遍</h3>
+    <table class="t-narrow">
+      <thead><tr><th style="width:34%">按乐观口径估</th><th>数值</th></tr></thead>
+      <tbody>
+        <tr><td>每天剪辑</td><td>5 条（选材 + 卡点 + AI 字幕 + 导出，熟练后每条 20–40 分钟）</td></tr>
+        <tr><td>每天耗时</td><td>2–3 小时</td></tr>
+        <tr><td>平均播放</td><td>每条 2000，合计 1 万播放／天</td></tr>
+        <tr><td>乐观转化</td><td>20–50 个下载</td></tr>
+        <tr><td>日收入</td><td>2–5 美元 ≈ <b>15–36 元</b></td></tr>
+        <tr class="total"><td>折合时薪</td><td>5–15 元</td></tr>
+      </tbody>
+    </table>
+    <p>行业里流传的经验值是「万次播放平均转化 1–2 个有效订单」（那说的是付费订单，免费 APP 下载会高不少，上表已经按高的算了）。低于任何一份线下兼职。</p>
+    <p>当然爆一条能顶一个月 —— 但爆款是概率事件，而且<b>你不控账号权重、不控发布时间、不控标签、不控落地页</b>，所以你连「为什么爆了」都无法复盘，也就无法把偶然变成能力。</p>
+
+    <h3>4 · 「没有保底、多劳多得」这句话要翻译一下</h3>
+    <div class="quote">风险全部由剪辑方承担，而剪辑方恰好是整条链路里唯一无法影响转化结果的人。</div>
+    <p>转化取决于账号权重、发布策略、落地页 —— 这三件事都不归你管。</p>
+
+    <h3>5 · 海报和正文互相矛盾，这个落差本身是信号</h3>
+    <div class="grid2">
+      <div class="box">
+        <div class="b-title">海报说</div>
+        <p>「AI 变现第一站」「轻松创收」「抢占风口」「不出海、就出局」</p>
+      </div>
+      <div class="box">
+        <div class="b-title">正文说</div>
+        <p>「没有保底，请以副业心态参与」</p>
+      </div>
+    </div>
+    <p><b>海报负责让人报名，正文负责在你赚不到钱的时候免责。</b>这不违法也很常见，但你应该只看正文那句，把海报那几句当空气。</p>
+
+    <h3>6 · 「能跑通全链路的多分佣」—— 想清楚这句话的另一面</h3>
+    <p>如果你真能自备设备、独立跑通账号 + 网络 + 发布全链路，<b>那你根本不需要通过这个项目</b>。你可以自己去接 ReelShort / DramaBox / ShortMax 的公开 affiliate：0.22 美元／下载起步、后台数据自己看、账号是自己的资产。</p>
+    <p>反过来说，这个项目真正的目标人群是<b>只会剪辑、搞不定出海链路的人</b> —— 也就是议价能力最弱的那一群。这是清醒的商业设计，不是恶意，但你要知道自己站在哪一格。</p>
+
+    <h3>7 · 授权链条你无法自行验证</h3>
+    <p>剪平台自有内容做拉新素材，理论上在授权范围内，这是合规的部分。但 Melolo 官网只留了一个 <code>copyright@melolo.org</code> 和新加坡地址，<b>没有任何公开的联盟／达人计划入口</b>。</p>
+    <p>也就是说这是一个私下转包的 offer，不是官方公开计划。这在海外 CPA 圈很常见（网盟 offer 本来就不公开），不代表假，但代表<b>你无法自行验证授权到底在哪一级</b>。</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">04</span><h2>报名前必须问清的 6 个问题</h2></div>
+    <p>直接把这几条发过去问。<span class="hl">第 1、2、5 条答不上来或含糊其辞的，就不用做了。</span></p>
+    <ol class="qs">
+      <li><b>「有效下载」的准确定义是什么？</b>安装 / 激活 / 看满 N 集 / 次日留存？以哪一方的后台数据为准？</li>
+      <li><b>我能否看到自己作品的播放数据和归因下载数？</b>什么形式、什么频率对账？</li>
+      <li><b>结算周期和方式？</b>多久结一次、有无起提门槛、走什么渠道付美金（PayPal / Payoneer / 人民币代付）？</li>
+      <li><b>有没有书面协议，或哪怕一段文字确认？</b>需要覆盖单价、结算规则、素材授权来源。</li>
+      <li><b>上一批参与的同学，月收入的中位数是多少？</b>一定要问中位数，不是最高值。如果对方只肯给「某某月入 X 千」这种个案，直接判负。</li>
+      <li><b>素材授权来自 Melolo 官方的哪一层？</b>出了版权问题谁承担？</li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">05</span><h2>要参与的话，这样参与</h2></div>
+
+    <h3>用「两周止损实验」的方式</h3>
+    <p>定死目标：两周内做 N 条，只验证两件事 —— 第一次结算<b>是否按约到账</b>、数据<b>是否对得上</b>。对得上，再考虑加码；含糊、拖延、改口，立刻停。沉没成本就两周。</p>
+
+    <h3>一条红线</h3>
+    <div class="redline">
+      <div class="c-title">任何时候出现「交钱」环节，立刻退出</div>
+      <p>培训费、授权费、设备押金、保证金、办卡、买流量、买号 —— 一个都不行。</p>
+    </div>
+    <p>这是所有短剧推广骗局唯一的共同特征。这个项目目前是干净的；它一旦不干净，就是那个瞬间。</p>
+
+    <h3>心理定位要摆正</h3>
+    <p>这不是副业收入，是<b>有人给素材、有人给 SOP、有人给账号的免费实训</b>。真正能带走的是三样：<span class="hl">印尼受众口味、短剧钩子结构、AI 字幕工作流</span>。这三样是真能力，值这两周。指望它赚钱会失望。</p>
+
+    <h3>如果你真对出海短剧感兴趣</h3>
+    <p>拿这个项目学 SOP，学完之后去接公开 affiliate（ReelShort / DramaBox / ShortMax）：<b>单价高一倍以上、数据自己看、账号是自己的</b>，代价是要自己解决账号和网络。</p>
+    <div class="quote">这个项目适合当跳板，不适合当终点。</div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">06</span><h2>附：这份笔记的查证方法（可复用）</h2></div>
+    <p>遇到任何「低门槛副业招募」，按这四步走一遍，比问「靠不靠谱」有用：</p>
+    <ol class="qs">
+      <li><b>查甲方是否存在</b> —— 平台真名、上线时间、运营主体。查得到就不是凭空捏造，查不到直接出局。</li>
+      <li><b>查行业对标价</b> —— 同类业务的公开单价是多少。给你的价格如果显著低于对标价，中间抽了几手一目了然。</li>
+      <li><b>查是否前置收费</b> —— 这是骗局与低价外包的分水岭。收费的基本可以直接走，不收费的再往下看。</li>
+      <li><b>查你能否验证结算依据</b> —— 数据在谁手里、你能不能对账。<span class="hl">对不上账的计件工作，单价写多少都没有意义。</span></li>
+    </ol>
+    <div class="callout">
+      <div class="c-title">最容易被忽略的一条</div>
+      <p>第 4 条是最容易被忽略、也是最决定性的一条。前三条决定「会不会被骗钱」，第 4 条决定「会不会白干」。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-row">
+      <div class="f-brand">
+        <div class="f-mark">尽</div>
+        <div class="f-name">
+          <strong>跳蛛先生</strong>
+          <small>STUDENT BRIEFING</small>
+        </div>
+      </div>
+      <div class="f-badges">
+        <div class="badge">核查日期 2026-07-31</div>
+        <div class="badge">仅供参考 · 非投资建议</div>
+      </div>
+    </div>
+    <div class="f-foot">依据来源 · 36氪 / 腾讯新闻 / 澎湃 / Google Play / melolo.org / 猎者出海 —— 单价与转化为公开资料估算，非官方口径</div>
+  </footer>
+
+</div>
+<script>document.title = "H" + document.documentElement.scrollHeight;</script>
+</body>
+</html>
