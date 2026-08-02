@@ -64,6 +64,32 @@ payload = json.dumps({"body": body}).encode("ascii")  # ensure_ascii=True 默认
 - 截图核查 UI 前先 `SetProcessDPIAware()`，否则尺寸全错。
 - 更可靠的是**用引擎自身坐标核查**：打印控件 `rect` / `get_combined_minimum_size()`，而不是数截图像素。布局打印显示 `×` 按钮在 602–628（窗口 640 内）才是真相，截图的「截断」是假象。
 
+### 第三、四次验证（2026-08-02 · LiveLink）⭐⭐⭐ —— 这次假象进了对外文案
+
+**形态三：PowerShell DPI-unaware → 误判「布局被撑破」，并写进了已发布的 release notes。**
+125% 缩放下 `GetWindowRect` / `CopyFromScreen` 走虚拟坐标，截图右侧被裁。
+据此判断「窄窗口下布局溢出、右边按钮被裁掉」，写了 CSS 修复，
+**并把这条写进 commit message 和已发布的 GitHub release notes**。
+后来用 CDP 量 `document.documentElement.scrollWidth` —— 等于 `innerWidth`；
+再做对照实验（900 / 820 / 760px 下加不加那段 CSS 结果完全一致）：**该 bug 从不存在**。
+线上 release notes 已编辑删除该虚假声明。
+
+> 前两次假象停在「判断」层，这次**流到了对外文案**。教训升级为：
+> **没有第二种手段确认过的现象，不能写进对外文案。**
+
+**形态四：CDP 的 `contentSize` 是物理像素，不是 CSS 像素。**
+生成长图时用 `Page.getLayoutMetrics().contentSize` 量高度，它按宿主 DPI 报物理像素
+（125% 下多报 25%），当成 CSS 像素套进 `setDeviceMetricsOverride` → 图底部空一大截。
+改用 `document.documentElement.scrollHeight`（纯 CSS 像素）即正常。
+判据：`contentSize.width ÷ 设定宽度` 正好等于系统缩放比（本次 938/750 = 1.25）就是踩到了。
+
+**补两条规则**：
+- 凡量页面尺寸，**一律用 DOM 的 `scrollWidth / scrollHeight`**，
+  不要用任何「窗口 / 截图 / 布局指标」类 API —— 前者是 CSS 像素，后者随 DPI 漂移。
+- 网页截图改用 CDP `Emulation.setDeviceMetricsOverride` + `captureBeyondViewport` **离屏渲染**：
+  既不受 DPI 影响，也不会像整屏捕获那样抓到别的窗口
+  （本次整屏截图两次抓到无关前台窗口，含私人聊天内容，只能删掉重来）。
+
 ---
 
 ## 陷阱四：脚本文件层也按 GBK（.ps1 读入 + Python 输出）
@@ -113,3 +139,4 @@ TOKEN=$(...) python ... "$TOKEN"   # ✗ 参数里的 $TOKEN 是赋值"之前"�
 - [[长期更新展示站_两层结构与无头卡片量产_v1]] —— 该法用 Chrome 无头截图量产卡片,也踩到了中文文件名编码 / MSYS 路径映射这类「环境隐式转换」坑
 - [[Mac素材包到Windows的两个坑_zip文件名编码与HEVC解码_v1]] —— 同一 UTF-8 vs GBK 根因的接收侧形态：Mac zip 的文件名在 Windows 解压即乱码
 - [[2026-07-14_vpn-guard从工具到宣传片_全链路复盘_v1]] —— 陷阱四（.ps1 需 BOM / Python 输出 ✓ 崩溃）来源；同链踩到 tzutil 切时区后同进程 `[TimeZoneInfo]::Local` 缓存不刷新，须新起进程验证
+- [[2026-08-02_LiveLink断线重连重做与视觉系统_迭代复盘_v1]] —— 陷阱三的第三、四次验证来源：DPI-unaware 截图误判成布局 bug 并写进已发布 release notes；CDP `contentSize` 按 DPI 报物理像素
