@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>任务书系统更新</title>
+<style>
+/* ============================================================
+   报告长图 · PB Arena「简洁低疲劳 V2」视觉规范
+   样式整段取自 07_skill存档/report-longimage/母版.html，未改 token。
+   ============================================================ */
+:root{
+  --bg:#fafaf8;
+  --paper:#ffffff;
+  --ink:#171717;
+  --muted:#6b6b68;
+  --line:#e6e5e1;
+  --accent:#ff5a52;
+  --accent-deep:#e6453d;
+  --green:#3ea36e;
+  --sans:"Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* ⚠ CJK 必须排在 generic monospace 之前接住，否则中文掉进宋体 */
+  --mono:"DM Mono", Consolas, "Cascadia Mono", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", monospace;
+  --radius-sm:6px;
+  --radius:8px;
+  --radius-lg:12px;
+  --radius-pill:999px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:#f1f0ec;color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-size:14px;}
+.page{background:var(--bg);border:1px solid var(--line);border-radius:14px;margin:14px;padding:64px 76px 40px;}
+
+.eyebrow{color:var(--accent);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.30em;margin-bottom:26px;}
+h1{margin:0;font-size:44px;font-weight:800;line-height:1.30;letter-spacing:-.01em;}
+.meta{display:flex;gap:34px;margin-top:26px;color:var(--muted);font-family:var(--mono);font-size:12px;letter-spacing:.06em;}
+.rule{border:0;border-top:1px solid var(--line);margin:34px 0 32px;}
+.lead{margin:0;font-size:17px;line-height:2.00;font-weight:400;}
+
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);margin:38px 0 0;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--paper);}
+.metrics > div{padding:24px 18px 22px;text-align:center;border-left:1px solid var(--line);}
+.metrics > div:first-child{border-left:0;}
+.m-label{color:var(--muted);font-size:11.5px;letter-spacing:.14em;}
+.m-value{margin:12px 0 10px;font-family:var(--mono);font-size:31px;font-weight:600;line-height:1;letter-spacing:-.01em;}
+.m-value.accent{color:var(--accent);}
+.m-note{color:var(--muted);font-size:11.5px;}
+
+section{margin-top:56px;padding-top:30px;border-top:1px solid var(--line);}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;}
+.sec-no{color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;}
+h2{margin:0;font-size:22px;font-weight:700;letter-spacing:-.005em;}
+h3{margin:34px 0 12px;font-size:15px;font-weight:700;}
+h3:first-of-type{margin-top:0;}
+p{margin:0 0 14px;font-size:14px;line-height:1.95;}
+p:last-child{margin-bottom:0;}
+b,strong{font-weight:700;}
+.hl{color:var(--accent-deep);font-weight:700;}
+code{font-family:var(--mono);font-size:12.5px;background:#f0efeb;border-radius:4px;padding:1px 5px;}
+
+ul{margin:0 0 14px;padding:0;list-style:none;}
+ul li{position:relative;padding-left:18px;margin-bottom:10px;font-size:14px;line-height:1.90;}
+ul li::before{content:"";position:absolute;left:1px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+ul li:last-child{margin-bottom:0;}
+ol.qs{margin:0;padding:0;list-style:none;counter-reset:q;}
+ol.qs li{position:relative;counter-increment:q;padding-left:38px;margin-bottom:16px;font-size:14px;line-height:1.90;}
+ol.qs li:last-child{margin-bottom:0;}
+ol.qs li::before{content:counter(q,decimal-leading-zero);position:absolute;left:0;top:1px;color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;}
+
+.callout{margin:20px 0;padding:20px 24px;border-left:2px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;background:#fdf5f4;}
+.callout .c-title{color:var(--accent-deep);font-size:12px;font-weight:700;letter-spacing:.10em;margin-bottom:10px;}
+.callout p{font-size:13.5px;line-height:1.90;}
+.quote{margin:20px 0;padding:22px 26px;border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--paper);font-size:15.5px;font-weight:700;line-height:1.85;}
+.redline{margin:20px 0;padding:22px 26px;border:1px solid var(--accent);border-radius:var(--radius-lg);background:#fdf5f4;}
+.redline .c-title{color:var(--accent-deep);font-size:12px;font-weight:700;letter-spacing:.10em;margin-bottom:10px;}
+.redline p{font-size:14.5px;font-weight:700;line-height:1.90;}
+.chain{margin:16px 0 18px;padding:18px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);font-family:var(--mono);font-size:13.5px;letter-spacing:.02em;text-align:center;}
+.chain em{font-style:normal;color:var(--accent);font-weight:600;}
+.chain span{color:var(--muted);padding:0 6px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.box{padding:20px 22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);}
+.box .b-title{color:var(--muted);font-size:11.5px;letter-spacing:.12em;margin-bottom:10px;}
+.box p{font-size:13.5px;line-height:1.85;}
+
+footer{margin-top:56px;padding-top:26px;border-top:1px solid var(--line);}
+.f-row{display:flex;align-items:center;justify-content:space-between;}
+.f-brand{display:flex;align-items:center;gap:13px;}
+.f-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--ink);border-radius:50%;font-size:13px;font-weight:600;}
+.f-name strong{display:block;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.13em;}
+.f-name small{display:block;margin-top:3px;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;}
+.f-badges{display:flex;gap:9px;}
+.badge{padding:6px 13px;border:1px solid var(--line);border-radius:var(--radius-pill);background:var(--paper);color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;}
+.f-foot{margin-top:24px;color:var(--muted);font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">任务书 · 系统更新</div>
+  <h1>自荐说明那个框<br>现在可以说人话了</h1>
+  <div class="meta">
+    <span>2026-08-03</span>
+    <span>跳蛛先生</span>
+    <span>tiaozhuxiansheng.com</span>
+  </div>
+
+  <hr class="rule">
+
+  <p class="lead">
+    这条是给想接任务的你看的。以前卡住你的往往不是能不能做，是「自荐说明」那个空框——
+    不知道写什么、怕写得不像样，页面一关就算了。现在那个框上头多了一行：
+    <b>你用大白话说一句，它帮你理成一段自荐，理完还在框里，改不改、发不发都是你说了算。</b>
+  </p>
+
+  <div class="metrics">
+    <div><div class="m-label">你要写的</div><div class="m-value accent">1 句话</div><div class="m-note">以前是一整段自荐</div></div>
+    <div><div class="m-label">它替你编的</div><div class="m-value accent">0 条</div><div class="m-note">只用你说过的事实</div></div>
+    <div><div class="m-label">草稿留存</div><div class="m-value">14 天</div><div class="m-note">提交成功就清掉</div></div>
+    <div><div class="m-label">眼下在招</div><div class="m-value">0 个</div><div class="m-note">进行中 1 · 已收官 4</div></div>
+  </div>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">01</span><h2>一句话进去，一段自荐出来</h2></div>
+
+    <p>打开任务详情页，登录之后往下拉到认领面板。自荐框上头那个虚线框就是，随便说一句你想怎么做、做过什么，点<span class="hl">「帮我理一理 →」</span>。</p>
+
+    <div class="grid2">
+      <div class="box">
+        <div class="b-title">你打的字</div>
+        <p>这工具我用过一阵，想按装用坑三段写，下周三前能交</p>
+      </div>
+      <div class="box">
+        <div class="b-title">它理出来的</div>
+        <p>1. 我打算按「装—用—坑」三段写，每段配图。<br>2. 之前做过两期同类教程。<br>3. 下周三前能交。</p>
+      </div>
+    </div>
+
+    <div class="chain">说一句大白话 <span>→</span> 点「帮我理一理」 <span>→</span> 落进自荐框 <span>→</span> <em>你自己改、你自己发</em></div>
+
+    <p>它照着任务书理，所以出来的话是对着这份活儿说的，不是套模板。不满意就换个说法再理一版，一小时之内可以点 30 次。想完全自己写也行——这一行不挡路，跟以前一样直接在下面的框里打字。</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">02</span><h2>三条说在前头</h2></div>
+
+    <ul>
+      <li><b>写到一半跑了不要紧。</b>内容存在你自己的浏览器里，回头再打开还在，提交成功才清掉。换台电脑就没有了——它没上传到我这儿。</li>
+      <li><b>它不替你提交。</b>理完的东西只是落进框里，你不点「提交认领申请」就什么也没发生。</li>
+      <li><b>联系方式不会被送出去。</b>理自荐的时候只用得上任务书本身、你的昵称和简介，还有你自己打的那段话。联系方式、收款方式、邮箱一概不带。</li>
+    </ul>
+
+    <div class="redline">
+      <div class="c-title">最要紧的一条</div>
+      <p>它只用你说过的事实。你没提过的作品、没干过的经历，它不会替你编——那种一键生成的漂亮履历，我这边一问就穿帮，对你没好处。反过来，你漏说了什么它会提醒你补一句，比如「可以贴一个你做过的同类作品链接」。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-no">03</span><h2>眼下没有在招的任务，先把账号备好</h2></div>
+
+    <p>这会儿点进任务书板块是<span class="hl">看不到报名入口</span>的——进行中的那份 MiniMax H3 测评已经定了人，其余四份都收官了。所以先不用急着去点。</p>
+
+    <p>下一批放出来的时候，这套东西就在那儿了。想接的可以先把两件事做了，到时候少两步：</p>
+
+    <ol class="qs">
+      <li><b>注册一个账号。</b>不用邀请码，读站本来不需要账号，只有认领任务要登录——因为那头连着报酬和打款，得能把人对上。</li>
+      <li><b>把个人中心的联系方式填上。</b>报名时会自动带出来，不用每次重打。定了人我就是照着这个找你。</li>
+    </ol>
+
+    <div class="callout">
+      <div class="c-title">两个地址</div>
+      <p>
+        注册 <code>tiaozhuxiansheng.com/account/register/</code><br>
+        任务书 <code>tiaozhuxiansheng.com/tasks/</code>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-row">
+      <div class="f-brand">
+        <div class="f-mark">任</div>
+        <div class="f-name">
+          <strong>跳蛛先生</strong>
+          <small>TASKS UPDATE</small>
+        </div>
+      </div>
+      <div class="f-badges">
+        <div class="badge">2026-08-03</div>
+        <div class="badge">已上线</div>
+      </div>
+    </div>
+    <div class="f-foot">更新范围 · 任务详情页认领面板 —— 手填那条路一点没变，不想用这一行可以完全无视</div>
+  </footer>
+
+</div>
+<!-- ⚠ 这一行是两趟截图的第一趟读高度用的，删了 render.sh 就跑不了 -->
+<script>document.title = "H" + document.documentElement.scrollHeight;</script>
+</body>
+</html>
