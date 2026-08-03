@@ -4,8 +4,9 @@ tags: [类型/平台工程, 主题/账号安全, 主题/Windows桌面应用]
 # ChatGPT Windows 桌面版安装排障与账号合规边界
 
 > 入档：2026-07-14
-> 来源：`D:\Users\Administrator\Desktop\ChatGPT安装失败修复与防封号防护指南.md` 的一次 Windows 11 + Clash Verge 实测，经 OpenAI / Microsoft 官方资料校正
+> 来源：`D:\Users\Administrator\Desktop\ChatGPT安装失败修复与防封号防护指南.md` 的一次 Windows 11 + Clash Verge 实测，经 OpenAI / Microsoft 官方资料校正（`C:\Users\Administrator\Downloads\` 下另有同源副本，内容一致，不另立档）
 > 状态：安装诊断顺序可复用；地区、代理与风控结论已按官方口径收紧
+> 补记 2026-08-03：回读原始副本，补入第三层的只读读数命令与判读经验——原文里这部分属于可靠读数，此前随风控主张一起被整段略去了
 
 ## 一句话总结
 
@@ -67,6 +68,34 @@ curl.exe -x http://127.0.0.1:7897 -I https://chatgpt.com
 1. **HTTP 403 只说明请求到达了一个会返回 403 的服务端 / 边缘节点**。它可能与 VPN、IP 地理位置或可疑流量有关，但单次 403 不能独立证明“IP 已被 OpenAI 风控”。应结合页面正文、Cloudflare Ray ID、时间戳和官方报错说明。
 2. Clash 的 `fake-ip` 模式可能让 DNS 返回 `198.18.0.0/15` 保留网段地址；这通常是代理内部映射，不等于 DNS 泄露。判断泄露要比较系统解析、代理解析和真实出口，而不是看到假 IP 就判定安全或危险。
 3. 本地 HTTP 代理与 TUN 是两种接管路径。一次实测里“开 TUN 后 Store 能下载”可以记录为**该环境的有效修复**，但不能泛化成“所有 Microsoft Store / UWP 应用都必须开 TUN”。企业代理、应用容器权限、安全软件和 Store 自身状态都可能造成相同表象。
+
+#### 只读读数：确认链路到底走的哪条路
+
+上面三条说的是“不要过度解读”，但链路本身通没通、走的哪一侧，是能读出来的。以下命令只产生**读数**，不产生风控结论：
+
+```powershell
+# 代理端口是否真的在听（Clash 没起来或换过端口时，先用这条排除）
+netstat -ano | findstr ":7897"
+
+# TUN 虚拟网卡是否已装上（开 TUN 会创建 wintun 适配器）
+ipconfig | findstr /i "tun"
+
+# 代理侧 vs 直连侧对照：同一个 URL 打两次，定位失败发生在哪一侧
+curl.exe -x http://127.0.0.1:7897 -I https://chatgpt.com
+curl.exe --noproxy "*" -I https://chatgpt.com
+
+# 当前实际出口 IP 与归属（确认自己从哪出网、换节点有没有生效）
+curl.exe -x http://127.0.0.1:7897 https://ipinfo.io/json
+
+# 直连 IPv6 出口是否为空（非空说明 IPv6 绕开了代理）
+curl.exe --noproxy "*" https://api64.ipify.org
+```
+
+三条判读经验：
+
+1. **“直连也能出网”是 TUN 已接管全局的证据。** 纯系统代理模式下，`--noproxy "*"` 打受限域名应当超时；开 TUN 后这条也通了，说明流量在网卡层被接管——这正是那些不走 `127.0.0.1` 环回地址的应用（如 Microsoft Store）能恢复下载的机制。反过来，TUN 开着但直连仍不通，就该怀疑 TUN 没真正生效，而不是继续往下改别的设置。
+2. **解析结果落在明显属于其他大厂的 IP 段，是污染指纹。** 本次 `nslookup chatgpt.com` 一度返回 Meta 的地址段——既不是 OpenAI 的，也不是 fake-ip 的保留网段，属于典型的解析被投毒。这与 `198.18.0.0/15` 要分开看：后者是 Clash 内部映射，前者才是异常。
+3. **一次只改一个变量，改完把上面几条重跑一遍。** 开 TUN、换节点、改 DNS 三件事同时做，事后无法归因是哪一件修好的——这也是本文所有结论都只敢写成“该环境有效”而非“普遍定律”的原因。
 
 ### 第四层：安装成功后处理账号与会话
 
