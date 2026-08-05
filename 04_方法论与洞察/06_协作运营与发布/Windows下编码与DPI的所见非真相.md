@@ -90,6 +90,41 @@ payload = json.dumps({"body": body}).encode("ascii")  # ensure_ascii=True 默认
   既不受 DPI 影响，也不会像整屏捕获那样抓到别的窗口
   （本次整屏截图两次抓到无关前台窗口，含私人聊天内容，只能删掉重来）。
 
+### 第五次验证（2026-08-05 · PB Arena 移动端改稿校对）⚠️ —— 窗口宽度被系统夹住
+
+**形态五：`--window-size` 传的窄宽度截不出来，Windows 会把窗口夹到最小宽度。**
+
+用 `chrome --headless=new --window-size=430,2700 --screenshot` 校对移动端，
+截出来的图**到处横向溢出**：卡片右边被切、顶部计数少半截、阶段轴第三格不见了。
+据此判断「移动端布局崩了」，改了一轮 CSS。
+
+真相是 **Windows 把浏览器窗口宽度夹到约 500px**：页面按 ~500px 布局，
+截图再裁到 430px 输出 —— 页面本身 `scrollWidth === 430`，**从来没有溢出过**。
+与形态三 / 四同源：**你传给截图工具的尺寸，不等于页面实际拿到的视口宽度。**
+
+解法是**别让窗口来定宽，让 iframe 定宽**（宿主窗口开 520+ 以避开夹取）：
+
+```html
+<iframe id="f" src="/target.html" style="width:430px;height:2700px;border:0"></iframe>
+<script>
+  var d = f.contentDocument, vw = d.documentElement.clientWidth, bad = [];
+  d.querySelectorAll("*").forEach(el => {                    // 页内实测，不看截图
+    var r = el.getBoundingClientRect();
+    if (r.right > vw + 1 && r.width > 0) bad.push(el.className);
+  });
+  out.textContent = "scrollW=" + d.documentElement.scrollWidth
+                  + "\n" + (bad.join("\n") || "NO OVERFLOW");
+</script>
+```
+
+媒体查询在 iframe 里按 430 求值，截出来的就是真的；顺带还能在 iframe 里
+`.click()` 导航按钮驱动到需要交互才到达的页面，并挂 `window.onerror` 收报错，
+一次调用同时拿到目标页截图、溢出清单、控制台报错三样。
+
+> 这是「量页面尺寸一律用 DOM 的 `scrollWidth / scrollHeight`」那条规则的又一次兑现：
+> **响应式验证不能信「我给浏览器传了多宽」，要信「页面自己报了多宽」。**
+> 出处见 [[美工改稿V4四屏落地_禁止项是待办不是护栏_v1]] insight 5。
+
 ---
 
 ## 陷阱四：脚本文件层也按 GBK（.ps1 读入 + Python 输出）

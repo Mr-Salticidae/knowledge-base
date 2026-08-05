@@ -19,6 +19,7 @@ description: 把一篇 Markdown 文档渲染成 PB Arena「简洁低疲劳 V2」
 | `E:\knowledge-base\07_skill存档\report-longimage\render.sh` | 两趟截图脚本，`bash render.sh in.html out.png` |
 | `E:\knowledge-base\08_对外分发\海外短剧剪辑拉新副业能不能做_尽调笔记.html` | 真实成品样例（2240×10754），当参考比母版更直观 |
 | `E:\pb-arena\docs\更新报告_2026-07-30_*.png` | 版式源头，拿不准时回看这张 |
+| `E:\pb-arena\docs\更新报告_2026-08-05_浅色对战V4改稿落地.{md,html,png}` | md / html / png 三件齐全的一次真实产出（2240×7524），要改文案直接改那份 html 重渲染 |
 
 ## 第 1 步：套母版
 
