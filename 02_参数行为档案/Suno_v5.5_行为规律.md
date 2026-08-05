@@ -303,6 +303,7 @@ keep chorus restrained
 - **Vocal Gender 反选风格 prior**:[[Vocal_Gender反选_风格prior_v1]] ⭐⭐⭐（经验 6 的独立深入文档）
 - **版权过滤器规避**:[[Suno版权过滤器规避_v1]] ⭐
 - 上位元方法论:[[识别工具天花板的时机]]
+- 同层(另一个音频工具的行为档案):[[Eleven_v3_行为规律_v1]] —— TTS 侧的路径选择(IVC vs Voice Design)、克隆素材要求、audio tag 跨语言实测
 - 主线作品:
   - `{AIGC工作站}/17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)
   - `{AIGC工作站}/23_檐下再少年_叙事MV\01_音频\` (23《再少年》Custom Mode 实测)
