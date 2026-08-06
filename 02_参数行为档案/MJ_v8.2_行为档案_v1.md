@@ -57,6 +57,26 @@ one cold ice-blue eye and one warm rose-pink eye
 - 静物 / 特写题材的质感增益（场景已开测，见第 4 条）
 - 正式版 `--v 8.2` 与 preview 通道产出是否等价（本档案第 1–4 条需复测）
 
+### 6. 要图标不要字：`--no` 四词法 ⚠️首次（闪电战单样本 · 2026-08-06）
+
+PB 闪电战「时间贫困」回转寿司图。需求矛盾：盘沿贴纸上要出现**抽象几何图标**，同时全画面零文字（日料店的招牌与菜单是高危背景）。
+
+**有效写法**：
+
+```
+--no text, letters, words, numerals
+```
+
+- ⚠️ **`logo` 绝不能进 `--no`**——会把要保留的图标贴纸一起压掉。挡字形靠 `text / letters / words / numerals` 四个词就够
+- 真品牌 logo 不点名就不会自己长出来，不需要负面词防守
+- 正向侧配合：`a different small round printed sticker showing a simple flat abstract geometric app-icon mark, flat solid colours, no letters no words` + **列举 4–6 个具体形状**（spiral / hexagon / triangle / sail / circle with a dot / asterisk）
+
+**结果**：全图零字形崩坏（含背景菜单区）；传送带盘沿的图标造型干净、彼此不重复，`every icon different from the last` 命中。
+
+**结论**：**抽象几何图标是替代真品牌 logo 的可行路径**——MJ 画不出可识别的真 logo，只会给融化的伪字形，在同行互投场上是最扣分的元素（一眼「AI 做的」+ 白送破解感）。
+
+**边界**：写 `each plate rim carrying...`（"所有盘子"）时，MJ 只在**未被遮挡的盘子**上执行——堆叠盘的盘沿被遮，图标全落到了传送带上。**图标位置不可控**，要靠构图主动把带图标的物件放进视觉重心，否则唯一承载语义的元素会待在没人看的角落。同案复盘见 [[载体默认语义反噬_v1]]。
+
 ---
 
 ## 外部情报（2026-07-24 正式发布，非自测）
@@ -106,5 +126,6 @@ v8.2 的"bold / edgy / 强对比"取向，对**克制、冷调、近单色、大
 
 - v1 - 2026-07-03 - 首测入档（49 EP02 VESPER，11 张两批）
 - v1.1 - 2026-07-17 - 补非人像场景首测（同根同源闪电战，`--preview --style raw` 组合确认可用）
+- **v1.3 - 2026-08-06 - 新增第 6 条**：要图标不要字的 `--no` 四词法（`text/letters/words/numerals`，且 `logo` 不可入 `--no`），抽象几何图标替代真品牌 logo 的路径已验证；边界：图标落点不可控，只在未被遮挡的物件上执行。来源 PB 闪电战「时间贫困」，同案方法论见 [[载体默认语义反噬_v1]]
 - **v1.2 - 2026-07-31 - 正式发布后补录**：调用方式 `--preview` → `--v 8.2`；新增「外部情报」段（官方 7/24 发布口径、Draft Mode `--sref random` 24 张找锚、三方参数标定假设）；推出两条工作流变更（找锚改走 draft 大批次、克制型项目反向压 stylize）
 - v2 触发：第二个项目复测异色瞳命中率 / oref 支持情况明确 / `--stylize` 响应曲线实测（44_异常值 已挂）
