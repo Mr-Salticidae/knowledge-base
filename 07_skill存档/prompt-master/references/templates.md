@@ -273,7 +273,7 @@ Style Reference: [artist / film / aesthetic reference if applicable]
 ```
 
 **Tool-specific syntax:**
-- **Midjourney**: Comma-separated descriptors, not prose. Add `--ar`, `--style`, `--v 6` at the end.
+- **Midjourney**: Comma-separated descriptors, not prose. Add `--ar`, `--style`, `--v 8.2` at the end.
 - **Stable Diffusion**: Use `(word:1.3)` weight syntax. CFG scale 7 to 12. Negative prompt is mandatory.
 - **DALL-E 3**: Prose works well. Add "do not include any text in the image" unless text is needed.
 - **Sora / video**: Add camera movement (slow dolly, static shot, crane up), duration in seconds, and cut style.
