@@ -125,6 +125,26 @@ payload = json.dumps({"body": body}).encode("ascii")  # ensure_ascii=True 默认
 > **响应式验证不能信「我给浏览器传了多宽」，要信「页面自己报了多宽」。**
 > 出处见 [[美工改稿V4四屏落地_禁止项是待办不是护栏_v1]] insight 5。
 
+### 第六次验证（2026-08-10 · 飞书小桁同步）⚠️ —— Git Bash 把 Unix 路径前缀双写成 Windows 路径
+
+**形态六：Git Bash 调 Node 处理 Windows 路径时,`/e/...` 被解析成 `e:\e\...`。**
+
+调用 pb-arena 的 sync.mjs 同步飞书文档,先用 `ls "/e/pb-arena/.../sync.mjs"` 验证文件存在(成功),再 `node /e/pb-arena/.../sync.mjs --test`——报 `Cannot find module 'e:\e\pb-arena\...sync.mjs'`,路径里凭空多出 `e\` 前缀。原因:Git Bash(MSYS2)的 POSIX 路径转换层会把 `/e/...` 转成 `e:\e\...`(把挂载点字母当前缀拼两次),Node 收到的是被它改过的 Windows 路径,而那条路径根本不存在。
+
+**解法不是关 MSYS,是用 `MSYS_NO_PATHCONV=1` + Windows 反斜杠原路径**:
+
+```bash
+MSYS_NO_PATHCONV=1 node 'E:\pb-arena\tools\feishu-doc-sync\sync.mjs' 'E:\vacat-2026\review\xxx.md' --title 'xxx_2026-08-10'
+```
+
+- 单引号包裹反斜杠路径防止 Bash 二次转义
+- `MSYS_NO_PATHCONV=1` 关掉 POSIX → Windows 路径自动转换,Node 拿到的就是原样
+- 或者干脆用 `cd` 进脚本目录后用相对路径 `node sync.mjs`,绕开整层转换(但 cwd 切走后无法同时引用工作区的目标 md,仅适合单文件任务)
+
+**判据**:Node 报 `MODULE_NOT_FOUND` 且错误路径里出现双前缀(如 `e:\e\` / `c:\c\` / `d:\d\`)就是踩到了。`ls` 能列出文件≠ Node 能解析路径——前者是 Bash 自己处理 POSIX 路径(它会做正确转换),后者是 Bash 把路径传给 Node 时被 MSYS 转换层污染。
+
+> 这是「响应式验证不能信『我给浏览器传了多宽』,要信『页面自己报了多宽』」那条规则的姊妹形态:**调用方传给被调方的路径,不等于被调方实际收到的路径。** 同源教训:验证文件存在用 Bash 内建命令的 `ls`/`test` 都做 POSXI 兼容转换,不能用来验证 Node/Python 等非 Bash 程序收到的 Windows 路径。
+
 ---
 
 ## 陷阱四：脚本文件层也按 GBK（.ps1 读入 + Python 输出）
@@ -167,11 +187,12 @@ TOKEN=$(...) python ... "$TOKEN"   # ✗ 参数里的 $TOKEN 是赋值"之前"�
 
 ## 关联文档
 
-- [[Claude完成报告核查心法]] —— 本文是它在 Windows 工具链上的具体形态：「所见」≠「真相」，要程序化核查而非肉眼信任
-- [[Claude_Opus_4.8行为实测]] —— 4.8 更诚实，但 Windows 编码 / DPI 这类环境假象与模型诚实无关，仍须独立核查
+- [[Claude完成报告核查心法]] —— 本文是它在 Windows 工具链上的具体形态:「所见」≠「真相」,要程序化核查而非肉眼信任
+- [[Claude_Opus_4.8行为实测]] —— 4.8 更诚实,但 Windows 编码 / DPI 这类环境假象与模型诚实无关,仍须独立核查
 - [[Claude_Code_Worktree隔离的协作陷阱]] —— 同属「视角 / 环境错位导致 self-verify 失真」的一类
 - [[UI自动化的固定坐标必须绑前提断言_v1]] —— 同源的「环境隐式转换」在 UI 自动化侧的形态:DPI 缩放悄悄改比例,面板开合 / 窗口状态悄悄改布局,坐标照样执行、只是执行在别的控件上
 - [[长期更新展示站_两层结构与无头卡片量产_v1]] —— 该法用 Chrome 无头截图量产卡片,也踩到了中文文件名编码 / MSYS 路径映射这类「环境隐式转换」坑
-- [[Mac素材包到Windows的两个坑_zip文件名编码与HEVC解码_v1]] —— 同一 UTF-8 vs GBK 根因的接收侧形态：Mac zip 的文件名在 Windows 解压即乱码
-- [[2026-07-14_vpn-guard从工具到宣传片_全链路复盘_v1]] —— 陷阱四（.ps1 需 BOM / Python 输出 ✓ 崩溃）来源；同链踩到 tzutil 切时区后同进程 `[TimeZoneInfo]::Local` 缓存不刷新，须新起进程验证
-- [[2026-08-02_LiveLink断线重连重做与视觉系统_迭代复盘_v1]] —— 陷阱三的第三、四次验证来源：DPI-unaware 截图误判成布局 bug 并写进已发布 release notes；CDP `contentSize` 按 DPI 报物理像素
+- [[Mac素材包到Windows的两个坑_zip文件名编码与HEVC解码_v1]] —— 同一 UTF-8 vs GBK 根因的接收侧形态:Mac zip 的文件名在 Windows 解压即乱码
+- [[2026-07-14_vpn-guard从工具到宣传片_全链路复盘_v1]] —— 陷阱四(.ps1 需 BOM / Python 输出 ✓ 崩溃)来源;同链踩到 tzutil 切时区后同进程 `[TimeZoneInfo]::Local` 缓存不刷新,须新起进程验证
+- [[2026-08-02_LiveLink断线重连重做与视觉系统_迭代复盘_v1]] —— 陷阱三的第三、四次验证来源:DPI-unaware 截图误判成布局 bug 并写进已发布 release notes;CDP `contentSize` 按 DPI 报物理像素
+- [[开工前先对基线律_v1]] —— 陷阱六的同源镜像:「搜不到≠不存在」在 Git Bash 路径转换这一层也会发生(Bash 自己 `ls` 能看见 ≠ Node 能解析路径)
