@@ -41,6 +41,8 @@ tags: [类型/skill存档]
 | report-longimage | v1.0 | 2026-07-31 | 报告长图渲染:md → PB Arena「简洁低疲劳 V2」版式 PNG(母版 + headless Chrome 两趟截图) | Claude | 本会话真机跑通(母版与 render.sh 均已出图) |
 | dingtalk-doc-delivery | v1.1 | 2026-07-22 | 钉钉知识库文档交付:格式白名单(修饰只用加粗+代码块,禁引用块/表格)+ 五段式教程体例(成品/工具/步骤/总结/附件)+ 配图公网直链直接导入 → 过审终版 verbatim 回填 git | Claude | 实战6两轮交付走通(附件版过审回填 + 四段式版导入完成,对应 [[钉钉知识库交付_格式白名单与终版回填闭环_v1]]) |
 
+| wechaty-blog-pr | v1.0 | 2026-08-10 | Wechaty 博客 PR:fork wechaty/jekyll → 放博客/配图/contributor → 提 PR 换 PadLocal Contributor Token(含仓库更名修正+Win Git ref bug fallback+SVG直用) | Claude | 本会话真机走通(PR #201 已提交,待 CLA+Review) |
+
 ### prompt-master v1.6.0 备注
 
 - 文件:[[prompt-master/SKILL.md]]
@@ -269,3 +271,12 @@ v1.1 变更：
 v1.1 升级（2026-07-22，对齐公司教程通行体例）：① 新增**四段式教程体例**（一、成品展示 → 二、所用工具 → 三、操作方法 → 四、总结与小技巧），其中「所用工具」必须把生成图片/视频的幕后引擎也列全并注明"由 X 自动调用、你不用安装"，「总结」的小技巧从复盘的"没有一次做对的"提炼；② 修正 v1.0 过严的「一律禁小标题」——**按文档定位分两种**：作为母文档子节并入时小标题并入正文加粗，独立成页教程用 `## 一、二、三、四` + `### 1. 2. 3.`（依据同知识库《鲸海拾贝-导演调度蓝图生视频教程》体例）。实战样例：`docs/实战6_自动化口播剪辑_钉钉版_四段式_v2.md`。
 
 定位：钉钉知识库文档交付闭环。编码的关键规则——① **格式白名单先行**：修饰只用加粗+代码块，禁引用块/表格/多级小标题（均为终审被实际删改项），交付前 grep 自查；② **终版回填闭环**：过审后平台版是唯一真身，当天下载 verbatim 回填，不做任何"顺手优化"，终版自身违反白名单也只标待办不擅改；③ 变体试探只属于通道未知期，白名单确立后收敛为单一母版。方法论母档 [[钉钉知识库交付_格式白名单与终版回填闭环_v1]]；API 推送脚本（`dingtalk_push.py`）待企业应用权限审批后启用。
+
+### wechaty-blog-pr v1.0（2026-08-10，Wechaty Contributor Program 博客 PR 全链路）
+
+来源：pb-arena 微信群反馈收集机器人需要 PadLocal Token，付费站 502 走不通，转走 Contributor Program——给 wechaty/jekyll 写技术博客提 PR 换免费 Token。全程 gh CLI 一步到位执行 fork→PR，封装成 skill。
+
+- [[wechaty-blog-pr/SKILL.md]] — Claude
+- 本机可执行副本：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`
+
+定位：第三方开源贡献的博客 PR 管道。编码的关键经验——① **旧指南仓库地址会过时**：PR 指南与文档里的 `wechaty/wechaty.js.org` 已更名/重定向为 `wechaty/jekyll`，fork 前必须 `gh repo view <org>/<repo> --json name` 验真名（重定向会返回真实 name）；② **git fetch 报成功≠ref 写入**：Windows Git 2.55 的 ref 存储 bug，`.git/refs/remotes/upstream/` 目录未创建导致 fetch 写不进，`git show-ref` 找不到 `upstream/main`，用 `git checkout -b <branch> $(git ls-remote upstream main | awk '{print $1}')` 拿 hash 直接建分支绕过；③ **SVG 直接用别硬转 PNG**：目标 Jekyll 站点支持 SVG（`grep -r "\.svg" _posts/` 验证），在没有 ImageMagick/cairo/rsvg 的 Windows 环境硬转会卡住（cairosvg 缺 `libcairo-2.dll`、svglib 缺 `rlPyCairo`），转换是优化不是阻塞；④ **Contributor 文件格式以仓库现有样本为准**，不以旧指南为准（实际需要 name/site/avatar/bio/github，avatar 用 `https://avatars.githubusercontent.com/u/<id>?v=4`）。完整复盘与四条可复用方法见 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]；与 [[个人项目免PR直推主分支_v1]] 互为镜像（个人项目免 PR ↔ 第三方开源必走 PR）。

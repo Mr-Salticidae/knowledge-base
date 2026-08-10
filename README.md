@@ -321,6 +321,8 @@
 - [[opportunity-due-diligence/SKILL.md]] —— 机会尽调 skill:副业招募/外包/代理邀约 → 四步查证法(查甲方存在→查行业对标价并画转包链→**查前置收费,骗局与低价外包的分水岭**→**查能否验证结算依据,最决定性**)+ 时薪自算 + 必问中位数;心法是「**是不是骗局」和「值不值得做」必须分开下结论**,最常见的真实答案是「不是骗局但极不划算」。体例确立**称谓律**:直接转发给当事人读的稿一律第二人称
 - [[report-longimage/SKILL.md]] —— 报告长图 skill:md → PB Arena「简洁低疲劳 V2」版式 PNG;随附 `母版.html`(组件画廊)与 `render.sh`。三坑:`--screenshot` 只截视口故**必须两趟**(先 `--dump-dom` 读 `scrollHeight`)、`--mono` 以 generic `monospace` 收尾会让**中文全掉宋体**(CJK 须排它之前,同族 [[导出运行时无系统字体回退律_CJK豆腐块_v1]])、`set -e` 下 `&&` 链找文件会静默退出;验收**必须裁头中尾三段回看**。版式出处 [[美工改稿全站落地_跨稿重复才是规范_v1]]
 
+- [[wechaty-blog-pr/SKILL.md]] —— Wechaty 博客 PR skill:fork wechaty/jekyll → 放博客/配图/contributor → 提 PR 换 PadLocal Token;关键修正=旧指南 wechaty.js.org 已更名 jekyll(fork 前 `gh repo view` 验真名);Win Git 2.55 ref bug 用 `git ls-remote` 拿 hash 建分支;SVG 直接用别硬转 PNG;对应 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]
+
 ### 主题脉络十二:平台工程(2026-06-25 新增)
 
 > 搭建/维护知识库展示站(蛛网之上 tiaozhuxiansheng.com)与各类内容平台过程中,沉淀的工程方法、架构模式与踩坑。记的是「怎么搭起来、部署上线、可持续维护」,与创作线并列。

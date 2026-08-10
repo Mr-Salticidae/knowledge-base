@@ -45,6 +45,7 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 | [feishu-doc-publish](#feishu-doc-publish) | 飞书发布 | 本地 md → 飞书云文档 + 可分享链接 + owner 授权 | Claude |
 | [opportunity-due-diligence](#opportunity-due-diligence) | 机会尽调 | 副业招募/外包/代理邀约 → 四步查证 + 可转发尽调笔记 | Claude |
 | [report-longimage](#report-longimage) | 报告长图 | md → PB Arena 版式长图 PNG（母版 + 两趟截图） | Claude |
+| [wechaty-blog-pr](#wechaty-blog-pr) | 开源贡献 PR | Wechaty 技术博客 → fork wechaty/jekyll → 提 PR 换 Contributor Token | Claude |
 
 ---
 
@@ -434,6 +435,30 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **与相邻 skill 的区别**：`aigc-poster-layout` 是作品/角色宣传海报（图为主）；本 skill 是文档型报告长图（字为主）。
 
 **关联文档**：[[美工改稿全站落地_跨稿重复才是规范_v1]]（视觉规范与两趟截图法出处）· [[导出运行时无系统字体回退律_CJK豆腐块_v1]]（字体兜底同族）
+
+---
+
+## wechaty-blog-pr
+
+**触发词**：「投 Wechaty 博客」「给 wechaty 提 PR」「换 PadLocal Token」「Wechaty Contributor Program」「给 wechaty/jekyll 提博客」——任何「写 Wechaty 技术博客换免费 Token」的诉求即触发。
+
+**用途**：把一篇 Wechaty 相关技术博客，通过 fork → 分支 → 放博客/配图/contributor → push → `gh pr create` 全链路提交到 `wechaty/jekyll`，换取最长 1 年免费 PadLocal Contributor Token。配套复盘：[[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]。
+
+**关键修正**：旧指南与文档里的 `wechaty/wechaty.js.org` 已更名/重定向为 `wechaty/jekyll`，fork 与 PR 一律以 `wechaty/jekyll` 为准，默认分支 `main`（非 master）。
+
+**全链路命令**：`gh repo fork wechaty/jekyll` → clone → `git remote add upstream` → 建分支（Win Git 2.55 有 ref 存储 bug，用 `git checkout -b <branch> $(git ls-remote upstream main | awk '{print $1}')` 绕过）→ 放文件 → commit/push → `gh pr create --repo wechaty/jekyll --base main --head <user>:<branch>` → 签 CLA。
+
+**配图策略**：目标 Jekyll 站点支持 SVG，源文件是 SVG 就直接用，别在没有 ImageMagick/cairo/rsvg 的环境硬转 PNG。
+
+**Contributor 文件**：`jekyll/_contributors/<username>.md`，格式参照仓库现有样本（name/site/avatar/bio/github），avatar 用 `https://avatars.githubusercontent.com/u/<id>?v=4`（`gh api users/<name> --jq '.avatar_url'` 取 id）。
+
+**版本状态**：v1.0 · 2026-08-10 · PR #201 已提交，待 CLA + Review。
+
+**文件路径**：`E:\knowledge-base\07_skill存档\wechaty-blog-pr\SKILL.md`（本机可执行副本：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`）
+
+**与相邻 skill 的区别**：`feishu-doc-publish` 管「本地 md → 飞书云文档」的发布管道；本 skill 管「技术博客 → 第三方开源仓库 PR」的贡献管道，走 GitHub fork+PR+CLA 而非平台发布。
+
+**关联文档**：[[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]（全链路复盘与四条可复用 insight）· [[个人项目免PR直推主分支_v1]]（个人项目免 PR，第三方开源必走 PR，互为镜像）· [[开工前先对基线律_v1]]（git fetch 对基线同族，本次是其 ref bug 版本）
 
 ---
 
