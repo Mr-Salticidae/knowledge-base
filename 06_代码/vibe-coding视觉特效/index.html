@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding 视觉效果合集</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #050008;
+    color: #e0e0f0;
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* 背景粒子 */
+  .bg-canvas {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; opacity: 0.6;
+  }
+
+  header {
+    text-align: center;
+    padding: 80px 20px 40px;
+  }
+
+  header h1 {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff006e, #8338ec, #3a86ff, #06ffa5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+  }
+
+  header p {
+    color: #8888aa;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .tags {
+    display: flex; justify-content: center; gap: 12px;
+    margin-top: 24px; flex-wrap: wrap;
+  }
+  .tag {
+    padding: 6px 16px;
+    border: 1px solid rgba(131, 56, 236, 0.4);
+    border-radius: 20px;
+    font-size: 12px;
+    color: #b388ff;
+    background: rgba(131, 56, 236, 0.08);
+    letter-spacing: 1px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    padding: 40px 5vw 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .card {
+    position: relative;
+    background: rgba(15, 10, 25, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(131, 56, 236, 0.4);
+    box-shadow: 0 20px 60px rgba(131, 56, 236, 0.15);
+  }
+
+  .card-preview {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-preview canvas {
+    width: 100%; height: 100%;
+  }
+
+  .card-body {
+    padding: 24px;
+  }
+
+  .card-body h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-body p {
+    font-size: 14px;
+    color: #8888aa;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .card-meta {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .card-meta span {
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    color: #999;
+  }
+
+  .card-arrow {
+    position: absolute;
+    top: 20px; right: 20px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+    font-size: 14px;
+  }
+  .card:hover .card-arrow {
+    background: rgba(131, 56, 236, 0.3);
+    transform: rotate(-45deg);
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: #555;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  footer a { color: #8338ec; text-decoration: none; }
+</style>
+</head>
+<body>
+<canvas class="bg-canvas" id="bg"></canvas>
+
+<header>
+  <h1>Vibe Coding 视觉效果合集</h1>
+  <p>5 个单文件 HTML demo，每个不到 150 行代码。纯 Canvas + 数学，零依赖，打开即玩。</p>
+  <div class="tags">
+    <span class="tag">Canvas 2D</span>
+    <span class="tag">零依赖</span>
+    <span class="tag">单文件</span>
+    <span class="tag">交互式</span>
+  </div>
+</header>
+
+<div class="grid" id="grid">
+  <!-- 卡片由 JS 生成 -->
+</div>
+
+<footer>
+  每个效果都是一个独立的 .html 文件，直接双击即可在浏览器打开 · <a href="https://github.com">了解更多</a>
+</footer>
+
+<script>
+// === 卡片数据 ===
+const demos = [
+  {
+    title: 'Cosmic Flow',
+    desc: '粒子沿 Perlin 噪声力场流动，形成星云般的宇宙画卷。鼠标移动可引导粒子方向。',
+    file: 'cosmic_flow.html',
+    tags: ['粒子系统', '噪声场', '800粒子'],
+    color: ['#ff006e', '#8338ec', '#3a86ff'],
+    preview: 'cosmic'
+  },
+  {
+    title: 'Plasma',
+    desc: '经典 demoscene 等离子体效果，5 层 sin 波叠加生成迷幻色彩流动。鼠标扭曲空间。',
+    file: 'plasma.html',
+    tags: ['像素级渲染', 'sin波', 'demoscene'],
+    color: ['#ff00ff', '#00ffff', '#ffff00'],
+    preview: 'plasma'
+  },
+  {
+    title: 'Neon Waves',
+    desc: '5 条霓虹色波浪交织流动，多层频率叠加。鼠标改变波浪基线，点击切换 4 套配色。',
+    file: 'neon_waves.html',
+    tags: ['波浪动画', '辉光效果', '4套配色'],
+    color: ['#ff006e', '#3a86ff', '#06ffa5'],
+    preview: 'waves'
+  },
+  {
+    title: 'Mandala',
+    desc: '鼠标移动即可绘制万花筒般的对称曼陀罗。滚轮调整对称段数（3-30），点击清空。',
+    file: 'mandala.html',
+    tags: ['生成艺术', '对称镜像', '万花筒'],
+    color: ['#ff006e', '#8338ec', '#06ffa5'],
+    preview: 'mandala'
+  },
+  {
+    title: 'Matrix Rain',
+    desc: '黑客帝国数字雨，日文片假名+数字+符号。鼠标附近字符变青色发光。',
+    file: 'matrix_rain.html',
+    tags: ['经典特效', '字符流', '互动色彩'],
+    color: ['#00ff50', '#00ffff', '#ffffff'],
+    preview: 'matrix'
+  },
+];
+
+// === 生成卡片 ===
+const grid = document.getElementById('grid');
+demos.forEach(d => {
+  const card = document.createElement('a');
+  card.className = 'card';
+  card.href = d.file;
+  card.innerHTML = `
+    <div class="card-preview" data-preview="${d.preview}" data-colors='${JSON.stringify(d.color)}'>
+    </div>
+    <div class="card-arrow">→</div>
+    <div class="card-body">
+      <h3>${d.title}</h3>
+      <p>${d.desc}</p>
+      <div class="card-meta">
+        ${d.tags.map(t => `<span>${t}</span>`).join('')}
+      </div>
+    </div>
+  `;
+  grid.appendChild(card);
+});
+
+// === 卡片缩略图动画 ===
+document.querySelectorAll('.card-preview').forEach(el => {
+  const type = el.dataset.preview;
+  const colors = JSON.parse(el.dataset.colors);
+  const cv = document.createElement('canvas');
+  cv.width = el.offsetWidth || 340;
+  cv.height = 200;
+  el.appendChild(cv);
+  const c = cv.getContext('2d');
+
+  let t = 0;
+  function draw() {
+    t += 0.02;
+    c.fillStyle = 'rgba(5,0,8,0.1)';
+    c.fillRect(0, 0, cv.width, cv.height);
+
+    if (type === 'cosmic') {
+      // 粒子流
+      c.globalCompositeOperation = 'lighter';
+      for (let i = 0; i < 30; i++) {
+        const x = (i / 30) * cv.width + Math.sin(t + i * 0.3) * 40;
+        const y = cv.height/2 + Math.cos(t * 0.7 + i * 0.5) * 60;
+        const col = colors[i % 3];
+        c.fillStyle = col + '80';
+        c.beginPath(); c.arc(x, y, 2, 0, 6.28); c.fill();
+        c.fillStyle = col + '15';
+        c.beginPath(); c.arc(x, y, 8, 0, 6.28); c.fill();
+      }
+      c.globalCompositeOperation = 'source-over';
+    } else if (type === 'plasma') {
+      const img = c.createImageData(cv.width, cv.height);
+      for (let y = 0; y < cv.height; y++) {
+        for (let x = 0; x < cv.width; x++) {
+          const idx = (y * cv.width + x) * 4;
+          const fx = x / cv.width, fy = y / cv.height;
+          const v = Math.sin(fx * 8 + t) + Math.sin(fy * 8 + t * 0.7)
+                  + Math.sin(Math.sqrt((fx-0.5)**2+(fy-0.5)**2) * 12 - t * 2);
+          const n = v / 3;
+          img.data[idx] = Math.sin(n * Math.PI) * 127 + 128;
+          img.data[idx+1] = Math.sin(n * Math.PI + 2) * 127 + 128;
+          img.data[idx+2] = Math.sin(n * Math.PI + 4) * 127 + 128;
+          img.data[idx+3] = 255;
+        }
+      }
+      c.putImageData(img, 0, 0);
+    } else if (type === 'waves') {
+      colors.forEach((col, i) => {
+        c.beginPath();
+        c.strokeStyle = col;
+        c.lineWidth = 2;
+        c.shadowBlur = 10;
+        c.shadowColor = col;
+        for (let x = 0; x <= cv.width; x += 2) {
+          const y = cv.height/2 + Math.sin(x * 0.02 + t + i * 0.8) * 30
+                  + Math.cos(x * 0.01 - t * 0.5 + i) * 15;
+          if (x === 0) c.moveTo(x, y); else c.lineTo(x, y);
+        }
+        c.stroke();
+      });
+      c.shadowBlur = 0;
+    } else if (type === 'mandala') {
+      c.globalCompositeOperation = 'lighter';
+      const cx2 = cv.width/2, cy2 = cv.height/2;
+      const sym = 12;
+      for (let i = 0; i < sym; i++) {
+        const a = (i / sym) * 6.28;
+        const x = cx2 + Math.cos(a + t * 0.3) * 50;
+        const y = cy2 + Math.sin(a + t * 0.3) * 50;
+        const col = colors[i % 3];
+        c.strokeStyle = col + '60';
+        c.lineWidth = 1.5;
+        c.beginPath();
+        c.moveTo(cx2, cy2);
+        c.lineTo(x, y);
+        c.stroke();
+        c.fillStyle = col + '80';
+        c.beginPath(); c.arc(x, y, 3, 0, 6.28); c.fill();
+      }
+      c.globalCompositeOperation = 'source-over';
+    } else if (type === 'matrix') {
+      c.font = '14px monospace';
+      const chars = 'アカサ0123AB<>{}';
+      for (let i = 0; i < 15; i++) {
+        const x = i * 22;
+        const y = ((t * 50 + i * 30) % (cv.height + 40));
+        c.fillStyle = i % 3 === 0 ? '#fff' : '#0f0';
+        c.fillText(chars[Math.floor(Math.random()*chars.length)], x, y);
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+  draw();
+});
+
+// === 背景粒子 ===
+const bg = document.getElementById('bg');
+const bgCtx = bg.getContext('2d');
+function resizeBg() { bg.width = innerWidth; bg.height = innerHeight; }
+resizeBg();
+window.addEventListener('resize', resizeBg);
+
+const bgParticles = [];
+for (let i = 0; i < 60; i++) {
+  bgParticles.push({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3,
+    size: Math.random() * 2 + 0.5,
+    hue: Math.random() * 360
+  });
+}
+
+function bgAnimate() {
+  bgCtx.fillStyle = 'rgba(5,0,8,0.05)';
+  bgCtx.fillRect(0, 0, bg.width, bg.height);
+  bgParticles.forEach(p => {
+    p.x += p.vx; p.y += p.vy;
+    if (p.x < 0) p.x = bg.width; if (p.x > bg.width) p.x = 0;
+    if (p.y < 0) p.y = bg.height; if (p.y > bg.height) p.y = 0;
+    bgCtx.fillStyle = `hsla(${p.hue}, 70%, 60%, 0.5)`;
+    bgCtx.beginPath();
+    bgCtx.arc(p.x, p.y, p.size, 0, 6.28);
+    bgCtx.fill();
+  });
+  requestAnimationFrame(bgAnimate);
+}
+bgAnimate();
+</script>
+</body>
+</html>

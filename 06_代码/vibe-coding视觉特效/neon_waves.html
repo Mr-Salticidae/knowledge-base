@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon Waves - 霓虹波浪</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow: hidden; background: #050510; }
+  canvas { display: block; }
+  .title {
+    position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.15); font: 300 28px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 8px; text-transform: uppercase;
+  }
+  .info {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.3); font: 13px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="title">Neon Waves</div>
+<div class="info">移动鼠标改变波浪 · 点击切换配色</div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H;
+function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const mouse = { x: W/2, y: H/2 };
+canvas.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+// 多套配色方案
+const palettes = [
+  ['#ff006e', '#fb5607', '#ffbe0b', '#8338ec', '#3a86ff'],  // 霓虹
+  ['#00f5ff', '#ff00ff', '#00ff88', '#ff0080', '#fffb00'],  // 赛博朋克
+  ['#f72585', '#7209b7', '#3a0ca3', '#4361ee', '#4cc9f0'],  // 渐变蓝紫
+  ['#06ffa5', '#ffbf69', '#ff006e', '#8338ec', '#ffffff'],  // 活力
+];
+let currentPalette = 0;
+canvas.addEventListener('click', () => {
+  currentPalette = (currentPalette + 1) % palettes.length;
+});
+
+// 波浪配置
+const waves = [];
+for (let i = 0; i < 5; i++) {
+  waves.push({
+    amplitude: 40 + i * 15,
+    frequency: 0.008 - i * 0.001,
+    speed: 0.02 + i * 0.005,
+    offset: i * Math.PI / 3,
+    yBase: 0,
+    color: i,
+  });
+}
+
+let t = 0;
+function animate() {
+  t += 1;
+
+  // 渐隐背景 — 拖尾效果
+  ctx.fillStyle = 'rgba(5, 5, 16, 0.08)';
+  ctx.fillRect(0, 0, W, H);
+
+  const palette = palettes[currentPalette];
+
+  waves.forEach((wave, i) => {
+    const color = palette[wave.color % palette.length];
+
+    // 鼠标影响波浪基线
+    const targetY = mouse.y + (i - 2) * 50;
+    wave.yBase += (targetY - wave.yBase) * 0.03;
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = color;
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = color;
+
+    for (let x = 0; x <= W; x += 2) {
+      // 多层波叠加
+      const y = wave.yBase
+        + Math.sin(x * wave.frequency + t * wave.speed + wave.offset) * wave.amplitude
+        + Math.sin(x * wave.frequency * 2.3 + t * wave.speed * 1.5) * (wave.amplitude * 0.3)
+        + Math.cos(x * wave.frequency * 0.7 - t * wave.speed * 0.8) * (wave.amplitude * 0.5);
+
+      if (x === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // 第二层 — 更宽的辉光
+    ctx.lineWidth = 8;
+    ctx.globalAlpha = 0.15;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+
+  ctx.shadowBlur = 0;
+
+  // 鼠标处的光点
+  const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 80);
+  grad.addColorStop(0, 'rgba(255,255,255,0.15)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(mouse.x - 80, mouse.y - 80, 160, 160);
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>

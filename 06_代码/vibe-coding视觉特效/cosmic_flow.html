@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Flow - 粒子流场</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow: hidden; background: #000; cursor: crosshair; }
+  canvas { display: block; }
+  .info {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.4); font: 13px 'Segoe UI', sans-serif;
+    pointer-events: none; text-align: center; letter-spacing: 1px;
+  }
+  .title {
+    position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.15); font: 300 28px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 8px; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="title">Cosmic Flow</div>
+<div class="info">移动鼠标引导粒子流动 · 点击重新生成</div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H;
+function resize() { W = canvas.width = innerWidth; H = canvas.height = innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+// 鼠标位置
+const mouse = { x: W/2, y: H/2, active: false };
+canvas.addEventListener('mousemove', e => {
+  mouse.x = e.clientX; mouse.y = e.clientY; mouse.active = true;
+});
+canvas.addEventListener('mouseleave', () => mouse.active = false);
+canvas.addEventListener('click', () => init());
+
+// 简易 2D 噪声 (基于 sin 的伪噪声)
+function noise(x, y, t) {
+  return Math.sin(x * 0.003 + t * 0.0003) * Math.cos(y * 0.003 - t * 0.0002)
+       + Math.sin((x + y) * 0.002 + t * 0.00015) * 0.5;
+}
+
+// 粒子类
+class Particle {
+  constructor() { this.reset(); }
+  reset() {
+    this.x = Math.random() * W;
+    this.y = Math.random() * H;
+    this.vx = 0; this.vy = 0;
+    this.life = Math.random() * 200 + 100;
+    this.maxLife = this.life;
+    // 色彩：紫蓝粉金混合
+    const palette = [
+      [120, 60, 255],   // 紫
+      [255, 60, 180],   // 粉
+      [60, 180, 255],   // 蓝
+      [255, 180, 60],   // 金
+      [180, 60, 255],   // 紫红
+    ];
+    this.color = palette[Math.floor(Math.random() * palette.length)];
+    this.size = Math.random() * 1.5 + 0.5;
+  }
+  update(t) {
+    const angle = noise(this.x, this.y, t) * Math.PI * 3;
+    this.vx += Math.cos(angle) * 0.15;
+    this.vy += Math.sin(angle) * 0.15;
+
+    // 鼠标吸引力
+    if (mouse.active) {
+      const dx = mouse.x - this.x;
+      const dy = mouse.y - this.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 250 && dist > 5) {
+        this.vx += (dx / dist) * 0.3;
+        this.vy += (dy / dist) * 0.3;
+      }
+    }
+
+    this.vx *= 0.95;
+    this.vy *= 0.95;
+    this.x += this.vx;
+    this.y += this.vy;
+    this.life--;
+
+    if (this.life <= 0 || this.x < 0 || this.x > W || this.y < 0 || this.y > H) {
+      this.reset();
+    }
+  }
+  draw() {
+    const alpha = (this.life / this.maxLife) * 0.8;
+    const [r, g, b] = this.color;
+    ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 发光晕
+    ctx.fillStyle = `rgba(${r},${g},${b},${alpha * 0.1})`;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size * 4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+let particles = [];
+function init() {
+  particles = [];
+  const count = Math.min(800, Math.floor(W * H / 1800));
+  for (let i = 0; i < count; i++) particles.push(new Particle());
+  // 清屏渐变
+  ctx.fillStyle = '#050008';
+  ctx.fillRect(0, 0, W, H);
+}
+init();
+
+function animate(t) {
+  // 拖尾效果
+  ctx.fillStyle = 'rgba(5, 0, 8, 0.04)';
+  ctx.fillRect(0, 0, W, H);
+
+  ctx.globalCompositeOperation = 'lighter';
+  particles.forEach(p => { p.update(t); p.draw(); });
+  ctx.globalCompositeOperation = 'source-over';
+
+  requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+</script>
+</body>
+</html>

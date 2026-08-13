@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mandala - 生成艺术曼陀罗</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow: hidden; background: #080010; cursor: none; }
+  canvas { display: block; }
+  .title {
+    position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.12); font: 300 28px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 8px; text-transform: uppercase;
+  }
+  .info {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.3); font: 13px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 1px;
+  }
+  .cursor {
+    position: fixed; width: 12px; height: 12px; border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, border-color 0.2s;
+    z-index: 100;
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="title">Mandala</div>
+<div class="info">移动鼠标绘制对称图案 · 点击清空 · 滚轮调整对称数</div>
+<div class="cursor" id="cursor"></div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, cx, cy;
+function resize() {
+  W = canvas.width = innerWidth;
+  H = canvas.height = innerHeight;
+  cx = W / 2; cy = H / 2;
+  ctx.fillStyle = '#080010';
+  ctx.fillRect(0, 0, W, H);
+}
+resize();
+window.addEventListener('resize', resize);
+
+let symmetry = 12; // 对称段数
+let hue = 0;
+const mouse = { x: cx, y: cy, px: cx, py: cy, drawing: false };
+
+const cursor = document.getElementById('cursor');
+
+canvas.addEventListener('mousemove', e => {
+  mouse.px = mouse.x;
+  mouse.py = mouse.y;
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+  mouse.drawing = true;
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+canvas.addEventListener('click', () => {
+  ctx.fillStyle = 'rgba(8, 0, 16, 1)';
+  ctx.fillRect(0, 0, W, H);
+});
+
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (e.deltaY > 0) symmetry = Math.max(3, symmetry - 1);
+  else symmetry = Math.min(30, symmetry + 1);
+  cursor.style.width = (12 + symmetry) + 'px';
+  cursor.style.height = (12 + symmetry) + 'px';
+  cursor.style.borderColor = `hsl(${hue}, 80%, 60%)`;
+});
+
+function draw() {
+  if (mouse.drawing) {
+    hue = (hue + 1.5) % 360;
+    const dx = mouse.x - cx;
+    const dy = mouse.y - cy;
+    const pdx = mouse.px - cx;
+    const pdy = mouse.py - cy;
+
+    const angleStep = (Math.PI * 2) / symmetry;
+
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+
+    for (let i = 0; i < symmetry; i++) {
+      const angle = i * angleStep;
+      const cos = Math.cos(angle);
+      const sin = Math.sin(angle);
+
+      // 旋转后的坐标
+      const x1 = cx + dx * cos - dy * sin;
+      const y1 = cy + dx * sin + dy * cos;
+      const x2 = cx + pdx * cos - pdy * sin;
+      const y2 = cy + pdx * sin + pdy * cos;
+
+      // 线条
+      ctx.strokeStyle = `hsla(${hue}, 90%, 60%, 0.7)`;
+      ctx.lineWidth = 2;
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = `hsl(${hue}, 90%, 60%)`;
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x1, y1);
+      ctx.stroke();
+
+      // 镜像翻转
+      const x1m = cx + dx * cos + dy * sin;
+      const y1m = cy - dx * sin + dy * cos;
+      const x2m = cx + pdx * cos + pdy * sin;
+      const y2m = cy - pdx * sin + pdy * cos;
+
+      ctx.strokeStyle = `hsla(${(hue + 180) % 360}, 90%, 60%, 0.5)`;
+      ctx.beginPath();
+      ctx.moveTo(x2m, y2m);
+      ctx.lineTo(x1m, y1m);
+      ctx.stroke();
+
+      // 点缀圆点
+      ctx.fillStyle = `hsla(${hue}, 100%, 70%, 0.8)`;
+      ctx.beginPath();
+      ctx.arc(x1, y1, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.shadowBlur = 0;
+    mouse.drawing = false;
+  }
+
+  // 缓慢渐隐
+  ctx.fillStyle = 'rgba(8, 0, 16, 0.003)';
+  ctx.fillRect(0, 0, W, H);
+
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>

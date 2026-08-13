@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plasma - 等离子幻境</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { overflow: hidden; background: #000; }
+  canvas { display: block; }
+  .title {
+    position: fixed; top: 30px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.12); font: 300 28px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 8px; text-transform: uppercase;
+    z-index: 10; mix-blend-mode: difference;
+  }
+  .info {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    color: rgba(255,255,255,0.35); font: 13px 'Segoe UI', sans-serif;
+    pointer-events: none; letter-spacing: 1px; z-index: 10;
+    mix-blend-mode: difference;
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div class="title">Plasma</div>
+<div class="info">移动鼠标扭曲空间</div>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H, imgData;
+function resize() {
+  W = canvas.width = innerWidth;
+  H = canvas.height = innerHeight;
+  imgData = ctx.createImageData(W, H);
+}
+resize();
+window.addEventListener('resize', resize);
+
+const mouse = { x: 0.5, y: 0.5 };
+window.addEventListener('mousemove', e => {
+  mouse.x = e.clientX / W;
+  mouse.y = e.clientY / H;
+});
+
+// 纯像素级 plasma 渲染 — 经典 demoscene 效果
+function render(t) {
+  const data = imgData.data;
+  const time = t * 0.001;
+  const mx = mouse.x * 2 - 1;
+  const my = mouse.y * 2 - 1;
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      const idx = (y * W + x) * 4;
+
+      // 归一化坐标
+      const fx = (x / W - 0.5) * 2;
+      const fy = (y / H - 0.5) * 2;
+
+      // 多层 sin 波叠加 = plasma 核心
+      const v1 = Math.sin(fx * 4 + time);
+      const v2 = Math.sin(fy * 4 + time * 0.7);
+      const d = Math.sqrt(fx*fx + fy*fy);
+      const v3 = Math.sin(d * 6 - time * 2 + Math.atan2(fy + my, fx + mx) * 2);
+      const v4 = Math.sin((fx + fy) * 3 + time * 1.3);
+      const v5 = Math.sin(d * 10 + time * 0.5 + mx * 3);
+
+      const v = (v1 + v2 + v3 + v4 + v5) / 5;
+
+      // 色彩映射 — 紫青粉流动
+      const r = Math.sin(v * Math.PI + 0) * 127 + 128;
+      const g = Math.sin(v * Math.PI + 2.0) * 127 + 128;
+      const b = Math.sin(v * Math.PI + 4.0) * 127 + 128;
+
+      data[idx]     = r;
+      data[idx + 1] = g;
+      data[idx + 2] = b;
+      data[idx + 3] = 255;
+    }
+  }
+
+  ctx.putImageData(imgData, 0, 0);
+  requestAnimationFrame(render);
+}
+requestAnimationFrame(render);
+</script>
+</body>
+</html>
