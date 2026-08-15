@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<title>即梦 / Dreamina 跨区定价与可及性实测报告</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f4f1ea;
+    --fg: #11110f;
+    --muted: #77736a;
+    --line: #d8d3c9;
+    --nav: rgba(250,248,242,.92);
+    --accent: #ff4d4a;
+    --chip: #faf7f0;
+    --green: #4a7c59;
+    --sans: Inter, "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    --serif: "Noto Serif SC", "Source Han Serif SC", STSong, serif;
+  }
+
+  body { background: #d9d7d0; font-family: var(--sans); color: var(--fg); }
+
+  .report {
+    width: 1440px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---------- nav ---------- */
+  .nav {
+    height: 76px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 56px;
+    border-bottom: 1px solid var(--line);
+    background: var(--nav);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo {
+    width: 40px; height: 40px; border: 1.5px solid currentColor; border-radius: 50%;
+    display: grid; place-items: center; font-size: 13px; font-weight: 800;
+  }
+  .brand-text .t1 { font-size: 17px; font-weight: 800; letter-spacing: .01em; }
+  .brand-text .t2 {
+    font-size: 10px; font-weight: 600; color: var(--muted);
+    letter-spacing: .22em; margin-top: 2px;
+  }
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+  .chip {
+    height: 30px; border: 1px solid var(--line); border-radius: 999px;
+    padding: 0 14px; display: inline-flex; align-items: center; gap: 7px;
+    color: var(--muted); font-size: 12.5px; background: var(--chip);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .dot.g { background: var(--green); }
+
+  /* ---------- generic ---------- */
+  .pad { padding: 0 56px; }
+  .label {
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    letter-spacing: .2em; text-transform: uppercase;
+  }
+  .rule { height: 1px; background: var(--line); }
+  h2.sec {
+    font-family: var(--serif); font-size: 25px; font-weight: 700;
+    letter-spacing: .01em; margin-top: 9px;
+  }
+  .note { font-size: 13px; color: var(--muted); line-height: 1.75; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 44px 56px 38px; }
+  .hero h1 {
+    font-family: var(--serif); font-size: 46px; font-weight: 800;
+    letter-spacing: .01em; margin-top: 12px; line-height: 1.25;
+  }
+  .hero .sub {
+    font-size: 15px; color: var(--muted); margin-top: 16px;
+    line-height: 1.85; max-width: 1020px;
+  }
+  .hero .sub b { color: var(--fg); font-weight: 700; }
+
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 34px;
+          border: 1px solid var(--line); background: var(--chip); }
+  .kpi { padding: 24px 28px; border-right: 1px solid var(--line); }
+  .kpi:last-child { border-right: 0; }
+  .kpi .k { font-size: 11.5px; color: var(--muted); letter-spacing: .05em; }
+  .kpi .v {
+    font-size: 46px; font-weight: 800; letter-spacing: -.02em; margin-top: 6px; line-height: 1;
+  }
+  .kpi .v.acc { color: var(--accent); }
+  .kpi .d { font-size: 12.5px; color: var(--muted); margin-top: 9px; line-height: 1.6; }
+
+  /* ---------- section ---------- */
+  .sec-wrap { padding: 36px 56px 0; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; }
+  .sec-head .idx { font-size: 12px; color: var(--muted); letter-spacing: .12em; }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 18px; font-size: 14.5px; }
+  th, td { padding: 11px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { font-size: 11.5px; color: var(--muted); font-weight: 700; letter-spacing: .07em;
+       text-transform: uppercase; border-bottom: 1px solid var(--fg); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.hl td { background: var(--chip); font-weight: 700; }
+  tr.hl td.acc { color: var(--accent); }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 999px;
+         font-size: 11px; border: 1px solid var(--line); background: var(--chip); color: var(--muted); }
+
+  /* ---------- two col ---------- */
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 18px; }
+  .card { border: 1px solid var(--line); background: var(--chip); padding: 22px 24px; }
+  .card .ct { font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+  .card .cv { font-size: 34px; font-weight: 800; margin-top: 10px; letter-spacing: -.01em; }
+  .card .cd { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.7; }
+  .spec { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+
+  /* ---------- verdict ---------- */
+  .verdict { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+             border: 1px solid var(--line); margin-top: 18px; }
+  .vc { padding: 22px 24px; border-right: 1px solid var(--line); }
+  .vc:last-child { border-right: 0; }
+  .vc .vh { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; }
+  .vc ul { margin-top: 14px; list-style: none; }
+  .vc li { font-size: 13px; line-height: 1.65; color: var(--fg); padding-left: 15px;
+           position: relative; margin-bottom: 11px; }
+  .vc li:before { content: ""; position: absolute; left: 0; top: 8px;
+                  width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+  .vc li b { font-weight: 700; }
+  .vc li span { color: var(--muted); }
+  .bar { height: 3px; width: 34px; margin-bottom: 12px; }
+
+  /* ---------- takeaway ---------- */
+  .take { margin-top: 34px; border-left: 3px solid var(--accent); padding: 4px 0 4px 26px; }
+  .take p { font-size: 16px; line-height: 1.95; max-width: 1160px; }
+  .take p + p { margin-top: 14px; }
+  .take b { font-weight: 800; }
+
+  /* ---------- footer ---------- */
+  .foot { margin-top: 40px; border-top: 1px solid var(--line); padding: 22px 56px 34px;
+          display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+  .foot .fl { font-size: 12px; color: var(--muted); line-height: 1.85; max-width: 1010px; }
+  .foot .fr { font-size: 12px; color: var(--muted); text-align: right; line-height: 1.85; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="report" id="report">
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="brand">
+      <div class="logo">JM</div>
+      <div class="brand-text">
+        <div class="t1">即梦 / Dreamina 跨区实测</div>
+        <div class="t2">PRICING &amp; ACCESS REPORT</div>
+      </div>
+    </div>
+    <div class="nav-right">
+      <span class="chip"><span class="dot g"></span>一手实测 · 双账号对照</span>
+      <span class="chip">2026-07-31</span>
+      <span class="chip">v1.1 已修正</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="label">结论摘要</div>
+    <h1>国内确实更贵，但贵 14% 不是 39%；<br/>真正的问题不在价格，在于你走不掉</h1>
+    <div class="sub">
+      对同一家公司的同一产品（Seedance 2.0）在国内与国际两条产品线做双账号实测。<b>积分标价差 38.9%，但两边积分不等值</b>——同规格 5s 视频国内耗 70 分、国际耗 85 分，抵消后国内实际溢价约 <b>14.4%</b>（税前口径约 8%）。价格差本身在正常区域定价带内；<b>不正常的是大陆用户无法跨区购买</b>：国际侧区域列表无中国大陆选项，中国银行发行的英镑 Mastercard 被拒付，而同卡在 Suno 等国际服务正常使用。
+    </div>
+
+    <div class="kpis">
+      <div class="kpi">
+        <div class="k">实际到手溢价（含税，汇率 7.2）</div>
+        <div class="v acc num">+14.4%</div>
+        <div class="d">每条 5s / 720P 视频：国内 ¥7.00，国际 ¥6.12。税前口径收窄至 +7.9%</div>
+      </div>
+      <div class="kpi">
+        <div class="k">积分标价差（表象，已证伪为净差）</div>
+        <div class="v num">+38.9%</div>
+        <div class="d">¥0.100/积分 vs $0.01≈¥0.072/积分。未校正购买力时的错误读数</div>
+      </div>
+      <div class="kpi">
+        <div class="k">大陆可用的国际购买通道</div>
+        <div class="v acc num">0</div>
+        <div class="d">区域列表仅列出 Hong Kong / Taiwan；发卡行国别级拦截，卡本身有效</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEC 1 -->
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">实测数据</div>
+        <h2 class="sec">一、积分标价：三个档位独立验证，一致 38.9%</h2>
+      </div>
+      <div class="idx">01 / 04</div>
+    </div>
+    <table>
+      <tr>
+        <th style="width:22%">积分数量</th>
+        <th class="n">即梦（国内）</th>
+        <th class="n">Dreamina（国际）</th>
+        <th class="n">国际折人民币 @7.2</th>
+        <th class="n">国内标价溢价</th>
+      </tr>
+      <tr><td>1,500</td><td class="n">¥150.00</td><td class="n">$15.00</td><td class="n">¥108.00</td><td class="n">+38.9%</td></tr>
+      <tr><td>4,500</td><td class="n">¥450.00</td><td class="n">$45.00</td><td class="n">¥324.00</td><td class="n">+38.9%</td></tr>
+      <tr><td>9,000</td><td class="n">¥899.00</td><td class="n">$90.00</td><td class="n">¥648.00</td><td class="n">+38.7%</td></tr>
+      <tr class="hl"><td>单位价</td><td class="n">¥0.1000 / 积分</td><td class="n">$0.0100 / 积分</td><td class="n">¥0.0720 / 积分</td><td class="n acc">+38.9%</td></tr>
+    </table>
+    <div class="note" style="margin-top:12px">
+      两边均为平价、无阶梯折扣。国内 ¥223/2250 与 ¥899/9000 看似优惠，实际较整数价仅低 0.9% 与 0.1%，属尾数定价。
+      国际档位顶至 18,000、起充 1,000；国内封顶 9,000、起充 500。
+    </div>
+  </div>
+
+  <!-- SEC 2 -->
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">关键修正</div>
+        <h2 class="sec">二、购买力校正：两边的「积分」不是同一个单位</h2>
+      </div>
+      <div class="idx">02 / 04</div>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <div class="ct">即梦（国内）· Seedance 2.0 VIP</div>
+        <div class="cv num">70 <span style="font-size:16px;font-weight:600;color:var(--muted)">积分 / 条</span></div>
+        <div class="spec">
+          <span class="tag">9:16</span><span class="tag">720P</span><span class="tag">5s</span><span class="tag">1 条</span><span class="tag">全能参考</span>
+        </div>
+        <div class="cd">实付 70 × ¥0.100 = <b style="color:var(--fg)">¥7.00</b>　折 ¥1.40 / 秒</div>
+      </div>
+      <div class="card">
+        <div class="ct">Dreamina（国际）· Seedance 2.0</div>
+        <div class="cv num">85 <span style="font-size:16px;font-weight:600;color:var(--muted)">积分 / 条</span></div>
+        <div class="spec">
+          <span class="tag">9:16</span><span class="tag">720P</span><span class="tag">5s</span><span class="tag">1 条</span><span class="tag">Omni reference</span>
+        </div>
+        <div class="cd">实付 85 × $0.010 = $0.85 ≈ <b style="color:var(--fg)">¥6.12</b>　折 ¥1.22 / 秒</div>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <th style="width:34%">计算口径</th>
+        <th class="n">国内</th>
+        <th class="n">国际</th>
+        <th class="n">国内溢价</th>
+        <th style="width:30%">说明</th>
+      </tr>
+      <tr><td>积分标价</td><td class="n">¥0.1000</td><td class="n">¥0.0720</td><td class="n">+38.9%</td><td class="note" style="font-size:13px">未校正购买力</td></tr>
+      <tr><td>同规格消耗</td><td class="n">70 分</td><td class="n">85 分</td><td class="n">−17.6%</td><td class="note" style="font-size:13px">国际多耗 21.4%，方向相反</td></tr>
+      <tr class="hl"><td>每条实付（含税）</td><td class="n">¥7.00</td><td class="n">¥6.12</td><td class="n acc">+14.4%</td><td class="note" style="font-size:13px;font-weight:400">两项抵消后的真实差距</td></tr>
+      <tr><td>每条实付（抹平增值税 6%）</td><td class="n">¥6.60</td><td class="n">¥6.12</td><td class="n">+7.9%</td><td class="note" style="font-size:13px">国内标价含税，美区标价税前</td></tr>
+      <tr><td>汇率敏感性 7.0 / 7.2 / 7.4</td><td class="n">—</td><td class="n">—</td><td class="n">+17.6% / +14.4% / +11.3%</td><td class="note" style="font-size:13px">结论不随汇率翻转</td></tr>
+    </table>
+  </div>
+
+  <!-- SEC 3 -->
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">通道</div>
+        <h2 class="sec">三、跨区套利被主动封锁：这才是价差能存活的原因</h2>
+      </div>
+      <div class="idx">03 / 04</div>
+    </div>
+    <div class="cols" style="grid-template-columns: 1fr 1fr 1fr;">
+      <div class="card">
+        <div class="ct">区域列表</div>
+        <div class="cd" style="margin-top:12px">国际侧国家 / 地区选项中<b style="color:var(--fg)">无中国大陆</b>，仅列 Hong Kong、Taiwan。港台单列属账单司法辖区惯例，大陆缺席则为主动排除。</div>
+      </div>
+      <div class="card">
+        <div class="ct">支付拦截</div>
+        <div class="cd" style="margin-top:12px">中国银行发行、英镑计价、英国账单地址的 Mastercard 被拒付。<b style="color:var(--fg)">同卡在 Suno 等国际 AI 服务正常扣款</b>，排除卡本身问题。推定拦截点为 BIN 段发卡行国别。</div>
+      </div>
+      <div class="card">
+        <div class="ct">推论</div>
+        <div class="cd" style="margin-top:12px">发卡行国别级拦截需额外开发，不是支付网关默认行为。<b style="color:var(--fg)">14% 的价差不需要一堵墙来保护</b>——交易摩擦本身就能吃掉它。墙保护的是分区本身。</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:14px">
+      参考：国内 API（火山引擎 Seedance 2.0）15s / 720P 约 ¥14.21，折 ¥0.95/秒；即梦 C 端 ¥1.40/秒，零售较批发高约 47% — 属正常零售批发价差，与跨区问题无关。
+    </div>
+  </div>
+
+  <!-- SEC 4 -->
+  <div class="sec-wrap">
+    <div class="sec-head">
+      <div>
+        <div class="label">判断</div>
+        <h2 class="sec">四、哪些成立、哪些被推翻、哪些还没证</h2>
+      </div>
+      <div class="idx">04 / 04</div>
+    </div>
+    <div class="verdict">
+      <div class="vc">
+        <div class="bar" style="background:var(--green)"></div>
+        <div class="vh"><span class="dot g"></span>成立</div>
+        <ul>
+          <li><b>国内定价高于国际</b><span> —— 14.4%（税前 8%），一手实测，方向确凿。</span></li>
+          <li><b>定价方向违反区域惯例</b><span> —— 通行做法是低收入市场定价更低（Steam / Netflix / Spotify）。国内人均 GDP 约为美国六分之一，却更贵。</span></li>
+          <li><b>跨区通道被主动封锁</b><span> —— 大陆个人用户既买不到更低的价，也买不到过滤更轻的版本。</span></li>
+          <li><b>逃生口按主体身份分配</b><span> —— 个人无出口；有境外实体的机构可直接采购 BytePlus。</span></li>
+        </ul>
+      </div>
+      <div class="vc">
+        <div class="bar" style="background:var(--accent)"></div>
+        <div class="vh"><span class="dot"></span>已推翻</div>
+        <ul>
+          <li><b>「国内贵 39%」</b><span> —— 该数字只对比积分标价，未核对一个积分买到什么。校正后为 14.4%。</span></li>
+          <li><b>「技术垄断」</b><span> —— 垄断的判定是缺乏替代品。可灵、Vidu、海螺、Runway、Veo 均在售且部分更便宜。这是价格歧视，不是垄断。</span></li>
+          <li><b>「零售批发价差可解释跨区差」</b><span> —— 本次为同产品同计费单位对比，该解释不适用（此前推测有误）。</span></li>
+        </ul>
+      </div>
+      <div class="vc">
+        <div class="bar" style="background:var(--line)"></div>
+        <div class="vh"><span class="dot" style="background:var(--muted)"></span>待验证</div>
+        <ul>
+          <li><b>国内外模型质量 / 过滤强度差异</b><span> —— 目前仅有从业者体感，无对照样本。同 prompt 两边各跑一次并留原始输出即可证实。</span></li>
+          <li><b>70 分是否已含会员折扣</b><span> —— 界面标注 VIP，非会员价未知。若含折扣，真实差距应更大。</span></li>
+          <li><b>Seedance 2.5 内测 ¥80 / 30s 的规格</b><span> —— 反推约 800 积分，单位积分消耗约为 2.0 的 1.9 倍；若为 4K 则不可直接比较。</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAKEAWAY -->
+  <div class="pad">
+    <div class="take">
+      <p><b>判断：不是垄断，也不必然是恶意，但确实是一次「向走不掉的市场收租」的选择——而「走不掉」是工程实现出来的，不是自然形成的。</b></p>
+      <p>8%–14% 的价差单独看不值得动怒，它落在税负、支付通道、合规成本与受出口管制的国产算力所能解释的区间内。国内经营环境对这个产品确实更苛刻：内容审核基建、备案、安全评估都是真实成本，而《生成式AI服务管理暂行办法》和芯片出口管制都不是字节写的。你体感到的「对国内用户更差」，有相当一部分实际是「国内经营环境更苛刻」。</p>
+      <p>但公司也不是这个环境的被动受害者。约束给定之后，如何分配负担是有选择的，而选择是：本土市场付更高的价、拿过滤更重的版本、并且被一堵墙围住。他们完全有能力按平价定国内、把差额当作市场培育成本吃掉——豆包在大模型价格战里就是这么干的。他们在自己国内地位最强的那个产品上，选择了不这么干。<b>真正被那堵墙保护的不主要是价格，是分区本身——也就是那个过滤更轻的国际版本，恰恰是你想买而买不到的东西。</b></p>
+      <p><b>对创作者的实际结论：能防的是可迁移性，不是义愤。</b>14% 的价差不会伤到你，把生产管线绑死在一个已经证明了「既愿意分区、又有能力围墙」的供应商身上才会。对策是工作流里常驻 2–3 个模型、把任一供应商都当作可替换件——这同时也是对「前沿溢价终将蒸发」的免费保险。</p>
+    </div>
+  </div>
+
+  <!-- FOOT -->
+  <div class="foot">
+    <div class="fl">
+      <b style="color:var(--fg)">数据来源</b>　即梦与 Dreamina 双账号同期截图（积分购买页 × 2、生成参数栏 × 2），由账号持有人一手提供；Seedance 2.5 内测价为内测用户口述（¥80 / 30s）。火山引擎 API 价格来自其公开定价公告。汇率按 1 USD = 7.2 CNY，增值税按数字服务 6%。<br/>
+      <b style="color:var(--fg)">方法说明</b>　v1.0 曾以积分标价直接得出「国内贵 39%」，未校正积分购买力，结论错误；v1.1 引入同规格消耗量校正后修订为 14.4%。修正方向不利于原始论点，由数据提供方主动指出。
+    </div>
+    <div class="fr">
+      即梦 / Dreamina 跨区定价与可及性实测<br/>
+      v1.1　2026-07-31<br/>
+      <span style="color:var(--accent);font-weight:700">待补：过滤强度对照实验</span>
+    </div>
+  </div>
+
+</div>
+<script>
+  document.title = "H=" + Math.ceil(document.getElementById('report').getBoundingClientRect().height);
+</script>
+</body>
+</html>

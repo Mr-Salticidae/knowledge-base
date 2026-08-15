@@ -158,6 +158,13 @@ $c = Get-Content -Raw -Encoding UTF8 .\x.ps1
 Set-Content -Path .\x.ps1 -Value $c -Encoding UTF8   # PS5.1 的 -Encoding UTF8 写出即带 BOM
 ```
 
+**二次验证（2026-08-15 · git 自动化 deploy.ps1）⭐⭐ —— 两个新形态：**
+
+- **错乱可以不报"编码错"，而是报風马牛不相及的参数错。** GBK 双字节解码会把中文后面的引号/反引号**吞进双字节字符**（如 `。` 的尾字节 0x82 与后面的 `\` 0x5C 拼成一个 GBK 字），字符串提前/延后闭合，下一行 `Write-Host` 的乱码文本被解析器塞给 `Register-ScheduledTask -RunLevel` ——报错样式是"无法将值转换为 RunLevelEnum"，与编码二字毫无关系，极具迷惑性。
+- **半个脚本能跑，乱码会流进系统状态。** 解析错乱不一定让整个脚本失败：前半段照常执行，把乱码字符串写进了 `git config core.hooksPath`（指向不存在的目录，hook 静默失效）。**教训：BOM 事故后要回查脚本已执行部分写下的所有状态，不只是重跑。**
+
+另外同根：**PS 5.1 的 `Get-Content` 不带 `-Encoding UTF8` 读 UTF-8 JSON 会假报"JSON 非法"**（同样是 0x5C 被吞导致引号错位）——核查工具自己先要钉死编码，否则修好的文件被验成坏的。修 BOM 除了 `Set-Content -Encoding UTF8`，也可 `[IO.File]::WriteAllText($p, $c, (New-Object Text.UTF8Encoding $true))`；修完用 `[System.Management.Automation.Language.Parser]::ParseFile` 做语法校验（不执行即可验证）。
+
 **输出侧——Python `print` 非 GBK 字符直接崩。** 陷阱二是"显示乱码但不报错"；更狠的一档是**硬崩**：Python 的 stdout 编码在 Windows 控制台是 GBK，`print('✓')`（U+2713 不在 GBK 码位）抛 `UnicodeEncodeError: 'gbk' codec can't encode character`，整个脚本中断。修：脚本开头 `sys.stdout.reconfigure(encoding="utf-8")`，或输出只用 ASCII（`[OK]` 别用 `✓`）。
 
 教训：**GBK 不只咬"进程间管道"和"终端显示"，还咬"脚本文件的读入与输出编码"。** 凡 Windows 上跑含中文/符号的 `.ps1`/`.py`，先把两端编码显式钉死。
@@ -193,6 +200,7 @@ TOKEN=$(...) python ... "$TOKEN"   # ✗ 参数里的 $TOKEN 是赋值"之前"�
 - [[UI自动化的固定坐标必须绑前提断言_v1]] —— 同源的「环境隐式转换」在 UI 自动化侧的形态:DPI 缩放悄悄改比例,面板开合 / 窗口状态悄悄改布局,坐标照样执行、只是执行在别的控件上
 - [[长期更新展示站_两层结构与无头卡片量产_v1]] —— 该法用 Chrome 无头截图量产卡片,也踩到了中文文件名编码 / MSYS 路径映射这类「环境隐式转换」坑
 - [[Mac素材包到Windows的两个坑_zip文件名编码与HEVC解码_v1]] —— 同一 UTF-8 vs GBK 根因的接收侧形态:Mac zip 的文件名在 Windows 解压即乱码
+- [[忘提交的机器兜底_refs-wip快照三件套_v1]] —— 陷阱四二次验证来源(2026-08-15):deploy.ps1 无 BOM 报参数绑定错、乱码写进 git config
 - [[2026-07-14_vpn-guard从工具到宣传片_全链路复盘_v1]] —— 陷阱四(.ps1 需 BOM / Python 输出 ✓ 崩溃)来源;同链踩到 tzutil 切时区后同进程 `[TimeZoneInfo]::Local` 缓存不刷新,须新起进程验证
 - [[2026-08-02_LiveLink断线重连重做与视觉系统_迭代复盘_v1]] —— 陷阱三的第三、四次验证来源:DPI-unaware 截图误判成布局 bug 并写进已发布 release notes;CDP `contentSize` 按 DPI 报物理像素
 - [[开工前先对基线律_v1]] —— 陷阱六的同源镜像:「搜不到≠不存在」在 Git Bash 路径转换这一层也会发生(Bash 自己 `ls` 能看见 ≠ Node 能解析路径)
