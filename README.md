@@ -295,6 +295,8 @@
 
 - [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]] —— Wechaty+PadLocal 被动监听机器人;PadLocal 付费站502转走 Contributor Program 写博客换Token;核心教训=旧指南仓库地址会过时(fork前`gh repo view`验真名)+git fetch报成功≠ref写入(Win Git 2.55 bug)+SVG直接用别硬转PNG;配套skill `wechaty-blog-pr`;个人项目免PR↔第三方开源必走PR互为镜像(见[[个人项目免PR直推主分支_v1]]) ⚠️首次
 
+- ⚠️ [[MemoraxCode_AI编程记忆层的架构与数据边界_v1]] —— AI 编程记忆层工具测评:本地 Backend + 客户端适配器 + 云端记忆;核心=**数据边界**(默认值≠最优值,用前先看清「什么上云、本地留了什么」);配套编码坑已补 [[Windows下编码与DPI的所见非真相]] ⚠️首次
+
 ### 主题脉络九:代码资产
 
 代码索引单独由 [[代码资产索引]] 维护(原 `06_代码/README.md`,2026-05-13 改名以避免和根 README 同名)。规则:**代码不进 MOC,但代码索引 / 项目说明 可以反向 `[[]]` 链接到本库的方法论文档**(例如 [[MV模板说明]] 链回 [[图生视频_ForwardOnly原则]])。

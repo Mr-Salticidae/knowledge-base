@@ -47,6 +47,8 @@ payload = json.dumps({"body": body}).encode("ascii")  # ensure_ascii=True 默认
 
 要点：**让中文以 `\uXXXX` 转义形态过线**，彻底绕开任何字节编码歧义；源文用文件而非管道，并显式 `encoding="utf-8"`。
 
+**第七次验证（2026-08-25 · Memorax Code repo-memory）⭐⭐ —— `subprocess.run(text=True)` 按 locale 解码子进程输出。** 不止 `sys.stdin`/管道按 GBK：Python 的 `subprocess.run([...], text=True)` 在 Windows 上**默认用 locale(GBK) 解码子进程 stdout**。Memorax Code 的 `github_resource_facets.py` 用 `subprocess.run(["gh", ...], text=True)` 调 GitHub CLI（输出含 UTF-8 中文），gbk 解到非 ASCII 字节直接 `UnicodeDecodeError`，整个 provider 收集任务崩掉，还因此被误判成「provider 不可用」而降级为 local-only。设 `PYTHONUTF8=1`（或给 `subprocess.run` 传 `encoding="utf-8"`）即好。**同根，又一处「隐式编码」入口——`text=True` 把解码交给 locale，报错也根本不提『编码』二字。**
+
 ---
 
 ## 陷阱二：终端显示层也按 GBK（红鲱鱼）
@@ -165,6 +167,8 @@ Set-Content -Path .\x.ps1 -Value $c -Encoding UTF8   # PS5.1 的 -Encoding UTF8 
 
 另外同根：**PS 5.1 的 `Get-Content` 不带 `-Encoding UTF8` 读 UTF-8 JSON 会假报"JSON 非法"**（同样是 0x5C 被吞导致引号错位）——核查工具自己先要钉死编码，否则修好的文件被验成坏的。修 BOM 除了 `Set-Content -Encoding UTF8`，也可 `[IO.File]::WriteAllText($p, $c, (New-Object Text.UTF8Encoding $true))`；修完用 `[System.Management.Automation.Language.Parser]::ParseFile` 做语法校验（不执行即可验证）。
 
+**第三次验证（2026-08-25 · 百炼官方 bootstrap `.ps1`）⭐⭐ —— 连官方分发脚本都会踩。** 阿里云百炼的 `token-plan.cn-beijing.ps1`（UTF-8 无 BOM、含大量中文注释）在 PS 5.1 下直接解析失败，报 `Unexpected token '}'`——错误行全是中文注释所在处，正是「无 BOM 被按 GBK 读、全角标点/注释吞掉 token」的典型症状，和上面「错乱报成参数错」一样极具迷惑性。转存为带 BOM 的 UTF-8 后一次通过。**结论：这不是自己脚本写得有问题，是官方/第三方分发的脚本在中文 Windows 上同样逃不掉——以后接任何含中文的 `.ps1`，先看 BOM，别默认它能跑。**
+
 **输出侧——Python `print` 非 GBK 字符直接崩。** 陷阱二是"显示乱码但不报错"；更狠的一档是**硬崩**：Python 的 stdout 编码在 Windows 控制台是 GBK，`print('✓')`（U+2713 不在 GBK 码位）抛 `UnicodeEncodeError: 'gbk' codec can't encode character`，整个脚本中断。修：脚本开头 `sys.stdout.reconfigure(encoding="utf-8")`，或输出只用 ASCII（`[OK]` 别用 `✓`）。
 
 教训：**GBK 不只咬"进程间管道"和"终端显示"，还咬"脚本文件的读入与输出编码"。** 凡 Windows 上跑含中文/符号的 `.ps1`/`.py`，先把两端编码显式钉死。
@@ -204,3 +208,4 @@ TOKEN=$(...) python ... "$TOKEN"   # ✗ 参数里的 $TOKEN 是赋值"之前"�
 - [[2026-07-14_vpn-guard从工具到宣传片_全链路复盘_v1]] —— 陷阱四(.ps1 需 BOM / Python 输出 ✓ 崩溃)来源;同链踩到 tzutil 切时区后同进程 `[TimeZoneInfo]::Local` 缓存不刷新,须新起进程验证
 - [[2026-08-02_LiveLink断线重连重做与视觉系统_迭代复盘_v1]] —— 陷阱三的第三、四次验证来源:DPI-unaware 截图误判成布局 bug 并写进已发布 release notes;CDP `contentSize` 按 DPI 报物理像素
 - [[开工前先对基线律_v1]] —— 陷阱六的同源镜像:「搜不到≠不存在」在 Git Bash 路径转换这一层也会发生(Bash 自己 `ls` 能看见 ≠ Node 能解析路径)
+- [[MemoraxCode_AI编程记忆层的架构与数据边界_v1]] —— 陷阱一的第七次验证、陷阱四的第三次验证来源(2026-08-25):一个「AI 编程记忆层」工具在 Windows 中文环境的两个编码坑
