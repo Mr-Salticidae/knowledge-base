@@ -36,7 +36,7 @@ tags: [类型/skill存档]
 | work-weekly-report | v1.0 | 2026-06-29 | 公司工作周报:跨工作区所有仓库一周 git 活动 → 标准三段式周报(本周总结/下周计划/协助·思考·总结·成长),写入 work-reports 仓库 | Claude | 从 work-reports 3 期真实周报提炼;跨仓库取数实跑验证 |
 | insight-public-post | v1.0 | 2026-07-05 | 知识库内核档 → 面向所有用户的「公开版」对外帖(B 站 AI 开发者小站);08 分发体例 + B 站人设 + 脱敏三层 + 数字零虚构 | Claude | 本会话 2 轮评测封装(with/without 对照);另经真实使用验证(Mac mp4 帖) |
 | insight-public-post | v1.1 | 2026-07-12 | 升级:名词小抄禁引用块内嵌列表 / 全角标点程序化校验(护代码区+码点替换) / 新增「发布后回收终稿」第 3 步 / 脱敏补公开复盘例外 | Claude | 【踩坑记录】B站Toy复盘帖实战验证(排版翻车+47 处标点漏网+终稿回收全流程走通) |
-| feishu-doc-publish | v1.0 | 2026-07-12 | 飞书文档发布:本地 md → 飞书云文档 + 组织内可阅读链接 + owner 授权(封装 pb-arena feishu-doc-sync CLI 全流程) | Claude | 本会话真机验证(山海工坊拆解文档发布+--grant 授权走通) |
+| feishu-doc-publish | v1.0 | 2026-07-12 | 飞书文档发布:本地 md → 飞书云文档 + 互联网可阅读链接(默认,`--org` 退回组织内) + owner 授权(封装 pb-arena feishu-doc-sync CLI 全流程) | Claude | 本会话真机验证(山海工坊拆解文档发布+--grant 授权走通) |
 | opportunity-due-diligence | v1.0 | 2026-07-31 | 机会尽调:副业招募/外包/代理邀约 → 四步查证法 + 可直接转发给当事人的尽调笔记 | Claude | 本会话首次实战(Melolo 印尼短剧 TikTok 拉新剪辑招募) |
 | report-longimage | v1.0 | 2026-07-31 | 报告长图渲染:md → PB Arena「简洁低疲劳 V2」版式 PNG(母版 + headless Chrome 两趟截图) | Claude | 本会话真机跑通(母版与 render.sh 均已出图) |
 | dingtalk-doc-delivery | v1.1 | 2026-07-22 | 钉钉知识库文档交付:格式白名单(修饰只用加粗+代码块,禁引用块/表格)+ 五段式教程体例(成品/工具/步骤/总结/附件)+ 配图公网直链直接导入 → 过审终版 verbatim 回填 git | Claude | 实战6两轮交付走通(附件版过审回填 + 四段式版导入完成,对应 [[钉钉知识库交付_格式白名单与终版回填闭环_v1]]) |

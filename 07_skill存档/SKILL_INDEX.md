@@ -374,7 +374,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **触发词**：「发布到飞书」「导出一份飞书文档」「让小桁发布」「同步到飞书」「给团队发个文档链接」「跟之前一样发飞书」——任何「本地 md → 飞书云文档」的诉求即触发，即使没提小桁、CLI 或 pb-arena。
 
-**用途**：把本地 Markdown 发布为飞书云文档（docx），默认开组织内可阅读，输出可直接粘群里的链接，并自动把作者账号加为协作者（可编辑）。封装 pb-arena 仓库 `tools/feishu-doc-sync/sync.mjs`（零依赖 Node CLI，即自建应用"飞书助理小桁"）的完整流程：定位工具 → Node 检查（便携版优先翻旧会话 scratchpad）→ 凭证检查（还原盘机器凭证丢失是常态，向作者要 App ID/Secret 重建 `~/.feishu/config.json`）→ `--test` 连通 → 发布 → `--grant` 授权兜底。
+**用途**：把本地 Markdown 发布为飞书云文档（docx），**默认开「互联网可阅读（只读）」**（`--org` 退回仅组织内），输出可直接粘群里的链接，并自动把作者账号加为协作者（可编辑）。封装 pb-arena 仓库 `tools/feishu-doc-sync/sync.mjs`（零依赖 Node CLI，即自建应用"飞书助理小桁"）的完整流程：定位工具 → Node 检查（便携版优先翻旧会话 scratchpad）→ 凭证检查（还原盘机器凭证丢失是常态，向作者要 App ID/Secret 重建 `~/.feishu/config.json`）→ `--test` 连通 → 发布 → `--grant` 授权兜底。
 
 **核心经验**：owner_mobile 必填否则作者对自己的文档只读；本 CLI 不上传本地图片（含图文档改走 knowledge-base `06_代码/feishu_sync` Python 版）；坏凭证别进发布流程。
 

@@ -5,7 +5,7 @@ description: 把本地 Markdown 一键发布为飞书云文档并拿回可分享
 
 # feishu-doc-publish — 发布 Markdown 到飞书云文档
 
-把一篇本地 Markdown 变成飞书云文档（docx），默认开启组织内可阅读，输出链接交付给用户。工具是 pb-arena 仓库随附的零依赖 Node CLI，API 走"飞书助理小桁"这个自建应用（租户域 `ncnnb044q88x.feishu.cn`）。
+把一篇本地 Markdown 变成飞书云文档（docx），**默认开启「互联网上获得链接的人可阅读」（只读）**，输出链接交付给用户。工具是 pb-arena 仓库随附的零依赖 Node CLI，API 走"飞书助理小桁"这个自建应用（租户域 `ncnnb044q88x.feishu.cn`）。
 
 **交付标准**：给用户一条可直接粘到群里的 `https://ncnnb044q88x.feishu.cn/docx/...` 链接，且用户账号对文档有编辑权。
 
@@ -16,7 +16,9 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 - 网吧机：`B:\临时\pb-arena`
 - 主力机：E 盘工作区（用 Glob 找 `**/tools/feishu-doc-sync/sync.mjs`）
 
-细节与故障速查以同目录 `README.md` 为准，动手前值得扫一眼。
+细节与故障速查见同目录 `README.md`，动手前值得扫一眼。
+⚠️ 但该 README 有两处已过期：① 写着「默认组织内可阅读」——实际默认是互联网可阅读；
+② 让配 `owner_mobile`——手机号路线 2026-07-14 已证伪，唯 `owner_open_id` 可靠。**以本文为准。**
 
 ## 第 2 步：环境检查（Node）
 
@@ -67,7 +69,15 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 <node> <pb-arena>\tools\feishu-doc-sync\sync.mjs "<md文件路径>" --title "<标题_YYYY-MM-DD>"
 ```
 
-成功输出五步进度和最终链接。默认开启「组织内获得链接可阅读」（加 `--no-share` 可关）；配置里有 owner 时自动授权，日志会体现。
+成功输出五步进度和最终链接。
+
+⚠️ **分享档位（2026-08-26 核过代码，本文与 CLI README 此前都写反了）**：
+`sync.mjs` 的默认是 **`anyone_readable`（互联网可阅读，只读）**，日志会打「4/5 开启互联网可阅读(只读)」。
+加 `--org` 才退回 `tenant_readable`（仅组织内），加 `--no-share` 完全不设链接分享。
+**放开到互联网属于扩大对外暴露，发布前要跟本人确认这份文档能不能对外**；
+给组织外的人看（如朋友）走默认即可，组织内部资料记得加 `--org`。
+
+配置里有 owner 时自动授权，日志会体现。
 
 ## 第 7 步：授权兜底
 
@@ -84,12 +94,12 @@ CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 n
 - `缺少飞书应用凭据` → 第 3 步，向用户要凭据重建配置；
 - `获取 tenant_access_token 失败` → app_id/app_secret 抄错或应用被停用；
 - `1061004 / forbidden` → 应用云文档权限问题（正常不会遇到，应用权限跟应用走、早已配好）;
-- 开分享失败但文档已生成 → 脚本只警告不中断，让用户在文档右上角手动开「组织内可阅读」；
+- 开分享失败但文档已生成 → 脚本只警告不中断，让用户在文档右上角手动开对应档位；
 - 更多见 CLI 同目录 `README.md`。
 
 ## 交付
 
-把链接给用户，一并说明：文档已开组织内可阅读、账号已授权可编辑。若本次是在还原盘机器上重建过凭证，提醒一句「下次还原后需要再提供一次 App ID/Secret」。
+把链接给用户，一并说明：**实际开的是哪个档位**（默认＝互联网可阅读，只读；带 `--org` ＝仅组织内）、账号已授权可编辑。若本次是在还原盘机器上重建过凭证，提醒一句「下次还原后需要再提供一次 App ID/Secret」。
 
 ## 延伸：发布后由 bot 直发群（CLI 不覆盖，裸调 API）
 
