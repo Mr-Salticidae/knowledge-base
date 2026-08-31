@@ -38,7 +38,9 @@ minimalist modern editorial image in deep navy and off-white with a single small
 
 **`--v 8.2`**——2026-07-24 正式发布之后走这个，`--preview` 通道已经完成使命。
 
-**尺寸**：封面首图 `--ar 2.35:1`，分享方图 `--ar 1:1`，正文配图 `--ar 16:9`。
+**尺寸**：封面首图 `--ar 235:100`，分享方图 `--ar 1:1`，正文配图 `--ar 16:9`。
+
+公众号首图是 2.35:1，但**不能写成 `--ar 2.35:1`**——MJ 只接受整数比，带小数点会直接报 `Aspect ratio should be of the format width:height` 并拒跑。写成等价的 `--ar 235:100` 即可（约分成 `--ar 47:20` 也一样）。
 
 **一条通用提醒**：MJ 对 `narrow / small / lower third` 这类相对尺寸和位置词执行得很松（档案实测：意图 ≤7% 的窄条，四张全出到 17%，且偏差方向一致）。所以下面所有 prompt 我都没写「在右三分之一」这种，出图后靠公众号排版去裁，不为构图位置重 roll。
 
@@ -48,7 +50,7 @@ minimalist modern editorial image in deep navy and off-white with a single small
 **意象**：凌晨三点的空房间，一块亮着的屏幕，屏上只有一道断开的光环在转。一个人的背影坐在前面，没有脸。
 
 ```
-minimalist modern editorial image in deep navy and off-white with a single small crimson accent, one lone subject in a vast empty frame, three-in-the-morning stillness, matte even lighting with no warm glow, restrained low-saturation palette, generous negative space, quiet and unsensational, clean geometric composition, fine film grain, an east asian man seen only from behind as a dark silhouette sitting alone before a single glowing rectangular screen in an otherwise empty dark room, on the screen nothing but one thin incomplete ring of pale light with a short crimson segment, the room dissolving into flat navy shadow around him --ar 2.35:1 --sref 5692463053 --sw 400 --v 8.2 --style raw --no text, letters, words, numerals
+minimalist modern editorial image in deep navy and off-white with a single small crimson accent, one lone subject in a vast empty frame, three-in-the-morning stillness, matte even lighting with no warm glow, restrained low-saturation palette, generous negative space, quiet and unsensational, clean geometric composition, fine film grain, an east asian man seen only from behind as a dark silhouette sitting alone before a single glowing rectangular screen in an otherwise empty dark room, on the screen nothing but one thin incomplete ring of pale light with a short crimson segment, the room dissolving into flat navy shadow around him --ar 235:100 --sref 5692463053 --sw 400 --v 8.2 --style raw --no text, letters, words, numerals
 ```
 
 **抽卡提示**：`east asian` 必须留着——档案记录这个 sref 在高 sw 下会把人物推成欧裔，不显式指定就会被它主导。那道光环别写成 loading spinner 之类的 UI 词，一写就长伪字形，`thin incomplete ring of light` 是安全说法。屏幕上如果冒出气泡框或字幕条，就是 sref 的伴生元素漏出，把 sw 降到 250 重跑。
