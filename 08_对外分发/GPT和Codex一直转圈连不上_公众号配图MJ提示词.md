@@ -101,6 +101,15 @@ minimalist modern editorial image in deep navy and off-white with a single small
 
 **抽卡提示**：本来想写「一排绿灯」，但档案里这个 sref 会**无视用户的色彩描述**（鹦鹉绿会被改成蓝、泥土褐也被改成蓝），写绿必然翻车。改成冷白反而更贴题——假信号的本质不是绿，是「全都一样、全都看起来没问题」。选片挑那种**排得最整齐、暗掉那盏最不起眼**的一版，那种「你根本不会去看它」的感觉就是文章要的。
 
+**首轮结果：⛔ 退回重跑。** 出图是**亮暗交替**（约一半亮一半暗），而不是「全亮、只有一盏暗」。语义因此反了——读起来像「部分设备故障」，而文章要说的是「假信号永远是绿的」。这是档案第 8 条的同族：**「有一个例外」这种指令是弱信号**，MJ 把它泛化成了「有些是这样」，整齐性随之丢失。
+
+修法不是去加强那个例外，是**把例外整个删掉**，让「全都一样」独占画面，另找元素承载「其实是假的」——这里改用「灯全亮着，而下面的线全是断的」：
+
+```
+minimalist modern editorial image in deep navy and off-white with a single small crimson accent, one lone subject in a vast empty frame, three-in-the-morning stillness, matte even lighting with no warm glow, restrained low-saturation palette, generous negative space, quiet and unsensational, clean geometric composition, fine film grain, a long row of many identical small indicator lamps on a bare navy panel, every single lamp lit with exactly the same flat cold white glow, perfectly uniform with no exceptions, shot straight on with clinical symmetry, below the panel every connecting cable hangs cut and unplugged, one cable end wrapped in crimson tape --ar 16:9 --sref 5692463053 --sw 400 --v 8.2 --style raw --no text, letters, words, numerals
+```
+
+
 ## 图 06 · 延迟不等于带宽
 
 **放在**：第二节，「第二个假信号」那段
@@ -134,12 +143,41 @@ minimalist modern editorial image in deep navy and off-white with a single small
 
 **抽卡提示**：写的是 `cold pewter grey` 不是黄铜——黄铜是暖色，档案明确写着大面积暖色会被这个 sref 吞掉或改写。磨损感是这张的全部重量，选片挑**磨得最厉害、最不像新钥匙**的那一版，别挑最漂亮的。
 
+**首轮结果：⚠️ 降级可用，红绳没出来。** 钥匙本身很好（老式、磨损、剪影干净、留白足），但 `one thin crimson cord` 出来是深蓝的——正是这个 sref **无视用户色彩描述**的老脾气。我在图 05 那条专门防了它（所以没写绿灯），却漏防了这一张自己的红绳。
+
+同批七张里有六张的猩红都命中了，唯独这根绳失手。倾向性推测：**独立成件的红容易保住，贴着主体的附属细节容易被同化**。所以改法是把红从「系在钥匙上的绳」换成「旁边独立的一小块红」：
+
+```
+minimalist modern editorial image in deep navy and off-white with a single small crimson accent, one lone subject in a vast empty frame, three-in-the-morning stillness, matte even lighting with no warm glow, restrained low-saturation palette, generous negative space, quiet and unsensational, clean geometric composition, fine film grain, a single old key lying alone at the centre of a wide empty off-white surface, its metal worn to cold pewter grey with years of handling, a small bright crimson paper tag lying flat on the surface right beside the key, deep navy shadow band along the bottom edge, macro stillness --ar 16:9 --sref 5692463053 --sw 400 --v 8.2 --style raw --no text, letters, words, numerals
+```
+
+
 ## 如果不想要 navy 这个方向
 
 八条 prompt 把 `--sref 5692463053 --sw 400` 整段删掉即可，骨架里的 `deep navy and off-white with a single small crimson accent` 会接管配色，效果会弱一档、跨图统一性下降，但仍然成立——v8.2 档案第 7 条实测过纯骨架也能锁住一致性，只是那次锁的是装置不是景观。
 
 想换个完全不同的气质，库里另外两个已建档的 sref 都在水墨线上（少女水墨摄影、沉郁成熟水墨摄影），和这篇技术文的调性不搭，不建议硬配；真要换方向，按 sref 编号独立律的做法是**换编号重新探脾气**，不是在这个编号上硬调参数。
 
-## 出图后
+## 首轮出图结果（2026-08-31）
 
-八张出齐之后，值得把这次的实测结果回填两处：`--sw 400` 到底是不是比 800 更听话（档案里这一格目前是空的），以及这个 sref 在「工业装置 / 剖面示意」这类题材上的表现——档案里的适合题材清单目前只列到「极简符号化」，工业管道属于未验证区。
+八条全跑了，**6 张直接可用、1 张裁框后可用、1 张退回**。成品与原图归档在 `{aigc-creative-archive}/70_GPT转圈公众号配图/`，选片记录见该目录 README。
+
+| 图 | 结果 | 处理 |
+|---|---|---|
+| 01 封面 | ✅ 直接可用 | 白屏干净无伪字形 |
+| 02 方图 | ✅ 修后可用 | 白屏漏出一条伪字形带，`delogo` 抹掉，无接缝 |
+| 03 便利店 | ✅ 裁后可用 | MJ 自带 132px 均匀外框，裁掉 |
+| 04 双重路由 | ⭐ 全组最佳 | 上直下绕 + 接线盒红点，论点一眼可见 |
+| 05 假信号 | ⛔ 退回 | 语义反了，修订 prompt 见该节 |
+| 06 粗细管 | ✅ 可用 | 切口没对齐（指令未执行），但粗细对比更好读，属偏离即升级 |
+| 07 门缝红线 | ⭐ 优秀 | 正门紧闭 + 红线从侧口溜走，命中 |
+| 08 钥匙 | ⚠️ 降级可用 | 红绳被吃掉，修订 prompt 见该节 |
+
+**回填档案的四条**（已同步进 `02_参数行为档案/` 与 `01_sref档案/`）：
+
+1. **`--sw 400` 下色彩签名基本听话，猩红命中 6/7**，唯一失手是贴着主体的细绳。倾向性推测：独立成件的红保得住，附属细节的红会被同化——单样本待验证。
+2. **「欧裔漂移」这批无法验证**：唯一有人的图 01 是纯背影剪影，看不出面部特征。`east asian` 那句留着无害，但这批不构成对该条脾气的检验。
+3. **`--no` 四词法不是 100%，大面积纯白区是漏点**（八分之一漏网，且漏在整块白屏上）。对策不是加词，是**准备好 delogo**——纯色背景上的伪字形零成本修掉。
+4. **MJ 会随机给图套画框**（八张里一张自带 132px 均匀外框）。交付前逐张看四边，裁掉即可。
+
+另外，这个 sref 在**工业装置 / 剖面示意**类题材上成立（图 04 / 06 / 07 三张为证），可以补进它档案里的「适合题材」清单——原清单只列到「极简符号化」，这一类属未验证区。
