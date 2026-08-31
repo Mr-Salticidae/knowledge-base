@@ -163,3 +163,4 @@ vpn-guard 脚本（`app-vpn.ps1`）的设计是"只作用于被启动的那一�
 - ⚠️ [[OpenAI区域封锁与Worker就近执行陷阱_北美DO跳板_v1]] —— 同族"出口链路决定一切"：那篇讲调用方 IP 决定能否访问，本篇讲代理路径决定延迟高低
 - ⭐ [[OpenAI兼容止于对话端点_多提供商视频接口分流与真key首测_v1]] —— 同族"别假设你知道端点"：那篇讲"OpenAI 兼容"只到对话端点，本篇讲 Codex CLI 的端点是 chatgpt.com 而非 api.openai.com；共同判据=**从日志里确认实际请求 URL，不靠文档假设**
 - [[09_平台工程索引]] —— 平台工程区入口；本文归入「账号与访问」
+- 📤 对外版：`08_对外分发/GPT和Codex一直转圈连不上_网络排查手册_小白版.md` —— 以本篇症状（Codex CLI「正在重新连接」）为头号元凶，合流同目录另五篇与 vpn-guard README 的小白排查手册；2026-08-31 经飞书助理小桁发布为云文档（互联网可阅读只读）：https://ncnnb044q88x.feishu.cn/docx/OvFidNmQjoyMgpxsP7Ac9iEznke
