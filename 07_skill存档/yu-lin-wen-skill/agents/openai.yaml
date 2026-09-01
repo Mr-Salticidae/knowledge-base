@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yu-Lin-Wen-Skill"
+  short_description: "修复 Image2 鱼鳞纹、重复薄片、噪点与错误景深"
+  default_prompt: "使用 $yu-lin-wen-skill 修复这张图片的鱼鳞纹和噪点，并保持人物主体焦点与前后景景深。"

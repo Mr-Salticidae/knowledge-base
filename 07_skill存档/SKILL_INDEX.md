@@ -46,6 +46,8 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 | [opportunity-due-diligence](#opportunity-due-diligence) | 机会尽调 | 副业招募/外包/代理邀约 → 四步查证 + 可转发尽调笔记 | Claude |
 | [report-longimage](#report-longimage) | 报告长图 | md → PB Arena 版式长图 PNG（母版 + 两趟截图） | Claude |
 | [wechaty-blog-pr](#wechaty-blog-pr) | 开源贡献 PR | Wechaty 技术博客 → fork wechaty/jekyll → 提 PR 换 Contributor Token | Claude |
+| [moonlit-wuxia-cinema](#moonlit-wuxia-cinema) | 武侠视觉与视频 | 月夜国风幻想武侠 CG → 镜头设计与 15 秒视频提示词 | Codex / 图片模型 / 视频模型 |
+| [yu-lin-wen-skill](#yu-lin-wen-skill) | 图片伪影修复 | 鱼鳞纹、重复薄片、噪点、过锐与错误景深诊断修复 | Codex / GPT Image / Image2 |
 
 ---
 
@@ -459,6 +461,38 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **与相邻 skill 的区别**：`feishu-doc-publish` 管「本地 md → 飞书云文档」的发布管道；本 skill 管「技术博客 → 第三方开源仓库 PR」的贡献管道，走 GitHub fork+PR+CLA 而非平台发布。
 
 **关联文档**：[[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]（全链路复盘与四条可复用 insight）· [[个人项目免PR直推主分支_v1]]（个人项目免 PR，第三方开源必走 PR，互为镜像）· [[开工前先对基线律_v1]]（git fetch 对基线同族，本次是其 ref bug 版本）
+
+---
+
+## moonlit-wuxia-cinema
+
+**触发词**：「月夜武侠」「月下持剑」「国风幻想 CG」「复刻这个武侠镜头」「武侠图片转视频」「15 秒剑舞提示词」
+
+**用途**：生成、复刻或诊断月夜国风幻想 2.5D/2D CG 武侠画面，控制人物暗面、双向飘动服饰、明月逆光、前后景深、构图与注意力顺序；在确认首帧后，按四种固定模板制作 15 秒视频提示词。
+
+**版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
+
+**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\moonlit-wuxia-cinema\SKILL.md`
+
+**引用文件**：`agents/openai.yaml`、`references/style-system.md`、`references/video-prompt-templates.md` 与三份规范分镜母版。
+
+**关联方法论**：与 [[yu-lin-wen-skill/SKILL.md]] 分工——本 skill 负责美术、镜头和视频表达；重复纹理等生成伪影交由后者修复。
+
+---
+
+## yu-lin-wen-skill
+
+**触发词**：「修复鱼鳞纹」「蜂窝纹」「重复薄片」「图片噪点」「过度锐化」「保持原图光影修图」「修正全画面同焦」
+
+**用途**：诊断并修复 GPT Image / Image2 生成图中的表面型伪影与结构型鱼鳞纹；根据严重程度选择直接修复、AO 三步修复或光影保真局部修复，并提供预防性生图提示词。
+
+**版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
+
+**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\yu-lin-wen-skill\SKILL.md`
+
+**引用文件**：`agents/openai.yaml`、`references/prompt-library.md`。
+
+**关联方法论**：与 [[moonlit-wuxia-cinema/SKILL.md]] 分工——修复时保持后者定义的光影、构图和镜头关系不变。
 
 ---
 

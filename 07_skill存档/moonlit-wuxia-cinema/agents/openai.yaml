@@ -1,0 +1,4 @@
+interface:
+  display_name: "月夜唯美武侠镜头"
+  short_description: "设计月夜武侠人物的电影光影、景深、构图与服饰表现"
+  default_prompt: "Use $moonlit-wuxia-cinema to create a luminous moonlit wuxia character image with mysterious facial shadow and cinematic depth."

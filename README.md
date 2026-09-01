@@ -352,6 +352,8 @@
 - [[report-longimage/SKILL.md]] —— 报告长图 skill:md → PB Arena「简洁低疲劳 V2」版式 PNG;随附 `母版.html`(组件画廊)与 `render.sh`。三坑:`--screenshot` 只截视口故**必须两趟**(先 `--dump-dom` 读 `scrollHeight`)、`--mono` 以 generic `monospace` 收尾会让**中文全掉宋体**(CJK 须排它之前,同族 [[导出运行时无系统字体回退律_CJK豆腐块_v1]])、`set -e` 下 `&&` 链找文件会静默退出;验收**必须裁头中尾三段回看**。版式出处 [[美工改稿全站落地_跨稿重复才是规范_v1]]
 
 - [[wechaty-blog-pr/SKILL.md]] —— Wechaty 博客 PR skill:fork wechaty/jekyll → 放博客/配图/contributor → 提 PR 换 PadLocal Token;关键修正=旧指南 wechaty.js.org 已更名 jekyll(fork 前 `gh repo view` 验真名);Win Git 2.55 ref bug 用 `git ls-remote` 拿 hash 建分支;SVG 直接用别硬转 PNG;对应 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]
+- [[moonlit-wuxia-cinema/SKILL.md]] —— 月夜国风幻想武侠 CG 图片与视频工作流:控制人物暗面、双向飘动服饰、明月逆光、前后景深与构图，确认首帧后按四种模板制作 15 秒视频提示词
+- [[yu-lin-wen-skill/SKILL.md]] —— GPT Image / Image2 图片伪影修复 skill:诊断鱼鳞纹、蜂窝纹、重复薄片、噪点、过锐和错误景深，支持直接修复、AO 三步修复与光影保真局部修复
 
 ### 主题脉络十二:平台工程(2026-06-25 新增)
 
