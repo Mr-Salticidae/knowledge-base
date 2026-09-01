@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "template_id": "poster-template-1",
+  "display_name": "海报模板一",
+  "canvas": {
+    "width_px": 1080,
+    "height_px": 1835,
+    "resolution_ppi": 72,
+    "color_mode": "RGB"
+  },
+  "base_asset": "assets/poster-template-1/海报模板一_基准.psd",
+  "automation_status": "verified-base-plus-inspect-every-reuse",
+  "layer_contract": {
+    "title_smart_layer_id": 32,
+    "title_text_layer_id": 34,
+    "date_layer_id": 35,
+    "time_layer_id": 38,
+    "status_layer_id": 42,
+    "objective_layer_id": 5,
+    "teacher_portrait_layer_ids": [107, 127],
+    "teacher_shadow_layer_id": 106,
+    "teacher_name_layer_ids": [19, 46]
+  },
+  "title": {
+    "smart_object_width_px": 938,
+    "smart_object_height_px": 352,
+    "target_justification": "center",
+    "title_center_target_x_px": 469,
+    "maximum_title_center_delta_px": 15,
+    "minimum_title_gap_px": 20,
+    "fit_to_safe_bounds": true,
+    "minimum_font_size_pt": 28,
+    "minimum_font_size_pt_by_line_count": {
+      "1": 36,
+      "2": 32,
+      "3": 28
+    },
+    "maximum_font_size_pt": 78,
+    "maximum_font_size_pt_by_line_count": {
+      "1": 78,
+      "2": 64,
+      "3": 52
+    },
+    "leading_ratio": 1.08,
+    "minimum_fill_ratio": 0.55,
+    "minimum_line_glyph_height_px": 44,
+    "normalize_character_color": true,
+    "normalized_character_rgb": [255, 255, 255],
+    "hide_accent_overlay": true,
+    "accent_overlay_layer_id": 42,
+    "safe_bounds_px": {
+      "left": 24,
+      "top": 40,
+      "right": 918,
+      "bottom": 292
+    },
+    "decoration_top_px": 315,
+    "minimum_decoration_gap_px": 20,
+    "preserve_parent_transform": true
+  },
+  "objectives": {
+    "minimum_objective_time_gap_px": 20,
+    "objective_bottom_limit_px": 1740,
+    "preserve_style_ranges": true
+  },
+  "editable_roles": [
+    "course_title",
+    "date",
+    "time",
+    "delivery_label",
+    "objectives",
+    "teacher_portrait",
+    "teacher_name"
+  ],
+  "source_variation_policy": "Every reused course PSD must be inspected before editing. Layer IDs from the bundled base may be used only when the inspected PSD matches this contract; otherwise stop and create a PSD-specific contract.",
+  "portrait_policy": "Use only the configured 人物 folder asset and preserve the template smart-object transforms, masks, effects and shadow relationships.",
+  "psd_output_folder": "课程预告ps"
+}

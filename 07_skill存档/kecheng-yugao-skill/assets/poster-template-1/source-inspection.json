@@ -1,0 +1,1338 @@
+﻿{
+    "schema_version":  1,
+    "source_psd":  "C:\\Users\\1\\Desktop\\海报制作\\.codex\\skills\\kecheng-yugao-skill\\assets\\poster-template-1\\海报模板一_基准.psd",
+    "document":  {
+                     "name":  "海报模板一_基准.psd",
+                     "width_px":  1080,
+                     "height_px":  1835,
+                     "resolution_ppi":  72,
+                     "color_mode":  "DocumentMode.RGB",
+                     "layer_count_recursive":  48
+                 },
+    "layers":  [
+                   {
+                       "path":  "画板 1",
+                       "name":  "画板 1",
+                       "id":  3,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  -731,
+                                        "top":  -187,
+                                        "right":  1729,
+                                        "bottom":  2587
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/授课老师",
+                       "name":  "授课老师",
+                       "id":  44,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "授课老师",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "HarmonyOS_Sans_SC_Black",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  0,
+                                                          "green":  0,
+                                                          "blue":  0
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  83,
+                                        "top":  531,
+                                        "right":  255,
+                                        "bottom":  573
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/主标题",
+                       "name":  "主标题",
+                       "id":  32,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SMARTOBJECT",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  32,
+                                        "top":  1168,
+                                        "right":  1048,
+                                        "bottom":  1377
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间",
+                       "name":  "时间",
+                       "id":  43,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  687,
+                                        "top":  1446,
+                                        "right":  973,
+                                        "bottom":  1694
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/录播时间",
+                       "name":  "录播时间",
+                       "id":  42,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "录播时间",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "HarmonyOS_Sans_SC_Bold",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  0,
+                                         "horizontalScalePercent":  100,
+                                         "verticalScalePercent":  100,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  0,
+                                                          "green":  117.998701035976,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  755,
+                                        "top":  1450,
+                                        "right":  893,
+                                        "bottom":  1484
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/矩形 4",
+                       "name":  "矩形 4",
+                       "id":  41,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  687,
+                                        "top":  1446,
+                                        "right":  972,
+                                        "bottom":  1489
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/椭圆 1",
+                       "name":  "椭圆 1",
+                       "id":  40,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  955,
+                                        "top":  1665,
+                                        "right":  971,
+                                        "bottom":  1681
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/矩形 3",
+                       "name":  "矩形 3",
+                       "id":  39,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  810,
+                                        "top":  1671,
+                                        "right":  970,
+                                        "bottom":  1674
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/12:00",
+                       "name":  "12:00",
+                       "id":  38,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "12:00",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "DINCondensed-Bold",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  0,
+                                         "horizontalScalePercent":  100,
+                                         "verticalScalePercent":  100,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  254.0003952384,
+                                                          "green":  254.0003952384,
+                                                          "blue":  254.0003952384
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  6
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  691,
+                                        "top":  1645,
+                                        "right":  797,
+                                        "bottom":  1694
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/形状 2",
+                       "name":  "形状 2",
+                       "id":  36,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  714,
+                                        "top":  1541,
+                                        "right":  752,
+                                        "bottom":  1593
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/时间/08/05",
+                       "name":  "08/05",
+                       "id":  35,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "08/05",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "DINCondensed-Bold",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  0,
+                                         "horizontalScalePercent":  100,
+                                         "verticalScalePercent":  100,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  254.0003952384,
+                                                          "green":  254.0003952384,
+                                                          "blue":  254.0003952384
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  6
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  688,
+                                        "top":  1502,
+                                        "right":  973,
+                                        "bottom":  1629
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/形状 4",
+                       "name":  "形状 4",
+                       "id":  69,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  126,
+                                        "top":  1468,
+                                        "right":  147,
+                                        "bottom":  1512
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/课程目标 优化视频素材 掌握音效景别",
+                       "name":  "课程目标 优化视频素材 掌握音效景别",
+                       "id":  5,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "课程目标\r优化视频素材\r掌握音效景别",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "HarmonyOS_Sans_SC_Bold",
+                                         "sizePt":  81.1049118041992,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  51.0025504231453,
+                                                          "green":  243.996748030186,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  4
+                                               },
+                                               {
+                                                   "from":  4,
+                                                   "to":  19
+                                               },
+                                               {
+                                                   "from":  4,
+                                                   "to":  19
+                                               },
+                                               {
+                                                   "from":  4,
+                                                   "to":  19
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    },
+                                                    {
+                                                        "from":  5,
+                                                        "to":  12
+                                                    },
+                                                    {
+                                                        "from":  12,
+                                                        "to":  19
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  168,
+                                        "top":  1457,
+                                        "right":  454,
+                                        "bottom":  1632
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2",
+                       "name":  "组 2",
+                       "id":  65,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1019,
+                                        "top":  380,
+                                        "right":  1034,
+                                        "bottom":  659
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2/矩形 6",
+                       "name":  "矩形 6",
+                       "id":  62,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1019,
+                                        "top":  425,
+                                        "right":  1034,
+                                        "bottom":  613
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2/椭圆 2 拷贝 2",
+                       "name":  "椭圆 2 拷贝 2",
+                       "id":  64,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1020,
+                                        "top":  647,
+                                        "right":  1032,
+                                        "bottom":  659
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2/椭圆 2 拷贝 2",
+                       "name":  "椭圆 2 拷贝 2",
+                       "id":  63,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1020,
+                                        "top":  624,
+                                        "right":  1032,
+                                        "bottom":  636
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2/椭圆 2 拷贝",
+                       "name":  "椭圆 2 拷贝",
+                       "id":  61,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1020,
+                                        "top":  403,
+                                        "right":  1032,
+                                        "bottom":  415
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 2/椭圆 2",
+                       "name":  "椭圆 2",
+                       "id":  60,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  1020,
+                                        "top":  380,
+                                        "right":  1032,
+                                        "bottom":  392
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 1",
+                       "name":  "组 1",
+                       "id":  58,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  -731,
+                                        "top":  327,
+                                        "right":  1729,
+                                        "bottom":  2587
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 1/老师",
+                       "name":  "老师",
+                       "id":  107,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SMARTOBJECT",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  173,
+                                        "top":  407,
+                                        "right":  920,
+                                        "bottom":  1249
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 1/老师 拷贝",
+                       "name":  "老师 拷贝",
+                       "id":  127,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SMARTOBJECT",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  185,
+                                        "top":  379,
+                                        "right":  975,
+                                        "bottom":  1274
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 1/老师阴影",
+                       "name":  "老师阴影",
+                       "id":  106,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SMARTOBJECT",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  220,
+                                        "top":  327,
+                                        "right":  1033,
+                                        "bottom":  1308
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/组 1/图层 11",
+                       "name":  "图层 11",
+                       "id":  57,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  -731,
+                                        "top":  672,
+                                        "right":  1729,
+                                        "bottom":  2587
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/Designer Advanced Training Program",
+                       "name":  "Designer Advanced Training Program",
+                       "id":  54,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "Designer Advanced Training Program",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "Colatin",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  247.995136678219,
+                                                          "green":  227.995502650738,
+                                                          "blue":  131.001147329807
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  35
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  35
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  -28,
+                                        "top":  180,
+                                        "right":  1117,
+                                        "bottom":  389
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/名字",
+                       "name":  "名字",
+                       "id":  47,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  69,
+                                        "top":  519,
+                                        "right":  359,
+                                        "bottom":  688
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/名字/形状 5",
+                       "name":  "形状 5",
+                       "id":  82,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  69,
+                                        "top":  519,
+                                        "right":  281,
+                                        "bottom":  586
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/名字/RICK ",
+                       "name":  "RICK ",
+                       "id":  19,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "RICK\r",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "HarmonyOS_Sans_SC_Black",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  255,
+                                                          "green":  255,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               },
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    },
+                                                    {
+                                                        "from":  5,
+                                                        "to":  6
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  104,
+                                        "top":  622,
+                                        "right":  312,
+                                        "bottom":  688
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/名字/RICK ",
+                       "name":  "RICK ",
+                       "id":  46,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "RICK\r",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "HarmonyOS_Sans_SC_Black",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  255,
+                                                          "green":  255,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               },
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    },
+                                                    {
+                                                        "from":  5,
+                                                        "to":  6
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  118,
+                                        "top":  598,
+                                        "right":  359,
+                                        "bottom":  679
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏",
+                       "name":  "顶栏",
+                       "id":  84,
+                       "type":  "LayerSet",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  -187,
+                                        "right":  1235,
+                                        "bottom":  140
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/2026",
+                       "name":  "2026",
+                       "id":  67,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "2026",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "ZHZKCJSDT-ExtraBold",
+                                         "sizePt":  66.4612426757812,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  53.0043020099401,
+                                                          "green":  244.998891055584,
+                                                          "blue":  247.995136678219
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  845,
+                                        "top":  -38,
+                                        "right":  987,
+                                        "bottom":  3
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/形状 3",
+                       "name":  "形状 3",
+                       "id":  68,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  344,
+                                        "top":  -19,
+                                        "right":  414,
+                                        "bottom":  -17
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/第3期",
+                       "name":  "第3期",
+                       "id":  25,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "第3期",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "ZHZKCJSDT-ExtraBold",
+                                         "sizePt":  66.4612426757812,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  53.0043020099401,
+                                                          "green":  244.998891055584,
+                                                          "blue":  247.995136678219
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  4
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  4
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  422,
+                                        "top":  -40,
+                                        "right":  569,
+                                        "bottom":  5
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/图层 17 拷贝",
+                       "name":  "图层 17 拷贝",
+                       "id":  80,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  984,
+                                        "top":  -148,
+                                        "right":  1235,
+                                        "bottom":  112
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/图层 17",
+                       "name":  "图层 17",
+                       "id":  79,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  583,
+                                        "top":  -148,
+                                        "right":  834,
+                                        "bottom":  112
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/矩形 2 拷贝",
+                       "name":  "矩形 2 拷贝",
+                       "id":  24,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  764,
+                                        "top":  -61,
+                                        "right":  1053,
+                                        "bottom":  24
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/学长学姐说",
+                       "name":  "学长学姐说",
+                       "id":  17,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "学长学姐说",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "ZHZKCJSDT-ExtraBold",
+                                         "sizePt":  66.4612426757812,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  53.0043020099401,
+                                                          "green":  244.998891055584,
+                                                          "blue":  247.995136678219
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  6
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  6
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  63,
+                                        "top":  -40,
+                                        "right":  333,
+                                        "bottom":  5
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/图层 15",
+                       "name":  "图层 15",
+                       "id":  77,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.LINEARBURN",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  -187,
+                                        "right":  980,
+                                        "bottom":  140
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/顶栏/矩形 2",
+                       "name":  "矩形 2",
+                       "id":  23,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  27,
+                                        "top":  -61,
+                                        "right":  1052,
+                                        "bottom":  24
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/英文",
+                       "name":  "英文",
+                       "id":  52,
+                       "type":  "LayerSet",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.PASSTHROUGH",
+                       "kind":  "undefined",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  96,
+                                        "top":  48,
+                                        "right":  970,
+                                        "bottom":  495
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/英文/AIGC",
+                       "name":  "AIGC",
+                       "id":  49,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "AIGC",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "Impact",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  255,
+                                                          "green":  255,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  98,
+                                        "top":  79,
+                                        "right":  967,
+                                        "bottom":  462
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/英文/AIGC 拷贝 2",
+                       "name":  "AIGC 拷贝 2",
+                       "id":  51,
+                       "type":  "ArtLayer",
+                       "visible":  false,
+                       "opacity":  65.8823529411765,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "AIGC",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "Impact",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  255,
+                                                          "green":  255,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  96,
+                                        "top":  48,
+                                        "right":  970,
+                                        "bottom":  437
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/英文/AIGC 拷贝",
+                       "name":  "AIGC 拷贝",
+                       "id":  50,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  65.8823529411765,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.TEXT",
+                       "text":  "AIGC",
+                       "textStyle":  {
+                                         "fontPostScriptName":  "Impact",
+                                         "sizePt":  75,
+                                         "leadingPt":  null,
+                                         "tracking":  null,
+                                         "horizontalScalePercent":  null,
+                                         "verticalScalePercent":  null,
+                                         "justification":  "Justification.LEFT",
+                                         "colorRgb":  {
+                                                          "red":  255,
+                                                          "green":  255,
+                                                          "blue":  255
+                                                      }
+                                     },
+                       "textStyleRanges":  [
+                                               {
+                                                   "from":  0,
+                                                   "to":  5
+                                               }
+                                           ],
+                       "paragraphStyleRanges":  [
+                                                    {
+                                                        "from":  0,
+                                                        "to":  5
+                                                    }
+                                                ],
+                       "boundsPx":  {
+                                        "left":  96,
+                                        "top":  106,
+                                        "right":  970,
+                                        "bottom":  495
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/矩形 1 拷贝",
+                       "name":  "矩形 1 拷贝",
+                       "id":  26,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  32,
+                                        "top":  1739,
+                                        "right":  1044,
+                                        "bottom":  1771
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/图层 13",
+                       "name":  "图层 13",
+                       "id":  75,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  23.1372549019608,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  29,
+                                        "top":  -100,
+                                        "right":  1080,
+                                        "bottom":  1769
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/图层 16",
+                       "name":  "图层 16",
+                       "id":  78,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  29.0196078431373,
+                       "blendMode":  "BlendMode.DIVIDE",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  -85,
+                                        "right":  1080,
+                                        "bottom":  1834
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/矢量智能对象",
+                       "name":  "矢量智能对象",
+                       "id":  55,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.SMARTOBJECT",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  26,
+                                        "top":  47,
+                                        "right":  1050,
+                                        "bottom":  1775
+                                    }
+                   },
+                   {
+                       "path":  "画板 1/图层 6",
+                       "name":  "图层 6",
+                       "id":  12,
+                       "type":  "ArtLayer",
+                       "visible":  true,
+                       "opacity":  100,
+                       "blendMode":  "BlendMode.NORMAL",
+                       "kind":  "LayerKind.NORMAL",
+                       "text":  null,
+                       "textStyle":  null,
+                       "textStyleRanges":  null,
+                       "paragraphStyleRanges":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  -85,
+                                        "right":  1080,
+                                        "bottom":  1835
+                                    }
+                   }
+               ],
+    "warnings":  [
+                     "This inspection is read-only and does not prove that a smart object is embedded rather than linked.",
+                     "Create or verify a template layer contract before editing."
+                 ],
+    "inspected_at_utc":  "2026-08-13T07:39:44.9228533Z"
+}
+

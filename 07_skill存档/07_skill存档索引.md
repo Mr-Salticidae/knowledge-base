@@ -44,6 +44,7 @@ tags: [类型/skill存档]
 | wechaty-blog-pr | v1.0 | 2026-08-10 | Wechaty 博客 PR:fork wechaty/jekyll → 放博客/配图/contributor → 提 PR 换 PadLocal Contributor Token(含仓库更名修正+Win Git ref bug fallback+SVG直用) | Claude | 本会话真机走通(PR #201 已提交,待 CLA+Review) |
 | moonlit-wuxia-cinema | 未标注 | 2026-09-01 | 月夜国风幻想武侠 CG 图片、镜头诊断与 15 秒视频提示词工作流 | Codex / 图片模型 / 视频模型 | 来源：`C:\Users\1\Desktop\月牙天冲\skills\moonlit-wuxia-cinema`，本次原样归档 |
 | yu-lin-wen-skill | 未标注 | 2026-09-01 | GPT Image / Image2 鱼鳞纹、重复纹理、噪点、过锐与景深修复工作流 | Codex / GPT Image / Image2 | 来源：`C:\Users\1\Desktop\月牙天冲\skills\yu-lin-wen-skill`，本次原样归档 |
+| kecheng-yugao-skill | 未标注 | 2026-09-01 | 指定日期课表 → 课程预告 DOCX、海报 PNG 与唯一可复用课程 PSD 的分阶段生产工作流 | Codex / Word / Photoshop | 来源：`C:\Users\1\Desktop\海报制作\.codex\skills\kecheng-yugao-skill`，结构验证与 23 个单元测试通过，本次原样归档 |
 
 ### prompt-master v1.6.0 备注
 

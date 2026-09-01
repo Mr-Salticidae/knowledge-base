@@ -1,0 +1,154 @@
+﻿{
+    "schema_version":  1,
+    "source_psd":  "C:\\Users\\1\\Desktop\\海报制作\\.codex\\skills\\kecheng-yugao-skill\\assets\\poster-template-1\\海报模板一_基准.psd",
+    "parent_layer_id":  32,
+    "smart_document":  {
+                           "name":  "组 1.psb",
+                           "width_px":  938,
+                           "height_px":  352,
+                           "layer_count_recursive":  8
+                       },
+    "layers":  [
+                   {
+                       "path":  "组 1",
+                       "name":  "组 1",
+                       "id":  36,
+                       "type":  "LayerSet",
+                       "kind":  "undefined",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  0,
+                                        "right":  918,
+                                        "bottom":  353
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/图层 2",
+                       "name":  "图层 2",
+                       "id":  42,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.NORMAL",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  508,
+                                        "top":  0,
+                                        "right":  874,
+                                        "bottom":  156
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/图层 1",
+                       "name":  "图层 1",
+                       "id":  41,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.NORMAL",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  13,
+                                        "top":  261,
+                                        "right":  849,
+                                        "bottom":  351
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/形状 1",
+                       "name":  "形状 1",
+                       "id":  35,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  0,
+                                        "top":  77,
+                                        "right":  354,
+                                        "bottom":  310
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/组 2",
+                       "name":  "组 2",
+                       "id":  39,
+                       "type":  "LayerSet",
+                       "kind":  "undefined",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  24,
+                                        "top":  199,
+                                        "right":  918,
+                                        "bottom":  353
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/组 2/形状 2",
+                       "name":  "形状 2",
+                       "id":  38,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  24,
+                                        "top":  256,
+                                        "right":  854,
+                                        "bottom":  341
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/组 2/形状 3",
+                       "name":  "形状 3",
+                       "id":  44,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.SOLIDFILL",
+                       "visible":  true,
+                       "text":  null,
+                       "boundsPx":  {
+                                        "left":  838,
+                                        "top":  232,
+                                        "right":  918,
+                                        "bottom":  353
+                                    },
+                       "textJustification":  null,
+                       "textPositionPx":  null
+                   },
+                   {
+                       "path":  "组 1/组 2/AI电影实战案例（三）",
+                       "name":  "AI电影实战案例（三）",
+                       "id":  34,
+                       "type":  "ArtLayer",
+                       "kind":  "LayerKind.TEXT",
+                       "visible":  true,
+                       "text":  "AI电影实战案例（三）",
+                       "boundsPx":  {
+                                        "left":  100,
+                                        "top":  199,
+                                        "right":  809,
+                                        "bottom":  315
+                                    },
+                       "textJustification":  "Justification.CENTER",
+                       "textPositionPx":  {
+                                              "x":  467.485425360859,
+                                              "y":  264.16173704295
+                                          }
+                   }
+               ],
+    "inspected_at_utc":  "2026-08-13T07:40:55.5339129Z"
+}
+

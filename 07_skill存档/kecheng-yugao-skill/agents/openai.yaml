@@ -1,0 +1,7 @@
+interface:
+  display_name: "Kecheng-Yugao-Skill"
+  short_description: "分阶段生成课程预告，管理文本与海报模板、教师形象及PSD成品"
+  default_prompt: "Use $kecheng-yugao-skill to prepare the requested date's course-preview DOCX and posters with template one defaults, required approval gates, and safe post-acceptance run cleanup."
+
+policy:
+  allow_implicit_invocation: true

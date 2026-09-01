@@ -354,6 +354,7 @@
 - [[wechaty-blog-pr/SKILL.md]] —— Wechaty 博客 PR skill:fork wechaty/jekyll → 放博客/配图/contributor → 提 PR 换 PadLocal Token;关键修正=旧指南 wechaty.js.org 已更名 jekyll(fork 前 `gh repo view` 验真名);Win Git 2.55 ref bug 用 `git ls-remote` 拿 hash 建分支;SVG 直接用别硬转 PNG;对应 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]
 - [[moonlit-wuxia-cinema/SKILL.md]] —— 月夜国风幻想武侠 CG 图片与视频工作流:控制人物暗面、双向飘动服饰、明月逆光、前后景深与构图，确认首帧后按四种模板制作 15 秒视频提示词
 - [[yu-lin-wen-skill/SKILL.md]] —— GPT Image / Image2 图片伪影修复 skill:诊断鱼鳞纹、蜂窝纹、重复薄片、噪点、过锐和错误景深，支持直接修复、AO 三步修复与光影保真局部修复
+- [[kecheng-yugao-skill/SKILL.md]] —— 课程预告生产 skill:从指定日期课表提取全部课程，经审批与 Word QA 生成周文档，再按模板合同、教师形象和图标制作海报 PNG 与唯一可复用课程 PSD
 
 ### 主题脉络十二:平台工程(2026-06-25 新增)
 

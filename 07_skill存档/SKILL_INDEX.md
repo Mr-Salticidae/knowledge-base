@@ -48,6 +48,7 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 | [wechaty-blog-pr](#wechaty-blog-pr) | 开源贡献 PR | Wechaty 技术博客 → fork wechaty/jekyll → 提 PR 换 Contributor Token | Claude |
 | [moonlit-wuxia-cinema](#moonlit-wuxia-cinema) | 武侠视觉与视频 | 月夜国风幻想武侠 CG → 镜头设计与 15 秒视频提示词 | Codex / 图片模型 / 视频模型 |
 | [yu-lin-wen-skill](#yu-lin-wen-skill) | 图片伪影修复 | 鱼鳞纹、重复薄片、噪点、过锐与错误景深诊断修复 | Codex / GPT Image / Image2 |
+| [kecheng-yugao-skill](#kecheng-yugao-skill) | 课程预告生产 | 指定日期课表 → 课程预告 DOCX、海报 PNG 与可复用 PSD | Codex / Word / Photoshop |
 
 ---
 
@@ -493,6 +494,24 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **引用文件**：`agents/openai.yaml`、`references/prompt-library.md`。
 
 **关联方法论**：与 [[moonlit-wuxia-cinema/SKILL.md]] 分工——修复时保持后者定义的光影、构图和镜头关系不变。
+
+---
+
+## kecheng-yugao-skill
+
+**触发词**：「课程预告」「课程预告文本」「课程预告海报」「调整课程预告模板」「更换课程教师形象」
+
+**用途**：从指定日期课表中逐班提取全部课程，经过基础信息审批、历史课程详情匹配和 Word 视觉 QA 后，生成单一规范周文档；再依据模板合同、教师形象和软件图标制作课程海报 PNG，并维护每门课程唯一的可复用 PSD。工作流内置交付方式证据、模板选择、人物抠图确认、PSD 可编辑性、最终交付检查和验收后残留清理等保护门。
+
+**版本状态**：源文件未标注版本 · 2026-09-01 原样归档；23 个单元测试通过，Skill 结构验证通过。
+
+**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\kecheng-yugao-skill\SKILL.md`
+
+**随附内容**：`agents/openai.yaml`、8 份工作流参考文档、课程预告辅助脚本及测试、文本模板一 DOCX、海报模板一 PSD 与模板合同。
+
+**使用边界**：这是绑定课程预告项目目录和 Photoshop/Word 桌面能力的生产型 Skill；迁移到其他项目时必须先重新配置课表、教师素材、图标、模板注册表和 PSD 输出目录，不能直接沿用原项目路径。
+
+**关联文档**：[[07_skill存档索引]] · [[本机Skill部署与调用手册]]
 
 ---
 

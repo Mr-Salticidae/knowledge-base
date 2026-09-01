@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "template_id": "text-template-1",
+  "display_name": "文本模板一",
+  "renderer": "legacy-hardcoded-v1",
+  "weekly_document_rule": "同一个周预告文档只使用一个文本模板",
+  "blocks": {
+    "recorded_summary": {
+      "order": [
+        "class_header",
+        "date_course_teacher"
+      ],
+      "live_style": false
+    },
+    "live_summary": {
+      "order": [
+        "class_header",
+        "date_course_teacher_delivery"
+      ],
+      "live_style": "整行红色加粗并以（直播）结尾"
+    },
+    "recorded_detail": {
+      "order": [
+        "class_header",
+        "summary_line",
+        "notification",
+        "available_time",
+        "course_title",
+        "teacher",
+        "tools",
+        "homework_optional",
+        "objectives"
+      ]
+    },
+    "live_detail": {
+      "order": [
+        "class_header",
+        "summary_line",
+        "notification",
+        "class_time",
+        "topic",
+        "course_title",
+        "teacher",
+        "tools",
+        "homework_optional",
+        "objectives"
+      ]
+    }
+  },
+  "required_fields": [
+    "class_name",
+    "target_date",
+    "course_title",
+    "teacher",
+    "delivery",
+    "time",
+    "objectives"
+  ],
+  "optional_fields": [
+    "tools",
+    "homework",
+    "notification"
+  ],
+  "hard_stops": [
+    "直播课程缺少明确时间",
+    "课程目标为空",
+    "同一周文档被要求混用多个文本模板",
+    "输出会覆盖历史源文档"
+  ]
+}
