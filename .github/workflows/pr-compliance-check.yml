@@ -1,0 +1,26 @@
+name: PR Compliance Check
+
+# 外来提交合规校验：PR 时自动扫描「他机路径污染 / 索引列错位 / frontmatter 双链规范」。
+# 结果作为审核前置告警，不阻断合并（他机路径污染会 fail，其余仅提示）。
+# 配合《00_仓库维护/外来提交PR审核清单.md》使用。
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  compliance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2   # 需要 HEAD~1 做 diff
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 运行合规校验（diff 模式）
+        run: python "00_仓库维护/compliance_check.py" --diff
