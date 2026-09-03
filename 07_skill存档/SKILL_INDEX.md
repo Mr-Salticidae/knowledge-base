@@ -473,7 +473,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
 
-**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\moonlit-wuxia-cinema\SKILL.md`
+**文件路径**：`E:\knowledge-base\07_skill存档\moonlit-wuxia-cinema\SKILL.md`
 
 **引用文件**：`agents/openai.yaml`、`references/style-system.md`、`references/video-prompt-templates.md` 与三份规范分镜母版。
 
@@ -489,7 +489,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
 
-**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\yu-lin-wen-skill\SKILL.md`
+**文件路径**：`E:\knowledge-base\07_skill存档\yu-lin-wen-skill\SKILL.md`
 
 **引用文件**：`agents/openai.yaml`、`references/prompt-library.md`。
 
@@ -505,7 +505,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档；23 个单元测试通过，Skill 结构验证通过。
 
-**文件路径**：`C:\Users\1\Desktop\knowledge-base\07_skill存档\kecheng-yugao-skill\SKILL.md`
+**文件路径**：`E:\knowledge-base\07_skill存档\kecheng-yugao-skill\SKILL.md`
 
 **随附内容**：`agents/openai.yaml`、8 份工作流参考文档、课程预告辅助脚本及测试、文本模板一 DOCX、海报模板一 PSD 与模板合同。
 
