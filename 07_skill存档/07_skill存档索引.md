@@ -45,6 +45,7 @@ tags: [类型/skill存档]
 | moonlit-wuxia-cinema | v1.0 | 2026-09-01 | 武侠视觉与视频 | Codex / 图片模型 / 视频模型 | 原样归档（源未标注版本，按归档日期记为 v1.0），待测试 |
 | yu-lin-wen-skill | v1.0 | 2026-09-01 | 图片伪影修复 | Codex / GPT Image / Image2 | 原样归档（源未标注版本，按归档日期记为 v1.0），待测试 |
 | kecheng-yugao-skill | v1.0 | 2026-09-01 | 课程预告生产 | Codex / Word / Photoshop | 原样归档（源未标注版本，按归档日期记为 v1.0），结构验证与 23 个单元测试通过 |
+| aigc-topic-cover-factory | v1.0 | 2026-09-09 | AI 爆款选题批产 + 小红书素材采集 + 代码合成 960×600 大字封面矩阵 | Codex | 合成器已对标验证（叠合比对）；采集器真机跑通并修掉登录墙误判 / 同域资源误收两个 bug |
 
 ### prompt-master v1.6.0 备注
 

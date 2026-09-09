@@ -1,0 +1,75 @@
+{
+  "_说明": "topics.json 的完整字段示例。id 同时是素材目录名和输出目录名，必须唯一。",
+  "topics": [
+    {
+      "id": "01",
+      "hook": "身份代入",
+      "title": "让大家感受下大厂 Agent 工程师的工作状态",
+      "lines": [
+        { "text": "让大家感受下", "role": "sub" },
+        { "text": "大厂Agent工程师的", "role": "hero" },
+        { "text": "工作状态", "role": "sub" }
+      ],
+      "style": "yellow",
+      "deco": "block",
+      "keywords": ["互联网大厂工位", "程序员桌搭", "写字楼加班"]
+    },
+    {
+      "id": "02",
+      "hook": "同行焦虑",
+      "title": "淘汰你的从来不是 AI，而是会 AI 的同行",
+      "lines": [
+        { "text": "淘汰你的从来不是AI", "role": "sub" },
+        { "text": "而是会AI的同行", "role": "hero" }
+      ],
+      "style": "magenta",
+      "deco": "scrim",
+      "keywords": ["格子间工位", "空办公室", "打工人日常"]
+    },
+    {
+      "id": "03",
+      "hook": "过程见证",
+      "title": "女生下班做 AI 漫剧，90 后第 45 天",
+      "lines": [
+        { "text": "女生下班做AI漫剧", "role": "hero" },
+        { "text": "90后 第45天", "role": "hero" }
+      ],
+      "style": "yellow",
+      "keywords": ["出租屋书桌", "笔记本电脑桌面", "女生卧室桌搭"]
+    },
+    {
+      "id": "04",
+      "hook": "身份出路",
+      "title": "中年人的 AI 出路，在家就能搞",
+      "lines": [
+        { "text": "中年人的AI出路", "role": "hero" },
+        { "text": "在家就能搞", "role": "sub" }
+      ],
+      "style": "green",
+      "pos": "center",
+      "keywords": ["家庭书房", "居家办公桌", "台式机桌搭"]
+    }
+  ],
+
+  "_字段表": {
+    "id": "必填。唯一。素材找 01_素材/<id>/，成品出到 02_封面/<id>/",
+    "hook": "选填。这条走的是哪个钩子公式，只做记录，不进画面",
+    "title": "选填。完整口播标题，发布时用，不进画面",
+    "lines": "必填。1-3 行。role=hero 走霓虹色，role=sub 走白色",
+    "style": "选填，默认 yellow。可选 yellow/green/cyan/magenta/red/blue/orange/green_inv",
+    "deco": "选填，默认 auto。plain=只描边 / scrim=柔光压暗带 / block=橙色底块衬 hero 行 / auto=背景过亮过花时自动上柔光带",
+    "align": "选填，默认 center。可选 center/left",
+    "pos": "选填，默认自动避让。可选 top/center/bottom",
+    "y": "选填。直接指定文字块顶部的 y 比例（0-1），给了就不再自动选位",
+    "keywords": "必填（要自动采集时）。2-3 个小红书搜索词，越具体越好",
+    "style_opts": {
+      "tracking": "字距，单位 em，默认 0.06",
+      "line_gap": "行距，单位 em，默认 0.26",
+      "sub_scale": "sub 行相对 hero 的字号比，默认 0.92",
+      "justify": "hero 行之间是否两端对齐，默认 true",
+      "shadow": "是否加柔和投影，默认 true",
+      "fill_hero": "hero 行目标宽度占画面宽的比例，默认 0.84",
+      "fill_sub": "sub 行目标宽度占画面宽的比例，默认 0.72"
+    }
+  }
+}
