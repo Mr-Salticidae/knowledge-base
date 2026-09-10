@@ -10,7 +10,7 @@ Full template library for Prompt Master. Read the relevant template when the use
 | [B — CO-STAR](#template-b--co-star) | Professional documents, business writing |
 | [C — RISEN](#template-c--risen) | Complex multi-step projects |
 | [D — CRISPE](#template-d--crispe) | Creative work, brand voice |
-| [E — Chain of Thought](#template-e--chain-of-thought) | Logic, math, analysis, debugging |
+| [E — Auditable Reasoning](#template-e--auditable-reasoning) | Logic, math, analysis, debugging |
 | [F — Few-Shot](#template-f--few-shot) | Consistent structured output, pattern replication |
 | [G — File-Scope](#template-g--file-scope) | Cursor, Windsurf, Copilot — code editing AI |
 | [H — ReAct + Stop Conditions](#template-h--react--stop-conditions) | Claude Code, Devin — autonomous agents |
@@ -18,7 +18,7 @@ Full template library for Prompt Master. Read the relevant template when the use
 | [J — Reference Image Editing](#template-j--reference-image-editing) | Editing an existing image with a reference |
 | [K — ComfyUI](#template-k--comfyui) | ComfyUI node-based image workflows |
 | [L — Prompt Decompiler](#template-l--prompt-decompiler) | Breaking down, adapting, or splitting existing prompts |
-| [M — Opus 4.7 Task Brief](#template-m--opus-4.7-task-brief) | Complex, multi-step, or agentic task on Claude Opus 4.7 |
+| [M — Current Claude Task Brief](#template-m--current-claude-task-brief) | Complex, multi-step, or agentic task on current Claude models |
 
 ---
 
@@ -121,36 +121,32 @@ Experiment: Give 3 variants ranging from minimal to bold.
 
 ---
 
-## Template E — Chain of Thought
+## Template E — Auditable Reasoning
 
-*Use for logic-heavy tasks, math, debugging, and multi-factor analysis where the AI needs to reason carefully before committing to an answer.*
-
-**Important:** Only use CoT for standard reasoning models (Claude, GPT-4o, Gemini). Do NOT add CoT instructions to o1, o3, or Claude extended thinking — they reason internally and CoT instructions degrade their output.
+*Use for logic-heavy tasks, math, debugging, and multi-factor analysis where the result must be checkable without requesting private reasoning.*
 
 ```
 [Task statement]
 
-Before answering, think through this carefully:
-<thinking>
-1. What is the actual problem being asked?
-2. What constraints must the solution respect?
-3. What are the possible approaches?
-4. Which approach is best and why?
-</thinking>
+Return:
+1. Conclusion
+2. Assumptions
+3. Evidence or intermediate results needed to audit the conclusion
+4. Verification checks performed
+5. Remaining uncertainty, if any
 
-Give your final answer in <answer> tags only.
+Do not reveal hidden chain-of-thought or private reasoning. Keep the rationale concise and decision-relevant.
 ```
 
 **When to use:**
 - Debugging where the cause is not obvious
-- Comparing two technical approaches
-- Any math or calculation
-- Analysis where a wrong first impression is likely
+- Comparing technical approaches
+- Math or calculation requiring verification
+- Analysis where evidence and assumptions must be inspectable
 
 **When NOT to use:**
-- o1 / o3 / reasoning models (they think internally — adding CoT hurts)
-- Simple tasks where the answer is clear (unnecessary overhead)
-- Creative tasks (CoT can kill natural voice)
+- Simple tasks where the answer is clear
+- Creative tasks where an audit trail adds noise
 
 ---
 
@@ -273,7 +269,7 @@ Style Reference: [artist / film / aesthetic reference if applicable]
 ```
 
 **Tool-specific syntax:**
-- **Midjourney**: Comma-separated descriptors, not prose. Add `--ar`, `--style`, `--v 8.2` at the end.
+- **Midjourney**: Comma-separated descriptors, not prose. Add `--ar`, `--style`, `--v 6` at the end.
 - **Stable Diffusion**: Use `(word:1.3)` weight syntax. CFG scale 7 to 12. Negative prompt is mandatory.
 - **DALL-E 3**: Prose works well. Add "do not include any text in the image" unless text is needed.
 - **Sora / video**: Add camera movement (slow dolly, static shot, crane up), duration in seconds, and cut style.
@@ -396,9 +392,9 @@ Run these in order. Each output feeds the next.
 ```
 ---
 
-## Template M — Opus 4.7 Task Brief
+## Template M — Current Claude Task Brief
 
-*Use for any complex, multi-step, or agentic task on Claude Opus 4.7 — claude.ai, API, or Claude Code. Opus 4.7 reads prompts literally. Missing context produces narrow output. This template front-loads everything so the first turn is the only turn.*
+*Use for complex, multi-step, or agentic tasks on current Claude models—Claude.ai, API, or Claude Code. It front-loads the outcome, context, scope, and action boundaries while avoiding obsolete manual-thinking scaffolding.*
 
 ```
 ## Objective
@@ -423,21 +419,15 @@ Run these in order. Each output feeds the next.
 - [ ] [Binary check 2]
 - [ ] [Binary check 3]
 
-## Stop Conditions
-Stop and ask before:
-- Deleting any file
-- Adding any dependency
-- Modifying database schema or migrations
-- Touching anything outside Scope
+## Action Boundaries
+- Proceed with reversible, in-scope inspection, edits, and validation.
+- Stop and ask before destructive or irreversible actions, external writes, purchases, material scope expansion, or decisions that require user-only input.
 
-## Progress
-After each completed step: ✅ [what was done] — [file(s) affected]
+## Progress Evidence
+For long-running work, report progress only when it changes or when a checkpoint is reached. Ground every completion claim in a tool result, changed artifact, or verification output.
 ```
 
-**Thinking depth** — add only when needed, delete otherwise:
-- Hard multi-step task: `"Think carefully and step-by-step before starting."`
-- Simple targeted change: `"Prioritize responding quickly. This is a scoped change."`
-- Default: say nothing — adaptive thinking calibrates itself.
+**Effort** — configure in the API or harness rather than requesting private reasoning in the prompt. Start with the model default, lower it for routine scoped work, and raise it only when task difficulty warrants the cost.
 
 **Claude Code only — add Session Strategy block when relevant:**
 ```
@@ -445,8 +435,8 @@ After each completed step: ✅ [what was done] — [file(s) affected]
 [Pick one:]
 - New session — unrelated to prior context, start fresh
 - Continue — prior context still needed
-- Subagent — spin off for [file-heavy research / verification] so intermediate output stays out of main context
-- Compact first — run /compact [focus on X] then begin
+- Subagent — delegate only [independent, sizeable workstream], with a bounded deliverable
+- Compact first — compact around [decisions, constraints, and current state], then begin
 ```
 
-**When to use:** Opus 4.7 on any surface — claude.ai, API, Claude Code — when the task is complex, multi-file, ambiguous, or agentic. Not needed for simple one-shot tasks.
+**When to use:** Current Claude models on any surface when the task is complex, multi-file, ambiguous, or agentic. Not needed for simple one-shot tasks.

@@ -200,7 +200,7 @@ tags: [类型/skill存档, 类型/工具手册]
 
 | Skill | 版本 | 用途 | 触发词 |
 |---|---|---|---|
-| `prompt-master` | 1.6.0 | 全工具 prompt 路由（LLM / Cursor / MJ / 图片 / 视频 / 代码 Agent）。**仅在明确要求写改 prompt 时激活** | 「帮我写 prompt」 |
+| `prompt-master` | 1.8.0 | 全工具 prompt 路由（LLM / Cursor / MJ / 图片 / 视频 / 代码 Agent）。**仅在明确要求写改 prompt 时激活** | 「帮我写 prompt」 |
 | `prompt-master-series` | 1.4.0 | 《目标是成为 Prompt 大师》系列内容生产：破题拆解 + 小红书双卡 + 正文 + 小白笔记 + 系列归档 | 「做成一期 Prompt 大师」「出四层拆解卡」 |
 | `knowledge-base-curator` | 1.0 | **本知识库专属**四阶段策展：答疑 → 小白笔记 → 内核存档（双链+索引+MOC）→ 学员版分发 | 「沉淀进知识库」「按知识库规范归档」 |
 | `insight-public-post` | 1.1 | 知识库内核档 → B站 AI 开发者小站公开版对外帖，发布后回收终稿保持库内外一致 | 「发小站」「写公开版」「分发出去」 |

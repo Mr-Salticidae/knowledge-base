@@ -16,7 +16,7 @@ tags: [类型/skill存档]
 
 | Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
 |---|---|---|---|---|---|
-| prompt-master | v1.6.0 | 2026-06-03 | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
+| prompt-master | v1.8.0 | 2026-09-10（1.6.0 存档于 2026-06-03） | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
 | aigc-prompt-optimizer | v1.5 | 2026-06-09 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘、尺度跃迁、巨物地貌化与构图意图层 | Claude + Codex | 待正式复盘 |
 | blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
 | suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
@@ -47,7 +47,10 @@ tags: [类型/skill存档]
 | kecheng-yugao-skill | v1.0 | 2026-09-01 | 课程预告生产 | Codex / Word / Photoshop | 原样归档（源未标注版本，按归档日期记为 v1.0），结构验证与 23 个单元测试通过 |
 | aigc-topic-cover-factory | v1.0 | 2026-09-09 | AI 爆款选题批产 + 小红书素材采集 + 代码合成 960×600 大字封面矩阵 | Codex | 合成器已对标验证（叠合比对）；采集器真机跑通并修掉登录墙误判 / 同域资源误收两个 bug |
 
-### prompt-master v1.6.0 备注
+### prompt-master v1.8.0 备注
+
+- 2026-09-10 由 1.6.0 升级为 1.8.0；来源为《余温》项目交接工具快照（4 个文件 SHA-256 与 Codex 全局 1.8.0 一致）。1.6.0 原文可从本仓库 git 历史（提交 73d15f5）取回。
+- 1.8 新增：模型时效门槛（Model Recency Gate）、Claude 5 / GPT-5.6 / Grok 4.6 路由、Template M 任务简报；视频路由条目不变。
 
 - 文件:[[prompt-master/SKILL.md]]
 - 来源:`https://github.com/nidhinjs/prompt-master`

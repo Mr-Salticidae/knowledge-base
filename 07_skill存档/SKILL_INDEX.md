@@ -78,7 +78,7 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 - `E:\knowledge-base\07_skill存档\prompt-master\references\templates.md`
 - `E:\knowledge-base\07_skill存档\prompt-master\references\patterns.md`
 
-**版本**：v1.6.0 · 存档日期 2026-06-03
+**版本**：v1.8.0 · 升级日期 2026-09-10（v1.6.0 存档于 2026-06-03）
 
 ---
 

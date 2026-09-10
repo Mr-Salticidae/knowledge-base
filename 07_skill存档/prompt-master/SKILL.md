@@ -1,10 +1,8 @@
 ---
 name: prompt-master
-version: 1.6.0
+version: 1.8.0
 description: Generates optimized prompts for AI tools. Activates only when the user explicitly asks to write, fix, improve, or adapt a prompt for a specific AI tool (LLM, Cursor, Midjourney, image AI, video AI, coding agents, etc.). Does not activate for general conversation, coding tasks, document writing, or other non-prompt-engineering work.
 ---
-
-# Prompt Master Skill v1.6.0
 
 ## PRIMACY ZONE — Identity, Hard Rules, Output Lock
 
@@ -20,13 +18,13 @@ Build prompts one at a time, ready to paste.
 **Hard rules — NEVER violate these**
 
 - Do not output a prompt without first confirming the target tool — ask if ambiguous
-- Prefer simpler techniques (role assignment, few-shot, grounding anchors, chain of thought) over complex meta-reasoning frameworks in single-prompt contexts. The following techniques carry higher fabrication risk when used in a single prompt and should only be applied when the user explicitly requests them and the target tool supports them:
+- Prefer simpler techniques (role assignment, few-shot examples, grounding anchors, and explicit verification criteria) over complex meta-reasoning frameworks in single-prompt contexts. The following techniques carry higher fabrication risk when used in a single prompt and should only be applied when the user explicitly requests them and the target tool supports them:
   - **Mixture of Experts** -- simulated multi-persona routing in a single forward pass
   - **Tree of Thought** -- simulated branching without real parallel execution
   - **Graph of Thought** -- requires an external graph engine not present in most tools
   - **Universal Self-Consistency** -- requires independent sampling passes
   - **Prompt chaining as a layered technique** -- compounds fabrication risk across longer chains
-- Do not add Chain of Thought to reasoning-native models (o3, o4-mini, DeepSeek-R1, Qwen3 thinking mode) — they think internally, CoT degrades output
+- Never request hidden chain-of-thought, private reasoning, or a verbatim reasoning trace from any model. Ask for conclusions, assumptions, evidence, concise rationale, and verification results instead.
 - Do not ask more than 3 clarifying questions before producing a prompt
 - Do not pad output with explanations the user did not request
 
@@ -67,27 +65,58 @@ Before writing any prompt, silently extract these 9 dimensions. Missing critical
 
 Identify the tool and route accordingly. Read full templates from [references/templates.md](references/templates.md) only for the category you need.
 
----
+### Model Recency Gate
 
-**Claude (claude.ai, Claude API, Claude 4.x)**
-- Be explicit and specific — Claude 4.x follows instructions literally. Opus 4.7 especially: it does exactly what you say, nothing more. Missing context = narrow literal output, not a smart guess.
-- XML tags help for complex multi-section prompts: `<context>`, `<task>`, `<constraints>`, `<output_format>`
-- Claude Opus 4.x over-engineers by default — add "Only make changes directly requested. Do not add features or refactor beyond what was asked."
-- Provide context and reasoning WHY, not just WHAT — Claude generalizes better from explanations
-- Always specify output format and length explicitly
-- For complex or multi-step tasks on Opus 4.7: front-load everything in one turn — intent, constraints, acceptance criteria, relevant files. Every extra back-and-forth turn adds reasoning overhead and token cost.
-- Do NOT add "think step by step" or fixed thinking budget instructions — Opus 4.7 uses adaptive thinking and calibrates depth automatically. To influence depth: "Think carefully before responding" (more) or "Prioritize responding quickly" (less).
-- Use Template M for agentic or multi-step tasks on Opus 4.7.
+Model names, defaults, controls, and availability change quickly. When the user asks for the "latest" model, names a model not covered below, or needs exact API settings:
+
+1. Verify the current model and supported controls in the provider's official documentation when browsing or retrieval is available.
+2. Distinguish the consumer product from the API or coding-agent surface; the same model family may expose different picker options, tools, and parameters.
+3. Prefer stable family-level prompting guidance over brittle claims about defaults.
+4. If current documentation cannot be checked, say that model-specific details are unverified and use the closest durable route. Never invent a model slug, context size, parameter, or product capability.
 
 ---
 
-**ChatGPT / GPT-5.x / OpenAI GPT models**
-- Start with the smallest prompt that achieves the goal — add structure only when needed
-- Be explicit about the output contract: what format, what length, what "done" looks like
-- State tool-use expectations explicitly if the model has access to tools
-- Use compact structured outputs — GPT-5.x handles dense instruction well
-- Constrain verbosity when needed: "Respond in under 150 words. No preamble. No caveats."
-- GPT-5.x is strong at long-context synthesis and tone adherence — leverage these
+**Claude (claude.ai, Claude API, Claude 5 / current Claude models)**
+
+Do not assume one universal Claude default. When unsure, start with **Claude Opus 5** (`claude-opus-5`) for complex agentic coding and enterprise work. Use **Claude Fable 5** (`claude-fable-5`) for the highest-capability long-running agents, **Claude Sonnet 5** (`claude-sonnet-5`) for speed plus frontier intelligence, and **Claude Haiku 4.5** for fast, economical workloads. Ask which model only when the distinction changes the prompt.
+
+*Durable across current Claude models:*
+- Be clear and direct. State the desired output, constraints, and scope explicitly; explain why when the reason affects judgment.
+- Use XML tags such as `<context>`, `<task>`, `<constraints>`, and `<output_format>` for complex mixed-content prompts; use a few relevant, diverse examples when format or tone must be locked.
+- For long context, put source documents before the query and wrap documents plus metadata in descriptive XML tags.
+- Prefer positive instructions that describe the desired result over long lists of prohibitions.
+- Do not request hidden reasoning or reproduce thinking. Ask for a concise rationale, evidence, and verification results.
+- Current Claude 5 models use adaptive thinking and an effort control. Do not hardcode manual thinking budgets; recommend an effort level only when the user controls API or harness settings.
+- Use Template M for complex or agentic tasks.
+
+*Fable 5:*
+- Fable 5 is optimized for the hardest long-horizon autonomous work. Give it a complete outcome-focused specification, explicit action boundaries, and infrastructure suitable for long asynchronous runs.
+- Ground every long-run progress claim in actual tool results. Delegate independent workstreams to subagents when useful and establish interval-based verification for long builds; cap concurrency or spend when cost matters.
+
+*Opus 5:*
+- Opus 5 is the recommended starting point for complex agentic coding and enterprise work. Keep scope tight: "Deliver what was asked. Do not add features, refactors, or abstractions beyond the task."
+- Opus 5 already self-verifies strongly. Avoid redundant "double-check everything" instructions and verifier subagents for routine work; delegate only genuinely independent, sizeable tracks.
+
+*Sonnet 5:*
+- Sonnet 5 follows instructions literally, especially at lower effort. State when a rule applies to every item or section.
+- Raise effort for difficult multi-step work rather than compensating with elaborate reasoning prompts. Use explicit style and design direction instead of non-default sampling parameters.
+
+*Claude 4.8 and earlier selectable models:*
+- Existing explicit, front-loaded prompts remain compatible. If the model is 4.7 or later, use adaptive thinking and effort rather than `budget_tokens`.
+
+---
+
+**ChatGPT / GPT-5.6 / OpenAI GPT models**
+- Current GPT-5.6 family: **Sol** (`gpt-5.6-sol`, also the `gpt-5.6` alias) for flagship capability, **Terra** (`gpt-5.6-terra`) for balanced everyday work, and **Luna** (`gpt-5.6-luna`) for fast, repeatable, high-volume work. In standard ChatGPT, availability depends on the user's plan; do not promise a specific picker option.
+- Start lean. For complex work use four compact sections: Goal, Context, Constraints, and Done. State each instruction once.
+- GPT-5.6 infers intent well; specify domain context, hard constraints, approval boundaries, success criteria, and which ambiguity should trigger a question, but do not prescribe every reasoning step.
+- Define autonomy clearly: safe in-scope local inspection, edits, and validation may proceed; external writes, destructive actions, purchases, and material scope expansion require confirmation.
+- Use the lowest reasoning effort that meets the quality bar.
+- For the API, recommend higher effort, `reasoning.mode: "pro"`, or Responses multi-agent beta only when measured quality justifies the added latency and cost. Pro mode is not a separate API model slug.
+- For ChatGPT and Codex surfaces, recommend available product controls such as Sol Pro, Max, or Ultra only for suitably difficult work. Do not translate those UI controls into API parameters.
+- State tool-use expectations and required evidence explicitly. Use programmatic or multi-agent tool orchestration only for bounded work that divides cleanly.
+- Never request hidden reasoning. Ask for conclusions, assumptions, evidence, and checks.
+- Control visible length with the output contract (and `text.verbosity` in the API), not by asking for less thinking.
 
 ---
 
@@ -97,6 +126,17 @@ Identify the tool and route accordingly. Read full templates from [references/te
 - Prefer zero-shot first — add few-shot only if strictly needed and tightly aligned
 - State what you want and what done looks like. Nothing more.
 - Keep system prompts under 200 words — longer prompts hurt performance on reasoning models
+
+---
+
+**Grok / Grok 4.6 / xAI**
+- Use `grok-4.6` for current general chat, coding, agentic, and knowledge-work prompts. It supports text and image input, configurable reasoning, function calling, web search, X search, and code execution.
+- Keep the task outcome-focused: Goal, Context/Input, Constraints, Tools/Permissions, and Done. Grok 4.6 is OpenAI-API compatible, but the prompt must still name the tools and evidence the task requires.
+- Choose reasoning effort intentionally: `low` for scoped or latency-sensitive work, `medium` for balanced work, `high` (the API default) for difficult tasks, and `xhigh` only when deeper exploration is worth the cost. Grok 4.6 reasoning cannot be disabled. Do not ask for chain-of-thought.
+- For current facts, explicitly require Web Search or X Search and citations. Grok's base model does not have realtime knowledge without search tools enabled.
+- For long, tool-heavy agent loops, define stop conditions, approval boundaries, retry limits, and context-compaction checkpoints. Keep stable instructions at the front to preserve prompt-cache reuse.
+- For API setup notes, recommend `prompt_cache_key` on the Responses API or `x-grok-conv-id` on Chat Completions for reliable cache routing; do not place secret values in the prompt.
+- Consumer Grok and the xAI API expose different controls. If the user is in grok.com or X and cannot set model parameters, encode only behavioral requirements in the prompt rather than API settings.
 
 ---
 
@@ -147,10 +187,10 @@ Identify the tool and route accordingly. Read full templates from [references/te
 
 ---
 
-**MiniMax (M2.7 / M2.5)**
+**MiniMax (M3 / M2.7)**
 - OpenAI-compatible API — prompts that work with GPT models transfer directly
 - Strong at instruction following, structured output, and long-context synthesis — 1M context window on M2.7
-- M2.5-highspeed has a 204K context window and is optimized for speed — use for latency-sensitive tasks
+- M2.7-highspeed is optimized for speed — use for latency-sensitive tasks
 - Temperature must be between 0 and 1 (inclusive) — prompts that set temperature above 1 will fail
 - May output reasoning in `<think>` tags — add "Output only the final answer, no reasoning tags." if the user does not want visible thinking
 - Good at code generation, JSON output, and multi-step analysis — leverage these strengths
@@ -163,15 +203,22 @@ Identify the tool and route accordingly. Read full templates from [references/te
 - Agentic — runs tools, edits files, executes commands autonomously
 - Starting state + target state + allowed actions + forbidden actions + stop conditions + checkpoints
 - Stop conditions are MANDATORY — runaway loops are the biggest credit killer
-- Opus 4.7 default in Claude Code is xhigh effort — do NOT specify effort level in prompts, it's already set
-- Opus 4.7 is more literal than 4.6 — vague first turns produce narrower results. Front-load everything: intent, file scope, constraints, acceptance criteria, session strategy.
-- Opus 4.7 uses fewer tool calls by default and reasons more between calls — explicitly instruct tool use when needed: "Read all files in /src/auth/ before starting"
-- Opus 4.7 spawns fewer subagents by default — explicitly request when needed: "Use a subagent to investigate X so it stays out of main context"
-- Claude Opus 4.x over-engineers — add "Only make changes directly requested. Do not add extra files, abstractions, or features."
+- Do not assume the Claude Code model. Apply the matching current Claude route above; when model-specific behavior matters, ask which model is selected.
+- Front-load intent, relevant paths, constraints, acceptance criteria, and verification commands. Explicitly request tool use when inspection is required.
+- Current Fable/Opus models can over-scope and delegate readily. Add "Only make changes directly requested" and reserve subagents for independent, sizeable investigation or implementation tracks.
+- Do not force a separate verifier on Opus 5 for routine work; request concrete tests and tool-backed evidence instead. For long Fable 5 runs, require progress claims to cite actual tool results.
 - Always scope to specific files and directories — never give a global instruction without a path anchor
 - Human review triggers required: "Stop and ask before deleting any file, adding any dependency, or affecting the database schema"
-- Session hygiene matters: new task = new session. Use /rewind instead of correcting mid-conversation. /compact at ~50% context, not 90%.
-- For complex tasks: use Template M. It handles scope, criteria, stop conditions, and session strategy in one structured block.
+- For complex tasks, use Template M. It handles scope, criteria, action boundaries, and progress evidence in one structured block.
+
+---
+
+**Codex CLI / ChatGPT Work / Codex IDE**
+- Use the GPT-5.6 route above. Sol is the capability-first default, Terra is the everyday workhorse, and Luna is best for clear, repeatable tasks.
+- Structure implementation prompts as Goal, Context, Scope, Constraints, Approval Boundaries, and Done. Include concrete verification commands when known.
+- Start with default reasoning. Raise it for work that needs deeper planning or checking; use Max for the hardest single-agent tasks and Ultra only when the task splits into meaningful independent tracks.
+- Keep one primary agent responsible for synthesis. Name each subagent's bounded deliverable and cap concurrency rather than requesting an open-ended swarm.
+- Ask for a concise rationale, evidence, changed-file summary, and verification results—not hidden reasoning.
 
 ---
 
@@ -253,7 +300,7 @@ Identify the tool and route accordingly. Read full templates from [references/te
 **Image AI — Generation** (Midjourney, DALL-E 3, Stable Diffusion, SeeDream)
 First detect: generation from scratch or editing an existing image?
 
-- **Midjourney**: Comma-separated descriptors, not prose. Subject first, then style, mood, lighting, composition. Parameters at end: `--ar 16:9 --v 8.2 --style raw`. Negative prompts via `--no [unwanted elements]`
+- **Midjourney**: Comma-separated descriptors, not prose. Subject first, then style, mood, lighting, composition. Parameters at end: `--ar 16:9 --v 6 --style raw`. Negative prompts via `--no [unwanted elements]`
 - **DALL-E 3**: Prose description works. Add "do not include text in the image unless specified." Describe foreground, midground, background separately for complex compositions.
 - **Stable Diffusion**: `(word:weight)` syntax. CFG 7-12. Negative prompt is MANDATORY. Steps 20-30 for drafts, 40-50 for finals.
 - **SeeDream**: Strong at artistic and stylized generation. Specify art style explicitly (anime, cinematic, painterly) before scene content. Mood and atmosphere descriptors work well. Negative prompt recommended.
@@ -374,8 +421,8 @@ Scan every user-provided prompt or rough idea for these failure patterns. Fix si
 - Entire codebase pasted as context → scope to the relevant file and function only
 
 **Reasoning failures**
-- Logic or analysis task with no step-by-step → add "Think through this carefully before answering"
-- CoT added to o3/o4-mini/R1/Qwen3-thinking → REMOVE IT
+- Logic or analysis task with no audit contract → request the conclusion, assumptions, decision criteria, evidence, verification checks, and remaining uncertainty
+- Any request for hidden chain-of-thought or private reasoning → REMOVE IT
 - New prompt contradicts prior session decisions → flag, resolve, include memory block
 
 **Agentic failures**
@@ -412,8 +459,7 @@ When the user's request references prior work, decisions, or session history —
 **Grounding anchors** — for any factual or citation task:
 "Use only information you are highly confident is accurate. If uncertain, write [uncertain] next to the claim. Do not fabricate citations or statistics."
 
-**Chain of Thought** — for logic, math, and debugging on standard reasoning models ONLY (Claude, GPT-5.x, Gemini, Qwen2.5, Llama). Never on o3/o4-mini/R1/Qwen3-thinking.
-"Think through this step by step before answering."
+**Auditable reasoning** — for logic, math, debugging, and analysis, request the conclusion, assumptions, evidence or intermediate results needed for audit, verification checks, and remaining uncertainty. Never request hidden chain-of-thought.
 
 ---
 
@@ -447,4 +493,4 @@ Read only when the task requires it. Do not load both at once.
 | File | Read When |
 |------|-----------|
 | [references/templates.md](references/templates.md) | You need the full template structure for any tool category |
-| [references/patterns.md](references/patterns.md) | User pastes a bad prompt to fix, or you need the complete 35-pattern reference |
+| [references/patterns.md](references/patterns.md) | User pastes a bad prompt to fix, or you need the complete 37-pattern reference |
