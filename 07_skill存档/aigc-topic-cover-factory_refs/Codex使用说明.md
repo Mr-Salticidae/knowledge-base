@@ -3,21 +3,22 @@
 一条流水线跑完「**产选题 → 采集背景 → 合成封面矩阵 → 拼审图大图**」，
 产出 N 条选题 × M 张背景的 960×600（16:10）B 站大字封面，供你 A/B 挑选。
 
-> 本机状态（2026-09-10 实测）：依赖齐 ✅ · 小红书登录态有效 ✅ · 已跑通真实采集 + 合成 ✅
+> 作者机器上已跑通全链路（2026-09-10：真登录态实采 6 张素材 → 合成 3 张封面）。
+> **第一次拿到这个包，先看第三节把依赖和登录态过一遍**——那些前置条件不会自动出现在你机器上。
 
 ---
 
 ## 一、Codex 怎么找到它
 
 ```
-C:\Users\Administrator\.codex\skills\aigc-topic-cover-factory\SKILL.md
+%USERPROFILE%\.codex\skills\aigc-topic-cover-factory\SKILL.md
 ```
 
-Codex **自动发现**这个目录，`config.toml` 里不需要登记任何东西，装好即可用。
+**安装 = 把整个 `aigc-topic-cover-factory` 文件夹解压到 `%USERPROFILE%\.codex\skills\` 下面**，不用改任何配置——Codex 自动发现这个目录，`config.toml` 里不需要登记。装完新开一个 Codex 会话即可生效。
 
 两个要知道的：
 
-- **目录名 = skill 名 = `aigc-topic-cover-factory`**（本机有 3 个 skill 目录名和真名不一致，这个不在其中，可以放心直接点名）。
+- **目录名 = skill 名 = `aigc-topic-cover-factory`**，两者一致，可以直接点名。（Codex 触发和点名认的是 `SKILL.md` frontmatter 里的 `name`，不是文件夹名——有些 skill 两者不一致，这个没这问题。）
 - **只在 Codex 里能用。** Claude Code 不读 `~/.codex/skills/`，在 Claude 会话里说破天也调不出来。
 
 ---
@@ -44,19 +45,19 @@ Codex **自动发现**这个目录，`config.toml` 里不需要登记任何东�
 ### ③ 兜底：直接让它读
 
 ```
-读 C:\Users\Administrator\.codex\skills\aigc-topic-cover-factory\SKILL.md，然后照着做
+读 %USERPROFILE%\.codex\skills\aigc-topic-cover-factory\SKILL.md，然后照着做
 ```
 
 ---
 
 ## 三、开工前确认一次
 
-| 项 | 状态 | 不对时怎么办 |
+| 项 | 怎么查 | 缺了怎么办 |
 |---|---|---|
-| `pillow` `numpy` `httpx` `playwright` | ✅ 已装 | `pip install pillow numpy httpx playwright` |
-| Chromium | ✅ 已装（151.0.7922.34） | `python -m playwright install chromium` |
-| 中文粗黑体 | ✅ `NotoSansSC-VF` (Black) | 见「排错」 |
-| 小红书登录态 | ✅ `~/.xhs_profile` 有 `web_session` | `python scripts/xhs_fetch.py login` 扫码 |
+| `pillow` `numpy` `httpx` `playwright` | `pip list` 里查 | `pip install pillow numpy httpx playwright` |
+| Chromium（Playwright 用） | 首次 fetch 会报缺 | `python -m playwright install chromium` |
+| 中文粗黑体 | Win 一般自带 `NotoSansSC-VF` / `msyhbd.ttc` | 见「排错」 |
+| 小红书登录态 | 看有没有 `%USERPROFILE%\.xhs_profile` | `python scripts/xhs_fetch.py login` 扫码 |
 
 登录态会过期。**过期的表现是 `fetch` 报「登录态已失效」并停下**，不会静默抓垃圾回来。
 
@@ -64,12 +65,20 @@ Codex **自动发现**这个目录，`config.toml` 里不需要登记任何东�
 
 ## 四、完整跑一遍
 
-### 0. 先建一个工作目录
+### 0. 先建工作目录，并把 skill 路径存成变量
 
-脚本用的都是**相对路径**，所以先 `cd` 到你要放东西的地方：
+脚本用的都是**相对路径**，所以先 `cd` 到你要放东西的地方；再把 skill 路径存起来，后面几步就不用反复写长路径：
 
-```bash
-mkdir E:\封面项目\260910_AI副业 && cd E:\封面项目\260910_AI副业
+```bat
+:: cmd.exe
+mkdir E:\封面项目\260910_AI副业 && cd /d E:\封面项目\260910_AI副业
+set SK=%USERPROFILE%\.codex\skills\aigc-topic-cover-factory
+```
+
+```powershell
+# PowerShell（%VAR% 在 PS 里不展开，得用这个写法）
+mkdir E:\封面项目\260910_AI副业; cd E:\封面项目\260910_AI副业
+$SK = "$env:USERPROFILE\.codex\skills\aigc-topic-cover-factory"
 ```
 
 ### 1. 让 Codex 产选题
@@ -99,9 +108,8 @@ mkdir E:\封面项目\260910_AI副业 && cd E:\封面项目\260910_AI副业
 
 ### 2. 采集背景素材
 
-```bash
-python C:\Users\Administrator\.codex\skills\aigc-topic-cover-factory\scripts\xhs_fetch.py ^
-  fetch --topics topics.json --out 01_素材 -n 12
+```bat
+python %SK%\scripts\xhs_fetch.py fetch --topics topics.json --out 01_素材 -n 12
 ```
 
 实测输出：
@@ -119,22 +127,22 @@ python C:\Users\Administrator\.codex\skills\aigc-topic-cover-factory\scripts\xhs
 
 ### 3. 合成封面矩阵
 
-```bash
-python ...\scripts\make_covers.py --topics topics.json --material 01_素材 --out 02_封面 --variants 5
+```bat
+python %SK%\scripts\make_covers.py --topics topics.json --material 01_素材 --out 02_封面 --variants 5
 ```
 
 产出 `02_封面/<id>/<id>.<n>.jpg`，即每条选题 × 5 张背景。
 
 调文案时不用等整批，单图试排：
 
-```bash
-python ...\scripts\make_covers.py --topics topics.json --only 01 --bg 某张图.jpg --out 试排
+```bat
+python %SK%\scripts\make_covers.py --topics topics.json --only 01 --bg 某张图.jpg --out 试排
 ```
 
 ### 4. 拼审图大图，你来挑
 
-```bash
-python ...\scripts\contact_sheet.py --covers 02_封面 --out 03_审图 --cols 5 --rows 4
+```bat
+python %SK%\scripts\contact_sheet.py --covers 02_封面 --out 03_审图 --cols 5 --rows 4
 ```
 
 产出带编号的大图。**打开看，报编号就行**——20 条 × 5 张 = 100 张，一张张点开不现实。
