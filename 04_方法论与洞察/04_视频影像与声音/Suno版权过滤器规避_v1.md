@@ -1,8 +1,8 @@
 ---
-tags: [类型/工程经验, 工具/Suno_Custom_Mode, 重要度/⭐⭐]
+tags: [类型/IP视觉, 工具/Suno_Custom_Mode, 重要度/⭐⭐]
 ---
 
-# Suno Custom Mode 版权过滤器规避 · v1
+# Suno Custom Mode 版权过滤器规避
 
 > 入档：2026-05-19
 > 触发：29《扔掉》Custom Mode 跑歌时副歌 hook "再少年" 撞名拦截

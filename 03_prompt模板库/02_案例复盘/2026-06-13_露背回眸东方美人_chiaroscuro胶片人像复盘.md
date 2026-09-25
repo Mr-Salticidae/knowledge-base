@@ -1,7 +1,7 @@
 ---
 tags: [类型/prompt模板]
 ---
-# 笔记 · 露背回眸东方美人 chiaroscuro 胶片人像复盘
+# 露背回眸东方美人 chiaroscuro 胶片人像复盘
 
 > 入档:2026-06-13
 > 性质:Midjourney 图片提示词复盘 + 与浴缸版的家族内 A/B 对照,不是比赛结果复盘
@@ -157,3 +157,9 @@ Museum quality fine art portraiture photograph, quiet contemplative moment, sunl
 - [[东方美人五官堆叠基础句]] —— 两版共用的五官词块模板
 - [[主体不看镜头律]] —— 偷瞥(本图)vs 邀请(浴缸版)
 - [[光暗作为空间叙事工具]] —— chiaroscuro 的另一种用法(切空间 vs 塑体积)
+
+---
+
+## 关联文档
+
+- 所属索引:[[03_prompt模板库索引]]

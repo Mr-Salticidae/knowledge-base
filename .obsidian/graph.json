@@ -55,6 +55,20 @@
         "a": 1,
         "rgb": 10506797
       }
+    },
+    {
+      "query": "tag:#类型/skill存档",
+      "color": {
+        "a": 1,
+        "rgb": 1482885
+      }
+    },
+    {
+      "query": "tag:#类型/平台工程",
+      "color": {
+        "a": 1,
+        "rgb": 15277667
+      }
     }
   ],
   "collapse-display": true,

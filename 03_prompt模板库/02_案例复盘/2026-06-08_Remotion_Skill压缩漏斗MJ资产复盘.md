@@ -1,7 +1,7 @@
 ---
 tags: [类型/prompt模板]
 ---
-# 笔记 · Remotion Skill 压缩漏斗 MJ 资产复盘
+# Remotion Skill 压缩漏斗 MJ 资产复盘
 
 > 入档:2026-06-08
 > 性质:本人 Midjourney 资产组决策复盘 / Remotion v0.2 外部视觉资产试验

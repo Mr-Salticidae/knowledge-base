@@ -2,7 +2,7 @@
 tags: [类型/IP视觉, 工具/Suno, 主题/配乐]
 ---
 
-# 参考曲复刻法 · reference 曲 → Suno 提示词 · v1
+# 参考曲复刻法 · reference 曲 → Suno 提示词
 
 > 入档：2026-07-01
 > 触发：50 号案例配乐，用户给出参考曲《Discombobulate》(Hans Zimmer)，两轮迭代（v1 太吵 → v2 大气）命中

@@ -1,5 +1,5 @@
 ---
-tags: [类型/复盘, 工具/Midjourney, 主题/虚拟形象, 主题/人像prompt]
+tags: [类型/协作工具链, 工具/Midjourney, 主题/虚拟形象, 主题/人像prompt]
 入档: 2026-06-04
 ---
 
@@ -125,3 +125,9 @@ Surreal studio portrait of a 25-year-old East Asian male AI researcher, youthful
 - [ ] 用 `--cref` 锁定已出的优质脸型，做角色一致性延伸（不同场景/服装）
 - [ ] 尝试 personalize 之外的 `--sref` 风格参考，看能否进一步稳定双面材质效果
 - [ ] 验证"层次感纹理背头"描述词是否可复用于其他人像项目
+
+---
+
+## 关联文档
+
+- 所属索引:[[04_方法论与洞察索引]]

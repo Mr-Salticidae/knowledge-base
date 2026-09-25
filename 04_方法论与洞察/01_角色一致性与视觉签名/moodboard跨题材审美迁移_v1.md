@@ -1,5 +1,5 @@
 ---
-tags: [类型/工具方法, 工具/Midjourney, 主题/moodboard, 主题/审美基底]
+tags: [类型/核心方法论, 工具/Midjourney, 主题/moodboard, 主题/审美基底]
 ---
 
 # moodboard 跨题材审美迁移（人物 moodboard 当通用审美增强器）
@@ -95,8 +95,7 @@ moodboard 会把**内容倾向**（人体 / 裸露质感）也泄漏进主体，
 
 ---
 
-## 关联
-
+## 关联文档
 - moodboard 工作流：[[personalize与moodboard分工]] · [[moodboard拉力陷阱_v1]] · [[sref纯净性原则]]
 - 审美 vs 可读的正交关系：[[闪电战冷读者校准律_v1]]（moodboard 管美学上限，冷读者律管可读下限）
 - 审核机制：[[AI图像生成审核机制探索笔记]]

@@ -1,7 +1,7 @@
 ---
 tags: [类型/档案, 工具/Seedance, 工具/Flova, 主题/图生视频]
 ---
-# Seedance 2.5 行为规律 v1
+# Seedance 2.5 行为规律
 
 > **数据来源**：主体为《1000人后室大逃亡》项目 2026-08-05 ～ 08-08 的实测，
 > 原始记录在 `E:\backrooms-1000\production\README.md`（第一～第十一条）与 `production/prompts/`。

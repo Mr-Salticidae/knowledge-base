@@ -341,3 +341,9 @@ impact before the reverb tail fades out.
 如果做出什么作品,欢迎来找我聊聊。
 
 — 跳蛛先生
+
+---
+
+## 关联文档
+
+- 所属索引:[[04_方法论与洞察索引]]

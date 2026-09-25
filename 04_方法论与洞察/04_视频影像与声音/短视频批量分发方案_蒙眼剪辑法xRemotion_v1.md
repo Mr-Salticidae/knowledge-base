@@ -1,7 +1,7 @@
 ---
 tags: [类型/协作工具链, 工具/Remotion, 工具/ElevenLabs, 工具/Whisper, 平台/抖音, 平台/B站, 平台/快手]
 ---
-# 短视频批量分发方案 · 蒙眼剪辑法 × Remotion × 抖音/B站/快手 (v1)
+# 短视频批量分发方案 · 蒙眼剪辑法 × Remotion × 抖音/B站/快手
 
 > 入档:2026-06-26
 > 触发项目:《反诈柜台 The Fraud Desk》(单文件 HTML/JS 反诈 web 游戏,314 案件,竖屏手机界面)

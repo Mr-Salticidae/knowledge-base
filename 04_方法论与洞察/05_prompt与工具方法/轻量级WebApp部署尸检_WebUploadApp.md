@@ -1,5 +1,5 @@
 ---
-tags: [类型/协作工具链, 类型/工作流方法论, 工具/Flask, 工具/Nginx]
+tags: [类型/协作工具链, 工具/Flask, 工具/Nginx]
 ---
 # 轻量级 WebApp 部署复盘：WebUploadApp
 

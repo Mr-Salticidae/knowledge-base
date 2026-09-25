@@ -176,3 +176,9 @@ BAILIAN_API_KEY: sk-sp-...
 | 百炼 Anthropic 兼容 | `https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic` | — | — | — | — | Anthropic 协议，DSH 未接入 |
 
 > 百炼 Token Plan 的 API Key 以 `sk-sp-` 开头，与百炼通用 API Key（`sk-` 开头）格式不同，两者不可混用，必须配套使用各自的 Base URL。
+
+---
+
+## 关联文档
+
+- 所属索引:[[09_平台工程索引]]

@@ -87,3 +87,9 @@ cinematic still from a 1990s East Asian state broadcast satellite weather monito
 ## 文档版本
 
 - v1 - 2026-05-14 - 异界气象台 minitest 制作期建档
+
+---
+
+## 关联文档
+
+- 所属索引:[[01_sref档案索引]]

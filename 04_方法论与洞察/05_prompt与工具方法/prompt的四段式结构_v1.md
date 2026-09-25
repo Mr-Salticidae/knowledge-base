@@ -1,8 +1,8 @@
 ---
-tags: [类型/方法论, 工具/MJ, 通用/prompt工程, 模板]
+tags: [类型/协作工具链, 工具/MJ, 通用/prompt工程, 模板]
 ---
 
-# prompt 的四段式结构 · v1
+# prompt 的四段式结构
 
 > 入档：2026-05-20
 > 触发：2026-05-19 闪电战 R2 海屿你获奖图定稿 prompt 的结构提炼
@@ -218,3 +218,9 @@ shot on medium format film fine grain high detail museum quality
 升级触发：
 - 多个独立案例验证后升 v2
 - 跨工具验证（Suno 等）
+
+---
+
+## 关联文档
+
+- 所属索引:[[04_方法论与洞察索引]]

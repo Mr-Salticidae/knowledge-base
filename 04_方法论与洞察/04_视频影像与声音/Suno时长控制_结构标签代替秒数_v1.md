@@ -1,8 +1,8 @@
 ---
-tags: [类型/方法论, 工具/Suno, 领域/配乐]
+tags: [类型/IP视觉, 工具/Suno, 领域/配乐]
 状态: ✅50号快版首验通过(2026-07-02)
 ---
-# Suno 时长控制:结构标签代替秒数 v1
+# Suno 时长控制:结构标签代替秒数
 
 > 一句话律:**Suno 听不懂"60秒",但数得清段落——时长不是参数,是结构标签数量的副产品。**
 
@@ -66,8 +66,7 @@ Simple Mode 不吃结构标签 → **时长控制天然属于 Custom Mode 阶段
 - [SongSmith: Song Endings Cheat Sheet](https://songsmith.studio/blog/suno-song-endings-cheat-sheet)([End] 用法)
 - [TagASong: Outro Tags](https://tagasong.com/music-tag-library/structure/outros/)(Outro 变体)
 
-## 双链
-
+## 关联文档
 - [[方法论笔记_Suno两阶段工作流_v1]](时长控制归入 Custom 阶段)
 - [[参考曲复刻法_reference曲到Suno提示词_v1]]
 - [[音频也能蒙眼剪辑_突然静音是剪出来的_v1]](同族:Suno 分布外的东西要么剪出来,要么用标签逼出来)
