@@ -253,6 +253,6 @@ MJ Prompt
 
 - Skill 基础说明：[[SKILL入门完全指南_v1]]
 - Skill 到视频工作流：[[AIGC_Skill到Remotion视频闭环_v1]]
-- 国内平台适配案例：[[maieutic-deepseek-adapter/README|maieutic-deepseek-adapter/README.md]]
+- 国内平台适配案例：[[maieutic-deepseek-adapter/README|maieutic-deepseek-adapter 说明]]
 - 工作流规划参考：[[LLM-plan卡点工作流_v1]]
 - 原始底料：`{Downloads}/Coze技能包创建小白操作手册.md`

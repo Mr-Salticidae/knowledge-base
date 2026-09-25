@@ -6,7 +6,7 @@
 > Started 2026-05-02 · Design principles: **Less is more · Update as you use · No filler**
 
 > [!NOTE]
-> This page is a translated overview. The notes themselves are written in Simplified Chinese, and the [Chinese README](README.md) is the canonical, continuously updated map of content (MOC).
+> This page is a translated overview. The notes themselves are written in Simplified Chinese; the [Chinese README](README.md) and the folder indexes are the canonical, continuously updated maps.
 > This page is intentionally a stable guide. It explains what is here and where to start, and does not mirror every new note. Last synced: 2026-09-25.
 
 This is the public AIGC methodology knowledge base of 跳蛛先生 / Mr. Jumping Spider. It records reusable insights from AI image, video and music creation, character consistency, retrospectives, and human–AI collaboration workflows.
@@ -76,7 +76,7 @@ These words appear in file names all the time:
 
 ## How to use this knowledge base
 
-1. **On GitHub**, start from the folder indexes: [Prompt template library index](03_prompt模板库/03_prompt模板库索引.md) and [Methodology & insights index](04_方法论与洞察/04_方法论与洞察索引.md).
+1. **On GitHub**, start from the knowledge map below. Every folder links to its index, which lists everything in it.
 2. **In Obsidian**, clone the repository and open the folder as a vault. [README.md](README.md) is the entry map (MOC). Press `Ctrl+G` for the graph view.
 3. **Follow the links.** The `关联文档` (related documents) section at the bottom of each note is a doorway to the next idea.
 
@@ -84,107 +84,96 @@ These words appear in file names all the time:
 
 ## Knowledge map
 
-A condensed version of the 13 threads in the [Chinese MOC](README.md). Each thread lists a few entry points; the Chinese README has the full list.
+Organized by folder, mirroring the [Chinese README](README.md). Each folder links to its index, which lists everything in it; only a few entry points are shown here.
 
-### 1. Character consistency ⭐
-
-The thickest thread, running from top-level methodology down to specific parameter tests.
-
-- ⭐ [角色一致性金字塔](04_方法论与洞察/01_角色一致性与视觉签名/角色一致性金字塔_v1.md): the Character Consistency Pyramid, a 4-layer model (sref / oref–seed–descriptors / personalize–moodboard)
-- [参数行为档案 folder](02_参数行为档案/): hands-on tests of `--ow`, `--seed`, multi-sref and more
-
-### 2. sref profiles
+### 01 · sref profiles → [index](01_sref档案/01_sref档案索引.md)
 
 One "temperament profile" per Midjourney `--sref` code.
 
-- ⭐ [sref编号独立律](04_方法论与洞察/01_角色一致性与视觉签名/sref编号独立律_v1.md): every sref code is an independent photographer. When you hit a wall, change the signature before you change the tool.
-- [01_sref档案 folder](01_sref档案/): the individual profiles
+- ⭐ [sref编号独立律_v1](04_方法论与洞察/01_角色一致性与视觉签名/sref编号独立律_v1.md): every sref code is an independent photographer. When you hit a wall, change the signature before you change the tool.
 
-### 3. Tool behavior profiles
+### 02 · Parameter & model behavior → [index](02_参数行为档案/02_参数行为档案索引.md)
 
-How specific model versions actually behave: Midjourney v8.1 / v8.2 / niji, Kling 3.0, Suno v5.5, ElevenLabs v3, and platforms such as Flova.
+How specific model versions and parameters actually behave: Midjourney (`--ow`, `--seed`, multi-sref, v8.1 / v8.2 / niji), Kling, Seedance, Suno, ElevenLabs, and platforms such as Flova.
 
 - [MJ_v8.2_行为档案_v1](02_参数行为档案/MJ_v8.2_行为档案_v1.md): Midjourney v8.2 behavior profile
 - [可灵Kling3_0_行为规律_v1](02_参数行为档案/可灵Kling3_0_行为规律_v1.md): Kling 3.0 image-to-video, four iron rules and three red lines
 - [Suno_v5.5_行为规律_v1](02_参数行为档案/Suno_v5.5_行为规律_v1.md): Suno v5.5 for soundtracks
 
-### 4. Prompt templates & retrospectives
+### 03 · Prompt template library → [index](03_prompt模板库/03_prompt模板库索引.md)
 
-Reusable base phrases, a moderation-safe vocabulary list, and retrospectives of award-winning images from prompt battles, including entries that lost.
+Reusable base phrases, a moderation-safe vocabulary list, process specs, and retrospectives of award-winning images from prompt battles, including entries that lost.
 
-- [03_prompt模板库索引](03_prompt模板库/03_prompt模板库索引.md): index of templates, case retrospectives and process specs
-- ⭐ [OVA怀旧基础句](03_prompt模板库/01_prompt模板/OVA怀旧基础句_v1.md): base phrase for late-1980s Japanese OVA nostalgia (verified three times)
-- [东方美人五官堆叠基础句](03_prompt模板库/01_prompt模板/东方美人五官堆叠基础句_v1.md): facial-feature stacking block for East Asian beauty portraits
+- ⭐ [OVA怀旧基础句_v1](03_prompt模板库/01_prompt模板/OVA怀旧基础句_v1.md): base phrase for late-1980s Japanese OVA nostalgia (verified three times)
+- ⭐⭐⭐ [东方美人五官堆叠基础句_v1](03_prompt模板库/01_prompt模板/东方美人五官堆叠基础句_v1.md): facial-feature stacking block for East Asian beauty portraits
 
-### 5. Style, medium & aesthetics
+### 04 · Methodology & insights → [index](04_方法论与洞察/04_方法论与洞察索引.md)
 
-Includes two sub-threads: **5·B surreal themes** and **5·C breaking out of saturated ("red ocean") themes**.
+Higher-level insights and AI behavior phenomena, in eight sub-areas.
 
-- [04_方法论与洞察索引](04_方法论与洞察/04_方法论与洞察索引.md): index of all methodology notes
-- ⭐ [生成式vs编辑式工具选择律_v1](04_方法论与洞察/05_prompt与工具方法/生成式vs编辑式工具选择律_v1.md): to change one spot, use an editing model; to create a whole image, use a generative one
-- ⭐⭐ [指定对象与气质描述_生成路径分岔律_v1](04_方法论与洞察/05_prompt与工具方法/指定对象与气质描述_生成路径分岔律_v1.md): does the audience need to *recognize* the named work or character? If yes, only cloning / image-to-image preserves it
-- ⭐ [标签相同不等于行为相同_第三方代跑平台律_v1](04_方法论与洞察/05_prompt与工具方法/标签相同不等于行为相同_第三方代跑平台律_v1.md): the same model name on a third-party platform is not the same capability. Check the channel, don't trust your eyes.
-- ⭐ [超现实主题的冷热两种处理路径](04_方法论与洞察/03_超现实与主题破局/超现实主题的冷热两种处理路径_v1.md): the cold and warm paths for surreal themes
-- ⭐ [红海主题的三条破局路径](04_方法论与洞察/03_超现实与主题破局/红海主题的三条破局路径_v1.md): three ways out of a saturated theme: concept, visual spectacle, scarce medium
+**01 Character consistency & visual signatures**: the thickest thread, from top-level methodology down to parameter tests.
 
-### 6. Video, film & editing
+- ⭐ [角色一致性金字塔_v1](04_方法论与洞察/01_角色一致性与视觉签名/角色一致性金字塔_v1.md): the Character Consistency Pyramid, a 4-layer model (sref / oref–seed–descriptors / personalize–moodboard)
 
-Image-to-video, the "blindfold editing" method (AI drafts the edit, a human reviews it), sound design, TTS quality checks, and full-pipeline retrospectives of short films and MVs.
+**02 Style, aesthetics & image rules**
+
+- [AI甜妹脸vs复古东方美人_v1](04_方法论与洞察/02_风格审美与画面律/AI甜妹脸vs复古东方美人_v1.md): the "sweet AI face" vs. retro East Asian beauty; personalize switches between the two tracks
+- [主体不看镜头律_v1](04_方法论与洞察/02_风格审美与画面律/主体不看镜头律_v1.md): in intimate or immersive themes, the subject does not look at the camera
+
+**03 Surrealism & breaking out of saturated ("red ocean") themes**
+
+- ⭐ [超现实主题的冷热两种处理路径_v1](04_方法论与洞察/03_超现实与主题破局/超现实主题的冷热两种处理路径_v1.md): the cold and warm paths for surreal themes
+- ⭐ [红海主题的三条破局路径_v1](04_方法论与洞察/03_超现实与主题破局/红海主题的三条破局路径_v1.md): three ways out of a saturated theme: concept, visual spectacle, scarce medium
+
+**04 Video, film & sound**: image-to-video, the "blindfold editing" method (AI drafts the edit, a human reviews it), sound design, TTS quality checks, and full-pipeline retrospectives of short films and MVs.
 
 - [蒙眼剪辑法_方法论笔记_v1](04_方法论与洞察/04_视频影像与声音/蒙眼剪辑法_方法论笔记_v1.md): the blindfold editing method
 - [图生视频_ForwardOnly原则_v1](04_方法论与洞察/04_视频影像与声音/图生视频_ForwardOnly原则_v1.md): the forward-only principle for image-to-video
-- [跨镜道具锁定律_资产图优于形容词_v1](04_方法论与洞察/04_视频影像与声音/跨镜道具锁定律_资产图优于形容词_v1.md): a prop that appears in two or more shots needs its own reference image, not adjectives
+- ⭐⭐ [跨镜道具锁定律_资产图优于形容词_v1](04_方法论与洞察/04_视频影像与声音/跨镜道具锁定律_资产图优于形容词_v1.md): a prop that appears in two or more shots needs its own reference image, not adjectives
 
-### 7. IP visual systems
+**05 Prompt & tool methods**
 
-- ⭐ [檐下IP_视觉系统_v1](05_视觉系统/檐下IP_视觉系统_v1.md): "Under the Eaves", a classical-style girl IP (seal, typeface, layout)
-- ⭐ [R-07_IP_视觉系统_v1](05_视觉系统/R-07_IP_视觉系统_v1.md): R-07, a forgotten robot singing in the ruins
+- ⭐ [生成式vs编辑式工具选择律_v1](04_方法论与洞察/05_prompt与工具方法/生成式vs编辑式工具选择律_v1.md): to change one spot, use an editing model; to create a whole image, use a generative one
+- ⭐⭐ [指定对象与气质描述_生成路径分岔律_v1](04_方法论与洞察/05_prompt与工具方法/指定对象与气质描述_生成路径分岔律_v1.md): does the audience need to *recognize* the named work or character? If yes, only cloning / image-to-image preserves it
+- ⭐ [标签相同不等于行为相同_第三方代跑平台律_v1](04_方法论与洞察/05_prompt与工具方法/标签相同不等于行为相同_第三方代跑平台律_v1.md): the same model name on a third-party platform is not the same capability. Check the channel, don't trust your eyes.
 
-### 8. Collaboration & toolchain
+**06 Collaboration, operations & publishing**: working with Claude Code, Codex, GPT and other tools; delivery discipline; and the voting psychology of peer-voted prompt battles.
 
-Working with Claude Code, Codex, GPT and other tools; delivery discipline; and the voting psychology of peer-voted prompt battles.
-
-- ⭐ [交付前实测证伪律_v1](04_方法论与洞察/06_协作运营与发布/交付前实测证伪律_v1.md): before delivering, write a minimal probe that tries to falsify the solution
 - ⭐⭐⭐ [可行性生死线前置律_移植先探一票否决约束_v1](04_方法论与洞察/06_协作运营与发布/可行性生死线前置律_移植先探一票否决约束_v1.md): when porting or switching platforms, probe the one constraint that can veto the whole project first
 - ⭐⭐ [开工前先对基线律_v1](04_方法论与洞察/06_协作运营与发布/开工前先对基线律_v1.md): check the baseline (`git fetch`) before writing the first line
+- ⭐ [交付前实测证伪律_v1](04_方法论与洞察/06_协作运营与发布/交付前实测证伪律_v1.md): before delivering, write a minimal probe that tries to falsify the solution
 - ⭐ [入场票框架_v1](04_方法论与洞察/06_协作运营与发布/入场票框架_v1.md): what makes a "good work": a recognizable concept × an entry ticket
 
-### 9. Code assets
+**07 AI theory & creative philosophy**
 
-Python scripts, cover-layout templates, an MV production pipeline, a beat-tapping web tool and more.
-
-- [代码资产索引](06_代码/代码资产索引.md): index of all code assets
-
-### 10. AI theory & creative philosophy
-
-Reading notes and reflective pieces on how models work and where the creator stands.
-
-- [低频退化与频率定律](04_方法论与洞察/07_AI理论与创作哲学/低频退化与频率定律_v1.md): models understand the *statistical distribution* of language
 - ⭐ [压缩保留簇丢弃孤例_v1](04_方法论与洞察/07_AI理论与创作哲学/压缩保留簇丢弃孤例_v1.md): what survives in a model is decided by cluster density, not by "niche vs. mainstream"
+- [低频退化与频率定律_v1](04_方法论与洞察/07_AI理论与创作哲学/低频退化与频率定律_v1.md): models understand the *statistical distribution* of language
 
-### 11. Skill archive
-
-Tested agent skills archived verbatim with version history.
-
-- [07_skill存档索引](07_skill存档/07_skill存档索引.md): archive entry and list of archived skills
-- [SKILL_INDEX](07_skill存档/SKILL_INDEX.md): how the skills are mounted and used
-
-### 12. Platform engineering
-
-Engineering methods, architecture patterns and pitfalls from building the showcase site and other content platforms: static sites with accounts, deployment, CI, networking.
-
-- [09_平台工程索引](09_平台工程/09_平台工程索引.md): platform engineering index
-
-### 13. General-interest research
-
-Classic experiments from social psychology and behavioral science, plus fact-checks of viral AI claims.
+**08 General-interest research**: classic experiments from social psychology and behavioral science, plus fact-checks of viral AI claims.
 
 - [复印机实验_安慰剂式理由与无意识顺从_v1](04_方法论与洞察/08_通识与趣味研究/复印机实验_安慰剂式理由与无意识顺从_v1.md): Langer's 1978 photocopier experiment on "placebic" reasons
 - [AI心理测量实验PsAIch_角色扮演不是内心独白_v1](04_方法论与洞察/08_通识与趣味研究/AI心理测量实验PsAIch_角色扮演不是内心独白_v1.md): the PsAIch study. A role-play is not an inner monologue.
 
-### Public-facing pieces
+### 05 · Visual systems → [index](05_视觉系统/05_视觉系统索引.md)
 
-[08_对外分发索引](08_对外分发/08_对外分发索引.md): standalone articles and tutorials for students and readers. They have no wikilinks and can be shared as-is.
+- ⭐ [檐下IP_视觉系统_v1](05_视觉系统/檐下IP_视觉系统_v1.md): "Under the Eaves", a classical-style girl IP (seal, typeface, layout)
+- ⭐ [R-07_IP_视觉系统_v1](05_视觉系统/R-07_IP_视觉系统_v1.md): R-07, a forgotten robot singing in the ruins
+
+### 06 · Code → [index](06_代码/代码资产索引.md)
+
+Python scripts, cover-layout templates, an MV production pipeline, a beat-tapping web tool and more.
+
+### 07 · Skill archive → [index](07_skill存档/07_skill存档索引.md)
+
+Tested agent skills archived verbatim with version history. How they are mounted and used: [SKILL_INDEX](07_skill存档/SKILL_INDEX.md).
+
+### 08 · Public-facing pieces → [index](08_对外分发/08_对外分发索引.md)
+
+Standalone articles and tutorials for students and readers. They have no wikilinks and can be shared as-is.
+
+### 09 · Platform engineering → [index](09_平台工程/09_平台工程索引.md)
+
+Engineering methods, architecture patterns and pitfalls from building the showcase site and other content platforms: static sites with accounts, deployment, CI, networking.
 
 ---
 
@@ -192,7 +181,7 @@ Classic experiments from social psychology and behavioral science, plus fact-che
 
 ```
 knowledge-base/
-├── 00_仓库维护/            repository maintenance: audits, PR checklist, compliance script
+├── 00_仓库维护/            repository maintenance: writing conventions, PR checklist, compliance script
 ├── 01_sref档案/            one file per Midjourney sref code: its "temperament"
 ├── 02_参数行为档案/         parameter & model behavior profiles (ow / seed / multi-sref / models)
 ├── 03_prompt模板库/         reusable prompt blocks + retrospectives
@@ -213,7 +202,7 @@ knowledge-base/
 ├── 07_skill存档/            tested skills, archived verbatim with versions
 ├── 08_对外分发/             standalone public-facing pieces, ready to share
 ├── 09_平台工程/             engineering for the showcase site and content platforms
-├── README.md               the canonical Chinese MOC
+├── README.md               the Chinese navigation page
 └── README.<lang>.md        translated overviews (this page)
 ```
 
@@ -221,11 +210,11 @@ knowledge-base/
 
 ## Five core rules
 
-1. **Every file stands on its own.** The README is the only map.
+1. **No insight, no note.** Not every exploration has to be written down.
 2. **Update before you create.** Check whether an existing note can take the new content first.
 3. **Every note has a "how to use" and a "related documents" section.** The first makes it a tool; the second keeps it from being an island in the graph.
 4. **Reference the source work, don't copy it.**
-5. **No insight, no note.** Not every exploration has to be written down.
+5. **Register in one place.** Full lists live in each folder's index; the README only navigates and lists hub notes. No dated changelogs: git history is the changelog.
 
 ---
 
@@ -233,7 +222,7 @@ knowledge-base/
 
 Pull requests are welcome. Every PR runs an automated compliance check that looks for absolute paths from other machines, misaligned index columns, and wikilink / frontmatter issues. Foreign paths fail the check and the rest are hints; either way it is a pre-review warning, not a merge gate. Maintainers then review with the [PR review checklist](00_仓库维护/外来提交PR审核清单.md) (Chinese).
 
-New notes follow the conventions in the [Chinese README](README.md): a single `类型/…` tag in the frontmatter, a `关联文档` section, and globally unique file names.
+New notes follow the [writing conventions](00_仓库维护/知识库写作规范.md) (Chinese): file naming, a single `类型/…` tag in the frontmatter, a `关联文档` section, and registration in the folder index.
 
 ---
 

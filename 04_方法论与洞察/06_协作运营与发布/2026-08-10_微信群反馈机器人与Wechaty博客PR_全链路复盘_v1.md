@@ -1,12 +1,5 @@
 ---
-tags: [类型/协作工具链]
-tags:
-  - 类型/协作工具链
-  - 工具/Wechaty
-  - 工具/GitHub CLI
-  - 主题/微信机器人
-  - 主题/开源贡献
-  - 来源/pb-arena
+tags: [类型/协作工具链, 工具/Wechaty, 工具/GitHub CLI, 主题/微信机器人, 主题/开源贡献, 来源/pb-arena]
 ---
 # 微信群反馈机器人与 Wechaty 博客 PR：全链路复盘
 

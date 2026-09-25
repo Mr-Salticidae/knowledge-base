@@ -1,7 +1,7 @@
 ---
 tags: [类型/协作工具链, 主题/prompt工程, 主题/skill使用, 工具/Claude, 工具/Codex]
 入档: 2026-07-17
-整合自: [[SKILL入门完全指南_v1]] · [[07_skill存档/maieutic-skill/SKILL.md]] · [[07_skill存档/prompt-master/SKILL.md]] · [[07_skill存档/SKILL_INDEX.md]]
+整合自: "[[SKILL入门完全指南_v1]] · [[07_skill存档/maieutic-skill/SKILL.md]] · [[07_skill存档/prompt-master/SKILL.md]] · [[07_skill存档/SKILL_INDEX.md]]"
 ---
 
 # 不会写 Prompt？两个 Skill 帮你从"脑子里有画面"到"手里有提示词"（学员自助 Q&A）

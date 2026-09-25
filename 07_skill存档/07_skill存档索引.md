@@ -190,20 +190,7 @@ v1.3.0 升级(2026-06-19,第 2 期《童话镇里的纸飞机》上线):`index.h
 
 定位：跨工作区**所有仓库**的一周活动 → 提交给公司的标准三段式周报。四阶段——① 取数（扫盘发现 E 盘所有 git 仓库，对照映射文档剔除外部上游 remotion/video-use；git 抓不到的创作产出与平台数据列清单问作者）→ ② 归集到 4–6 条稳定工作线（公司平台 / 个人创作主业 / 知识库沉淀 / 游戏桌面应用 / 维护）→ ③ 写三段式（本周工作总结按工作线分组加粗关键项；下周计划项目+具体下一步；协助·思考·总结·成长四子块，复发阻塞标「沿用上周」）→ ④ 写入并 commit/push 到 work-reports 仓库。写作护栏：诚实优先、加粗关键信息、公司平台可见、数据带来源不编造。取数命令已实跑验证（上周各仓库提交数与真实周报吻合：taowhale-site 11 / bilibili-ctr 17 / Prompt大师 12 / knowledge-base 52…）。
 
-## 本机部署全景
-
-本索引只登记**自研 skill 的存档版本**。若要查「本机到底装了哪些 skill、分别怎么调用、本体文件在哪」,看:
-
-- [[本机Skill部署与调用手册]] — 2026-07-28 全盘扫描:6 个宿主、186 处安装条目(去重 100 个不同 skill)+ 14 个 Claude Code 内置,逐个给出名称/调用方法/本体文件路径;另附 1640+ 个未安装市场缓存的说明与 5 条维护待办。
-
-## 关联文档
-
-- 全库入口:[[README]]
-- Prompt 入口:[[03_prompt模板库索引]]
-- 方法论入口:[[04_方法论与洞察索引]]
-- 本机部署清单:[[本机Skill部署与调用手册]]
-
-## 2026-06-08 补充入口
+### aigc-poster-layout(2026-06-08)
 
 - [[aigc-poster-layout/SKILL.md]]：AIGC 作品宣传海报手工排版工作流；对应复盘 [[2026-06-08_晴枝3x4宣传海报复盘_v1]]。
 
@@ -287,3 +274,16 @@ v1.1 升级（2026-07-22，对齐公司教程通行体例）：① 新增**四�
 - 本机可执行副本：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`
 
 定位：第三方开源贡献的博客 PR 管道。编码的关键经验——① **旧指南仓库地址会过时**：PR 指南与文档里的 `wechaty/wechaty.js.org` 已更名/重定向为 `wechaty/jekyll`，fork 前必须 `gh repo view <org>/<repo> --json name` 验真名（重定向会返回真实 name）；② **git fetch 报成功≠ref 写入**：Windows Git 2.55 的 ref 存储 bug，`.git/refs/remotes/upstream/` 目录未创建导致 fetch 写不进，`git show-ref` 找不到 `upstream/main`，用 `git checkout -b <branch> $(git ls-remote upstream main | awk '{print $1}')` 拿 hash 直接建分支绕过；③ **SVG 直接用别硬转 PNG**：目标 Jekyll 站点支持 SVG（`grep -r "\.svg" _posts/` 验证），在没有 ImageMagick/cairo/rsvg 的 Windows 环境硬转会卡住（cairosvg 缺 `libcairo-2.dll`、svglib 缺 `rlPyCairo`），转换是优化不是阻塞；④ **Contributor 文件格式以仓库现有样本为准**，不以旧指南为准（实际需要 name/site/avatar/bio/github，avatar 用 `https://avatars.githubusercontent.com/u/<id>?v=4`）。完整复盘与四条可复用方法见 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]；与 [[个人项目免PR直推主分支_v1]] 互为镜像（个人项目免 PR ↔ 第三方开源必走 PR）。
+
+## 本机部署全景
+
+本索引只登记**自研 skill 的存档版本**。若要查「本机到底装了哪些 skill、分别怎么调用、本体文件在哪」,看:
+
+- [[本机Skill部署与调用手册]] — 2026-07-28 全盘扫描:6 个宿主、186 处安装条目(去重 100 个不同 skill)+ 14 个 Claude Code 内置,逐个给出名称/调用方法/本体文件路径;另附 1640+ 个未安装市场缓存的说明与 5 条维护待办。
+
+## 关联文档
+
+- 全库入口:[[README]]
+- Prompt 入口:[[03_prompt模板库索引]]
+- 方法论入口:[[04_方法论与洞察索引]]
+- 本机部署清单:[[本机Skill部署与调用手册]]

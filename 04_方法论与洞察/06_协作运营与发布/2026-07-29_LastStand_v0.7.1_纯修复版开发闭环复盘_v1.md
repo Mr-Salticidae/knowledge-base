@@ -1,12 +1,5 @@
 ---
-tags: [类型/协作工具链]
-tags:
-  - 类型/协作工具链
-  - 工具/Godot
-  - 工具/Claude Code
-  - 主题/独立游戏开发
-  - 主题/纯修复版发布
-  - 来源/LastStand
+tags: [类型/协作工具链, 工具/Godot, 工具/Claude Code, 主题/独立游戏开发, 主题/纯修复版发布, 来源/LastStand]
 ---
 # LastStand v0.7.1 纯修复版：开发闭环复盘
 
