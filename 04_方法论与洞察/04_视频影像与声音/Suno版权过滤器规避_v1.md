@@ -6,7 +6,7 @@ tags: [类型/IP视觉, 工具/Suno_Custom_Mode, 重要度/⭐⭐]
 
 > 入档：2026-05-19
 > 触发：29《扔掉》Custom Mode 跑歌时副歌 hook "再少年" 撞名拦截
-> 关联：[[Suno_v5.5_行为规律]] / `跨会话协作/24_扔掉_音乐共创回执_2026-05-19` §五 / [[Suno两阶段工作流_v1.1]]
+> 关联：[[Suno_v5.5_行为规律_v1]] / `跨会话协作/24_扔掉_音乐共创回执_2026-05-19` §五 / [[Suno两阶段工作流_v1.1]]
 
 ---
 
@@ -148,7 +148,7 @@ Your lyrics contain copyrighted material. Please change it and try again.
 
 ## 关联文档
 
-- 主档：[[Suno_v5.5_行为规律]]
+- 主档：[[Suno_v5.5_行为规律_v1]]
 - 工作流：[[Suno两阶段工作流_v1.1]]
 - 调味技巧：[[Vocal_Gender反选_风格prior_v1]]
 - 协作规则：[[Cowork协作的接口文件模式_v1]]

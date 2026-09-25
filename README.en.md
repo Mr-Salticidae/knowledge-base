@@ -106,7 +106,7 @@ How specific model versions actually behave: Midjourney v8.1 / v8.2 / niji, Klin
 
 - [MJ_v8.2_行为档案_v1](02_参数行为档案/MJ_v8.2_行为档案_v1.md): Midjourney v8.2 behavior profile
 - [可灵Kling3_0_行为规律_v1](02_参数行为档案/可灵Kling3_0_行为规律_v1.md): Kling 3.0 image-to-video, four iron rules and three red lines
-- [Suno_v5.5_行为规律](02_参数行为档案/Suno_v5.5_行为规律.md): Suno v5.5 for soundtracks
+- [Suno_v5.5_行为规律_v1](02_参数行为档案/Suno_v5.5_行为规律_v1.md): Suno v5.5 for soundtracks
 
 ### 4. Prompt templates & retrospectives
 
