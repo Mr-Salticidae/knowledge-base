@@ -130,7 +130,7 @@ tags: [类型/skill存档]
 来源：`Maieutic_Skill_v0.2国内适配任务包.zip` 与 [[maieutic-skill/路线图_MaieuticSkill_v0.2_国内适配]]。当前版本不改动 v0.1 核心 Skill，只把 v0.1 行为迁移成国内模型 / 工作流平台可复制的 prompt 包。
 
 - [[maieutic-deepseek-adapter/SKILL.md]] — 适配包入口
-- [[maieutic-deepseek-adapter/README.md]] — DeepSeek / Dify / Coze / 通义 / 豆包 / Kimi 部署说明
+- [[maieutic-deepseek-adapter/README|maieutic-deepseek-adapter/README.md]] — DeepSeek / Dify / Coze / 通义 / 豆包 / Kimi 部署说明
 - [[maieutic-deepseek-adapter/prompts/system_prompt.md]] — 国内模型 system prompt
 - [[maieutic-deepseek-adapter/prompts/mode_classifier.md]] — 四模式分类规则
 - [[maieutic-deepseek-adapter/prompts/research_trigger.md]] — Research-Assisted 国内环境触发与限制说明
@@ -245,7 +245,7 @@ v1.1 变更：
 来源：本会话「导出飞书文档让小桁发布」的完整实操——从零重建链路（定位 pb-arena CLI → 复用旧会话便携 Node → 发现凭证被 C 盘还原清掉 → 向作者要凭据重建 `~/.feishu/config.json` → `--test` → 发布 → `--grant` 补授权），全程真机走通后封装。
 
 - [[feishu-doc-publish/SKILL.md]] — Claude
-- 依赖工具：pb-arena 仓库 `tools/feishu-doc-sync/sync.mjs`（该 CLI 本身的重建史与 API 链路见其 README；API 实现源自本库 [[06_代码]]/feishu_sync 的真机验证版本）
+- 依赖工具：pb-arena 仓库 `tools/feishu-doc-sync/sync.mjs`（该 CLI 本身的重建史与 API 链路见其 README；API 实现源自本库 06_代码/feishu_sync 的真机验证版本）
 
 定位：把「发布 Markdown 到飞书云文档」固化为可重复流程。编码的关键经验——① **还原盘机器上凭证丢失是常态**，`~/.feishu/config.json` 每次 C 盘还原即清空，凭据本身不变，直接向作者要 App ID/Secret 重建即可；② 便携 Node 优先翻旧会话 scratchpad（`Temp\claude` 下搜 node.exe），别急着重新下载；③ owner_mobile 必填否则作者对自己的文档只读（导入 API 文档归应用所有）；④ 本 CLI 不上传本地图片，含图文档改走 Python 版 feishu_sync；⑤ 发布前必跑 `--test`，坏凭证别进发布流程。
 

@@ -26,7 +26,7 @@ tags: [类型/代码]
 
 - **`BufferSource.onended` 竞态**:暂停→立刻重播时,旧 source 的 onended 异步晚到,会把播放状态误重置为 0。解法:回调里比对 `mySrc !== src` 只认"当前 source"的自然播完。
 - **预览环境 rAF 冻结**:后台 iframe `visibilityState=hidden` 时 `requestAnimationFrame` 完全不跑,时间显示/回放闪光在自动化验证里全是死的,`preview_screenshot` 也超时——正是 [[Claude预览环境不派发滚动事件_滚动类功能无法行为验证_v1]] 的又一次同族再验;退级用 preview_eval 驱动状态机 + DOM 快照完成验证。
-- 编辑器/管道会把 `﻿` 转义**规范化成不可见 BOM 字符**,字符串里要 BOM 用 `String.fromCharCode(0xFEFF)` 全 ASCII 写法最稳(CSV 导出给 Excel 认 UTF-8 用)。
+- 编辑器/管道会把 `\ufeff` 转义**规范化成不可见 BOM 字符**,字符串里要 BOM 用 `String.fromCharCode(0xFEFF)` 全 ASCII 写法最稳(CSV 导出给 Excel 认 UTF-8 用)。
 
 ## 关联
 

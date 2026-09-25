@@ -387,7 +387,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **与相邻 skill 的区别**：`insight-public-post` 管「内核档 → B 站公开帖」的内容改写与体例；本 skill 管「任意成稿 md → 飞书云文档」的发布管道本身，不改写内容。
 
-**关联文档**：pb-arena 仓库 `tools/feishu-doc-sync/README.md` · [[06_代码]]/feishu_sync（Python 版，支持嵌图与知识库全量同步）
+**关联文档**：pb-arena 仓库 `tools/feishu-doc-sync/README.md` · 06_代码/feishu_sync（Python 版，支持嵌图与知识库全量同步）
 
 ---
 
@@ -411,7 +411,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\opportunity-due-diligence\SKILL.md`
 
-**关联文档**：产出样例 [[08_对外分发]]/`海外短剧剪辑拉新副业能不能做_尽调笔记.md` · 出图交给 `report-longimage`
+**关联文档**：产出样例 08_对外分发/`海外短剧剪辑拉新副业能不能做_尽调笔记.md` · 出图交给 `report-longimage`
 
 ---
 
@@ -523,11 +523,11 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-09-09 归档。合成器用「拿对标图当背景复刻同一份文案」的叠合比对法验证过；采集器真机跑通。
 
-**文件路径**：`E:\knowledge-base_skill存档igc-topic-cover-factory_v1.0_SKILL.md`
+**文件路径**：`07_skill存档/aigc-topic-cover-factory_v1.0_SKILL.md`
 
 **随附内容**：`aigc-topic-cover-factory_refs/`（对标版式解析 · 选题钩子公式）；脚本镜像见 `06_代码/AI选题封面工厂/`。
 
-**使用边界**：只做「场景照 + 大字」，**不做人物抠像**（对标正片那层不覆盖）。输出恒为 16:10 B 站封面比例，小红书只是素材来源。追求单张质感请改用 [[aigc-video-cover-gpt_SKILL]] 或 aigc-poster-layout。素材权属由项目方负责。
+**使用边界**：只做「场景照 + 大字」，**不做人物抠像**（对标正片那层不覆盖）。输出恒为 16:10 B 站封面比例，小红书只是素材来源。追求单张质感请改用 aigc-video-cover-gpt_SKILL 或 aigc-poster-layout。素材权属由项目方负责。
 
 **关联文档**：[[代码排版小红书封面工作流_v1]]（版式量化结论）· [[自动化判据取结构不取文案_v1]]（采集侧的坑）· [[07_skill存档索引]]
 

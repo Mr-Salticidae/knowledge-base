@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [类型/核心方法论]
 ---
 # personalize 与 moodboard 的分工

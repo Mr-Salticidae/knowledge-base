@@ -51,7 +51,7 @@ tags: [类型/协作工具链, 主题/视频剪辑, 主题/工具方法]
 
 ## Skill 安装工具的边界（历史记录）
 
-> 注：SkillInstaller / CodexSkillInstaller 工具已于 2026-06-04 退役，改用 [[SKILL_INDEX挂载机制_验证复盘]] 替代。以下为当时的复盘结论，保留作背景记录。
+> 注：SkillInstaller / CodexSkillInstaller 工具已于 2026-06-04 退役，改用 SKILL_INDEX挂载机制_验证复盘 替代。以下为当时的复盘结论，保留作背景记录。
 
 当时的复盘结论：
 
@@ -200,6 +200,6 @@ AI 先给结构
 - 视频生成约束:[[图生视频_ForwardOnly原则]]
 - 图文到视频工作流:[[图片占位到视频替换的工作流_v1]]
 - LLM 规划工作流:[[方法论笔记_LLM-plan卡点工作流_v1]]
-- Skill 挂载机制:[[SKILL_INDEX挂载机制_验证复盘]]
+- Skill 挂载机制:SKILL_INDEX挂载机制_验证复盘
 - 代码资产入口:[[代码资产索引]]
 - 原始笔记底料:`{Downloads}/AIGC_Skill_Exploration_Recap.md`

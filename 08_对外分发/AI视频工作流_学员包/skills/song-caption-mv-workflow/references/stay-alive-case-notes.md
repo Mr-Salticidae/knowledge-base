@@ -1,4 +1,4 @@
-﻿# Stay alive Case Notes
+# Stay alive Case Notes
 
 > 案例日期：2026-06-07
 > 项目：`D:\AIGC工作站\38_Stay alive`

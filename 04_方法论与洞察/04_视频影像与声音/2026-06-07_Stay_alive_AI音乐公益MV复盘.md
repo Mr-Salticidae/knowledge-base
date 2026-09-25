@@ -1,4 +1,4 @@
-﻿---
+---
 tags: [类型/IP视觉, 工具/Suno, 工具/WhisperX]
 ---
 # 2026-06-07 Stay alive AI 音乐公益 MV 复盘

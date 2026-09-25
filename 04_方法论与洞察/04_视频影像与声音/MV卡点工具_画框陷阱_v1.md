@@ -195,7 +195,7 @@ ffmpeg -i input.png -vf "scale=1080:1920:force_original_aspect_ratio=increase,cr
 
 - 上位:[[识别工具天花板的时机]](本条是「天花板」的工程子集)
 - 协作模式:[[Cowork协作的接口文件模式]]
-- 项目复盘:[[2026-05-18_23项目再少年MV完整复盘]]
+- 项目复盘:2026-05-18_23项目再少年MV完整复盘
 - 工具源码:`mv_kadian_tool/video_renderer.py:50`
 
 ---

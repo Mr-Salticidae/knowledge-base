@@ -5,7 +5,7 @@ tags: [类型/IP视觉, 工具/Remotion, 工具/Midjourney, 工具/Seedance]
 
 > 入档:2026-06-08
 > 项目:Skill is All You Need / Remotion v0.2 单场景验证
-> 关联 Skill:[[remotion-skill/SKILL.md]]、[[aigc-prompt-optimizer]]、[[seedance-prompt-en]]
+> 关联 Skill:[[remotion-skill/SKILL.md]]、[[aigc-prompt-optimizer/SKILL.md|aigc-prompt-optimizer]]、seedance-prompt-en
 
 ## 事实记录（不可修改区）
 
