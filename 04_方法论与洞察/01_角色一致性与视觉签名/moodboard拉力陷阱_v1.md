@@ -6,7 +6,7 @@ tags: [类型/核心方法论, 工具/MJ, 状态/已验证]
 > 入档:2026-05-19
 > 触发:23 项目《再少年》5/17 晚 MJ「女鬼事件」
 > 性质:**moodboard 拉的不只是色调,还会拉走画面内容/姿态/情绪——这是 MJ 用户最容易踩的坑**
-> 关联:[[personalize与moodboard分工]] / [[sref纯净性原则]] / [[双工具分工_nano锁脸+MJ摄影质感_v1]]
+> 关联:[[personalize与moodboard分工_v1]] / [[sref纯净性原则_v1]] / [[双工具分工_nano锁脸+MJ摄影质感_v1]]
 
 ---
 
@@ -98,7 +98,7 @@ MJ 的 moodboard 是「reference image」的扩展——MJ 用 CLIP-like embeddi
 ### ❌ 陷阱 2 · 「加 sref 抵消 moodboard」
 
 试图用 `--sref` 去抵消 moodboard 的内容拉力——会导致 sref 编号被污染。
-详见 [[sref编号独立律]]——sref 是用于「风格固化」的,不该和 moodboard 内容博弈。
+详见 [[sref编号独立律_v1]]——sref 是用于「风格固化」的,不该和 moodboard 内容博弈。
 
 ### ❌ 陷阱 3 · 「降低 stylize 让 MJ 不自由发挥」
 
@@ -107,9 +107,9 @@ MJ 的 moodboard 是「reference image」的扩展——MJ 用 CLIP-like embeddi
 
 ---
 
-## 与 [[personalize与moodboard分工]] 的协同
+## 与 [[personalize与moodboard分工_v1]] 的协同
 
-[[personalize与moodboard分工]] 讲的是「**何时用 personalize / 何时用 moodboard**」。
+[[personalize与moodboard分工_v1]] 讲的是「**何时用 personalize / 何时用 moodboard**」。
 本条讲的是「**当你用 moodboard 时,要警惕它的隐性拉力**」。
 
 两条是同一套 MJ 控制系统的两个面:
@@ -147,10 +147,10 @@ MJ 的 moodboard 是「reference image」的扩展——MJ 用 CLIP-like embeddi
 
 ## 关联文档
 
-- 配套陷阱:[[sref编号独立律]] / [[sref纯净性原则]]
-- 工具选择:[[personalize与moodboard分工]] / [[双工具分工_nano锁脸+MJ摄影质感_v1]]
+- 配套陷阱:[[sref编号独立律_v1]] / [[sref纯净性原则_v1]]
+- 工具选择:[[personalize与moodboard分工_v1]] / [[双工具分工_nano锁脸+MJ摄影质感_v1]]
 - 项目复盘:2026-05-18_23项目再少年MV完整复盘
-- 元方法论:[[识别工具天花板的时机]]
+- 元方法论:[[识别工具天花板的时机_v1]]
 - **镜像配对**(2026-08-24):[[参考图缺失维度不可继承律_v1]] —— 本条问「参考图会**多带**什么」,那条问「参考图**给不了**什么」
 - 归类假说(2026-08-24):[[moodboard主体位判据_假说_v1]] 🔬 —— 女鬼事件属「人物题 + 语义相邻」那一格
 

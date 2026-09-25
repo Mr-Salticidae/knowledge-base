@@ -91,7 +91,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\blind-editing-workflow\SKILL.md`
 
-**关联方法论**：[[蒙眼剪辑法_方法论笔记]]
+**关联方法论**：[[蒙眼剪辑法_方法论笔记_v1]]
 
 ---
 
@@ -104,7 +104,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\suno-music-brief\SKILL.md`
 
-**关联方法论**：[[Suno_v5.5_行为规律]] · [[Suno配乐制作分享]]
+**关联方法论**：[[Suno_v5.5_行为规律]] · [[Suno配乐制作分享_v1]]
 
 ---
 
@@ -116,7 +116,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\character-consistency-mj\SKILL.md`
 
-**关联方法论**：[[角色一致性金字塔]] · [[sref编号独立律]] · [[装扮签名vs五官精度]]
+**关联方法论**：[[角色一致性金字塔_v1]] · [[sref编号独立律_v1]] · [[装扮签名vs五官精度_v1]]
 
 ---
 
@@ -128,7 +128,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\content-publish-sop\SKILL.md`
 
-**关联方法论**：[[入场票框架_v1]] · [[快手分发SOP_v1]] · [[网易云发布Brief_通用模板]] · [[网易云音乐人发布SOP_v1]]
+**关联方法论**：[[入场票框架_v1]] · [[快手分发SOP_v1]] · [[网易云发布Brief_通用模板_v1]] · [[网易云音乐人发布SOP_v1]]
 
 ---
 
@@ -140,7 +140,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\aigc-postmortem\SKILL.md`
 
-**关联方法论**：[[复盘事实先行原则]] · [[好流量是好作品的产物_v3.1反思]]
+**关联方法论**：[[复盘事实先行原则_v1]] · [[好流量是好作品的产物_v3.1反思]]
 
 ---
 
@@ -152,7 +152,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\ai-short-film-breakdown\SKILL.md`
 
-**关联方法论**：[[概念推演型AI短片_TotalPixelSpace]] · [[现实悖论型AI短片_Jailbird]] · [[多线交叉型AI短片_TheWindshieldWiper]] · [[强对比型AI短片_IceMerchants]] · [[图生视频_ForwardOnly原则]]
+**关联方法论**：[[概念推演型AI短片_TotalPixelSpace_v1]] · [[现实悖论型AI短片_Jailbird_v1]] · [[多线交叉型AI短片_TheWindshieldWiper_v1]] · [[强对比型AI短片_IceMerchants_v1]] · [[图生视频_ForwardOnly原则_v1]]
 
 ---
 
@@ -166,7 +166,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **与 ai-short-film-breakdown 的区别**：`ai-short-film-breakdown` 偏拉片分析和类型判断；`ai-short-film-screenwriting` 偏从灵感生成方案、诊断故事单薄、设计可制作的短片结构。
 
-**关联方法论**：[[概念推演型AI短片_TotalPixelSpace]] · [[现实悖论型AI短片_Jailbird]] · [[多线交叉型AI短片_TheWindshieldWiper]] · [[强对比型AI短片_IceMerchants]] · [[图生视频_ForwardOnly原则]]
+**关联方法论**：[[概念推演型AI短片_TotalPixelSpace_v1]] · [[现实悖论型AI短片_Jailbird_v1]] · [[多线交叉型AI短片_TheWindshieldWiper_v1]] · [[强对比型AI短片_IceMerchants_v1]] · [[图生视频_ForwardOnly原则_v1]]
 
 ---
 
@@ -178,7 +178,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **文件路径**：`E:\knowledge-base\07_skill存档\remotion\SKILL.md`
 
-**关联方法论**：[[AIGC_Skill到Remotion视频闭环]] · [[SKILL入门完全指南]]
+**关联方法论**：[[AIGC_Skill到Remotion视频闭环_v1]] · [[SKILL入门完全指南_v1]]
 
 ---
 
@@ -195,7 +195,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 - `E:\knowledge-base\07_skill存档\remotion-skill\references\scene-assets.md`
 - `E:\knowledge-base\07_skill存档\remotion-skill\references\remotion-skill-ts-relationship.md`
 
-**关联方法论**：[[AIGC_Skill到Remotion视频闭环]] · [[蒙眼剪辑法_方法论笔记]] · [[SKILL入门完全指南]]
+**关联方法论**：[[AIGC_Skill到Remotion视频闭环_v1]] · [[蒙眼剪辑法_方法论笔记_v1]] · [[SKILL入门完全指南_v1]]
 
 ---
 
@@ -224,7 +224,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **v0.2 路线图**：[[路线图_MaieuticSkill_v0.2_国内适配]]
 
-**关联方法论**：[[对话感_关系产生生命力]] · [[语言形式_思维模式_沟通成本]] · [[SKILL入门完全指南]]
+**关联方法论**：[[对话感_关系产生生命力_v1]] · [[语言形式_思维模式_沟通成本_v1]] · [[SKILL入门完全指南_v1]]
 
 ---
 
@@ -263,7 +263,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **引用文件**：
 - `D:\AIGC工作站\知识库\07_skill存档\song-caption-mv-workflow\references\stay-alive-case-notes.md`
 
-**测试复盘**：[[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
+**测试复盘**：[[2026-06-07_Stay_alive_AI音乐公益MV复盘_v1]]
 
 ---
 
@@ -271,11 +271,11 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **触发词**：「写回执」「回函」「收口简报」「给主会话」「致 GPT 主会话」「子任务完成后回流」「按交接文档规范写」
 
-**用途**：每次执行完工作后，判断是否属于需要回流的子任务；如果是，按 [[交接文档书写规范]] 在 `D:\AIGC工作站\跨会话协作\` 写回执文档。适用于 Codex / Claude / Cowork 与 GPT 主会话之间的工作闭环。若跳蛛先生明确说明是临时任务且不需要回执，则不写回执。
+**用途**：每次执行完工作后，判断是否属于需要回流的子任务；如果是，按 [[交接文档书写规范_v1]] 在 `D:\AIGC工作站\跨会话协作\` 写回执文档。适用于 Codex / Claude / Cowork 与 GPT 主会话之间的工作闭环。若跳蛛先生明确说明是临时任务且不需要回执，则不写回执。
 
 **文件路径**：`E:\knowledge-base\07_skill存档\subtask-receipt-writer\SKILL.md`
 
-**关联方法论**：[[交接文档书写规范]] · [[Cowork协作的接口文件模式]]
+**关联方法论**：[[交接文档书写规范_v1]] · [[Cowork协作的接口文件模式_v1]]
 
 ---
 
@@ -301,7 +301,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **与相邻 skill 的区别**:`aigc-prompt-optimizer` 从零生成 / 优化获奖图 prompt;`aigc-poster-layout` 保护原图视觉资产做宣传海报;本 skill 负责把「已有作品」加工成「系列化、可发布、小白可读」的内容包。
 
-**关联方法论**:[[抽象题面的同构动作对位法_v1]] · [[概念锚定_风格置换迭代法_v1]] · [[2026-06-12_对话甲骨文二进制获奖图复盘]]
+**关联方法论**:[[抽象题面的同构动作对位法_v1]] · [[概念锚定_风格置换迭代法_v1]] · [[2026-06-12_对话甲骨文二进制获奖图复盘_v1]]
 
 ---
 
@@ -335,7 +335,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **与相邻 skill 的区别**：`aigc-poster-layout` 保护已定稿原图做手工排版海报（不重绘主体）；`aigc-prompt-optimizer` 是通用 prompt 优化；本 skill 专做「脚本 → 封面」一条龙，接受重画人物、内置封面公式与锁脸补救。
 
-**关联方法论**：[[GPTImage2锁脸的脸占比上限_v1]] · [[严格人脸一致性二创的范式阶梯_假说_v1]] · [[角色一致性金字塔]]
+**关联方法论**：[[GPTImage2锁脸的脸占比上限_v1]] · [[严格人脸一致性二创的范式阶梯_假说_v1]] · [[角色一致性金字塔_v1]]
 
 ---
 
@@ -544,4 +544,4 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 - 全库入口：[[README]]
 - Skill 存档区：[[07_skill存档索引]]
-- Skill 使用入门：[[SKILL入门完全指南]]
+- Skill 使用入门：[[SKILL入门完全指南_v1]]

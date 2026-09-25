@@ -37,7 +37,7 @@ If receipt-required and receipt-not-required rules conflict, the user's explicit
 
 Before writing the receipt, inspect:
 
-- `D:\AIGC工作站\知识库\03_prompt模板库\03_流程规范\交接文档书写规范.md`
+- `D:\AIGC工作站\知识库\03_prompt模板库\03_流程规范\交接文档书写规范_v1.md`
 - the source handoff/brief if one exists;
 - the files actually changed;
 - existing recent receipts in `D:\AIGC工作站\跨会话协作\` to avoid duplicate names.

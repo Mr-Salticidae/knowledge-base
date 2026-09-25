@@ -50,15 +50,15 @@ Memorax Code([github.com/memorax-ai/memorax-code](https://github.com/memorax-ai/
 
 ## 实测发现的坑(Windows 中文环境)
 
-排查本身又啃到两个 **UTF-8 vs GBK** 的坑——和 [[Windows下编码与DPI的所见非真相]] 母题同根,已补进那篇:
+排查本身又啃到两个 **UTF-8 vs GBK** 的坑——和 [[Windows下编码与DPI的所见非真相_v1]] 母题同根,已补进那篇:
 
 - **`.ps1` 无 BOM 被 PS5.1 按 GBK 读** → 官方 bootstrap 脚本直接 `Unexpected token` 崩;转带 BOM UTF-8 后通过。
 - **Python `subprocess.run(text=True)` 按 locale(GBK)解码子进程输出** → Memorax 的 Repo Memory provider 收集崩溃降级;设 `PYTHONUTF8=1` 后正常。
 
 ## 关联文档
 
-- [[Windows下编码与DPI的所见非真相]] —— 本次两个排错发现已补进其陷阱一/四(母题同根)
+- [[Windows下编码与DPI的所见非真相_v1]] —— 本次两个排错发现已补进其陷阱一/四(母题同根)
 - [[浏览器插件自动化的能力边界_v1]] —— 「接入第三方能力的边界」母题:插件是操作边界,本篇是数据边界
-- [[Claude_Code_Worktree隔离的协作陷阱]] —— 同属「环境/视角错位导致 self-verify 失真」的 Agent 协作陷阱族
+- [[Claude_Code_Worktree隔离的协作陷阱_v1]] —— 同属「环境/视角错位导致 self-verify 失真」的 Agent 协作陷阱族
 - [[本机Skill部署与调用手册]] —— DSH/agent skill 部署;Memorax 也是以「skill + 插件」形态集成进 Agent
 - [[模型排名科学性律_五层评估框架与AA拆解_v1]] —— 若要对这类「记忆层工具」横向评测,套那套评估框架

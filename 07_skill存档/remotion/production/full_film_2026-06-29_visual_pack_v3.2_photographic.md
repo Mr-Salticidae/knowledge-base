@@ -140,4 +140,4 @@ A faceless solitary figure seen from behind works at the steel table in the dim 
 - 文稿：`production/full_film_2026-06-16_script_v3.1_locked.md`
 - 工作日志：`production/full_film_2026-06-16_worklog_v3.1_checkpoint.md`
 - 作废前身：`production/full_film_2026-06-27_visual_pack_v3.1.md`（扁平矢量版，已被本包替代）
-- 铁律：`{知识库}/04_方法论与洞察/04_视频影像与声音/2026-06-09_Remotion全片音频字幕BGM复盘.md`（TTS 误读换词 / 字幕=口播 / 图不承载中文）
+- 铁律：`{知识库}/04_方法论与洞察/04_视频影像与声音/2026-06-09_Remotion全片音频字幕BGM复盘_v1.md`（TTS 误读换词 / 字幕=口播 / 图不承载中文）

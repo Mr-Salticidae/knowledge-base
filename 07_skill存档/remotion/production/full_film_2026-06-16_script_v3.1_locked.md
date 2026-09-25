@@ -49,6 +49,6 @@
 
 ## 关联
 - 旧版文稿：`production/full_film_2026-06-09_script_and_suno_plan.md`
-- 贯穿案例真身：`{知识库}/03_prompt模板库/02_案例复盘/灵光一现+风花雪月双题复盘.md`
+- 贯穿案例真身：`{知识库}/03_prompt模板库/02_案例复盘/2026-05-15_灵光一现+风花雪月双题复盘_v1.md`
 - 尸检 Skill：`{知识库}/07_skill存档/aigc-postmortem/SKILL.md`
 - 助产 Skill：`{知识库}/07_skill存档/maieutic-skill/SKILL.md`

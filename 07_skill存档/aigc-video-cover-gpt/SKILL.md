@@ -303,4 +303,4 @@ no watermark, no blurry low-quality.
 - [[严格人脸一致性二创的范式阶梯_假说_v1]] —— 若用户要"复制级"真人一致，升级到后期换脸 / InstantID / Nano / LoRA。
 - [[aigc-poster-layout]] —— 保护已定稿原图做手工排版海报（不重绘）的姊妹流程。
 - [[aigc-prompt-optimizer]] —— 通用 AIGC prompt 优化，本 skill 的 prompt 写法与其同源。
-- [[角色一致性金字塔]] —— 角色跨图一致性的总框架。
+- [[角色一致性金字塔_v1]] —— 角色跨图一致性的总框架。

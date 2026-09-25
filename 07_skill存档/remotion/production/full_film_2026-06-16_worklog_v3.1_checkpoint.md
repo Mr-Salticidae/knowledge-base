@@ -58,7 +58,7 @@ npx.cmd remotion render src/index.ts SkillIsAllYouNeedFullFilm out/full-film-202
 - 结果：`totalFrames 4792→4458`（2:40→**2:28**）；真片 `out/full-film-20260616-v3.1-take2.mp4`（13.4M）；抽帧确认作者话字幕「调试」+ 四卡正常。
 
 ### take3（2026-06-27 三轮，又一多音字）
-反馈：结尾外又发现「调研」被念成 tiáo研（应 diào研）。按知识库既有方案修（[[2026-06-09_Remotion全片音频字幕BGM复盘]] 问题一：TTS 误读就换无歧义词，caption=ttsText 不分叉）：
+反馈：结尾外又发现「调研」被念成 tiáo研（应 diào研）。按知识库既有方案修（[[2026-06-09_Remotion全片音频字幕BGM复盘_v1]] 问题一：TTS 误读就换无歧义词，caption=ttsText 不分叉）：
 - `调研`→`研究`（fullFilmVoiceover.ts teaching_03 + sceneSpecs scene_02 同步）。
 - 只重生成 teaching_03 一段（`FORCE_BEAT_IDS` + 保持 `PLAYBACK_RATE=1.12`，省钱不全量）。
 - 结果：`totalFrames 4458→4452`；真片 `out/full-film-20260616-v3.1-take3.mp4`（13.4M / 2:28）；抽帧确认字幕「研究」。
@@ -73,5 +73,5 @@ npx.cmd remotion render src/index.ts SkillIsAllYouNeedFullFilm out/full-film-202
 ## 关联
 - 文稿：`production/full_film_2026-06-16_script_v3.1_locked.md`
 - 旧版工作日志：`production/full_film_2026-06-10_worklog_archive.md`
-- 案例真身：`{知识库}/03_prompt模板库/02_案例复盘/灵光一现+风花雪月双题复盘.md`
+- 案例真身：`{知识库}/03_prompt模板库/02_案例复盘/2026-05-15_灵光一现+风花雪月双题复盘_v1.md`
 - 两个 Skill：`aigc-postmortem/SKILL.md`（尸检）、`maieutic-skill/SKILL.md`（助产）

@@ -31,7 +31,7 @@ tags: [类型/档案]
 cinematic still from a 1990s East Asian state broadcast satellite weather monitoring station, ultra wide establishing shot, deep navy blue background with subtle gradient, upper third of the frame shows pale cloud bands and faint latitude grid, middle third shows the curved horizon of an unknown planet with white cumulus cloud formations drifting across it, lower third is dark navy negative space with subtle CRT scanline texture, archival broadcast footage quality, vintage analog video grain, no continents, no text, no labels, no logos, vertical 9:16 composition --ar 9:16 --v 8 --style raw
 ```
 
-**纯净性确认**：本 sref 是用纯 prompt 抽卡产物（无 sref 输入），主体形态中性（无具体大陆/具体云形/具体异物），符合 [[sref纯净性原则]] 的要求。
+**纯净性确认**：本 sref 是用纯 prompt 抽卡产物（无 sref 输入），主体形态中性（无具体大陆/具体云形/具体异物），符合 [[sref纯净性原则_v1]] 的要求。
 
 ---
 

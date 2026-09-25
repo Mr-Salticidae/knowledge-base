@@ -4,7 +4,7 @@
 
 > 项目：Skill Is All You Need / SkillIsAllYouNeedFullFilm
 > 阶段：配音层已封口（take3 / 2:28），进入 P1 视觉。决策：**全 9 场景上 MJ/Seedance + sref 统一风格**，不限数量、质量优先。
-> 文稿源：`production/full_film_2026-06-16_script_v3.1_locked.md`；方案铁律源：`{知识库}/04_方法论与洞察/04_视频影像与声音/2026-06-09_Remotion全片音频字幕BGM复盘.md`
+> 文稿源：`production/full_film_2026-06-16_script_v3.1_locked.md`；方案铁律源：`{知识库}/04_方法论与洞察/04_视频影像与声音/2026-06-09_Remotion全片音频字幕BGM复盘_v1.md`
 
 ---
 
@@ -147,4 +147,4 @@ A network-map: [AI 机器人] at center; four nodes around it — a yellow "imag
 - 文稿：`production/full_film_2026-06-16_script_v3.1_locked.md`
 - 工作日志：`production/full_film_2026-06-16_worklog_v3.1_checkpoint.md`
 - 旧素材包（旧脚本，作 prompt 风格参照）：`production/full_film_2026-06-10_mj_seedance_replacement_pack.md`
-- 铁律：[[2026-06-09_Remotion全片音频字幕BGM复盘]]（TTS 误读换词 / 字幕=口播）
+- 铁律：[[2026-06-09_Remotion全片音频字幕BGM复盘_v1]]（TTS 误读换词 / 字幕=口播）

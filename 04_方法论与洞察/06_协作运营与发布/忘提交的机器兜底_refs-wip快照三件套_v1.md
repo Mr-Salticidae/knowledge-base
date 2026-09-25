@@ -55,7 +55,7 @@ git push --force origin refs/wip/机器名   # force 同名引用:只保留最�
 1. **同步"检查"用 `ls-remote`，同步"动作"才用 `fetch`。** 素材型大仓库（工作区 1.3GB）fetch 要 2 分钟起步，塞进 SessionStart hook 会把会话启动卡死；`ls-remote` 只取引用哈希不下载对象，实测秒回。
 2. **中断的 fetch 会在 `.git/objects/pack/` 留下 `tmp_pack_*` 垃圾**（本次两个共 380MB），`git gc` 不会删它们，要确认无 git 进程后手动删。`git count-objects -vH` 的 `size-garbage` 一栏能看到。
 3. **autocrlf=true 环境下，hook 脚本必须在 `.gitattributes` 锁 `text eol=lf`**——checkout 成 CRLF 的 shell 脚本在 Git Bash 下直接跑不了。
-4. **含中文的 `.ps1` 必须存 UTF-8 BOM**，否则 PS 5.1 按 GBK 误读、解析错乱——见 [[Windows下编码与DPI的所见非真相]] 陷阱四（本次为二次验证，且乱码值一路写进了 `git config`）。
+4. **含中文的 `.ps1` 必须存 UTF-8 BOM**，否则 PS 5.1 按 GBK 误读、解析错乱——见 [[Windows下编码与DPI的所见非真相_v1]] 陷阱四（本次为二次验证，且乱码值一路写进了 `git config`）。
 5. **hook 要进版本库就用 `core.hooksPath` 指向仓库内目录**（`.git/hooks` 不入库，多机不同步）；部署收敛成一条 `deploy.ps1`，新机器跑一次即完成 hooksPath + 计划任务注册。
 
 ---
@@ -73,6 +73,6 @@ Claude Code 的安全分类器会拦截**持久化/自扩权类动作**：`git c
 ## 关联文档
 
 - [[开工前先对基线律_v1]] —— 第三层是这条律的自动化形态：把"开工先对基线"从自律动作变成 SessionStart 机器动作
-- [[Windows下编码与DPI的所见非真相]] —— 陷阱四（.ps1 无 BOM 按 GBK 误读）在本次部署中二次现形
+- [[Windows下编码与DPI的所见非真相_v1]] —— 陷阱四（.ps1 无 BOM 按 GBK 误读）在本次部署中二次现形
 - [[生成物不入git_v1]] —— 同仓库的体积治理侧：快照会放大二进制推送频率，未压缩 WAV 等大件更该先治理
 - [[交付前实测证伪律_v1]] —— 三层各自实测到"远程可见 / LastResult=0"才算交付，不交付"应该能行"

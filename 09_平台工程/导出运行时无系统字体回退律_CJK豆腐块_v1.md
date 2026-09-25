@@ -75,9 +75,9 @@ variation_opentype = { "wght": 500 }
 ## 关联文档
 
 - 字形家族姊妹律:[[emoji字形版本兼容律_v1]](字形随平台/版本缺失)· [[CJK假斜体语言感知律_v1]](CJK 无真斜体)
-- 所见非真相家族:[[Windows下编码与DPI的所见非真相]] —— 同样是「本机环境悄悄替你做了事,换环境就露馅」
+- 所见非真相家族:[[Windows下编码与DPI的所见非真相_v1]] —— 同样是「本机环境悄悄替你做了事,换环境就露馅」
 - 诊断心法:[[交付前实测证伪律_v1]] · [[变通方案不等于故障点_v1]] —— headless 笼统报错别当定论,换更强工具复现
-- 同线工程(LastStand→Toy):[[B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]]
+- 同线工程(LastStand→Toy):[[2026-07-11_B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]]
 - Web 侧应用:⚠️ [[美工改稿全站落地_跨稿重复才是规范_v1]] —— 该次把 PB Arena 正文字体从 Noto Serif SC 换成 Noto Sans SC 时,没有只写一个网络字体名,而是显式挂 `system-ui, -apple-system, "PingFang SC", "Microsoft YaHei"` 兜底栈;同一条「把兜底固化进产物」在 Web 端的形态——网络字体加载失败时不至于掉到无 CJK 字形的默认族
 - 库外底料(裸路径):`E:\last-stand` commit `511184d`(字体回退)+ `9a46d7f`(Web preset)· `assets/fonts/font_*.tres`
 

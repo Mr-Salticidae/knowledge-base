@@ -90,14 +90,14 @@ A condensed version of the 13 threads in the [Chinese MOC](README.md). Each thre
 
 The thickest thread, running from top-level methodology down to specific parameter tests.
 
-- ⭐ [角色一致性金字塔](04_方法论与洞察/01_角色一致性与视觉签名/角色一致性金字塔.md): the Character Consistency Pyramid, a 4-layer model (sref / oref–seed–descriptors / personalize–moodboard)
+- ⭐ [角色一致性金字塔](04_方法论与洞察/01_角色一致性与视觉签名/角色一致性金字塔_v1.md): the Character Consistency Pyramid, a 4-layer model (sref / oref–seed–descriptors / personalize–moodboard)
 - [参数行为档案 folder](02_参数行为档案/): hands-on tests of `--ow`, `--seed`, multi-sref and more
 
 ### 2. sref profiles
 
 One "temperament profile" per Midjourney `--sref` code.
 
-- ⭐ [sref编号独立律](04_方法论与洞察/01_角色一致性与视觉签名/sref编号独立律.md): every sref code is an independent photographer. When you hit a wall, change the signature before you change the tool.
+- ⭐ [sref编号独立律](04_方法论与洞察/01_角色一致性与视觉签名/sref编号独立律_v1.md): every sref code is an independent photographer. When you hit a wall, change the signature before you change the tool.
 - [01_sref档案 folder](01_sref档案/): the individual profiles
 
 ### 3. Tool behavior profiles
@@ -105,7 +105,7 @@ One "temperament profile" per Midjourney `--sref` code.
 How specific model versions actually behave: Midjourney v8.1 / v8.2 / niji, Kling 3.0, Suno v5.5, ElevenLabs v3, and platforms such as Flova.
 
 - [MJ_v8.2_行为档案_v1](02_参数行为档案/MJ_v8.2_行为档案_v1.md): Midjourney v8.2 behavior profile
-- [可灵Kling3_0_行为规律](02_参数行为档案/可灵Kling3_0_行为规律.md): Kling 3.0 image-to-video, four iron rules and three red lines
+- [可灵Kling3_0_行为规律_v1](02_参数行为档案/可灵Kling3_0_行为规律_v1.md): Kling 3.0 image-to-video, four iron rules and three red lines
 - [Suno_v5.5_行为规律](02_参数行为档案/Suno_v5.5_行为规律.md): Suno v5.5 for soundtracks
 
 ### 4. Prompt templates & retrospectives
@@ -113,8 +113,8 @@ How specific model versions actually behave: Midjourney v8.1 / v8.2 / niji, Klin
 Reusable base phrases, a moderation-safe vocabulary list, and retrospectives of award-winning images from prompt battles, including entries that lost.
 
 - [03_prompt模板库索引](03_prompt模板库/03_prompt模板库索引.md): index of templates, case retrospectives and process specs
-- ⭐ [OVA怀旧基础句](03_prompt模板库/01_prompt模板/OVA怀旧基础句.md): base phrase for late-1980s Japanese OVA nostalgia (verified three times)
-- [东方美人五官堆叠基础句](03_prompt模板库/01_prompt模板/东方美人五官堆叠基础句.md): facial-feature stacking block for East Asian beauty portraits
+- ⭐ [OVA怀旧基础句](03_prompt模板库/01_prompt模板/OVA怀旧基础句_v1.md): base phrase for late-1980s Japanese OVA nostalgia (verified three times)
+- [东方美人五官堆叠基础句](03_prompt模板库/01_prompt模板/东方美人五官堆叠基础句_v1.md): facial-feature stacking block for East Asian beauty portraits
 
 ### 5. Style, medium & aesthetics
 
@@ -124,21 +124,21 @@ Includes two sub-threads: **5·B surreal themes** and **5·C breaking out of sat
 - ⭐ [生成式vs编辑式工具选择律_v1](04_方法论与洞察/05_prompt与工具方法/生成式vs编辑式工具选择律_v1.md): to change one spot, use an editing model; to create a whole image, use a generative one
 - ⭐⭐ [指定对象与气质描述_生成路径分岔律_v1](04_方法论与洞察/05_prompt与工具方法/指定对象与气质描述_生成路径分岔律_v1.md): does the audience need to *recognize* the named work or character? If yes, only cloning / image-to-image preserves it
 - ⭐ [标签相同不等于行为相同_第三方代跑平台律_v1](04_方法论与洞察/05_prompt与工具方法/标签相同不等于行为相同_第三方代跑平台律_v1.md): the same model name on a third-party platform is not the same capability. Check the channel, don't trust your eyes.
-- ⭐ [超现实主题的冷热两种处理路径](04_方法论与洞察/03_超现实与主题破局/超现实主题的冷热两种处理路径.md): the cold and warm paths for surreal themes
-- ⭐ [红海主题的三条破局路径](04_方法论与洞察/03_超现实与主题破局/红海主题的三条破局路径.md): three ways out of a saturated theme: concept, visual spectacle, scarce medium
+- ⭐ [超现实主题的冷热两种处理路径](04_方法论与洞察/03_超现实与主题破局/超现实主题的冷热两种处理路径_v1.md): the cold and warm paths for surreal themes
+- ⭐ [红海主题的三条破局路径](04_方法论与洞察/03_超现实与主题破局/红海主题的三条破局路径_v1.md): three ways out of a saturated theme: concept, visual spectacle, scarce medium
 
 ### 6. Video, film & editing
 
 Image-to-video, the "blindfold editing" method (AI drafts the edit, a human reviews it), sound design, TTS quality checks, and full-pipeline retrospectives of short films and MVs.
 
-- [蒙眼剪辑法_方法论笔记](04_方法论与洞察/04_视频影像与声音/蒙眼剪辑法_方法论笔记.md): the blindfold editing method
-- [图生视频_ForwardOnly原则](04_方法论与洞察/04_视频影像与声音/图生视频_ForwardOnly原则.md): the forward-only principle for image-to-video
+- [蒙眼剪辑法_方法论笔记_v1](04_方法论与洞察/04_视频影像与声音/蒙眼剪辑法_方法论笔记_v1.md): the blindfold editing method
+- [图生视频_ForwardOnly原则_v1](04_方法论与洞察/04_视频影像与声音/图生视频_ForwardOnly原则_v1.md): the forward-only principle for image-to-video
 - [跨镜道具锁定律_资产图优于形容词_v1](04_方法论与洞察/04_视频影像与声音/跨镜道具锁定律_资产图优于形容词_v1.md): a prop that appears in two or more shots needs its own reference image, not adjectives
 
 ### 7. IP visual systems
 
-- ⭐ [檐下IP 视觉系统](05_视觉系统/檐下IP%20视觉系统.md): "Under the Eaves", a classical-style girl IP (seal, typeface, layout)
-- ⭐ [R-07 IP 视觉系统](05_视觉系统/R-07%20IP%20视觉系统.md): R-07, a forgotten robot singing in the ruins
+- ⭐ [檐下IP_视觉系统_v1](05_视觉系统/檐下IP_视觉系统_v1.md): "Under the Eaves", a classical-style girl IP (seal, typeface, layout)
+- ⭐ [R-07_IP_视觉系统_v1](05_视觉系统/R-07_IP_视觉系统_v1.md): R-07, a forgotten robot singing in the ruins
 
 ### 8. Collaboration & toolchain
 
@@ -159,7 +159,7 @@ Python scripts, cover-layout templates, an MV production pipeline, a beat-tappin
 
 Reading notes and reflective pieces on how models work and where the creator stands.
 
-- [低频退化与频率定律](04_方法论与洞察/07_AI理论与创作哲学/低频退化与频率定律.md): models understand the *statistical distribution* of language
+- [低频退化与频率定律](04_方法论与洞察/07_AI理论与创作哲学/低频退化与频率定律_v1.md): models understand the *statistical distribution* of language
 - ⭐ [压缩保留簇丢弃孤例_v1](04_方法论与洞察/07_AI理论与创作哲学/压缩保留簇丢弃孤例_v1.md): what survives in a model is decided by cluster density, not by "niche vs. mainstream"
 
 ### 11. Skill archive
@@ -179,8 +179,8 @@ Engineering methods, architecture patterns and pitfalls from building the showca
 
 Classic experiments from social psychology and behavioral science, plus fact-checks of viral AI claims.
 
-- [复印机实验_安慰剂式理由与无意识顺从](04_方法论与洞察/08_通识与趣味研究/复印机实验_安慰剂式理由与无意识顺从.md): Langer's 1978 photocopier experiment on "placebic" reasons
-- [AI心理测量实验PsAIch_角色扮演不是内心独白](04_方法论与洞察/08_通识与趣味研究/AI心理测量实验PsAIch_角色扮演不是内心独白.md): the PsAIch study. A role-play is not an inner monologue.
+- [复印机实验_安慰剂式理由与无意识顺从_v1](04_方法论与洞察/08_通识与趣味研究/复印机实验_安慰剂式理由与无意识顺从_v1.md): Langer's 1978 photocopier experiment on "placebic" reasons
+- [AI心理测量实验PsAIch_角色扮演不是内心独白_v1](04_方法论与洞察/08_通识与趣味研究/AI心理测量实验PsAIch_角色扮演不是内心独白_v1.md): the PsAIch study. A role-play is not an inner monologue.
 
 ### Public-facing pieces
 

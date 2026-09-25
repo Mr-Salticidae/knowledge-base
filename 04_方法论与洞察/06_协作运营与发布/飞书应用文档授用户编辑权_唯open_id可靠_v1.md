@@ -62,4 +62,4 @@ GET /open-apis/drive/v1/permissions/<doc_token>/members?type=docx
 - 本律纠正的对外白话版（其"手机号授权"步骤已按本文修订）：`08_对外分发/让AI助理一句话发飞书文档_零依赖CLI链路搭建_同好版.md`
 - 封装此链路的 skill：[[feishu-doc-publish/SKILL.md]]
 - 链路后半段（文档发布后由 bot 直发群，"资源表即 id 字典"同构再验）：[[飞书应用发群消息_免webhook直发_v1]]
-- 协作核查心法（别把"官方说支持"当已验证）：[[Claude完成报告核查心法]] · [[交付前实测证伪律_v1]]
+- 协作核查心法（别把"官方说支持"当已验证）：[[Claude完成报告核查心法_v1]] · [[交付前实测证伪律_v1]]

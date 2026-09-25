@@ -242,4 +242,4 @@ Reste en vie, hayatta kal, zinda raho
 
 ## 已验证案例
 
-详见 [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] 与 [references/stay-alive-case-notes.md](references/stay-alive-case-notes.md)。
+详见 [[2026-06-07_Stay_alive_AI音乐公益MV复盘_v1]] 与 [references/stay-alive-case-notes.md](references/stay-alive-case-notes.md)。

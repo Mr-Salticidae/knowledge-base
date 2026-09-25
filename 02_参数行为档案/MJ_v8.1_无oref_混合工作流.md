@@ -5,7 +5,7 @@ tags: [类型/档案]
 
 > 入档：2026-05-12（D2 晚间）
 > 触发：「拾色」女主形象试跑时，需要在 v8.1 美学和角色一致性之间做 trade-off
-> 关联：[[角色一致性金字塔]] / [[MJ_v8.2_行为档案_v1]]（v8.2 已实测 --preview 通道，质感再上一档，oref 支持情况未测）
+> 关联：[[角色一致性金字塔_v1]] / [[MJ_v8.2_行为档案_v1]]（v8.2 已实测 --preview 通道，质感再上一档，oref 支持情况未测）
 
 ---
 
@@ -219,7 +219,7 @@ three small bright white circular markers ... about 2 percent of the frame width
 
 - 旧 sref 档案命名约定 `sref_<数字ID>_<描述>.md` 不再适用于 v8.1 web 端工作流
 - 新约定：`sref_<项目>_<图片名>.md`，文件内挂图片路径（相对/绝对都可），而非 ID
-- 旧档案（如 `sref_5692463053_navy现代极简.md`）仍适用于 v7 + oref 或 discord 端工作流
+- 旧档案（如 `sref_5692463053_navy现代极简_v1.md`）仍适用于 v7 + oref 或 discord 端工作流
 
 **对项目工作流的影响**：
 
@@ -343,8 +343,8 @@ Step 1：v7 + oref 跑 1-2 个 A 类镜头测试
 
 ## 关联文档
 
-- 顶层方法论:[[角色一致性金字塔]](oref/seed/personalize/sref 4 层)
-- 账号级地基:[[personalize与moodboard分工]]
-- IP 应用案例:[[檐下IP 视觉系统]](V4 基准图修复案例)
-- 对照参数:[[ow_行为规律]] · [[seed_行为规律]]
+- 顶层方法论:[[角色一致性金字塔_v1]](oref/seed/personalize/sref 4 层)
+- 账号级地基:[[personalize与moodboard分工_v1]]
+- IP 应用案例:[[檐下IP_视觉系统_v1]](V4 基准图修复案例)
+- 对照参数:[[ow_行为规律_v1]] · [[seed_行为规律_v1]]
 - 封面抽卡触发本节的源头：`20_异界气象台_minitest/02_视觉/封面_v2/sref调试日志_v2.md`

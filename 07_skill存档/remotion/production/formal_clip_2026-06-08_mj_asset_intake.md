@@ -424,7 +424,7 @@ tail hold:875-904,30 frames
 
 ## 关联文档
 
-- [[Remotion正式小片段实验工作流防偏移]]
-- [[2026-06-08_Remotion_MJ_Seedance混合动画闭环复盘]]
-- [[2026-06-08_Remotion正式小片段v3复盘]]
-- [[AIGC_Skill到Remotion视频闭环]]
+- [[Remotion正式小片段实验工作流防偏移_v1]]
+- [[2026-06-08_Remotion_MJ_Seedance混合动画闭环复盘_v1]]
+- [[2026-06-08_Remotion正式小片段v3复盘_v1]]
+- [[AIGC_Skill到Remotion视频闭环_v1]]

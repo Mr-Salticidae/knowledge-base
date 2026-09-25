@@ -29,7 +29,7 @@ tags:
 - **PR 执行**：fork `wechaty/jekyll` → 分支 `blog-wechat-feedback-collector` → 放博客/配图/contributor → push → `gh pr create` → PR #201。
 - **当前状态**：PR OPEN，mergeStateStatus=BLOCKED，唯一未过检查是 CLA（需作者签署）。
 
-以上先按 [[复盘事实先行原则]] 冻结。下文「成功」仅指 PR 提交成功，不外推成「Token 已到手」或「机器人已跑通」。
+以上先按 [[复盘事实先行原则_v1]] 冻结。下文「成功」仅指 PR 提交成功，不外推成「Token 已到手」或「机器人已跑通」。
 
 ## 一句话结论
 
@@ -122,6 +122,6 @@ gh pr create --repo <org>/<repo> --base main --head <username>:<branch> \
 - 基线对齐同族：[[开工前先对基线律_v1]]（fetch 对基线；本次是 fetch 的 ref bug 版本）
 - 个人 vs 协作的分轨：[[个人项目免PR直推主分支_v1]]（个人项目免 PR，第三方开源项目必须走 PR，互为镜像）
 - 交付前验证：[[交付前实测证伪律_v1]]（「应该能行」的仓库地址当场证伪）
-- 复盘纪律：[[复盘事实先行原则]]（先冻结事实：Token 没到手、机器人没跑）
+- 复盘纪律：[[复盘事实先行原则_v1]]（先冻结事实：Token 没到手、机器人没跑）
 - 配套 skill：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`
 - 原始底料（库外裸路径）：`E:\pb-arena\wechat-bot\wechaty-blog-post.md` · `E:\pb-arena\wechat-bot\PR-SUBMISSION-GUIDE.md`

@@ -5,7 +5,7 @@ tags: [类型/档案]
 
 > 入档：2026-05-12（D2 晚间）
 > 触发：「拾色」Suno BGM 试听时的惊艳发现
-> 关联：[[Suno配乐制作分享]]（基础流程 · 仍有效）
+> 关联：[[Suno配乐制作分享_v1]]（基础流程 · 仍有效）
 
 ---
 
@@ -89,7 +89,7 @@ Still folded, still folded / Still unread
 
 **"still here" 在两个 IP 间共享**。Suno 没有跨会话记忆，但因为我们在 prompt 里写了 "still here, still kept, still folded, still unread"，它自然按 R-07 的副歌结构展开了——**形成跨 IP 的副歌签名**。
 
-详见：[[跨IP作者签名_白玉兰与still_here]]
+详见：[[跨IP作者签名_白玉兰与still_here_v1]]
 
 ---
 
@@ -297,12 +297,12 @@ keep chorus restrained
 
 ## 关联文档
 
-- 基础流程:[[Suno配乐制作分享]](仍有效)
-- 跨 IP 签名:[[跨IP作者签名_白玉兰与still_here]](still here 跨 IP 副歌签名)
-- **两阶段工作流**:[[方法论笔记_Suno两阶段工作流_v1]] ⭐
+- 基础流程:[[Suno配乐制作分享_v1]](仍有效)
+- 跨 IP 签名:[[跨IP作者签名_白玉兰与still_here_v1]](still here 跨 IP 副歌签名)
+- **两阶段工作流**:[[Suno两阶段工作流_v1.1]] ⭐
 - **Vocal Gender 反选风格 prior**:[[Vocal_Gender反选_风格prior_v1]] ⭐⭐⭐（经验 6 的独立深入文档）
 - **版权过滤器规避**:[[Suno版权过滤器规避_v1]] ⭐
-- 上位元方法论:[[识别工具天花板的时机]]
+- 上位元方法论:[[识别工具天花板的时机_v1]]
 - 同层(另一个音频工具的行为档案):[[Eleven_v3_行为规律_v1]] —— TTS 侧的路径选择(IVC vs Voice Design)、克隆素材要求、audio tag 跨语言实测
 - 主线作品:
   - `{AIGC工作站}/17_拾色\03_歌词与Suno_prompt\拾色_Suno_brief_v1.md`(拾色 Suno brief)

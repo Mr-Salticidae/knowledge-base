@@ -187,4 +187,4 @@ No visible text, no logo, no watermark.
 
 - [[AIGC构图意图层_v1]]
 - [[aigc-prompt-optimizer/SKILL.md]]
-- [[Seedance2.0_素材准备清单]]
+- [[Seedance2.0_素材准备清单_v1]]

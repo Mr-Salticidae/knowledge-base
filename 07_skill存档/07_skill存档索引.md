@@ -16,7 +16,7 @@ tags: [类型/skill存档]
 
 | Skill | 版本 | 归档日期 | 类型 | 安装目标 | 对应测试复盘 |
 |---|---|---|---|---|---|
-| prompt-master | v1.8.0 | 2026-09-10（1.6.0 存档于 2026-06-03） | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘]] |
+| prompt-master | v1.8.0 | 2026-09-10（1.6.0 存档于 2026-06-03） | 提示词优化(图片 + 视频 + LLM + Agent 等全工具路由) | Claude + Codex | [[2026-06-03_口语化需求到专业提示词_图片+视频双skill复盘_v1]] |
 | aigc-prompt-optimizer | v1.5 | 2026-06-09 | 口语化需求 → 专业 prompt；新增 prompt battle 发散、出图反馈、二选一、冠军图复盘、尺度跃迁、巨物地貌化与构图意图层 | Claude + Codex | 待正式复盘 |
 | blind-editing-workflow | v1.0 | 2026-06-04 | 蒙眼剪辑法——AI 辅助视频剪辑闭环（Python + ffmpeg） | Claude + Codex | 待测试 |
 | suno-music-brief | v1.0 | 2026-06-04 | Suno 两阶段配乐创作（Simple→Custom） | Claude + Codex | 待测试 |
@@ -29,8 +29,8 @@ tags: [类型/skill存档]
 | subtask-receipt-writer | v1.1 | 2026-06-05 | 子任务完成后的回执 / 回函 / 收口简报书写流程；支持显式免回执 | Claude + Codex | 待测试 |
 | maieutic-skill | v0.1 | 2026-06-05 | 苏格拉底式共学 + 信息收集 + Insight / Beacon 输出 | Claude + GPT + Codex | [[测试复盘_MaieuticSkill_v0.1_20260605]] |
 | maieutic-deepseek-adapter | v0.2 | 2026-06-05 | Maieutic 国内可用适配 prompt 包（DeepSeek / Dify / Coze / 国内模型） | DeepSeek + 国内平台 | [[maieutic-deepseek-adapter/tests/test_cases.md]] |
-| song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘]] |
-| prompt-master-series | v1.3.0 | 2026-06-19 | 系列内容生产:prompt 作品 → 小红书双卡 + 正文 + 小白笔记 + GitHub Pages 站(数据驱动两层结构:分类封面墙 + 详情,全局点赞) | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘]] · [[2026-06-05_童话镇里的纸飞机_LEGO小镇获奖图复盘]] |
+| song-caption-mv-workflow | v0.1 | 2026-06-07 | AI 歌曲 MV + Demucs/WhisperX 字幕自动化工作流 | Codex | [[2026-06-07_Stay_alive_AI音乐公益MV复盘_v1]] |
+| prompt-master-series | v1.3.0 | 2026-06-19 | 系列内容生产:prompt 作品 → 小红书双卡 + 正文 + 小白笔记 + GitHub Pages 站(数据驱动两层结构:分类封面墙 + 详情,全局点赞) | Claude + Codex | [[2026-06-12_对话甲骨文二进制获奖图复盘_v1]] · [[2026-06-05_童话镇里的纸飞机_LEGO小镇获奖图复盘_v1]] |
 | knowledge-base-curator | v1.0 | 2026-06-18 | 知识库策展:答疑成果 → 内核版存档(双链+索引+MOC+一句话律)+ 学员版对外分发(无双链) | Claude | 本次封装(Nano 换屏融合沉淀流程) |
 | aigc-video-cover-gpt | v1.0 | 2026-06-24 | 视频封面生成:人物参考图 + 脚本 → GPT Image 2 一步出 16:9 商单封面(封面公式 + 标题钩子发散 + 锁脸补救阶梯) | Claude + Codex + GPT | 本次封装(同事 20+ 套商单 PSD 封面 + 库内锁脸研究) |
 | work-weekly-report | v1.0 | 2026-06-29 | 公司工作周报:跨工作区所有仓库一周 git 活动 → 标准三段式周报(本周总结/下周计划/协助·思考·总结·成长),写入 work-reports 仓库 | Claude | 从 work-reports 3 期真实周报提炼;跨仓库取数实跑验证 |
@@ -95,7 +95,7 @@ tags: [类型/skill存档]
 
 ### subtask-receipt-writer v1.0（2026-06-04）
 
-来源：跳蛛先生本轮规则确认——每次执行完工作后，判断是否是子任务；若是子任务，则按照 [[交接文档书写规范]] 书写回执文档。
+来源：跳蛛先生本轮规则确认——每次执行完工作后，判断是否是子任务；若是子任务，则按照 [[交接文档书写规范_v1]] 书写回执文档。
 
 - [[subtask-receipt-writer/SKILL.md]] — Claude + Codex
 
@@ -145,7 +145,7 @@ tags: [类型/skill存档]
 
 - [[song-caption-mv-workflow/SKILL.md]] — Codex
 - [[song-caption-mv-workflow/references/stay-alive-case-notes.md]] — 实战环境与关键经验
-- 对应复盘：[[2026-06-07_Stay_alive_AI音乐公益MV复盘]]
+- 对应复盘：[[2026-06-07_Stay_alive_AI音乐公益MV复盘_v1]]
 
 ### prompt-master-series v1.2.0(2026-06-17,首期《对话》跑通并上线画廊)
 
@@ -158,7 +158,7 @@ tags: [类型/skill存档]
 - [[prompt-master-series/templates/episode_manifest_entry.js]] — 新增一期往 `index.html` 的 `EPISODES` 数组加的那条对象模板(v1.3.0 起;旧 `gallery_episode_block.html` 已废弃)
 - 首期实例:`E:\目标是成为 Prompt 大师\01_对话\`(已独立出库)
 - 在线画廊:https://mr-salticidae.github.io/becoming-a-prompt-master/
-- 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘]]
+- 对应原始档:[[2026-06-12_对话甲骨文二进制获奖图复盘_v1]]
 
 v1.1.0 升级:新增「阶段 C2 · 写小红书正文」——区分「存档笔记(长)」与「发布正文(短、钩子前置、内敛克制)」,补正文模板与硬规则(不写名次 / 不署名 / emoji 克制 / 标题前置 / 留看图钩子)。
 
@@ -205,7 +205,7 @@ v1.3.0 升级(2026-06-19,第 2 期《童话镇里的纸飞机》上线):`index.h
 
 ## 2026-06-08 补充入口
 
-- [[aigc-poster-layout/SKILL.md]]：AIGC 作品宣传海报手工排版工作流；对应复盘 [[2026-06-08_晴枝3x4宣传海报复盘]]。
+- [[aigc-poster-layout/SKILL.md]]：AIGC 作品宣传海报手工排版工作流；对应复盘 [[2026-06-08_晴枝3x4宣传海报复盘_v1]]。
 
 ### aigc-video-cover-gpt v1.0（2026-06-24，从同事封面模板提炼封装）
 
@@ -230,7 +230,7 @@ v1.3.0 升级(2026-06-19,第 2 期《童话镇里的纸飞机》上线):`index.h
 
 ### insight-public-post v1.1（2026-07-12，【踩坑记录】B站Toy复盘帖实战升级）
 
-来源：【踩坑记录】「B站Toy发布后更新不动了」公开帖的完整生产-发布-回收流程（对应内核档 [[B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]]），暴露 v1.0 三个盲区并升级。
+来源：【踩坑记录】「B站Toy发布后更新不动了」公开帖的完整生产-发布-回收流程（对应内核档 [[2026-07-11_B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]]），暴露 v1.0 三个盲区并升级。
 
 - [[insight-public-post/SKILL.md]] — Claude（v1.1 起改为标准子目录形式；v1.0 原文保留于 [[insight-public-post_v1.0_SKILL.md]]）
 

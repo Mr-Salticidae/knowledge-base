@@ -254,5 +254,5 @@ SRC=路径/到/横版.mp4 COVER=路径/到/cover_3_4.png python make_vertical_co
 
 - 上级索引:[[代码资产索引]]
 - 上级地图:[[README]](知识库根目录 MOC)
-- 配套方法论:[[图生视频_ForwardOnly原则]]
+- 配套方法论:[[图生视频_ForwardOnly原则_v1]]
 - 青春叙事 MV 复盘:[[青春记忆MV_四镜头组验证法_v1]]
