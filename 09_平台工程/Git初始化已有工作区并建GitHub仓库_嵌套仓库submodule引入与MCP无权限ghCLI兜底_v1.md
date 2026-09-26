@@ -84,5 +84,6 @@ unzip -o "$TEMP/gh.zip" "bin/gh.exe" && mv bin/gh.exe . && rm -rf bin
 ## 关联文档
 
 - [[GitHub强制2FA小白处置_TOTP原理与离线生成器_v1]] —— 同属 GitHub 账号/访问场景
+- [[Claude桌面版接入LibTV远程MCP_临时电脑环境与会话重连_v1]] —— 同样靠 Git Credential Manager 存凭据;补临时公用电脑上的交互认证,以及离开前用 `cmdkey /delete` 清凭据
 - [[2026-07-03_云端定时内容生产连环坑复盘_全绿不等于已发_v1]] —— 同属「以为能用的工具实际不行」类踩坑
 - [[09_平台工程索引]] —— 平台工程区入口
