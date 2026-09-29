@@ -148,3 +148,4 @@ tags: [类型/IP视觉, 工具/Remotion, 工具/ElevenLabs, 工具/Suno, 工具/
 - [[AIGC_Skill到Remotion视频闭环_v1]]
 - [[Suno两阶段工作流_v1.1]]
 - [[Suno配乐制作分享_v1]]
+- 后来的字幕做法(微电影里 Remotion 式字幕被作者判“廉价”):[[影视级双语字幕_中上英下与libass逐镜头烧录_v1]]
