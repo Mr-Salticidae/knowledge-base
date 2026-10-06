@@ -275,6 +275,15 @@ v1.1 升级（2026-07-22，对齐公司教程通行体例）：① 新增**四�
 
 定位：第三方开源贡献的博客 PR 管道。编码的关键经验——① **旧指南仓库地址会过时**：PR 指南与文档里的 `wechaty/wechaty.js.org` 已更名/重定向为 `wechaty/jekyll`，fork 前必须 `gh repo view <org>/<repo> --json name` 验真名（重定向会返回真实 name）；② **git fetch 报成功≠ref 写入**：Windows Git 2.55 的 ref 存储 bug，`.git/refs/remotes/upstream/` 目录未创建导致 fetch 写不进，`git show-ref` 找不到 `upstream/main`，用 `git checkout -b <branch> $(git ls-remote upstream main | awk '{print $1}')` 拿 hash 直接建分支绕过；③ **SVG 直接用别硬转 PNG**：目标 Jekyll 站点支持 SVG（`grep -r "\.svg" _posts/` 验证），在没有 ImageMagick/cairo/rsvg 的 Windows 环境硬转会卡住（cairosvg 缺 `libcairo-2.dll`、svglib 缺 `rlPyCairo`），转换是优化不是阻塞；④ **Contributor 文件格式以仓库现有样本为准**，不以旧指南为准（实际需要 name/site/avatar/bio/github，avatar 用 `https://avatars.githubusercontent.com/u/<id>?v=4`）。完整复盘与四条可复用方法见 [[2026-08-10_微信群反馈机器人与Wechaty博客PR_全链路复盘_v1]]；与 [[个人项目免PR直推主分支_v1]] 互为镜像（个人项目免 PR ↔ 第三方开源必走 PR）。
 
+### 2026-10-06 · 全库 skill 路径去硬编码
+
+换新机器后发现多个 skill 写死了旧机器路径（知识库、pb-arena、work-reports、Prompt 大师系列仓库在 E 盘 / D 盘的位置），新机器上照抄必错。统一改为占位符、开工时现场解析，规则集中在 [[SKILL_INDEX]] 的「路径约定」一节。
+
+- 改动：aigc-poster-layout、aigc-prompt-optimizer、insight-public-post、knowledge-base-curator、opportunity-due-diligence、remotion-skill（含 references）、report-longimage（含 `母版.html`）、subtask-receipt-writer、work-weekly-report（取数改为扫 `<工作区>` 两层、按 remote 认 work-reports）、feishu-doc-publish、prompt-master-series、kecheng-yugao-skill 的使用说明书；以上 11 个 SKILL.md 标题下加了一行路径约定提示。
+- `remotion/src/skills/RemotionSkill.ts` 的 `skillPath` 改为仓库相对路径，顺带修正已失效的 `prompt-master_v1.6.0_SKILL.md` 引用（现为 `prompt-master/SKILL.md`）。
+- 不改：工作日志、素材来源记录、成片台词、单文件旧版归档与上游 README，它们记录的是当时的事实。
+- 版本号不变：只改路径表述，不改流程。
+
 ## 本机部署全景
 
 本索引只登记**自研 skill 的存档版本**。若要查「本机到底装了哪些 skill、分别怎么调用、本体文件在哪」,看:

@@ -5,11 +5,13 @@ description: Write concise handoff receipt documents after Codex completes deleg
 
 # Subtask Receipt Writer
 
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
+
 ## Purpose
 
 After finishing work, decide whether the work is a **subtask that needs a receipt**. If yes, write a compact receipt document under:
 
-`D:\AIGC工作站\跨会话协作\`
+`<工作区>\跨会话协作\`
 
 Use this Skill to close the loop between Codex, GPT 主会话, Claude/Cowork, and 跳蛛先生.
 
@@ -37,10 +39,10 @@ If receipt-required and receipt-not-required rules conflict, the user's explicit
 
 Before writing the receipt, inspect:
 
-- `D:\AIGC工作站\知识库\03_prompt模板库\03_流程规范\交接文档书写规范_v1.md`
+- `<知识库>\03_prompt模板库\03_流程规范\交接文档书写规范_v1.md`
 - the source handoff/brief if one exists;
 - the files actually changed;
-- existing recent receipts in `D:\AIGC工作站\跨会话协作\` to avoid duplicate names.
+- existing recent receipts in `<工作区>\跨会话协作\` to avoid duplicate names.
 
 ## Naming
 

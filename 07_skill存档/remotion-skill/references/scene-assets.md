@@ -103,7 +103,7 @@ const sceneAssets: SceneAsset[] = [
 
 ## Current RemotionSkill DryRun Binding
 
-`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts` now creates planned placeholder assets for:
+`<知识库>\07_skill存档\remotion\src\skills\RemotionSkill.ts` now creates planned placeholder assets for:
 
 - each scene background;
 - each `subjects[].id` as a subject-bound asset;

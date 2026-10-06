@@ -6,6 +6,8 @@ description: 《目标是成为 Prompt 大师》系列内容生产工作流。�
 
 # Prompt Master Series(目标是成为 Prompt 大师 · 系列内容生产)
 
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
+
 ## 适用场景
 
 把一个**已有的** prompt 作品 / battle 案例,沉淀成《目标是成为 Prompt 大师》系列的一期可发布内容。
@@ -119,10 +121,10 @@ chrome --headless --disable-gpu --hide-scrollbars \
 
 ### 阶段 D · 归档与封版
 
-系列文件夹**独立于知识库**,放在 `E:\目标是成为 Prompt 大师\`(发布物不进知识库,保持库内整洁)。结构:
+系列文件夹**独立于知识库**,是 GitHub `Mr-Salticidae/becoming-a-prompt-master` 的本地克隆,下文记作 `<系列仓库>`(发布物不进知识库,保持库内整洁)。在 `<工作区>` 下按 remote 地址找它(旧机器上目录名是 `目标是成为 Prompt 大师`),找不到就 `gh repo clone Mr-Salticidae/becoming-a-prompt-master "<工作区>/becoming-a-prompt-master"`。结构:
 
 ```
-E:\目标是成为 Prompt 大师\
+<系列仓库>\
 ├── README.md                 系列说明 + 期数目录
 ├── index.html                GitHub Pages 站(数据驱动两层结构:封面墙目录 + 详情页)
 ├── .nojekyll                 原样服务中文目录,勿删
@@ -188,7 +190,7 @@ E:\目标是成为 Prompt 大师\
 - `templates/episode_note_template.md` —— 小白独立笔记骨架(长 · 存档)
 - `templates/xiaohongshu_caption_template.md` —— 小红书正文骨架(短 · 发布,内敛克制;顶部含帖子链接回填位)
 - `templates/episode_manifest_entry.js` —— 新增一期往 `index.html` 的 `EPISODES` 数组里加的那条对象模板(数据驱动两层结构;旧的 `gallery_episode_block.html` 已废弃)
-- 首期实例:`E:\目标是成为 Prompt 大师\01_对话\`(已独立出库,对照成品)
+- 首期实例:`<系列仓库>\01_对话\`(已独立出库,对照成品)
 - 方法论母版(内部档,含双链,供深挖):
   - `03_prompt模板库/02_案例复盘/2026-06-12_对话甲骨文二进制获奖图复盘_v1.md`
   - `04_方法论与洞察/03_超现实与主题破局/抽象题面的同构动作对位法_v1.md`

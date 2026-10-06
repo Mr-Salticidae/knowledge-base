@@ -5,16 +5,18 @@ description: 把本地 Markdown 一键发布为飞书云文档并拿回可分享
 
 # feishu-doc-publish — 发布 Markdown 到飞书云文档
 
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
+
 把一篇本地 Markdown 变成飞书云文档（docx），**默认开启「互联网上获得链接的人可阅读」（只读）**，输出链接交付给用户。工具是 pb-arena 仓库随附的零依赖 Node CLI，API 走"飞书助理小桁"这个自建应用（租户域 `ncnnb044q88x.feishu.cn`）。
 
 **交付标准**：给用户一条可直接粘到群里的 `https://ncnnb044q88x.feishu.cn/docx/...` 链接，且用户账号对文档有编辑权。
 
 ## 第 1 步：定位工具
 
-CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 npm 依赖，Node ≥18 即可）。已知位置：
+CLI 在 pb-arena 仓库里：`<pb-arena>/tools/feishu-doc-sync/sync.mjs`（零 npm 依赖，Node ≥18 即可）。定位（各机器位置不同，别照抄旧路径）：
 
-- 网吧机：`B:\临时\pb-arena`
-- 主力机：E 盘工作区（用 Glob 找 `**/tools/feishu-doc-sync/sync.mjs`）
+- 在 `<工作区>` 下用 Glob 找 `**/tools/feishu-doc-sync/sync.mjs`，或按 remote 地址认 `Mr-Salticidae/pb-arena`（旧机器上出现过 `B:\临时\pb-arena`、E 盘根目录等位置）
+- 找不到就克隆：`gh repo clone Mr-Salticidae/pb-arena "<工作区>/pb-arena"`（私有仓库，需先 `gh auth login`）
 
 细节与故障速查见同目录 `README.md`，动手前值得扫一眼。
 ⚠️ 但该 README 有两处已过期：① 写着「默认组织内可阅读」——实际默认是互联网可阅读；

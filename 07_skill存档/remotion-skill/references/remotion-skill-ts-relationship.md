@@ -2,11 +2,11 @@
 
 Current prototype module:
 
-`D:\AIGC工作站\知识库\07_skill存档\remotion\src\skills\RemotionSkill.ts`
+`<知识库>\07_skill存档\remotion\src\skills\RemotionSkill.ts`
 
 Productized Skill:
 
-`D:\AIGC工作站\知识库\07_skill存档\remotion-skill\SKILL.md`
+`<知识库>\07_skill存档\remotion-skill\SKILL.md`
 
 ## Relationship
 

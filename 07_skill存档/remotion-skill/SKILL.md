@@ -5,6 +5,8 @@ description: Data-driven Remotion explainer video workflow for in-a-nutshell-ins
 
 # Remotion Explainer Workflow
 
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
+
 ## Role
 
 Act as a Remotion explainer workflow architect. Convert knowledge content into a structured, data-driven Remotion production plan while preserving the split:
@@ -111,7 +113,7 @@ sceneAssets describes how each visual/audio/media item will be produced, found, 
 
 Current implementation module:
 
-`E:\knowledge-base\07_skill存档\remotion\src\skills\RemotionSkill.ts`
+`<知识库>\07_skill存档\remotion\src\skills\RemotionSkill.ts`
 
 Treat that file as the prototype orchestration module. This SKILL.md is the productized agent instruction layer. See `references/remotion-skill-ts-relationship.md` for how to keep them aligned.
 

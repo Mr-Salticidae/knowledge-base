@@ -9,6 +9,7 @@ tags: [类型/skill存档]
 > 扫描方法：全盘递归 `SKILL.md`（排除 `node_modules`），逐个解析 YAML frontmatter 的 `name` / `description` / `version` / `disable-model-invocation`
 > 结果规模：全盘 1867 个 `SKILL.md` → **已装 186 处条目（去重 100 个不同 skill）+ 14 个 Claude Code 内置**，其余约 1640 个是未加载的市场缓存
 > 替代：本文档取代根目录旧版 `skills-inventory.md`（2026-07-17，已过期，当时统计 70 个）
+> ⚠️ **本文是 2026-07-28 对旧机器的扫描结果。** 2026-10-06 起换了新机器：skill 改为目录联接装载（见 [[SKILL_INDEX]] 的「路径约定」），旧机器上 Seedance、飞书 lark-* 等外部来源的 skill 在新机器上还没装。
 
 ---
 

@@ -19,6 +19,21 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 
 ---
 
+## 路径约定（2026-10-06 起）
+
+skill 原文里不再写死盘符。知识库和其他仓库在每台机器上的位置都不同（旧机器在 E 盘根目录，更早在 D 盘的 AIGC工作站 目录），所以统一用占位符，开工时现场解析：
+
+| 占位符 | 含义 | 怎么解析 |
+|---|---|---|
+| `<本skill目录>` | SKILL.md 所在目录 | Claude Code 加载 skill 时会给出 base directory |
+| `<知识库>` | knowledge-base 仓库根目录 | `git -C "<本skill目录>" rev-parse --show-toplevel`（经目录联接安装时 git 也能解析到真身仓库） |
+| `<工作区>` | `<知识库>` 的上一级，其他仓库都并排克隆在这里 | `dirname "<知识库>"` |
+| `<pb-arena>`、`<周报仓库>`、`<系列仓库>` 等 | 其他仓库的本地克隆 | 在 `<工作区>` 下按 remote 地址找（目录名各机器不同）；找不到就 `gh repo clone Mr-Salticidae/<仓库名> "<工作区>/<仓库名>"` |
+
+**安装方式**：每个 skill 目录在 `<知识库>\.claude\skills\` 和 `<工作区>\.claude\skills\` 下各建一个目录联接，指回 `07_skill存档` 里的本体。前者是仓库约定（已被 `.gitignore` 忽略），后者让工作区里其他项目也能用。新增 skill 后两处都要补建联接；`git pull` 更新 skill 后不用重装。
+
+---
+
 ## Skill 总览
 
 | Skill | 类型 | 一句话用途 | 适用工具 |
@@ -61,7 +76,7 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 
 **版本状态**：v1.4 · 2026-06-05 · 新增冠军图反向复盘、日常题尺度跃迁与巨物地貌化规则。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\aigc-prompt-optimizer\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\aigc-prompt-optimizer\SKILL.md`
 
 **与 prompt-master 的区别**：aigc-prompt-optimizer 专注 AIGC 创作场景（图片/视频），内置知识库的风格方法论；prompt-master 覆盖所有 AI 工具（包括 LLM、代码 Agent 等），适合跨场景使用。
 
@@ -73,10 +88,10 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 
 **用途**：全工具路由的提示词工程 skill，覆盖 Claude / GPT / o3 / Midjourney / Runway / Cursor / Devin 等 20+ 工具的 prompt 规范。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\prompt-master\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\prompt-master\SKILL.md`
 **引用文件**：
-- `E:\knowledge-base\07_skill存档\prompt-master\references\templates.md`
-- `E:\knowledge-base\07_skill存档\prompt-master\references\patterns.md`
+- `<知识库>\07_skill存档\prompt-master\references\templates.md`
+- `<知识库>\07_skill存档\prompt-master\references\patterns.md`
 
 **版本**：v1.8.0 · 升级日期 2026-09-10（v1.6.0 存档于 2026-06-03）
 
@@ -89,7 +104,7 @@ Claude 读取本文件后即可直接调用对应 SKILL.md，**无需安装到�
 **用途**：让不会专业剪辑软件的创作者用 Python + ffmpeg 完成精确视频剪辑。
 AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判断和反馈。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\blind-editing-workflow\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\blind-editing-workflow\SKILL.md`
 
 **关联方法论**：[[蒙眼剪辑法_方法论笔记_v1]]
 
@@ -102,7 +117,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **用途**：把项目配乐需求转化为 Suno 的 Simple Mode 探索 brief 和 Custom Mode 固化 brief。
 核心原则：先 Simple Mode 找 happy accident，再 Custom Mode 锁定。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\suno-music-brief\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\suno-music-brief\SKILL.md`
 
 **关联方法论**：[[Suno_v5.5_行为规律_v1]] · [[Suno配乐制作分享_v1]]
 
@@ -114,7 +129,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：用四层金字塔结构（sref / oref-seed-描述词 / personalize-moodboard / 装扮签名）维持 MJ 角色跨图一致性。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\character-consistency-mj\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\character-consistency-mj\SKILL.md`
 
 **关联方法论**：[[角色一致性金字塔_v1]] · [[sref编号独立律_v1]] · [[装扮签名vs五官精度_v1]]
 
@@ -126,7 +141,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：发布前做入场票审计，判断作品的平台接口，给出快手 / 网易云 / B站等平台的最小适配建议。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\content-publish-sop\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\content-publish-sop\SKILL.md`
 
 **关联方法论**：[[入场票框架_v1]] · [[快手分发SOP_v1]] · [[网易云发布Brief_通用模板_v1]] · [[网易云音乐人发布SOP_v1]]
 
@@ -138,7 +153,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：引导创作者先冻结客观事实（结果/数据），再写判断，防止把"我喜欢的方案"误写成"成功的方案"。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\aigc-postmortem\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\aigc-postmortem\SKILL.md`
 
 **关联方法论**：[[复盘事实先行原则_v1]] · [[好流量是好作品的产物_v3.1反思_v1]]
 
@@ -150,7 +165,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：先判断短片类型（概念推演型 / 关系叙事型 / 现实悖论型 / 情绪氛围型），再匹配对应的叙事策略和技术路径。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\ai-short-film-breakdown\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\ai-short-film-breakdown\SKILL.md`
 
 **关联方法论**：[[概念推演型AI短片_TotalPixelSpace_v1]] · [[现实悖论型AI短片_Jailbird_v1]] · [[多线交叉型AI短片_TheWindshieldWiper_v1]] · [[强对比型AI短片_IceMerchants_v1]] · [[图生视频_ForwardOnly原则_v1]]
 
@@ -162,7 +177,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：把初始灵感、主题、现实素材、人物关系或已有梗概发展成适合 AI 视频制作的短片方案。重点输出观看规则、视觉锚点、核心动作、情绪曲线、剧作结构、分镜方向和 AI 制作可行性评估。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\ai-short-film-screenwriting\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\ai-short-film-screenwriting\SKILL.md`
 
 **与 ai-short-film-breakdown 的区别**：`ai-short-film-breakdown` 偏拉片分析和类型判断；`ai-short-film-screenwriting` 偏从灵感生成方案、诊断故事单薄、设计可制作的短片结构。
 
@@ -176,7 +191,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：把知识类内容翻译成「极简知识卡片流」风格的 Remotion 视频。内置设计系统（颜色/字号/间距 tokens）、spring 动效规则（克制活泼）、封面/知识卡/代码卡/结尾四类场景组件模板，输出可直接运行的 TSX 代码。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\remotion\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\remotion\SKILL.md`
 
 **关联方法论**：[[AIGC_Skill到Remotion视频闭环_v1]] · [[SKILL入门完全指南_v1]]
 
@@ -188,12 +203,12 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：把笔记、脚本、总纲或 sceneSpecs 转成数据驱动的 Remotion 科普解释视频生产计划。主路线是 in a nutshell inspired flat-vector explainer；支持 sceneSpecs / sceneAssets 拆分、dry-run Skill 调用协议、与现有 Skill 的组合规划。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\remotion-skill\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\remotion-skill\SKILL.md`
 
 **引用文件**：
-- `E:\knowledge-base\07_skill存档\remotion-skill\references\skill-call-protocol.md`
-- `E:\knowledge-base\07_skill存档\remotion-skill\references\scene-assets.md`
-- `E:\knowledge-base\07_skill存档\remotion-skill\references\remotion-skill-ts-relationship.md`
+- `<知识库>\07_skill存档\remotion-skill\references\skill-call-protocol.md`
+- `<知识库>\07_skill存档\remotion-skill\references\scene-assets.md`
+- `<知识库>\07_skill存档\remotion-skill\references\remotion-skill-ts-relationship.md`
 
 **关联方法论**：[[AIGC_Skill到Remotion视频闭环_v1]] · [[蒙眼剪辑法_方法论笔记_v1]] · [[SKILL入门完全指南_v1]]
 
@@ -207,18 +222,18 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v0.1 首轮测试通过，待真实用户测试。核心修正：Insight / Beacon 从固定输出改为事件触发输出。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\maieutic-skill\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\maieutic-skill\SKILL.md`
 
 **引用文件**：
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\system_prompt.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\mode_classifier.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\knowledge_mode.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\exploration_mode.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\reflection_mode.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\creation_mode.md`
-- `E:\knowledge-base\07_skill存档\maieutic-skill\prompts\reflection_output.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\system_prompt.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\mode_classifier.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\knowledge_mode.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\exploration_mode.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\reflection_mode.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\creation_mode.md`
+- `<知识库>\07_skill存档\maieutic-skill\prompts\reflection_output.md`
 
-**测试文件**：`E:\knowledge-base\07_skill存档\maieutic-skill\tests\test_cases.md`
+**测试文件**：`<知识库>\07_skill存档\maieutic-skill\tests\test_cases.md`
 
 **测试复盘**：[[测试复盘_MaieuticSkill_v0.1_20260605]]
 
@@ -236,17 +251,17 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v0.2 MVP · 2026-06-05 · DeepSeek / 国内平台最小可执行适配包。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\maieutic-deepseek-adapter\SKILL.md`
 
-**部署说明**：`E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\README.md`
+**部署说明**：`<知识库>\07_skill存档\maieutic-deepseek-adapter\README.md`
 
 **引用文件**：
-- `E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\prompts\system_prompt.md`
-- `E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\prompts\mode_classifier.md`
-- `E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\prompts\research_trigger.md`
-- `E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\prompts\event_output_protocol.md`
+- `<知识库>\07_skill存档\maieutic-deepseek-adapter\prompts\system_prompt.md`
+- `<知识库>\07_skill存档\maieutic-deepseek-adapter\prompts\mode_classifier.md`
+- `<知识库>\07_skill存档\maieutic-deepseek-adapter\prompts\research_trigger.md`
+- `<知识库>\07_skill存档\maieutic-deepseek-adapter\prompts\event_output_protocol.md`
 
-**测试文件**：`E:\knowledge-base\07_skill存档\maieutic-deepseek-adapter\tests\test_cases.md`
+**测试文件**：`<知识库>\07_skill存档\maieutic-deepseek-adapter\tests\test_cases.md`
 
 **上游**：[[maieutic-skill/SKILL.md]] · [[测试复盘_MaieuticSkill_v0.1_20260605]] · [[路线图_MaieuticSkill_v0.2_国内适配]]
 
@@ -258,10 +273,10 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：把 Suno/AI 音乐作品从 MV 画面、无字版导出、Demucs 人声分离、WhisperX 词级对齐，到短语级 SRT 和中文意译字幕整理成可复用流程。
 
-**文件路径**：`D:\AIGC工作站\知识库\07_skill存档\song-caption-mv-workflow\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\song-caption-mv-workflow\SKILL.md`
 
 **引用文件**：
-- `D:\AIGC工作站\知识库\07_skill存档\song-caption-mv-workflow\references\stay-alive-case-notes.md`
+- `<知识库>\07_skill存档\song-caption-mv-workflow\references\stay-alive-case-notes.md`
 
 **测试复盘**：[[2026-06-07_Stay_alive_AI音乐公益MV复盘_v1]]
 
@@ -271,9 +286,9 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **触发词**：「写回执」「回函」「收口简报」「给主会话」「致 GPT 主会话」「子任务完成后回流」「按交接文档规范写」
 
-**用途**：每次执行完工作后，判断是否属于需要回流的子任务；如果是，按 [[交接文档书写规范_v1]] 在 `D:\AIGC工作站\跨会话协作\` 写回执文档。适用于 Codex / Claude / Cowork 与 GPT 主会话之间的工作闭环。若跳蛛先生明确说明是临时任务且不需要回执，则不写回执。
+**用途**：每次执行完工作后，判断是否属于需要回流的子任务；如果是，按 [[交接文档书写规范_v1]] 在 `<工作区>\跨会话协作\` 写回执文档。适用于 Codex / Claude / Cowork 与 GPT 主会话之间的工作闭环。若跳蛛先生明确说明是临时任务且不需要回执，则不写回执。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\subtask-receipt-writer\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\subtask-receipt-writer\SKILL.md`
 
 **关联方法论**：[[交接文档书写规范_v1]] · [[Cowork协作的接口文件模式_v1]]
 
@@ -287,17 +302,17 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**:v1.2.2 · 2026-06-17 · 画廊:站内笔记弹窗(marked)、原图内嵌可下载、一键复制 Prompt、**全局真实点赞计数**(Abacus serverless,每浏览器一次);画廊区块模板同步。
 
-**文件路径**:`E:\knowledge-base\07_skill存档\prompt-master-series\SKILL.md`
+**文件路径**:`<知识库>\07_skill存档\prompt-master-series\SKILL.md`
 
 **引用文件**:
-- `E:\knowledge-base\07_skill存档\prompt-master-series\assets\make_cards.py`(参数化双卡生成器,内置「对话」期可运行样例)
-- `E:\knowledge-base\07_skill存档\prompt-master-series\templates\episode_note_template.md`(小白独立笔记骨架)
-- `E:\knowledge-base\07_skill存档\prompt-master-series\templates\xiaohongshu_caption_template.md`(小红书正文骨架,内敛克制)
-- `E:\knowledge-base\07_skill存档\prompt-master-series\templates\gallery_episode_block.html`(画廊新增一期的 article 区块,小红书入口=活帖直链)
+- `<知识库>\07_skill存档\prompt-master-series\assets\make_cards.py`(参数化双卡生成器,内置「对话」期可运行样例)
+- `<知识库>\07_skill存档\prompt-master-series\templates\episode_note_template.md`(小白独立笔记骨架)
+- `<知识库>\07_skill存档\prompt-master-series\templates\xiaohongshu_caption_template.md`(小红书正文骨架,内敛克制)
+- `<知识库>\07_skill存档\prompt-master-series\templates\gallery_episode_block.html`(画廊新增一期的 article 区块,小红书入口=活帖直链)
 
 **在线画廊**:https://mr-salticidae.github.io/becoming-a-prompt-master/ · 仓库 https://github.com/Mr-Salticidae/becoming-a-prompt-master
 
-**首期实例**:`E:\目标是成为 Prompt 大师\01_对话\`(独立于知识库,保持库内整洁)
+**首期实例**:`<系列仓库>\01_对话\`(独立于知识库,保持库内整洁)
 
 **与相邻 skill 的区别**:`aigc-prompt-optimizer` 从零生成 / 优化获奖图 prompt;`aigc-poster-layout` 保护原图视觉资产做宣传海报;本 skill 负责把「已有作品」加工成「系列化、可发布、小白可读」的内容包。
 
@@ -313,7 +328,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**:v1.0 · 2026-06-18 · 从「Nano 换屏融合」一次答疑的完整沉淀流程提炼。
 
-**文件路径**:`E:\knowledge-base\07_skill存档\knowledge-base-curator\SKILL.md`
+**文件路径**:`<知识库>\07_skill存档\knowledge-base-curator\SKILL.md`
 
 **与相邻 skill 的区别**:`aigc-postmortem` 是写复盘(事实先行);`prompt-master-series` 把作品做成可发布系列内容包;本 skill 专管**把答疑成果按本库规范归档 + 产出对外学员版**,是知识库自身的策展流程。
 
@@ -331,7 +346,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-06-24 · 从同事「03_封面模板」20+ 套商单 PSD 封面提炼公式 + 库内锁脸研究封装。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\aigc-video-cover-gpt\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\aigc-video-cover-gpt\SKILL.md`
 
 **与相邻 skill 的区别**：`aigc-poster-layout` 保护已定稿原图做手工排版海报（不重绘主体）；`aigc-prompt-optimizer` 是通用 prompt 优化；本 skill 专做「脚本 → 封面」一条龙，接受重画人物、内置封面公式与锁脸补救。
 
@@ -343,17 +358,17 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **触发词**：「写周报」「本周工作周报」「这周的周报」「提交给公司的周报」「生成周报交公司」
 
-**用途**：把一周跨工作区**所有仓库**（公司平台 `taowhale-site` / 个人创作主业 / 知识库沉淀 / 游戏桌面应用 / 维护）的 git 活动与创作产出，聚合成提交给公司的**标准三段式周报**——一、本周工作总结；二、下周工作计划；三、协助·思考·总结·成长。四阶段：跨仓库扫描取数（扫盘发现 git 仓库，对照 `E:\GitHub仓库对应关系.md` 剔除外部上游）→ 归集到工作线 → 写三段 → 写入并推送 work-reports 仓库。
+**用途**：把一周跨工作区**所有仓库**（公司平台 `taowhale-site` / 个人创作主业 / 知识库沉淀 / 游戏桌面应用 / 维护）的 git 活动与创作产出，聚合成提交给公司的**标准三段式周报**——一、本周工作总结；二、下周工作计划；三、协助·思考·总结·成长。四阶段：跨仓库扫描取数（扫盘发现 git 仓库，对照 `<工作区>\GitHub仓库对应关系.md` 剔除外部上游）→ 归集到工作线 → 写三段 → 写入并推送 work-reports 仓库。
 
-**版本状态**：v1.0 · 2026-06-29 · 从 work-reports 仓库（`E:\工作报告`）3 期真实周报提炼格式；跨仓库取数命令已实跑验证（上周 06-22~28 各仓库提交数与真实周报内容吻合）。
+**版本状态**：v1.0 · 2026-06-29 · 从 work-reports 仓库（`<周报仓库>`）3 期真实周报提炼格式；跨仓库取数命令已实跑验证（上周 06-22~28 各仓库提交数与真实周报内容吻合）。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\work-weekly-report\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\work-weekly-report\SKILL.md`
 
-**产物去向**：**写到 work-reports 仓库**（`E:\工作报告\2026\周报\YYYY-MM-DD_MM-DD-周报.md`），推送其 SSH 远程，**不进本知识库**。
+**产物去向**：**写到 work-reports 仓库**（`<周报仓库>\2026\周报\YYYY-MM-DD_MM-DD-周报.md`），推送其 SSH 远程，**不进本知识库**。
 
 **与相邻 skill 的区别**：`aigc-postmortem` 是单作品复盘、`knowledge-base-curator` 是知识库策展，两者产物都在知识库内；本 skill 是**对公司的工作汇报**，跨所有仓库聚合，产物落 work-reports 仓库。
 
-**关联文档**：`E:\工作报告`（work-reports 仓库）· `E:\GitHub仓库对应关系.md`（取数源·仓库清单）
+**关联文档**：`<周报仓库>`（work-reports 仓库）· `<工作区>\GitHub仓库对应关系.md`（取数源·仓库清单）
 
 ---
 
@@ -365,7 +380,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.1 · 2026-07-12 · 名词小抄禁引用块内嵌列表 / 全角标点程序化校验（护代码区 + 码点替换）/ 新增发布后终稿回收。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\insight-public-post\SKILL.md`（v1.0 原文存档于 `insight-public-post_v1.0_SKILL.md`）
+**文件路径**：`<知识库>\07_skill存档\insight-public-post\SKILL.md`（v1.0 原文存档于 `insight-public-post_v1.0_SKILL.md`）
 
 **与相邻 skill 的区别**：`knowledge-base-curator` 管「答疑成果按库规范归档 + 学员版」；本 skill 专管「已沉淀内核档 → 面向所有用户的公开帖」，含 B 站人设语气、脱敏与发布后终稿回收，交付到可整篇粘贴（发帖动作永远由用户完成）。
 
@@ -383,7 +398,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-07-12 · 本会话真机验证（山海工坊拆解文档发布 + 补授权全流程走通）。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\feishu-doc-publish\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\feishu-doc-publish\SKILL.md`
 
 **与相邻 skill 的区别**：`insight-public-post` 管「内核档 → B 站公开帖」的内容改写与体例；本 skill 管「任意成稿 md → 飞书云文档」的发布管道本身，不改写内容。
 
@@ -409,7 +424,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-07-31 · 首次实战（Melolo 印尼短剧 TikTok 拉新剪辑招募）后沉淀。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\opportunity-due-diligence\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\opportunity-due-diligence\SKILL.md`
 
 **关联文档**：产出样例 08_对外分发/`海外短剧剪辑拉新副业能不能做_尽调笔记.md` · 出图交给 `report-longimage`
 
@@ -421,7 +436,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **用途**：把已成稿的 md（复盘、尽调、更新报告、教程）渲染成 PB Arena「简洁低疲劳 V2」版式的长图 PNG。只管出图，不管内容怎么写。
 
-**资产**：`母版.html`（组件画廊，每种块各一个占位示例）· `render.sh`（两趟截图脚本，`bash render.sh in.html out.png`，默认 1120 逻辑宽 ×2 → 2240 成图）。版式源头是 `E:\pb-arena\docs\更新报告_2026-07-30_*.png`。
+**资产**：`母版.html`（组件画廊，每种块各一个占位示例）· `render.sh`（两趟截图脚本，`bash render.sh in.html out.png`，默认 1120 逻辑宽 ×2 → 2240 成图）。版式源头是 `<pb-arena>\docs\更新报告_2026-07-30_*.png`。
 
 **版式骨架（顺序固定）**：珊瑚红字距眉标 → 大字标题 → mono 元信息行 → 细线 → 导语 → 四格指标栏 → 01/02/03 编号章节 → 页脚（圆形 mark + 署名 + 胶囊徽章 + 来源行）。
 
@@ -433,7 +448,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-07-31 · 母版与脚本均已真机跑通出图。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\report-longimage\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\report-longimage\SKILL.md`
 
 **与相邻 skill 的区别**：`aigc-poster-layout` 是作品/角色宣传海报（图为主）；本 skill 是文档型报告长图（字为主）。
 
@@ -457,7 +472,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：v1.0 · 2026-08-10 · PR #201 已提交，待 CLA + Review。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\wechaty-blog-pr\SKILL.md`（本机可执行副本：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`）
+**文件路径**：`<知识库>\07_skill存档\wechaty-blog-pr\SKILL.md`（旧机器 WorkBuddy 里的副本：`~/.workbuddy/skills/wechaty-blog-pr/SKILL.md`）
 
 **与相邻 skill 的区别**：`feishu-doc-publish` 管「本地 md → 飞书云文档」的发布管道；本 skill 管「技术博客 → 第三方开源仓库 PR」的贡献管道，走 GitHub fork+PR+CLA 而非平台发布。
 
@@ -473,7 +488,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\moonlit-wuxia-cinema\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\moonlit-wuxia-cinema\SKILL.md`
 
 **引用文件**：`agents/openai.yaml`、`references/style-system.md`、`references/video-prompt-templates.md` 与三份规范分镜母版。
 
@@ -489,7 +504,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\yu-lin-wen-skill\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\yu-lin-wen-skill\SKILL.md`
 
 **引用文件**：`agents/openai.yaml`、`references/prompt-library.md`。
 
@@ -505,7 +520,7 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 
 **版本状态**：源文件未标注版本 · 2026-09-01 原样归档；23 个单元测试通过，Skill 结构验证通过。
 
-**文件路径**：`E:\knowledge-base\07_skill存档\kecheng-yugao-skill\SKILL.md`
+**文件路径**：`<知识库>\07_skill存档\kecheng-yugao-skill\SKILL.md`
 
 **随附内容**：`agents/openai.yaml`、8 份工作流参考文档、课程预告辅助脚本及测试、文本模板一 DOCX、海报模板一 PSD 与模板合同。
 

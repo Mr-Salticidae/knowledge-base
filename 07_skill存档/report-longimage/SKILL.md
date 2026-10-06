@@ -6,6 +6,8 @@ description: 把一篇 Markdown 文档渲染成 PB Arena「简洁低疲劳 V2」
 
 # 报告长图渲染（PB Arena 同款版式）
 
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
+
 把一篇已成稿的 md（复盘、尽调、更新报告、教程）渲染成**一张可直接转发的长图 PNG**。
 版式来自 PB Arena 的「简洁低疲劳 V2」视觉规范，产线是 HTML 母版 + headless Chrome 两趟截图。
 
@@ -15,11 +17,11 @@ description: 把一篇 Markdown 文档渲染成 PB Arena「简洁低疲劳 V2」
 
 | 文件 | 用途 |
 |---|---|
-| `E:\knowledge-base\07_skill存档\report-longimage\母版.html` | 组件画廊：每种块各一个带占位文案的示例，复制需要的块 |
-| `E:\knowledge-base\07_skill存档\report-longimage\render.sh` | 两趟截图脚本，`bash render.sh in.html out.png` |
-| `E:\knowledge-base\08_对外分发\海外短剧剪辑拉新副业能不能做_尽调笔记.html` | 真实成品样例（2240×10754），当参考比母版更直观 |
-| `E:\pb-arena\docs\更新报告_2026-07-30_*.png` | 版式源头，拿不准时回看这张 |
-| `E:\pb-arena\docs\更新报告_2026-08-05_浅色对战V4改稿落地.{md,html,png}` | md / html / png 三件齐全的一次真实产出（2240×7524），要改文案直接改那份 html 重渲染 |
+| `<知识库>\07_skill存档\report-longimage\母版.html` | 组件画廊：每种块各一个带占位文案的示例，复制需要的块 |
+| `<知识库>\07_skill存档\report-longimage\render.sh` | 两趟截图脚本，`bash render.sh in.html out.png` |
+| `<知识库>\08_对外分发\海外短剧剪辑拉新副业能不能做_尽调笔记.html` | 真实成品样例（2240×10754），当参考比母版更直观 |
+| `<pb-arena>\docs\更新报告_2026-07-30_*.png` | 版式源头，拿不准时回看这张 |
+| `<pb-arena>\docs\更新报告_2026-08-05_浅色对战V4改稿落地.{md,html,png}` | md / html / png 三件齐全的一次真实产出（2240×7524），要改文案直接改那份 html 重渲染 |
 
 ## 第 1 步：套母版
 
@@ -55,7 +57,7 @@ description: 把一篇 Markdown 文档渲染成 PB Arena「简洁低疲劳 V2」
 ## 第 2 步：出图
 
 ```bash
-bash "E:/knowledge-base/07_skill存档/report-longimage/render.sh" <in.html> <out.png>
+bash "<知识库>/07_skill存档/report-longimage/render.sh" <in.html> <out.png>
 ```
 
 默认逻辑宽度 1120、缩放 2 倍 → 成图 2240 宽，与 PB Arena 既有报告图一致。

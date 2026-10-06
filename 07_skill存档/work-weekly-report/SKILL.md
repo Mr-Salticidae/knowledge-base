@@ -1,10 +1,12 @@
 ---
 name: work-weekly-report
 version: 1.0
-description: 公司工作周报生成工作流。把一周跨工作区多个仓库(公司平台 taowhale-site、个人创作主业、知识库沉淀、游戏/桌面应用、维护)的 git 活动与创作产出，聚合成提交给公司的标准三段式周报(一、本周工作总结 / 二、下周工作计划 / 三、协助·思考·总结·成长)，写入并推送到 work-reports 仓库。当用户说"写周报"、"本周工作周报"、"提交给公司的周报"、"这周的工作周报"、"生成周报交公司"时触发。本 skill 编码跳蛛先生 work-reports 仓库(E:\工作报告)的真实格式与跨仓库取数约定，Claude 专用。
+description: 公司工作周报生成工作流。把一周跨工作区多个仓库(公司平台 taowhale-site、个人创作主业、知识库沉淀、游戏/桌面应用、维护)的 git 活动与创作产出，聚合成提交给公司的标准三段式周报(一、本周工作总结 / 二、下周工作计划 / 三、协助·思考·总结·成长)，写入并推送到 work-reports 仓库。当用户说"写周报"、"本周工作周报"、"提交给公司的周报"、"这周的工作周报"、"生成周报交公司"时触发。本 skill 编码跳蛛先生 work-reports 仓库(<周报仓库>)的真实格式与跨仓库取数约定，Claude 专用。
 ---
 
 # Work Weekly Report · 公司工作周报工作流
+
+> 路径约定：文中 `<知识库>`、`<工作区>` 等占位符开工时现场解析——`<知识库>` = `git -C "<本skill目录>" rev-parse --show-toplevel`，`<工作区>` = 它的上一级，其他仓库在 `<工作区>` 下按 remote 地址找。完整规则见 `<知识库>/07_skill存档/SKILL_INDEX.md` 的「路径约定」。
 
 ## 角色定位
 
@@ -12,8 +14,8 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 两个本质特征，决定了它和库内其他 skill 不同：
 
-1. **跨仓库聚合**：跳蛛先生的工作散在 E 盘十几个仓库里（公司平台 `taowhale-site`、AIGC 创作、知识库、游戏/桌面应用、主页站、工具…）。周报要把一周横跨所有仓库的活动收拢成 4–6 条工作线。
-2. **产物落在另一个仓库**：本 skill 文件在知识库 `07_skill存档/`，但**周报成品写到 work-reports 仓库**（`E:\工作报告`），并推送到它自己的远程，**不进知识库**。
+1. **跨仓库聚合**：跳蛛先生的工作散在 `<工作区>` 下十几个仓库里（公司平台 `taowhale-site`、AIGC 创作、知识库、游戏/桌面应用、主页站、工具…）。周报要把一周横跨所有仓库的活动收拢成 4–6 条工作线。
+2. **产物落在另一个仓库**：本 skill 文件在知识库 `07_skill存档/`，但**周报成品写到 work-reports 仓库**（`<周报仓库>`），并推送到它自己的远程，**不进知识库**。
 
 ---
 
@@ -30,12 +32,23 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 | 项 | 约定 |
 |---|---|
-| 周报输出仓库 | `E:\工作报告`（= GitHub `Mr-Salticidae/work-reports`，SSH，分支 `main`） |
-| 周报落位 | `E:\工作报告\2026\周报\` |
+| 周报输出仓库 | `<周报仓库>`（= GitHub `Mr-Salticidae/work-reports`，SSH，分支 `main`） |
+| 周报落位 | `<周报仓库>\2026\周报\` |
 | 文件命名 | `YYYY-MM-DD_MM-DD-周报.md`（如 `2026-06-22_06-28-周报.md`，下划线连起止日） |
 | 标题行 | `# 周报 · YYYY.MM.DD–MM.DD`（点分日期，连接号是 `–`） |
-| 取数源·仓库清单 | `E:\GitHub仓库对应关系.md`（列了哪些是本人仓库、哪些是外部上游） |
+| 取数源·仓库清单 | `<工作区>\GitHub仓库对应关系.md`（列了哪些是本人仓库、哪些是外部上游） |
 | 月报 / 项目材料 | 月报落 `2026\月报\`；项目过程材料落对应月份项目文件夹（见 work-reports README） |
+
+开工前先现场解析路径占位符（各机器盘符、目录名都不同，别照抄旧机器上的 `E:\` 路径）：
+
+```bash
+KB=$(git -C "<本skill目录>" rev-parse --show-toplevel)   # <知识库>；经目录联接安装时 git 也能解析到真身仓库
+WS=$(dirname "$KB")                                       # <工作区> = 知识库的上一级，各仓库并排克隆在这里
+REPORTS=$(for d in "$WS"/*/; do git -C "$d" remote get-url origin 2>/dev/null | grep -qi 'Mr-Salticidae/work-reports' && echo "${d%/}"; done | head -1)
+[ -n "$REPORTS" ] || echo "本机还没有 work-reports：gh repo clone Mr-Salticidae/work-reports \"$WS/work-reports\""
+```
+
+`$REPORTS` 即下文的 `<周报仓库>`。按 remote 地址认仓库，不按目录名（同一个仓库在旧机器叫 `工作报告`）。`<工作区>\GitHub仓库对应关系.md` 不存在时，origin 不属于 `Mr-Salticidae` 的仓库就是外部上游。
 
 固定三段式（缺一不可）：**一、本周工作总结** ／ **二、下周工作计划** ／ **三、协助 · 思考 · 总结 · 成长**。
 
@@ -47,13 +60,13 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 一周横跨十几个仓库，记不全。客观账本是各仓库的 git log。
 
-1. **发现仓库**（不要只读映射文档——它会滞后，如 `fraud-desk`/`zombie-world` 一度未登记）。扫 E 盘工作区里所有 git 仓库：
+1. **发现仓库**（不要只读映射文档——它会滞后，如 `fraud-desk`/`zombie-world` 一度未登记）。扫 `<工作区>` 里所有 git 仓库（往下两层）：
    ```bash
-   for d in "E:/"*/ "E:/AIGC工作站/"*/ "E:/工具/"*/; do
+   for d in "$WS"/*/ "$WS"/*/*/; do
      [ -d "$d.git" ] && echo "${d%/}"
    done
    ```
-   再对照 `E:\GitHub仓库对应关系.md` **剔除外部上游**（`remotion`、`video-use` 等只读跟踪的非本人仓库，不计入工作量）。
+   再对照 `<工作区>\GitHub仓库对应关系.md` **剔除外部上游**（`remotion`、`video-use` 等只读跟踪的非本人仓库，不计入工作量）。
 
 2. **逐仓库抓本周提交**：
    ```bash
@@ -105,12 +118,12 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 ### 阶段 D · 归档与提交（写到 work-reports，不进知识库）
 
-1. 写入 `E:\工作报告\2026\周报\YYYY-MM-DD_MM-DD-周报.md`。
+1. 写入 `<周报仓库>\2026\周报\YYYY-MM-DD_MM-DD-周报.md`。
 2. **在 work-reports 仓库**提交并推送：
    ```bash
-   git -C "E:/工作报告" add "2026/周报/<文件名>"
-   git -C "E:/工作报告" commit -m "周报:YYYY.MM.DD–MM.DD"
-   git -C "E:/工作报告" push origin main
+   git -C "$REPORTS" add "2026/周报/<文件名>"
+   git -C "$REPORTS" commit -m "周报:YYYY.MM.DD–MM.DD"
+   git -C "$REPORTS" push origin main
    ```
 3. **不要**把周报写进知识库、不要在知识库里 commit 它。两个仓库分开。
 4. 若本周维护动作里包含「work-reports 纳入版本管理 / 归档上周周报」，可在本周总结的「维护」线提一句（真实周报就这么记的）。
@@ -150,7 +163,7 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 ## 禁止行为
 
-- ❌ 把周报写进知识库 / 在知识库 commit（应落 `E:\工作报告` 并推 work-reports 远程）
+- ❌ 把周报写进知识库 / 在知识库 commit（应落 `<周报仓库>` 并推 work-reports 远程）
 - ❌ 只读映射文档取数（会漏掉未登记的新仓库；必须扫盘发现 git 仓库）
 - ❌ 把外部上游仓库（remotion / video-use）的提交计入工作量
 - ❌ 跳周或与已有最新一期重叠（先看 work-reports 排到哪周）
@@ -206,7 +219,7 @@ description: 公司工作周报生成工作流。把一周跨工作区多个仓�
 
 ## 关联文档
 
-- 周报输出仓库：`E:\工作报告`（GitHub `Mr-Salticidae/work-reports`），README 含目录约定
-- 取数源·仓库清单：`E:\GitHub仓库对应关系.md`（本人仓库 vs 外部上游）
+- 周报输出仓库：`<周报仓库>`（GitHub `Mr-Salticidae/work-reports`），README 含目录约定
+- 取数源·仓库清单：`<工作区>\GitHub仓库对应关系.md`（本人仓库 vs 外部上游）
 - Skill 登记：[[SKILL_INDEX]] · [[07_skill存档索引]]
 - 同族 skill：`aigc-postmortem`（单作品复盘）· `knowledge-base-curator`（知识库策展）· `subtask-receipt-writer`（子任务回执）
