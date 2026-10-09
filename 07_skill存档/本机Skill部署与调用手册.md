@@ -326,5 +326,6 @@ OpenClaw 是飞书侧的 agent 宿主，skill 分三处：
 
 - 自研 skill 存档与版本记录：[[07_skill存档索引]]
 - 自研 skill 触发词与免安装调用法：[[SKILL_INDEX]]
+- 新工作电脑装载实录（2026-10-09，30 个自研 skill 以目录联接装进 `~/.claude/skills`、联接按 frontmatter `name` 命名、只装用户级不建项目级以免重复加载）：[[2026-10-09_新工作电脑AIGC环境从零搭建_单域名分流失败与12GB跑33B视频模型_复盘_v1]]
 - 全库入口：[[README]]
 - 知识库协作规范：`CLAUDE.md`
