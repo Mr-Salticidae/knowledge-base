@@ -64,6 +64,7 @@ skill 原文里不再写死盘符。知识库和其他仓库在每台机器上�
 | [moonlit-wuxia-cinema](#moonlit-wuxia-cinema) | 武侠视觉与视频 | 月夜国风幻想武侠 CG → 镜头设计与 15 秒视频提示词 | Codex / 图片模型 / 视频模型 |
 | [yu-lin-wen-skill](#yu-lin-wen-skill) | 图片伪影修复 | 鱼鳞纹、重复薄片、噪点、过锐与错误景深诊断修复 | Codex / GPT Image / Image2 |
 | [kecheng-yugao-skill](#kecheng-yugao-skill) | 课程预告生产 | 指定日期课表 → 课程预告 DOCX、海报 PNG 与可复用 PSD | Codex / Word / Photoshop |
+| [blockout-seedance-production](#blockout-seedance-production) | 视频制片 | 白模锁站位切点 + MJ 原图锁身份 → 样片 → 粗剪 → 1080P 正片 → 成片发布（余温制片流程） | Claude / Codex |
 
 ---
 
@@ -527,6 +528,22 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **使用边界**：这是绑定课程预告项目目录和 Photoshop/Word 桌面能力的生产型 Skill；迁移到其他项目时必须先重新配置课表、教师素材、图标、模板注册表和 PSD 输出目录，不能直接沿用原项目路径。
 
 **关联文档**：[[07_skill存档索引]] · [[本机Skill部署与调用手册]]
+
+---
+
+## blockout-seedance-production
+
+**触发词**：「按余温的流程走」「按制片流程做」「开始制片」「出白模」「跑样片」「出正片」「做这支片子的生产计划」；短片 / 宣传片 / 比赛命题片 / MV 方案定稿、要进入出图出视频阶段时
+
+**用途**：白模锚点制片法。Blender 白模锁站位和切点，MJ 原图锁身份，文字锁动作和分寸，表演交给 Seedance 2.5。流程是分段表 → 资产 → 白模（五项检查）→ 风险段小测试 → 全片样片 → 审片 → 粗剪 → 修补（按切点换一镜 / 补拍 / 首帧续拍）→ 只给挑定的条出 1080P 正片 → 成片（双语字幕、代码定版、响度）→ 封面发布。每步都有作者关卡和预算口径，并附 LibTV、即梦画布、DreamMaker 三个平台的适配表。
+
+**版本状态**：v1.0 · 2026-10-14 新建，首个应用是 `85_SeeBay宣传片大赛`。
+
+**文件路径**：`<知识库>\07_skill存档\blockout-seedance-production\SKILL.md`
+
+**关联方法论**：[[2026-09-20_余温_关键帧先行到锚点制_M02四轮试镜复盘_v1]] · [[2026-10-01_余温_见证者角色PV_立项到四平台发布_复盘_v1]] · [[2026-10-05_余温_单元剧EP03瓦尔卡_LibTV样片到正片_阶段复盘_v1]] · [[2026-10-14_那道题还亮着_原创对唱MV_粗剪审片到六平台发布_复盘_v1]] · [[按切点重拍_省的是生成时长_v1]] · [[Seedance2_5_行为规律_v1]]
+
+**分工**：剧作构思交给 `ai-short-film-screenwriting`，剪辑代码细节交给 `blind-editing-workflow`，发布交给 `content-publish-sop`，复盘交给 `aigc-postmortem`。
 
 ---
 
