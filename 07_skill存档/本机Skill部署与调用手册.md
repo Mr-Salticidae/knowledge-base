@@ -4,6 +4,73 @@ tags: [类型/skill存档]
 
 # 本机 Skill 部署与调用手册
 
+---
+
+## ⭐ 当前机（KiroCrew 工作机）用户级已装快照 — 2026-10-14
+
+> 本节是**当前使用中的 KiroCrew 工作机**的实况，取代下方 2026-07-28 旧机器扫描。
+> 机器：Windows，账户 `C:\Users\Administrator`
+> 宿主：**KiroCrew dashboard**（kiro-cli agent 运行层），skill 以**实体目录复制**装载，loader 目录扫描自动索引
+> 装载目录（用户级）：`C:\Users\Administrator\.kiro\crew\skills\imported\claude_code\`
+> 真身来源：`D:\AIGC工作站\知识库\07_skill存档\`（带 `SKILL.md` 的自研 skill）
+> 校验方法：逐个解析 `SKILL.md` 的 YAML frontmatter（`name` / `description`）
+
+### 规模与健康度
+
+- **已装 32 个 skill 文件夹**，全部含 `SKILL.md` 且 frontmatter 完整（`name` + `description` 均在），**0 缺失 / 0 残缺**。
+- **目录名 ≠ skill 名**，当前有 2 处（设计如此，loader 以 frontmatter `name` 为准）：
+  - 目录 `remotion/` → 真名 `remotion-card-video`
+  - 目录 `remotion-skill/` → 真名 `remotion-explainer-workflow`
+- 调用方式：① 自动触发（命中 `description` 触发词）② 显式点名 `$<skill名>` ③ 直接 Read 兜底。
+
+### 已装清单（32 个，按目录名排序）
+
+| 目录名 | frontmatter name | 一句话用途 |
+|---|---|---|
+| `ai-short-film-breakdown` | ai-short-film-breakdown | AI 短片类型判断、拉片、规避 AI 短板 |
+| `ai-short-film-screenwriting` | ai-short-film-screenwriting | 灵感/主题/素材 → 可制作短片方案，故事诊断 |
+| `aigc-poster-layout` | aigc-poster-layout | 作品宣传海报排版（B站/小红书/快手/朋友圈）|
+| `aigc-postmortem` | aigc-postmortem | 创作复盘，事实先行防自我归因偏差 |
+| `aigc-prompt-optimizer` | aigc-prompt-optimizer | 口语需求 → 专业 prompt，prompt battle、视觉诊断 |
+| `aigc-topic-cover-factory` | aigc-topic-cover-factory | 选题批产+小红书采图+大字封面流水线 |
+| `aigc-video-cover-gpt` | aigc-video-cover-gpt | 人物参考图+脚本 → GPT Image 2 一步出 16:9 封面 |
+| `blind-editing-workflow` | blind-editing-workflow | 蒙眼剪辑法：Python+ffmpeg 精确卡点合成 MV/PV |
+| `blockout-seedance-production` | blockout-seedance-production | 白模锚点制片法（Seedance 2.5 制片流程）|
+| `character-consistency-mj` | character-consistency-mj | MJ 角色一致性四层金字塔，sref/oref 锁脸 |
+| `content-publish-sop` | content-publish-sop | 发布前入场票审计 + 平台适配（快手/网易云/B站）|
+| `dingtalk-doc-delivery` | dingtalk-doc-delivery | 本地 md → 钉钉知识库交付 |
+| `fapiao-reimburse` | fapiao-reimburse | 中国电子发票 → 鲸海拾贝公司报销包 |
+| `feishu-doc-publish` | feishu-doc-publish | 本地 md → 飞书云文档 + 可分享链接（小桁 CLI）|
+| `insight-public-post` | insight-public-post | 知识库内核档 → B站 AI 开发者小站公开版对外帖 |
+| `kecheng-yugao-skill` | kecheng-yugao-skill | 课程预告文本 + 海报自动化 |
+| `knowledge-base-curator` | knowledge-base-curator | 答疑 → 小白笔记 → 内核存档 → 学员版分发 四阶段 |
+| `maieutic-deepseek-adapter` | maieutic-deepseek-adapter | Maieutic 国内平台适配（DeepSeek/Dify/Coze/通义/豆包/Kimi）|
+| `maieutic-skill` | maieutic-skill | 苏格拉底式共学，Insight/Beacon 事件触发 |
+| `moonlit-wuxia-cinema` | moonlit-wuxia-cinema | 月夜武侠国风 2.5D CG + 15 秒视频提示词 |
+| `opportunity-due-diligence` | opportunity-due-diligence | 机会尽调 |
+| `prompt-master` | prompt-master | 全工具 prompt 路由（LLM/Cursor/MJ/图片/视频/代码 Agent）|
+| `prompt-master-series` | prompt-master-series | 《Prompt 大师》系列内容生产，四层拆解卡+小白笔记 |
+| `remotion` | **remotion-card-video** ⚠️ | Remotion+React「极简知识卡片流」视频，出 TSX |
+| `remotion-skill` | **remotion-explainer-workflow** ⚠️ | Remotion 扁平矢量科普解释视频，sceneSpecs/干跑协议 |
+| `report-longimage` | report-longimage | Markdown → PB Arena 同款报告长图 PNG |
+| `song-caption-mv-workflow` | song-caption-mv-workflow | 歌曲 MV + 字幕自动化，Demucs/WhisperX/双语 SRT |
+| `subtask-receipt-writer` | subtask-receipt-writer | 子任务完成后写交接回执/回函/收口简报 |
+| `suno-music-brief` | suno-music-brief | Suno 两阶段配乐：Simple + Custom Mode brief |
+| `wechaty-blog-pr` | wechaty-blog-pr | Wechaty 博客投稿 PR |
+| `work-weekly-report` | work-weekly-report | 跨工作区 git 活动 → 公司标准三段式周报并推送 |
+| `yu-lin-wen-skill` | yu-lin-wen-skill | 雨林文风格创作 |
+
+### 装载注意事项（本机实录）
+
+1. 这次装的是**用户级**（`imported\claude_code`），符合 10-09 复盘「只装用户级不建项目级以免重复加载」的约定。
+2. **CJK 路径坑**：存档路径含中文，经 `cmd` / 脚本文件传 CJK 会 mojibake（如 `宸ヤ綔绔`）。稳妥做法——PowerShell 里用 Unicode 码点 `[char]` 重建路径，或脚本存成 UTF-8 **带 BOM**。
+3. 存档里**无 `SKILL.md`** 的目录（散落引用 `_refs`、`remotion` 构建产物等）不是独立 skill，未单独装。
+4. 本节由 2026-10-14 两次操作合并：先补齐缺的 10 个（原 21 → 32），再逐个校验 frontmatter 全部通过。
+
+---
+
+## 旧机器全盘扫描（历史留档）
+
 > 扫描日期：2026-07-28
 > 扫描机器：Windows 10 Pro（`C:\Users\1`）
 > 扫描方法：全盘递归 `SKILL.md`（排除 `node_modules`），逐个解析 YAML frontmatter 的 `name` / `description` / `version` / `disable-model-invocation`
