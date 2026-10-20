@@ -66,6 +66,7 @@ tags: [类型/skill存档]
 2. **CJK 路径坑**：存档路径含中文，经 `cmd` / 脚本文件传 CJK 会 mojibake（如 `宸ヤ綔绔`）。稳妥做法——PowerShell 里用 Unicode 码点 `[char]` 重建路径，或脚本存成 UTF-8 **带 BOM**。
 3. 存档里**无 `SKILL.md`** 的目录（散落引用 `_refs`、`remotion` 构建产物等）不是独立 skill，未单独装。
 4. 本节由 2026-10-14 两次操作合并：先补齐缺的 10 个（原 21 → 32），再逐个校验 frontmatter 全部通过。
+5. **KiroCrew 自动沉淀 skill**（2026-10-20 补记）另装在 `C:\Users\Administrator\.kiro\crew\skills\auto\`，由 KiroCrew 从会话提炼，在 dashboard「待审阅」批准后上线，不在上面 32 个之内。已存档的见 [[07_skill存档索引]]「KiroCrew 自动沉淀 skill」一节。审批时候选 `SKILL.md` 必须 ≤ 4096 字节，超了会报「无法安全读取」，批准按钮变灰。
 
 ---
 

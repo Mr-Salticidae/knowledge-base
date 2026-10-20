@@ -46,6 +46,8 @@ tags: [类型/skill存档]
 | yu-lin-wen-skill | v1.0 | 2026-09-01 | 图片伪影修复 | Codex / GPT Image / Image2 | 原样归档（源未标注版本，按归档日期记为 v1.0），待测试 |
 | kecheng-yugao-skill | v1.0 | 2026-09-01 | 课程预告生产 | Codex / Word / Photoshop | 原样归档（源未标注版本，按归档日期记为 v1.0），结构验证与 23 个单元测试通过 |
 | blockout-seedance-production | v1.0 | 2026-10-14 | 视频制片（白模锚点制片法：分段表 → 白模 → 样片 → 粗剪 → 正片 → 成片） | Claude + Codex | 从 [[2026-09-20_余温_关键帧先行到锚点制_M02四轮试镜复盘_v1]] · [[2026-10-01_余温_见证者角色PV_立项到四平台发布_复盘_v1]] · [[2026-10-05_余温_单元剧EP03瓦尔卡_LibTV样片到正片_阶段复盘_v1]] · [[2026-10-14_那道题还亮着_原创对唱MV_粗剪审片到六平台发布_复盘_v1]] 提炼，待 85 实战验证 |
+| auto/comfyui-low-vram-video-model-setup | v2 | 2026-10-20 | KiroCrew 自动沉淀：低显存 ComfyUI 装新模型（复制便携版升级 → 权重核验下载 → 启动自检 → HTTP API 冒烟） | KiroCrew | 从 [[MiniMax_H3本地图生视频工作流部署手册]] 实装过程沉淀，FLUX 3 Klein 安装复用验证 |
+| auto/kling-canvas-video-node-pipeline | v2 | 2026-10-20 | KiroCrew 自动沉淀：可灵网页画布 playwright-cli 出视频节点（传参考 → 填 tiptap → 主体库锁脸 → 抓 blob → 联系表 + 配乐审片） | KiroCrew | 88 号 MV《第三阶的秋天》白模分段实战 |
 | aigc-topic-cover-factory | v1.0 | 2026-09-09 | AI 爆款选题批产 + 小红书素材采集 + 代码合成 960×600 大字封面矩阵 | Codex | 合成器已对标验证（叠合比对）；采集器真机跑通并修掉登录墙误判 / 同域资源误收两个 bug |
 
 ### prompt-master v1.8.0 备注
@@ -284,6 +286,15 @@ v1.1 升级（2026-07-22，对齐公司教程通行体例）：① 新增**四�
 - `remotion/src/skills/RemotionSkill.ts` 的 `skillPath` 改为仓库相对路径，顺带修正已失效的 `prompt-master_v1.6.0_SKILL.md` 引用（现为 `prompt-master/SKILL.md`）。
 - 不改：工作日志、素材来源记录、成片台词、单文件旧版归档与上游 README，它们记录的是当时的事实。
 - 版本号不变：只改路径表述，不改流程。
+
+### KiroCrew 自动沉淀 skill（2026-10-20，首批 2 个）
+
+来源：KiroCrew 从会话里自动提炼的 `auto/*` skill，经 dashboard「待审阅」批准后上线（`C:\Users\Administrator\.kiro\crew\skills\auto\<名>\SKILL.md`，旧版留在同目录 `.versions/`）。这里存批准后的 v2 原文。
+
+- [[kirocrew-auto/comfyui-low-vram-video-model-setup/SKILL.md]] — v2 在 v1 上补了「复制便携版再升级核心、升级后补装依赖、`/object_info` + `/prompt` 冒烟、txt_in 维度报错 = 文本编码器选错」
+- [[kirocrew-auto/kling-canvas-video-node-pipeline/SKILL.md]] — v2 在 v1 上补了「主体库多参考帧锁脸、tiptap 填词走 ASCII 中转、生成中断后先查状态防重复扣费、联系表 + 配乐审片」
+
+**审批坑**：待审候选的 `SKILL.md` 超过 **4096 字节**时，卡片会报「该候选项的文件无法安全读取」，批准按钮变灰。原因是网关读候选时上限是 `MAX_SCRIPT_BYTES=4096`，不是缓存或竞态，强刷、重启网关都没用。解法是把 `.pending/<名>/SKILL.md` 精简到 4KB 以内（frontmatter 不动），刷新页面就能批准。这两条首次提交时分别是 8339 / 5349 字节，都卡住了，精简后批准成功。
 
 ## 本机部署全景
 
