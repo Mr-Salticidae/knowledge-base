@@ -65,6 +65,7 @@ skill 原文里不再写死盘符。知识库和其他仓库在每台机器上�
 | [yu-lin-wen-skill](#yu-lin-wen-skill) | 图片伪影修复 | 鱼鳞纹、重复薄片、噪点、过锐与错误景深诊断修复 | Codex / GPT Image / Image2 |
 | [kecheng-yugao-skill](#kecheng-yugao-skill) | 课程预告生产 | 指定日期课表 → 课程预告 DOCX、海报 PNG 与可复用 PSD | Codex / Word / Photoshop |
 | [blockout-seedance-production](#blockout-seedance-production) | 视频制片 | 白模锁站位切点 + MJ 原图锁身份 → 样片 → 粗剪 → 1080P 正片 → 成片发布（余温制片流程） | Claude / Codex |
+| [juben-deconstruct](#juben-deconstruct) | 剧本拆解 | 资料包 → DM 学习包：转写 / 版面校正 / 剧透隔离 / 归纳卡片 | Claude / WorkBuddy |
 
 ---
 
@@ -562,6 +563,22 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **使用边界**：只做「场景照 + 大字」，**不做人物抠像**（对标正片那层不覆盖）。输出恒为 16:10 B 站封面比例，小红书只是素材来源。追求单张质感请改用 aigc-video-cover-gpt_SKILL 或 aigc-poster-layout。素材权属由项目方负责。
 
 **关联文档**：[[代码排版小红书封面工作流_v1]]（版式量化结论）· [[自动化判据取结构不取文案_v1]]（采集侧的坑）· [[07_skill存档索引]]
+
+---
+
+## juben-deconstruct
+
+**触发词**：「拆本」「剧本拆解」「学剧本」「我要当 DM」「给别人做学习资料」「把剧本转成 md」「剧本归纳」
+
+**用途**：把一个剧本杀资料包变成「能独立带完全场」的学习包。八阶段流水线：盘点去重 → 版面探测 → 全量转写（文字层 / OCR / ASR / 视频抽帧） → 阅读顺序校正 → 知识重组 → 剧透隔离 → 归纳卡片 → 入库推送。内含三层知识结构、剧透红绿灯、对外文档去 PM 化清单、质量校验清单。
+
+**版本状态**：v1.0 · 2026-11-12 归档。两本真机跑通：954《虚拟游戏》（299 页骑马订拼版 PDF + 6 段音频）与 247《窗边的女人》（103 页纯 JPG 扫描 + 15 段音视频），均 0 报错；对外学习包已按剧透分级分册交付。
+
+**文件路径**：`07_skill存档/juben-deconstruct/SKILL.md`；随附 `tools/`（7 个参数化脚本 + `requirements.txt`）。
+
+**使用边界**：只产出**文本与方法**，不复制原始资料；剧透内容一律进私有仓库，公开知识库只放方法论与脚本。带人学会的阶段交给 `maieutic-skill`，本 skill 不负责教学问答。
+
+**关联方法论**：[[SKILL_INDEX]] 路径约定 · [[07_skill存档索引]] · 私有剧本库 `Mr-Salticidae/juben-dm-lab`（跨本归纳框架、新本入库 SOP）
 
 ---
 
