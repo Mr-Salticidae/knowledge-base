@@ -49,7 +49,7 @@ tags: [类型/skill存档]
 | auto/comfyui-low-vram-video-model-setup | v2 | 2026-10-20 | KiroCrew 自动沉淀：低显存 ComfyUI 装新模型（复制便携版升级 → 权重核验下载 → 启动自检 → HTTP API 冒烟） | KiroCrew | 从 [[MiniMax_H3本地图生视频工作流部署手册]] 实装过程沉淀，FLUX 3 Klein 安装复用验证 |
 | auto/kling-canvas-video-node-pipeline | v2 | 2026-10-20 | KiroCrew 自动沉淀：可灵网页画布 playwright-cli 出视频节点（传参考 → 填 tiptap → 主体库锁脸 → 抓 blob → 联系表 + 配乐审片） | KiroCrew | 88 号 MV《第三阶的秋天》白模分段实战 |
 | aigc-topic-cover-factory | v1.0 | 2026-09-09 | AI 爆款选题批产 + 小红书素材采集 + 代码合成 960×600 大字封面矩阵 | Codex | 合成器已对标验证（叠合比对）；采集器真机跑通并修掉登录墙误判 / 同域资源误收两个 bug |
-| juben-deconstruct | v1.1 | 2026-11-15 | 剧本杀资料包拆解与 DM 学习包生产：盘点去重 → 版面探测 → 文字层/OCR/ASR → 阅读顺序校正 → 三层知识结构 → 剧透隔离 → 归纳卡片 → 入库；收尾新增「降低学本难度」六步改造与三路专家交叉验收 | Claude / WorkBuddy | 三本真机跑通（954 虚拟游戏 299 页 PDF 拼版 + 247 窗边的女人 103 页纯 JPG 扫描 / 15 段音视频 + LTC 出逃连体村 359 页全扫描件），均 0 报错；第三本经三路验收统一 13 处跨文档矛盾 |
+| juben-deconstruct | v1.2 | 2026-11-15 | 剧本杀资料包拆解与 DM 学习包生产：盘点去重 → 版面探测 → 文字层/OCR/ASR → 阅读顺序校正 → 三层知识结构 → 剧透隔离 → 归纳卡片 → 入库；收尾新增「降低学本难度」六步改造、三路专家交叉验收与「白板演示密度 · 三不写」规范 | Claude / WorkBuddy | 三本真机跑通（954 虚拟游戏 299 页 PDF 拼版 + 247 窗边的女人 103 页纯 JPG 扫描 / 15 段音视频 + LTC 出逃连体村 359 页全扫描件），均 0 报错；第三本经三路验收统一 13 处跨文档矛盾；白板密度按 954 基准量化压缩 |
 
 ### prompt-master v1.8.0 备注
 
