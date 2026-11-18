@@ -91,6 +91,7 @@ desk-pond(工位池塘)v0.6.0 的 macOS 导出版,界面中文**全部**是豆�
 - 所见非真相家族:[[Windows下编码与DPI的所见非真相_v1]] —— 同样是「本机环境悄悄替你做了事,换环境就露馅」
 - 诊断心法:[[交付前实测证伪律_v1]] · [[变通方案不等于故障点_v1]] —— headless 笼统报错别当定论,换更强工具复现
 - 同线工程(LastStand→Toy):[[2026-07-11_B站Toy同步事故复盘_版本指纹与外部cron兜底_v1]]
+- 同项目第三例(不是字形,是**配置与环境**在导出时露馅):[[2026-11-18_工位池塘上架TapTap双端首发_必填不等于可交与机审阈值_复盘_v1]] —— 同一引擎在 Steam 便携模式下读安装目录的 `editor_data/`,而不是 `%APPDATA%\Godot\`;「改了没生效」先查读的是不是另一个文件
 - Web 侧应用:⚠️ [[美工改稿全站落地_跨稿重复才是规范_v1]] —— 该次把 PB Arena 正文字体从 Noto Serif SC 换成 Noto Sans SC 时,没有只写一个网络字体名,而是显式挂 `system-ui, -apple-system, "PingFang SC", "Microsoft YaHei"` 兜底栈;同一条「把兜底固化进产物」在 Web 端的形态——网络字体加载失败时不至于掉到无 CJK 字形的默认族
 - 库外底料(裸路径):`E:\last-stand` commit `511184d`(字体回退)+ `9a46d7f`(Web preset)· `assets/fonts/font_*.tres`
 
