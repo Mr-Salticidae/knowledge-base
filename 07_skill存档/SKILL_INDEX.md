@@ -44,6 +44,7 @@ skill 原文里不再写死盘符。知识库和其他仓库在每台机器上�
 | [suno-music-brief](#suno-music-brief) | 配乐创作 | Suno 两阶段配乐 brief | Claude / Codex |
 | [character-consistency-mj](#character-consistency-mj) | 角色一致性 | MJ 四层金字塔角色一致性 | Claude / Codex |
 | [content-publish-sop](#content-publish-sop) | 内容发布 | 入场票审计 + 平台适配 | Claude / Codex |
+| [video-handoff-compress](#video-handoff-compress) | 视频交付 | 手机视频取片 → 压缩 → 回传上传（三层分离 + 体积先定） | WorkBuddy / Claude / Codex |
 | [aigc-postmortem](#aigc-postmortem) | 创作复盘 | 事实先行的复盘工作流 | Claude / Codex |
 | [ai-short-film-breakdown](#ai-short-film-breakdown) | 短片创作 | AI 短片类型判断与叙事策略 | Claude / Codex |
 | [ai-short-film-screenwriting](#ai-short-film-screenwriting) | 短片剧作 | 灵感 → 可制作 AI 短片方案 | Claude / Codex |
@@ -579,6 +580,22 @@ AI 生成可审核的剪辑草案 + 可执行代码，创作者负责审美判�
 **使用边界**：只产出**文本与方法**，不复制原始资料；剧透内容一律进私有仓库，公开知识库只放方法论与脚本。带人学会的阶段交给 `maieutic-skill`，本 skill 不负责教学问答。
 
 **关联方法论**：[[SKILL_INDEX]] 路径约定 · [[07_skill存档索引]] · 私有剧本库 `Mr-Salticidae/juben-dm-lab`（跨本归纳框架、新本入库 SOP）
+
+---
+
+## video-handoff-compress
+
+**触发词**：「压缩手机里新录的视频」「传回手机，我要在手机端上传」「视频太大不好传」「上传前压一下」「HDR 转发后发灰」
+
+**用途**：手机录制素材的取片 → 压缩 → 回传交付。三层分离（色彩 / 兼容 / 体积）+ 体积先定，含 GPU 单遍配方、adb 路径转换坑、字节数 + MD5 双校验。
+
+**文件路径**：`07_skill存档/video-handoff-compress/SKILL.md`
+
+**版本状态**：v1.0 · 2026-11-20 新建。安装时除在 `07_skill存档/` 落正文外，还需在 `~/.workbuddy/skills/` 下补建同名 Junction（该目录本身不是联接，每个 skill 子目录各自 Junction 挂回本存档）。
+
+**关联方法论**：[[手机HDR视频交付_三层分离与体积先定_v1]] · [[Mac素材包到Windows的两个坑_zip文件名编码与HEVC解码_v1]] · [[图表交付的确定性_坐标绘制胜过自动布局_v1]]
+
+**实跑**：2026-11-20《虚拟游戏》过本单讲解视频 3.83 GB → 169.2 MB（15:26 一帧不差），回传手机双校验通过。
 
 ---
 
