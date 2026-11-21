@@ -1,4 +1,4 @@
-﻿# MiniMax H3 本地图生视频工作流 · 本机部署手册
+# MiniMax H3 本地图生视频工作流 · 本机部署手册
 
 > 本机 RTX 4060 Ti 8GB / 32GB RAM / Windows。480×864 低显存档。
 > 搭建日期 2026-10-15。模型为 **开源权重**(H3 Community License,**商用需单独授权**,Comfy 是官方唯一转售方)。
@@ -108,3 +108,51 @@ ComfyUI 启动日志应见:
 ### 自检验证 (2026-10-15)
 - CI 自检全绿：TailSwitch 0.0s 加载、Frame-Interpolation 0.4s 加载、H3 架构补丁仍生效、ClipProj 完好。
 - workflow JSON link 完整性校验通过：无悬空 link，node8.last_frame<-TailSwitch、node15.images<-RIFE(fps=48)、RIFE.frames<-VAEDecode。
+
+---
+
+## v3 · 1080p / 60fps 产线改造 (2026-11-21)
+
+原手册写「720p+ 成片需云端 regenerate」。本轮实测把本地能力推到 **1080p60 交付**，但要说清楚：
+**1080p 与 60fps 都是后处理做出来的，不是 H3 原生出的**——原生仍是 0.4MP / 24fps。
+
+### 三个关键结论
+
+1. **`--cache-none` 是隐形时间税**。旧启动脚本带它，等于每个 prompt 都从 D 盘重搬 19GB 权重，
+   首镜白等 4~6 分钟。去掉后走 RAM 压力缓存即可。
+2. **步耗时与分辨率几乎无关**，与步数线性相关。W4A8 每步都要解量化 12GB 权重，这是固定开销，
+   所以「拉分辨率」比「加步数」划算。
+3. **`rife-ncnn-vulkan` 的 `-n` 是整段总帧数**，不是每对帧的帧数（实测 4 帧输入 `-n 5` 输出 5 帧）。
+   24→60 直接 `-n round(帧数×2.5)`；且自定义 `-n` 只有 **rife-v4** 模型支持，必须 `-m rife-v4.6`。
+
+### 实测数据
+
+| 项目 | 结果 |
+|---|---|
+| 生成 864×480 × 158 帧 × 20 步 | **354 s**，峰值显存 **7381 MB** / 8188 MB |
+| 生成 480×864 × 39 帧 × 8 步 | 172 s，峰值 7426 MB |
+| 后处理到 1920×1080@60（395 帧，4x 超分） | 约 10 min（先 `/free` 释放显存） |
+| 单镜端到端 | 约 16 min；24h ≈ 90 镜 |
+
+### 产线链路
+
+```
+ComfyUI 生成 24fps 864×480 → 拆帧 → RIFE 补帧 ×2.5（-n 395，rife-v4.6）
+  → Real-ESRGAN ×4（3456×1920）→ lanczos 降到 1920×1080 居中裁切
+  → libx264 crf16 preset slow（可选双帧平均模拟 180° 快门）
+```
+
+工具与脚本落在 `D:\AIGC工作站\99_工具\minimax_h3_tool\`：
+
+- `scripts\h3lib.py` 构图/提交/等待（标准库，无依赖）
+- `scripts\run_test.py` 单镜生成 + 显存与耗时采样
+- `scripts\post_1080p60.py` 补帧 + 超分 + 编码（含 `--motion-blur` / `--grain` / `--order`）
+- `scripts\produce.py` 分镜清单批处理：`state.json` 断点续跑、服务挂了自动拉起、连续失败自停
+- `docs\1080p60产线.md` 完整说明与质量取舍
+
+### 质量取舍（必须对作者讲清）
+
+- 1080p 是 GAN 补出来的：近景可信，远景/运动中的细节是"编"的，200% 放大见塑料感；`--grain 2~4` 可补回颗粒。
+- 60fps 是插帧：慢镜、风格化素材效果好；快速转头、手部快动、发丝掠过画面处伪影最明显，这类镜头建议留 24fps 版本。
+- 本地缺 audio VAE 权重，H3 的原生音轨暂时出不来，配乐走 Suno、音效后期。
+- 后处理前必须 `POST /free {"unload_models":true,"free_memory":true}`，否则 ComfyUI 占着 7.3GB，ncnn 超分慢一半以上。
