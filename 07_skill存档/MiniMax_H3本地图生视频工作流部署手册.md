@@ -151,6 +151,15 @@ ComfyUI 生成 24fps 864×480 → 拆帧 → RIFE 补帧 ×2.5（-n 395，rife-v
 - `scripts\produce.py` 分镜清单批处理：`state.json` 断点续跑、服务挂了自动拉起、连续失败自停
 - `docs\1080p60产线.md` 完整说明与质量取舍
 
+### 音轨（2026-11-21 补齐，音画同步为硬要求）
+
+- 权重：`vae/minimax_h3_audio_vae_fp32.safetensors`（577 MB，`Comfy-Org/MiniMax-H3`），放 `models\vae`。
+- 节点链：`VAELoader(audio vae)` → `VAEDecodeAudio(samples=采样 latent)` → `CreateVideo.audio`。
+- **同步是结构保证的**：FL2VA 在同一 latent 里联合去噪视频与音频，不存在两条独立生成再对齐的问题。
+- 原生 32 kHz 立体声；交付时 `-c:a aac -ar 48000` 升采样，时长用 `-shortest` 对齐（实测视频 6.583 s / 音频 6.570 s，差 13 ms = AAC 一帧粒度）。
+- **代价**：开音轨后采样近乎翻倍——960×544×158×20 步 从 446 s 涨到 **881 s**。
+- **同步实测（事件级）**：拍手镜头的手部运动峰 1.625 s / 2.125 s，对应音频 onset 1.65 s / 2.16 s，Δ≈25~35 ms（< 1 视频帧 41.7 ms），在 ITU-R BT.1359 容忍区间内。整体互相关对环境声镜头会给出假偏移，别用。
+
 ### 质量取舍（必须对作者讲清）
 
 - 1080p 是 GAN 补出来的：近景可信，远景/运动中的细节是"编"的，200% 放大见塑料感；`--grain 2~4` 可补回颗粒。
