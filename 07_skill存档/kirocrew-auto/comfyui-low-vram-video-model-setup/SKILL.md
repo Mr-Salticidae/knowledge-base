@@ -1,5 +1,5 @@
 ---
-name: auto/comfyui-low-vram-video-model-setup
+name: comfyui-low-vram-video-model-setup
 description: Install a new ComfyUI model (clone portable, upgrade core, download weights, verify) headlessly via HTTP API and smoke test, debugging mismatches from the official template
 triggers: ComfyUI local setup, 8GB VRAM, GGUF quantization, BlockSwap, HuggingFace weight download, extra_model_paths.yaml, 装新ComfyUI模型, 便携版升级, text encoder维度不对
 source: auto

@@ -1,5 +1,5 @@
 ---
-name: auto/kling-canvas-video-node-pipeline
+name: kling-canvas-video-node-pipeline
 description: Generate a video shot in Kling web canvas via playwright-cli, download the blob, build a contact sheet and BGM review cut
 triggers: kling canvas, playwright-cli video node, tiptap prompt fill, output.mp4 blob download, 主体库, 可灵画布, video node, 画布取视频, 配乐审片
 source: auto
